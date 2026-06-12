@@ -1,7 +1,8 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { cn } from "@/lib/utils"
 import { CheckCircle, ArrowRight } from "lucide-react"
 
 const plans = [
@@ -102,17 +103,17 @@ export function PricingPreview() {
                     </li>
                   ))}
                 </ul>
-                <Button
-                  className={
+                <Link
+                  href={plan.href}
+                  className={cn(
+                    buttonVariants({ variant: plan.highlight ? "default" : "outline" }),
                     plan.highlight
                       ? "bg-primary hover:bg-primary/90 text-primary-foreground w-full"
                       : "w-full"
-                  }
-                  variant={plan.highlight ? "default" : "outline"}
-                  asChild
+                  )}
                 >
-                  <Link href={plan.href}>{plan.cta}</Link>
-                </Button>
+                  {plan.cta}
+                </Link>
               </CardContent>
             </Card>
           ))}

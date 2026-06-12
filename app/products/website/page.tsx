@@ -2,10 +2,11 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils"
 import { CheckCircle, ArrowRight, Search, Globe, FileText, BarChart3, Link2, Smartphone } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -61,12 +62,12 @@ export default function WebsitePage() {
                 内置专业 SEO 优化工具，百度 / Google 双引擎精准收录，帮助企业官网稳步提升搜索排名，月均自然流量增长 200% 以上。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8" asChild>
-                  <Link href="/contact">免费建站咨询 <ArrowRight className="size-4 ml-2" /></Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12" asChild>
-                  <Link href="/cases">查看 SEO 案例</Link>
-                </Button>
+                <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
+                  免费建站咨询 <ArrowRight className="size-4 ml-2" />
+                </Link>
+                <Link href="/cases" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12")}>
+                  查看 SEO 案例
+                </Link>
               </div>
             </div>
           </div>
@@ -120,9 +121,9 @@ export default function WebsitePage() {
                         </li>
                       ))}
                     </ul>
-                    <Button className={plan.highlight ? "bg-primary text-primary-foreground" : ""} variant={plan.highlight ? "default" : "outline"} asChild>
-                      <Link href="/contact">{plan.highlight ? "免费咨询" : "立即开通"}</Link>
-                    </Button>
+                    <Link href="/contact" className={cn(buttonVariants({ variant: plan.highlight ? "default" : "outline" }), plan.highlight ? "bg-primary text-primary-foreground" : "")}>
+                      {plan.highlight ? "免费咨询" : "立即开通"}
+                    </Link>
                   </CardContent>
                 </Card>
               ))}
@@ -134,9 +135,9 @@ export default function WebsitePage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 text-balance">开始打造您的 SEO 高权重官网</h2>
             <p className="text-blue-100 mb-8">免费 SEO 诊断，专属顾问为您制定建站方案</p>
-            <Button size="lg" className="bg-white text-primary hover:bg-blue-50 h-12 px-10" asChild>
-              <Link href="/contact">免费 SEO 诊断 <ArrowRight className="size-4 ml-2" /></Link>
-            </Button>
+            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
+              免费 SEO 诊断 <ArrowRight className="size-4 ml-2" />
+            </Link>
           </div>
         </section>
       </main>

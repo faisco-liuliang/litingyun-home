@@ -1,6 +1,7 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { cn } from "@/lib/utils"
 import { ArrowRight, CheckCircle, Play } from "lucide-react"
 
 const highlights = [
@@ -46,27 +47,20 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 mb-10">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground text-base px-8 h-12 shadow-lg shadow-blue-500/25"
-              asChild
+            <Link
+              href="/contact"
+              className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground text-base px-8 h-12 shadow-lg shadow-blue-500/25")}
             >
-              <Link href="/contact">
-                免费试用 14 天
-                <ArrowRight className="size-4 ml-2" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-slate-600 text-slate-200 hover:bg-slate-800 hover:text-white bg-transparent h-12 text-base"
-              asChild
+              免费试用 14 天
+              <ArrowRight className="size-4 ml-2" />
+            </Link>
+            <Link
+              href="/cases"
+              className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 hover:text-white bg-transparent h-12 text-base")}
             >
-              <Link href="/cases">
-                <Play className="size-4 mr-2" />
-                查看客户案例
-              </Link>
-            </Button>
+              <Play className="size-4 mr-2" />
+              查看客户案例
+            </Link>
           </div>
 
           <ul className="flex flex-col sm:flex-row gap-3 sm:gap-6">

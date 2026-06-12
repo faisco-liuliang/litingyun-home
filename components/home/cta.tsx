@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 import { ArrowRight, MessageCircle, Phone } from "lucide-react"
 
 export function CTA() {
@@ -15,27 +16,20 @@ export function CTA() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground text-base px-8 h-12 shadow-lg shadow-blue-500/25 w-full sm:w-auto"
-            asChild
+          <Link
+            href="/contact"
+            className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground text-base px-8 h-12 shadow-lg shadow-blue-500/25 w-full sm:w-auto")}
           >
-            <Link href="/contact">
-              免费试用 14 天
-              <ArrowRight className="size-4 ml-2" />
-            </Link>
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-slate-600 text-slate-200 hover:bg-slate-800 hover:text-white bg-transparent h-12 text-base w-full sm:w-auto"
-            asChild
+            免费试用 14 天
+            <ArrowRight className="size-4 ml-2" />
+          </Link>
+          <Link
+            href="tel:400-000-0000"
+            className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 hover:text-white bg-transparent h-12 text-base w-full sm:w-auto")}
           >
-            <Link href="tel:400-000-0000">
-              <Phone className="size-4 mr-2" />
-              400-000-0000 咨询
-            </Link>
-          </Button>
+            <Phone className="size-4 mr-2" />
+            400-000-0000 咨询
+          </Link>
         </div>
 
         <div className="mt-10 flex items-center justify-center gap-2 text-sm text-slate-400">

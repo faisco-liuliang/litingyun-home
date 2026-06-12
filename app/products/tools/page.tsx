@@ -2,9 +2,10 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
 import { ArrowRight, FileText, Vote, Megaphone, QrCode, ClipboardList, ImageIcon } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -41,12 +42,12 @@ export default function ToolsPage() {
                 H5 活动页、微传单、投票活动、问卷调查……立亭云营销工具箱满足各类营销场景，无需技术，快速创作，轻松实现品牌传播与线索收集。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8" asChild>
-                  <Link href="/contact">免费试用 <ArrowRight className="size-4 ml-2" /></Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12" asChild>
-                  <Link href="/pricing">查看价格</Link>
-                </Button>
+                <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
+                  免费试用 <ArrowRight className="size-4 ml-2" />
+                </Link>
+                <Link href="/pricing" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12")}>
+                  查看价格
+                </Link>
               </div>
             </div>
           </div>
@@ -86,12 +87,12 @@ export default function ToolsPage() {
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">开启您的营销工具之旅</h2>
             <p className="text-blue-100 mb-8">营销工具按需购买，无需整套购入，灵活实惠</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="bg-white text-primary hover:bg-blue-50 h-12 px-10" asChild>
-                <Link href="/contact">免费咨询 <ArrowRight className="size-4 ml-2" /></Link>
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 bg-transparent h-12 px-8" asChild>
-                <Link href="/pricing">查看完整价格</Link>
-              </Button>
+              <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
+                免费咨询 <ArrowRight className="size-4 ml-2" />
+              </Link>
+              <Link href="/pricing" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-white text-white hover:bg-white/10 bg-transparent h-12 px-8")}>
+                查看完整价格
+              </Link>
             </div>
           </div>
         </section>

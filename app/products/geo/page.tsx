@@ -2,10 +2,11 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils"
 import { CheckCircle, ArrowRight, Zap, Bot, Globe, TrendingUp, Search, Eye } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -51,12 +52,12 @@ export default function GeoPage() {
                 当用户问 ChatGPT、Perplexity、Kimi 时，您的品牌会被推荐吗？GEO（生成式引擎优化）是 SEO 之后最重要的流量机会，立亭云帮您提前布局。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-white h-12 px-8" asChild>
-                  <Link href="/contact">免费 GEO 诊断 <ArrowRight className="size-4 ml-2" /></Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12" asChild>
-                  <Link href="/blog">了解 GEO 趋势</Link>
-                </Button>
+                <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-amber-500 hover:bg-amber-600 text-white h-12 px-8")}>
+                  免费 GEO 诊断 <ArrowRight className="size-4 ml-2" />
+                </Link>
+                <Link href="/blog" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12")}>
+                  了解 GEO 趋势
+                </Link>
               </div>
             </div>
           </div>
@@ -124,9 +125,9 @@ export default function GeoPage() {
                         </li>
                       ))}
                     </ul>
-                    <Button className={plan.highlight ? "bg-primary text-primary-foreground" : ""} variant={plan.highlight ? "default" : "outline"} asChild>
-                      <Link href="/contact">{plan.highlight ? "免费诊断" : "立即开通"}</Link>
-                    </Button>
+                    <Link href="/contact" className={cn(buttonVariants({ variant: plan.highlight ? "default" : "outline" }), plan.highlight ? "bg-primary text-primary-foreground" : "")}>
+                      {plan.highlight ? "免费诊断" : "立即开通"}
+                    </Link>
                   </CardContent>
                 </Card>
               ))}
@@ -138,9 +139,9 @@ export default function GeoPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">立即开始您的 GEO 布局</h2>
             <p className="text-blue-100 mb-8">免费诊断您的品牌在 AI 搜索中的现状，制定专属优化策略</p>
-            <Button size="lg" className="bg-white text-primary hover:bg-blue-50 h-12 px-10" asChild>
-              <Link href="/contact">免费 GEO 诊断 <ArrowRight className="size-4 ml-2" /></Link>
-            </Button>
+            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
+              免费 GEO 诊断 <ArrowRight className="size-4 ml-2" />
+            </Link>
           </div>
         </section>
       </main>

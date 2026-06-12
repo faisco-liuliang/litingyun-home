@@ -2,9 +2,10 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
 import { ArrowRight, ShoppingCart, Globe, GraduationCap, CalendarCheck, Store, Zap, Wrench } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -161,14 +162,12 @@ export default function ProductsPage() {
                             </div>
                           </div>
                           <div className="flex gap-3">
-                            <Button asChild>
-                              <Link href={product.href}>
-                                了解详情 <ArrowRight className="size-4 ml-1.5" />
-                              </Link>
-                            </Button>
-                            <Button variant="outline" asChild>
-                              <Link href="/contact">免费咨询</Link>
-                            </Button>
+                            <Link href={product.href} className={cn(buttonVariants())}>
+                              了解详情 <ArrowRight className="size-4 ml-1.5" />
+                            </Link>
+                            <Link href="/contact" className={cn(buttonVariants({ variant: "outline" }))}>
+                              免费咨询
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -185,9 +184,9 @@ export default function ProductsPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">不确定选哪款产品？</h2>
             <p className="text-slate-300 mb-8">联系专属顾问，免费为您推荐最适合的解决方案</p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-10" asChild>
-              <Link href="/contact">免费顾问咨询 <ArrowRight className="size-4 ml-2" /></Link>
-            </Button>
+            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-10")}>
+              免费顾问咨询 <ArrowRight className="size-4 ml-2" />
+            </Link>
           </div>
         </section>
       </main>

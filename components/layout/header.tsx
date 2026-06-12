@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import {
   ShoppingCart,
@@ -202,19 +202,19 @@ export function Header() {
               <Phone className="size-3.5" />
               400-000-0000
             </a>
-            <Button variant="outline" size="sm" asChild>
-              <Link href="/pricing">查看价格</Link>
-            </Button>
-            <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
-              <Link href="/contact">免费试用</Link>
-            </Button>
+            <Link href="/pricing" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
+              查看价格
+            </Link>
+            <Link href="/contact" className={cn(buttonVariants({ size: "sm" }), "bg-primary hover:bg-primary/90 text-primary-foreground")}>
+              免费试用
+            </Link>
           </div>
 
           {/* Mobile menu toggle */}
           <button
             className="lg:hidden p-2 rounded-md text-foreground hover:bg-accent"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "关闭菜单" : "打开菜单"}
+            aria-label={mobileOpen ? "关闭菜单" : "打���菜单"}
           >
             {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -240,12 +240,12 @@ export function Header() {
               </Link>
             ))}
             <div className="pt-3 flex flex-col gap-2">
-              <Button variant="outline" asChild>
-                <Link href="/pricing">查看价格</Link>
-              </Button>
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
-                <Link href="/contact">免费试用</Link>
-              </Button>
+              <Link href="/pricing" className={cn(buttonVariants({ variant: "outline" }), "w-full justify-center")}>
+                查看价格
+              </Link>
+              <Link href="/contact" className={cn(buttonVariants(), "bg-primary hover:bg-primary/90 text-primary-foreground w-full justify-center")}>
+                免费试用
+              </Link>
             </div>
           </nav>
         </div>

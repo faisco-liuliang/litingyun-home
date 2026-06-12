@@ -2,11 +2,12 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils"
 import { CheckCircle, X, ArrowRight, Phone } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -71,9 +72,9 @@ export default function PricingPage() {
               所有套餐含 14 天免费试用期。按年付费享受 8 折优惠，专属顾问一对一免费咨询。
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8" asChild>
-                <Link href="/contact">免费试用 14 天 <ArrowRight className="size-4 ml-2" /></Link>
-              </Button>
+              <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
+                免费试用 14 天 <ArrowRight className="size-4 ml-2" />
+              </Link>
               <a href="tel:400-000-0000" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="size-4" />
                 400-000-0000 电话咨询
@@ -142,13 +143,15 @@ export default function PricingPage() {
                               </ul>
                             </div>
                           )}
-                          <Button
-                            className={plan.highlight ? "bg-primary text-primary-foreground mt-auto" : "mt-auto"}
-                            variant={plan.highlight ? "default" : "outline"}
-                            asChild
+                          <Link
+                            href="/contact"
+                            className={cn(
+                              buttonVariants({ variant: plan.highlight ? "default" : "outline" }),
+                              plan.highlight ? "bg-primary text-primary-foreground mt-auto" : "mt-auto"
+                            )}
                           >
-                            <Link href="/contact">{plan.highlight ? "免费试用" : "立即开通"}</Link>
-                          </Button>
+                            {plan.highlight ? "免费试用" : "立即开通"}
+                          </Link>
                         </CardContent>
                       </Card>
                     ))}
@@ -185,9 +188,9 @@ export default function PricingPage() {
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">还有疑问？联系我们</h2>
             <p className="text-slate-300 mb-8">专属顾问为您量身推荐最适合的方案</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-10" asChild>
-                <Link href="/contact">免费咨询顾问</Link>
-              </Button>
+              <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-10")}>
+                免费咨询顾问
+              </Link>
               <a href="tel:400-000-0000" className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors">
                 <Phone className="size-4" />400-000-0000
               </a>

@@ -2,10 +2,11 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils"
 import { CheckCircle, ArrowRight, ShoppingCart, Users, TrendingUp, Smartphone, Share2, BarChart3 } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -88,12 +89,12 @@ export default function MallPage() {
                 整合小程序、微商城、分销、直播带货，打造属于企业自己的私域电商阵地，让每一位用户都成为您的增长引擎。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8" asChild>
-                  <Link href="/contact">免费试用 14 天 <ArrowRight className="size-4 ml-2" /></Link>
-                </Button>
-                <Button size="lg" variant="outline" className="border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12" asChild>
-                  <Link href="/cases">查看案例</Link>
-                </Button>
+                <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
+                  免费试用 14 天 <ArrowRight className="size-4 ml-2" />
+                </Link>
+                <Link href="/cases" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12")}>
+                  查看案例
+                </Link>
               </div>
             </div>
           </div>
@@ -149,9 +150,12 @@ export default function MallPage() {
                         </li>
                       ))}
                     </ul>
-                    <Button className={plan.highlight ? "bg-primary text-primary-foreground" : ""} variant={plan.highlight ? "default" : "outline"} asChild>
-                      <Link href="/contact">{plan.highlight ? "免费试用" : "立即开通"}</Link>
-                    </Button>
+                    <Link
+                      href="/contact"
+                      className={cn(buttonVariants({ variant: plan.highlight ? "default" : "outline" }), plan.highlight ? "bg-primary text-primary-foreground" : "")}
+                    >
+                      {plan.highlight ? "免费试用" : "立即开通"}
+                    </Link>
                   </CardContent>
                 </Card>
               ))}
@@ -166,9 +170,9 @@ export default function MallPage() {
               立即开启您的私域商城之旅
             </h2>
             <p className="text-blue-100 mb-8">14 天免费试用，专属顾问全程陪跑</p>
-            <Button size="lg" className="bg-white text-primary hover:bg-blue-50 h-12 px-10" asChild>
-              <Link href="/contact">免费试用 <ArrowRight className="size-4 ml-2" /></Link>
-            </Button>
+            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
+              免费试用 <ArrowRight className="size-4 ml-2" />
+            </Link>
           </div>
         </section>
       </main>
