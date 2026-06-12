@@ -12,12 +12,18 @@ import { ArrowRight, Users, Target, Heart, Award, Phone, Mail, MapPin } from "lu
 export const metadata: Metadata = {
   title: "关于立亭云 - 专注企业数字化增长的 SaaS 服务商",
   description:
-    "立亭云是凡科官方代理商，深耕企业数字化领域，为 5 万+ 中小企业提供私域商城、企业官网、教育系统等一站式 SaaS 服务，助力企业实现持续增长。",
-  keywords: ["立亭云", "凡科代理", "关于我们", "企业介绍", "SaaS 服务商"],
+    "立亭云深耕企业数字化领域，为 5 万+ 中小企业提供私域商城、企业官网、教育系统等一站式 SaaS 服务，专属顾问一对一服务，助力企业实现持续增长。",
+  keywords: ["立亭云", "关于我们", "企业介绍", "SaaS 服务商", "企业数字化"],
+  alternates: { canonical: "https://litingyun.com/about" },
+  openGraph: {
+    url: "https://litingyun.com/about",
+    title: "关于立亭云 - 专注企业数字化增长的 SaaS 服务商",
+    description: "5 万+ 企业信赖，专属顾问一对一服务，助力企业实现数字化转型。",
+  },
 }
 
 const milestones = [
-  { year: "2018", event: "立亭云成立，成为凡科官方授权代理商" },
+  { year: "2018", event: "立亭云成立，聚焦中小企业数字化服务" },
   { year: "2019", event: "服务企业客户突破 5,000 家" },
   { year: "2020", event: "推出私域商城解决方案，帮助 1,000+ 商家转型" },
   { year: "2021", event: "教育系统上线，服务 200+ 教育机构" },

@@ -12,6 +12,12 @@ export const metadata: Metadata = {
   description:
     "立亭云博客，分享 SEO 建站技巧、GEO 优化方法、私域运营策略、数字化转型案例等实战干货，帮助中小企业掌握数字化增长方法论。",
   keywords: ["SEO 教程", "GEO 优化", "私域运营", "企业数字化", "建站教程", "营销干货"],
+  alternates: { canonical: "https://litingyun.com/blog" },
+  openGraph: {
+    url: "https://litingyun.com/blog",
+    title: "博客 - 立亭云企业数字化增长干货",
+    description: "SEO 建站、GEO 优化、私域运营实战干货，每周更新，助力企业掌握数字化增长方法论。",
+  },
 }
 
 const categories = ["全部", "SEO 优化", "GEO 优化", "私域运营", "产品教程", "行业洞察", "客户故事"]

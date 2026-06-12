@@ -15,6 +15,12 @@ export const metadata: Metadata = {
   description:
     "立亭云全产品定价方案，私域商城、企业官网、教育系统、门店管理等各产品线清晰定价，按年付费享 8 折优惠，含免费试用期。",
   keywords: ["立亭云价格", "建站费用", "SaaS 定价", "私域商城价格", "企业官网费用"],
+  alternates: { canonical: "https://litingyun.com/pricing" },
+  openGraph: {
+    url: "https://litingyun.com/pricing",
+    title: "价格中心 - 立亭云透明定价方案",
+    description: "按需选择，按年享 8 折，含 14 天免费试用，无隐藏收费。",
+  },
 }
 
 const allProducts = [

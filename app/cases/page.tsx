@@ -13,6 +13,13 @@ export const metadata: Metadata = {
   description:
     "查看立亭云服务的真实客户案例，涵盖餐饮连锁、在线教育、电商零售、专业服务等行业，了解企业如何借助立亭云实现数字化转型与业绩增长。",
   keywords: ["立亭云案例", "建站案例", "私域商城案例", "企业官网案例", "客户案例"],
+  alternates: { canonical: "https://litingyun.com/cases" },
+  openGraph: {
+    url: "https://litingyun.com/cases",
+    title: "成功案例 - 立亭云 5 万+ 企业客户的数字化增长故事",
+    description: "餐饮、教育、零售、服务业真实案例，看企业如何通过立亭云实现业绩增长。",
+  },
+}
 }
 
 const industries = ["全部", "电商零售", "餐饮连锁", "在线教育", "专业服务", "美业健康", "制造企业"]
