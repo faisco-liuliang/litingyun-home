@@ -8,197 +8,497 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
-import { CheckCircle, X, ArrowRight, Phone } from "lucide-react"
+import {
+  ArrowRight,
+  BadgeCheck,
+  CalendarDays,
+  CheckCircle,
+  Clock3,
+  GraduationCap,
+  LayoutTemplate,
+  Megaphone,
+  Phone,
+  SearchCheck,
+  ShieldCheck,
+  ShoppingBag,
+  Sparkles,
+  Store,
+  Wrench,
+} from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "价格中心 - 透明定价，按需选择",
+  title: "价格中心 - 立亭云全产品套餐",
   description:
-    "立亭云全产品定价方案，私域商城、企业官网、教育系统、门店管理等各产品线清晰定价，按年付费享 8 折优惠，含免费试用期。",
-  keywords: ["立亭云价格", "建站费用", "SaaS 定价", "私域商城价格", "企业官网费用"],
+    "立亭云价格中心，覆盖企业官网、私域商城、门店系统、教育系统、服务预约、营销工具、GEO 优化等产品套餐，开 2 年送 2 年，专属顾问协助上线。",
+  keywords: ["立亭云价格", "建站费用", "商城小程序价格", "企业官网套餐", "门店系统价格"],
   alternates: { canonical: "https://litingyun.com/pricing" },
   openGraph: {
     url: "https://litingyun.com/pricing",
-    title: "价格中心 - 立亭云透明定价方案",
-    description: "按需选择，按年享 8 折，含 14 天免费试用，无隐藏收费。",
+    title: "价格中心 - 立亭云全产品套餐",
+    description: "多产品线清晰报价，开 2 年送 2 年，适合企业官网、商城、门店、教育和营销增长场景。",
   },
 }
 
-const allProducts = [
-  {
-    id: "mall",
-    name: "私域商城",
-    plans: [
-      { name: "入门版", price: "499", highlight: false, features: ["小程序商城", "商品 500 件", "订单管理", "基础会员", "微信支付"], noFeatures: ["分销系统", "直播带货", "数据报表"] },
-      { name: "标准版", price: "999", highlight: true, features: ["小程序商城", "商品不限", "分销裂变", "拼团秒杀", "会员积分", "数据报表", "专属顾问"], noFeatures: ["直播带货", "API 对接"] },
-      { name: "旗舰版", price: "1,999", highlight: false, features: ["全部标准版功能", "直播带货", "跨店分销", "API 对接", "定制开发", "驻场服务"], noFeatures: [] },
-    ],
-  },
+const promoStats = [
+  { label: "活动权益", value: "开 2 年送 2 年" },
+  { label: "试用支持", value: "7 天体验" },
+  { label: "上线陪跑", value: "顾问全程指导" },
+]
+
+const products = [
   {
     id: "website",
     name: "企业官网",
+    icon: LayoutTemplate,
+    summary: "适合展示型官网、获客型官网、SEO 内容站。",
+    startPrice: "¥698/年起",
+    bestFor: "品牌展示 / 百度收录 / 表单获客",
     plans: [
-      { name: "基础建站版", price: "299", highlight: false, features: ["模版 100+", "独立域名", "SSL 证书", "基础 SEO", "表单收集"], noFeatures: ["SEO 监控", "AI 内容", "GEO 优化"] },
-      { name: "SEO 优化版", price: "699", highlight: true, features: ["模版不限", "关键词排名监控", "SEO 内容工具", "结构化数据", "流量分析", "专属 SEO 顾问"], noFeatures: ["GEO 优化", "AI 创作"] },
-      { name: "全渠道版", price: "1,299", highlight: false, features: ["全部优化版功能", "GEO 内容优化", "AI 内容创作", "外链建设", "月度 SEO 报告", "驻场服务"], noFeatures: [] },
+      {
+        name: "初级版",
+        price: "698",
+        note: "轻量官网快速上线",
+        features: ["电脑 + 手机自适应", "独立域名绑定", "SSL 证书", "基础 SEO 设置", "表单线索收集"],
+      },
+      {
+        name: "标准版",
+        price: "1,298",
+        note: "企业官网常用选择",
+        popular: true,
+        features: ["全部初级版功能", "栏目与页面不限", "新闻/案例管理", "关键词与描述配置", "访问数据统计", "顾问协助上线"],
+      },
+      {
+        name: "高级版",
+        price: "1,998",
+        note: "搜索获客与内容运营",
+        features: ["全部标准版功能", "SEO 结构化优化", "站点地图生成", "多语言扩展", "内容运营建议", "月度网站检查"],
+      },
     ],
   },
   {
-    id: "education",
-    name: "教育系统",
+    id: "mall",
+    name: "私域商城",
+    icon: ShoppingBag,
+    summary: "适合小程序商城、会员复购、分销裂变。",
+    startPrice: "¥1,599/年起",
+    bestFor: "商品销售 / 会员运营 / 分销活动",
     plans: [
-      { name: "入门版", price: "399", highlight: false, features: ["直播 100 人", "录播 50G", "课程销售", "学员管理", "微信支付"], noFeatures: ["会员订阅", "裂变工具", "多讲师"] },
-      { name: "专业版", price: "899", highlight: true, features: ["直播 500 人", "录播 500G", "会员订阅", "邀请返佣", "数据报表", "专属顾问"], noFeatures: ["App 定制", "API 对接"] },
-      { name: "机构版", price: "1,699", highlight: false, features: ["直播不限人数", "存储不限", "多讲师协作", "API 对接", "专属 App", "驻场服务"], noFeatures: [] },
+      {
+        name: "基础版",
+        price: "1,599",
+        note: "小程序商城起步",
+        features: ["商品与订单管理", "微信支付", "优惠券", "会员资料", "基础数据报表"],
+      },
+      {
+        name: "豪华版",
+        price: "2,699",
+        note: "活动运营主推版本",
+        popular: true,
+        features: ["全部基础版功能", "拼团/秒杀/砍价", "分销员体系", "会员积分", "直播带货入口", "运营顾问指导"],
+      },
+      {
+        name: "旗舰版",
+        price: "4,999",
+        note: "多团队增长经营",
+        features: ["全部豪华版功能", "多仓库存", "跨店分销", "API 对接", "私域活动方案", "专属上线培训"],
+      },
     ],
   },
   {
     id: "store",
     name: "门店系统",
+    icon: Store,
+    summary: "适合单店、连锁店、会员储值和核销。",
+    startPrice: "¥1,299/年起",
+    bestFor: "门店收银 / 会员储值 / 连锁管理",
     plans: [
-      { name: "单店版", price: "299", highlight: false, features: ["单门店管理", "会员 5000 人", "储值核销", "基础报表", "微信通知"], noFeatures: ["多门店", "跨店储值", "API 对接"] },
-      { name: "连锁版", price: "799", highlight: true, features: ["多门店 10 家", "会员不限", "跨店储值", "积分商城", "数据汇总", "专属顾问"], noFeatures: ["集团数据中台", "API 对接"] },
-      { name: "集团版", price: "1,599", highlight: false, features: ["多门店不限", "集团数据中台", "API 对接 ERP", "自定义权限", "定制开发", "驻场培训"], noFeatures: [] },
+      {
+        name: "单店版",
+        price: "1,299",
+        note: "单门店数字化经营",
+        features: ["门店商品管理", "会员储值", "到店核销", "员工账号", "营业报表"],
+      },
+      {
+        name: "连锁版",
+        price: "2,299",
+        note: "多门店统一运营",
+        popular: true,
+        features: ["全部单店版功能", "10 家门店", "跨店会员通用", "总部数据汇总", "门店独立权限", "活动配置"],
+      },
+      {
+        name: "集团版",
+        price: "3,699",
+        note: "区域连锁与总部管控",
+        features: ["全部连锁版功能", "门店数量不限", "区域权限", "API 对接 ERP", "经营看板", "专属实施服务"],
+      },
     ],
   },
+  {
+    id: "education",
+    name: "教育系统",
+    icon: GraduationCap,
+    summary: "适合知识付费、训练营、机构课程售卖。",
+    startPrice: "¥1,599/年起",
+    bestFor: "课程销售 / 学员管理 / 直播录播",
+    plans: [
+      {
+        name: "入门版",
+        price: "1,599",
+        note: "课程售卖快速上线",
+        features: ["图文/音视频课程", "课程订单", "学员管理", "微信支付", "学习记录"],
+      },
+      {
+        name: "专业版",
+        price: "2,999",
+        note: "机构与训练营推荐",
+        popular: true,
+        features: ["全部入门版功能", "直播课程", "会员订阅", "邀请返佣", "作业打卡", "数据报表"],
+      },
+      {
+        name: "机构版",
+        price: "4,999",
+        note: "多讲师课程矩阵",
+        features: ["全部专业版功能", "多讲师协作", "班级管理", "课程分销", "API 对接", "专属培训"],
+      },
+    ],
+  },
+  {
+    id: "booking",
+    name: "服务预约",
+    icon: CalendarDays,
+    summary: "适合预约到店、上门服务、咨询排期。",
+    startPrice: "¥999/年起",
+    bestFor: "预约排班 / 到店核销 / 服务订单",
+    plans: [
+      {
+        name: "轻量版",
+        price: "999",
+        note: "单业务预约",
+        features: ["服务项目", "预约日历", "短信/微信提醒", "订单管理", "基础核销"],
+      },
+      {
+        name: "标准版",
+        price: "1,699",
+        note: "多员工排班推荐",
+        popular: true,
+        features: ["全部轻量版功能", "员工排班", "预约定金", "会员优惠", "服务评价", "数据统计"],
+      },
+      {
+        name: "高级版",
+        price: "2,999",
+        note: "多门店服务团队",
+        features: ["全部标准版功能", "多门店预约", "资源占用规则", "服务套餐", "企业微信通知", "定制流程"],
+      },
+    ],
+  },
+  {
+    id: "tools",
+    name: "营销工具",
+    icon: Wrench,
+    summary: "适合裂变活动、留资页面、节日营销。",
+    startPrice: "¥699/年起",
+    bestFor: "活动获客 / 表单留资 / 私域增长",
+    plans: [
+      {
+        name: "基础版",
+        price: "699",
+        note: "日常活动工具",
+        features: ["营销落地页", "表单留资", "优惠券", "抽奖活动", "线索导出"],
+      },
+      {
+        name: "增长版",
+        price: "1,299",
+        note: "私域裂变常用",
+        popular: true,
+        features: ["全部基础版功能", "分享裂变", "助力活动", "渠道码", "企微承接", "活动数据看板"],
+      },
+      {
+        name: "矩阵版",
+        price: "2,499",
+        note: "多活动多团队协作",
+        features: ["全部增长版功能", "多活动并行", "多账号权限", "客户标签", "活动复盘报告", "顾问策划"],
+      },
+    ],
+  },
+  {
+    id: "geo",
+    name: "GEO 优化",
+    icon: SearchCheck,
+    summary: "适合 AI 搜索曝光、品牌内容资产建设。",
+    startPrice: "¥2,999/年起",
+    bestFor: "AI 推荐 / 内容结构 / 品牌实体",
+    plans: [
+      {
+        name: "诊断版",
+        price: "2,999",
+        note: "明确优化方向",
+        features: ["品牌实体诊断", "竞品问答采样", "内容缺口分析", "基础结构化建议", "优化报告"],
+      },
+      {
+        name: "增长版",
+        price: "5,999",
+        note: "持续内容优化",
+        popular: true,
+        features: ["全部诊断版内容", "问答内容库", "官网内容优化", "Schema 建议", "月度追踪报告", "顾问复盘"],
+      },
+      {
+        name: "托管版",
+        price: "12,000",
+        note: "品牌长期占位",
+        features: ["全部增长版内容", "内容月更", "品牌百科建议", "行业专题页", "多渠道引用建设", "专项运营会"],
+      },
+    ],
+  },
+]
+
+const comparisonRows = [
+  ["建站与装修", "模板装修", "高级页面", "定制页面/专题"],
+  ["营销能力", "基础活动", "裂变活动", "组合活动策划"],
+  ["数据分析", "基础报表", "经营看板", "专项复盘报告"],
+  ["服务支持", "在线客服", "顾问协助上线", "专属实施与培训"],
+  ["适合阶段", "刚上线", "稳定经营", "多团队增长"],
 ]
 
 export default function PricingPage() {
   return (
     <>
       <Header />
-      <main className="pt-16">
-        {/* Hero */}
-        <section className="py-20 px-4 sm:px-6 section-blue-bg border-b border-border">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-4 bg-accent text-accent-foreground border-primary/20">透明定价 · 无隐藏费用</Badge>
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 text-balance">
-              清晰定价，按需选择
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto text-pretty leading-relaxed">
-              所有套餐含 14 天免费试用期。按年付费享受 8 折优惠，专属顾问一对一免费咨询。
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
-                免费试用 14 天 <ArrowRight className="size-4 ml-2" />
-              </Link>
-              <a href="tel:400-000-0000" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
-                <Phone className="size-4" />
-                400-000-0000 电话咨询
-              </a>
+      <main className="pt-16 bg-background">
+        <section className="border-b border-border bg-[linear-gradient(180deg,#f8fafc_0%,#eef6ff_100%)] px-4 py-16 sm:px-6 lg:py-20">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <Badge className="mb-5 border-primary/20 bg-white text-primary shadow-sm">
+                <Sparkles className="size-3" />
+                限时活动 · 多产品线可参与
+              </Badge>
+              <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                立亭云全产品套餐价格
+              </h1>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+                参考成熟建站平台的套餐结构，按企业官网、商城、门店、教育、预约、营销和 GEO 优化拆分版本。现在开通 2 年直接送 2 年，适合一次性把线上业务体系搭起来。
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/contact"
+                  className={cn(buttonVariants({ size: "lg" }), "h-12 bg-primary px-8 text-primary-foreground hover:bg-primary/90")}
+                >
+                  领取套餐报价
+                  <ArrowRight className="ml-2 size-4" />
+                </Link>
+                <a
+                  href="tel:400-000-0000"
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-border bg-white px-6 text-sm font-medium text-foreground shadow-sm transition-colors hover:text-primary"
+                >
+                  <Phone className="size-4" />
+                  400-000-0000
+                </a>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-primary/15 bg-white p-5 shadow-xl shadow-primary/10">
+              <div className="rounded-xl bg-primary p-5 text-primary-foreground">
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <p className="text-sm text-white/75">当前优惠</p>
+                    <p className="mt-1 text-3xl font-bold">买 2 年送 2 年</p>
+                  </div>
+                  <Badge className="bg-white text-primary">限时</Badge>
+                </div>
+                <p className="mt-4 text-sm leading-6 text-white/80">
+                  例如商城豪华版按 2 年付费，合计 ¥5,398，可获得 4 年使用期。企业官网初级版是否参与活动，以顾问最终确认为准。
+                </p>
+              </div>
+              <div className="mt-4 grid grid-cols-3 gap-3">
+                {promoStats.map((item) => (
+                  <div key={item.label} className="rounded-xl border border-border bg-muted/40 p-4">
+                    <p className="text-xs text-muted-foreground">{item.label}</p>
+                    <p className="mt-1 text-sm font-semibold text-foreground">{item.value}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Pricing Tabs */}
-        <section className="py-16 px-4 sm:px-6 bg-background">
-          <div className="max-w-6xl mx-auto">
-            <Tabs defaultValue="mall">
-              <div className="flex justify-center mb-10">
-                <TabsList className="bg-secondary h-auto p-1.5 flex flex-wrap gap-1 rounded-xl">
-                  {allProducts.map((p) => (
-                    <TabsTrigger
-                      key={p.id}
-                      value={p.id}
-                      className="rounded-lg text-sm px-4 py-2 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                    >
-                      {p.name}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
+        <section className="px-4 py-12 sm:px-6">
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold text-primary">产品线总览</p>
+                <h2 className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">先选业务类型，再选版本</h2>
               </div>
+              <p className="max-w-xl text-sm leading-6 text-muted-foreground">
+                价格按年展示，实际开通可叠加活动年限、顾问服务和实施内容。
+              </p>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {products.slice(0, 4).map(({ icon: Icon, name, startPrice, bestFor }) => (
+                <Card key={name} className="rounded-lg border-border bg-card shadow-sm">
+                  <CardContent className="flex items-start gap-4 p-5">
+                    <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                      <Icon className="size-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground">{name}</h3>
+                      <p className="mt-1 text-lg font-bold text-primary">{startPrice}</p>
+                      <p className="mt-2 text-xs leading-5 text-muted-foreground">{bestFor}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
 
-              {allProducts.map((product) => (
-                <TabsContent key={product.id} value={product.id}>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {product.plans.map((plan) => (
-                      <Card key={plan.name} className={plan.highlight ? "border-primary shadow-xl shadow-primary/10 relative" : "border-border"}>
-                        {plan.highlight && (
-                          <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                            <Badge className="bg-primary text-primary-foreground px-4">最受欢迎</Badge>
-                          </div>
-                        )}
-                        <CardHeader className="pb-4">
-                          <CardTitle className="text-base">{plan.name}</CardTitle>
-                          <div className="flex items-baseline gap-1 pt-1">
-                            <span className="text-4xl font-bold text-foreground">¥{plan.price}</span>
-                            <span className="text-sm text-muted-foreground">/月</span>
-                          </div>
-                          <p className="text-xs text-muted-foreground">按年付费 ¥{Math.round(parseInt(plan.price.replace(",", "")) * 12 * 0.8).toLocaleString()} 元/年（8 折）</p>
-                        </CardHeader>
-                        <CardContent className="flex flex-col gap-5">
-                          <Separator />
-                          <div>
-                            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">包含功能</p>
-                            <ul className="flex flex-col gap-2">
-                              {plan.features.map((f) => (
-                                <li key={f} className="flex items-center gap-2 text-sm text-foreground">
-                                  <CheckCircle className="size-4 text-primary shrink-0" />{f}
+        <section className="px-4 pb-16 sm:px-6">
+          <div className="mx-auto max-w-7xl">
+            <Tabs defaultValue="website">
+              <TabsList className="mb-8 flex h-auto w-full flex-wrap justify-start gap-2 rounded-lg border border-border bg-white p-2 shadow-sm">
+                {products.map(({ id, name, icon: Icon }) => (
+                  <TabsTrigger
+                    key={id}
+                    value={id}
+                    className="h-10 flex-none rounded-md px-3 data-active:bg-primary data-active:text-primary-foreground"
+                  >
+                    <Icon className="size-4" />
+                    {name}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+
+              {products.map((product) => {
+                const Icon = product.icon
+                return (
+                  <TabsContent key={product.id} value={product.id}>
+                    <div className="mb-5 flex items-start gap-3 rounded-lg border border-border bg-muted/40 p-4">
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                        <Icon className="size-5" />
+                      </div>
+                      <div>
+                        <h2 className="text-xl font-bold text-foreground">{product.name}</h2>
+                        <p className="mt-1 text-sm leading-6 text-muted-foreground">{product.summary}</p>
+                      </div>
+                    </div>
+
+                    <div className="grid gap-5 lg:grid-cols-3">
+                      {product.plans.map((plan) => (
+                        <Card
+                          key={plan.name}
+                          className={cn(
+                            "relative rounded-lg border-border bg-card shadow-sm",
+                            plan.popular && "border-primary shadow-xl shadow-primary/10"
+                          )}
+                        >
+                          {plan.popular && (
+                            <div className="absolute right-4 top-4">
+                              <Badge className="bg-primary text-primary-foreground">推荐</Badge>
+                            </div>
+                          )}
+                          <CardHeader className="pb-3 pr-20">
+                            <CardTitle className="text-lg">{plan.name}</CardTitle>
+                            <p className="text-sm text-muted-foreground">{plan.note}</p>
+                          </CardHeader>
+                          <CardContent className="flex flex-1 flex-col gap-5">
+                            <div>
+                              <div className="flex items-end gap-1">
+                                <span className="text-4xl font-bold tracking-tight text-foreground">¥{plan.price}</span>
+                                <span className="pb-1 text-sm text-muted-foreground">/年</span>
+                              </div>
+                              <p className="mt-2 text-xs text-muted-foreground">开 2 年送 2 年，到手 4 年使用期</p>
+                            </div>
+                            <Separator />
+                            <ul className="flex flex-col gap-2.5">
+                              {plan.features.map((feature) => (
+                                <li key={feature} className="flex gap-2 text-sm leading-5 text-foreground">
+                                  <CheckCircle className="mt-0.5 size-4 shrink-0 text-primary" />
+                                  <span>{feature}</span>
                                 </li>
                               ))}
                             </ul>
-                          </div>
-                          {plan.noFeatures.length > 0 && (
-                            <div>
-                              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">不含功能</p>
-                              <ul className="flex flex-col gap-2">
-                                {plan.noFeatures.map((f) => (
-                                  <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
-                                    <X className="size-4 text-muted-foreground/50 shrink-0" />{f}
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                          <Link
-                            href="/contact"
-                            className={cn(
-                              buttonVariants({ variant: plan.highlight ? "default" : "outline" }),
-                              plan.highlight ? "bg-primary text-primary-foreground mt-auto" : "mt-auto"
-                            )}
-                          >
-                            {plan.highlight ? "免费试用" : "立即开通"}
-                          </Link>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </TabsContent>
-              ))}
+                            <Link
+                              href="/contact"
+                              className={cn(
+                                buttonVariants({ variant: plan.popular ? "default" : "outline" }),
+                                "mt-auto w-full"
+                              )}
+                            >
+                              咨询此套餐
+                            </Link>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </TabsContent>
+                )
+              })}
             </Tabs>
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="py-16 px-4 sm:px-6 section-blue-bg">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-foreground text-center mb-10">常见价格问题</h2>
-            <div className="flex flex-col gap-6">
-              {[
-                { q: "试用期结束后会自动扣费吗？", a: "不会。试用期到期后系统会提醒您，需要您主动选择套餐并完成付款，不会自动扣费。" },
-                { q: "按月付费和按年付费有什么区别？", a: "按年付费享受 8 折优惠，相当于免费使用约 2.5 个月。我们建议稳定使用的客户选择年付方案，更划算。" },
-                { q: "可以在套餐之间升级或降级吗？", a: "支持随时升级套餐，差价按天计算补缴。降级在当前套餐到期后生效，不强制中途降级。" },
-                { q: "付款后如果不满意可以退款吗？", a: "开通后 7 天内如有质量问题，可申请全额退款。超过 7 天按剩余天数比例退款（年付方案）。" },
-              ].map((faq) => (
-                <div key={faq.q} className="bg-card border border-border rounded-xl p-6">
-                  <h3 className="font-semibold text-foreground mb-2">{faq.q}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+        <section className="border-y border-border bg-white px-4 py-16 sm:px-6">
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold text-primary">版本权益</p>
+                <h2 className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">三档版本怎么选</h2>
+              </div>
+              <p className="max-w-xl text-sm leading-6 text-muted-foreground">
+                大多数企业从中间档开始最稳：功能够用、活动完整、顾问能协助上线。
+              </p>
+            </div>
+            <div className="overflow-x-auto rounded-lg border border-border">
+              <div className="min-w-[720px]">
+                <div className="grid grid-cols-4 bg-muted text-sm font-semibold text-foreground">
+                  <div className="p-4">能力项</div>
+                  <div className="p-4">基础档</div>
+                  <div className="p-4">推荐档</div>
+                  <div className="p-4">高级档</div>
                 </div>
-              ))}
+                {comparisonRows.map(([label, basic, pro, top]) => (
+                  <div key={label} className="grid grid-cols-4 border-t border-border text-sm">
+                    <div className="p-4 font-medium text-foreground">{label}</div>
+                    <div className="p-4 text-muted-foreground">{basic}</div>
+                    <div className="p-4 font-medium text-primary">{pro}</div>
+                    <div className="p-4 text-muted-foreground">{top}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* CTA */}
-        <section className="py-16 px-4 sm:px-6 hero-dark-bg">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">还有疑问？联系我们</h2>
-            <p className="text-slate-300 mb-8">专属顾问为您量身推荐最适合的方案</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-10")}>
-                免费咨询顾问
+        <section className="px-4 py-16 sm:px-6">
+          <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
+            {[
+              { icon: ShieldCheck, title: "无隐藏收费", text: "套餐内功能清晰列出，支付、短信、域名等第三方成本会提前说明。" },
+              { icon: Clock3, title: "上线有人带", text: "从资料整理、页面搭建到基础配置，顾问按步骤陪跑，不让你自己摸索。" },
+              { icon: BadgeCheck, title: "可升级可续费", text: "业务增长后可升级版本，已付年限和活动权益会由顾问协助核算。" },
+            ].map(({ icon: Icon, title, text }) => (
+              <Card key={title} className="rounded-lg border-border bg-card">
+                <CardContent className="p-6">
+                  <Icon className="size-6 text-primary" />
+                  <h3 className="mt-4 font-semibold text-foreground">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{text}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        <section className="hero-dark-bg px-4 py-16 sm:px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <Badge className="mb-5 bg-white text-primary">顾问报价更准确</Badge>
+            <h2 className="text-3xl font-bold text-white">不知道选哪个版本？</h2>
+            <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-300">
+              告诉我们你的业务类型、门店数量、是否需要商城/小程序/SEO，我们会给你推荐最合适的版本和活动年限。
+            </p>
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "h-12 bg-primary px-10 text-primary-foreground hover:bg-primary/90")}>
+                免费获取方案
               </Link>
-              <a href="tel:400-000-0000" className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors">
-                <Phone className="size-4" />400-000-0000
+              <a href="tel:400-000-0000" className="inline-flex h-12 items-center gap-2 text-sm font-medium text-slate-200 hover:text-white">
+                <Phone className="size-4" />
+                400-000-0000
               </a>
             </div>
           </div>

@@ -1,19 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
 import { OrganizationJsonLd } from '@/components/seo/json-ld'
 import './globals.css'
-
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-  display: 'swap',
-})
-const jetbrainsMono = JetBrains_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://litingyun.com'),
@@ -71,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="zh-CN" className={`${inter.variable} ${jetbrainsMono.variable} bg-background`}>
+    <html lang="zh-CN" className="bg-background">
       <body className="font-sans antialiased">
         <OrganizationJsonLd />
         {children}

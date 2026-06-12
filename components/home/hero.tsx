@@ -113,9 +113,7 @@ export function Hero() {
                 <span className="size-2.5 rounded-full bg-red-400/70" />
                 <span className="size-2.5 rounded-full bg-yellow-400/70" />
                 <span className="size-2.5 rounded-full bg-green-400/70" />
-                <div className="ml-3 flex-1 bg-white/10 rounded-full px-3 py-0.5 text-xs text-white/50">
-                  litingyun.com
-                </div>
+                <div className="ml-3 flex-1 bg-white/10 rounded-full px-3 py-2" />
               </div>
 
               {/* Product grid inside mock */}

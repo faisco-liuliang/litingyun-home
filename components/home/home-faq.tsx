@@ -58,7 +58,7 @@ export function HomeFaq() {
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="flex flex-col gap-3">
+        <Accordion className="flex flex-col gap-3">
           {faqs.map((faq, index) => (
             <AccordionItem
               key={index}
