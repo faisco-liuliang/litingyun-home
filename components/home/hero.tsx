@@ -12,18 +12,19 @@ const highlights = [
 
 export function Hero() {
   return (
-    <section className="hero-dark-bg pt-32 pb-20 px-4 sm:px-6 relative overflow-hidden">
+    <section
+      className="pt-32 pb-20 px-4 sm:px-6 relative overflow-hidden"
+      style={{
+        background: "linear-gradient(135deg, #0a1628 0%, #0f2454 40%, #1a4ba0 100%)",
+      }}
+    >
       {/* Background decorations */}
       <div
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-20"
         style={{
           backgroundImage:
             "radial-gradient(circle at 20% 50%, #1a6cf6 0%, transparent 50%), radial-gradient(circle at 80% 20%, #0ea5e9 0%, transparent 40%)",
         }}
-      />
-      <div
-        className="absolute bottom-0 left-0 right-0 h-24"
-        style={{ background: "linear-gradient(to top, #f8fafc, transparent)" }}
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
