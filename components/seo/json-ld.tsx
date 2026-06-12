@@ -178,3 +178,34 @@ export function SoftwareProductJsonLd({
     />
   )
 }
+
+/**
+ * FAQ 页 JSON-LD（首页、产品页按需使用）
+ * 可让 Google 在搜索结果直接展示问答摘要
+ */
+export function FaqJsonLd({
+  faqs,
+}: {
+  faqs: { question: string; answer: string }[]
+}) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  )
+}
+

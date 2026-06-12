@@ -20,7 +20,6 @@ export const metadata: Metadata = {
     description: "餐饮、教育、零售、服务业真实案例，看企业如何通过立亭云实现业绩增长。",
   },
 }
-}
 
 const industries = ["全部", "电商零售", "餐饮连锁", "在线教育", "专业服务", "美业健康", "制造企业"]
 

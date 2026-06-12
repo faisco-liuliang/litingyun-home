@@ -5,6 +5,8 @@ import { Hero } from "@/components/home/hero"
 import { ProductsGrid } from "@/components/home/products-grid"
 import { Advantages } from "@/components/home/advantages"
 import { CasesPreview } from "@/components/home/cases-preview"
+import { BlogPreview } from "@/components/home/blog-preview"
+import { HomeFaq } from "@/components/home/home-faq"
 import { PricingPreview } from "@/components/home/pricing-preview"
 import { CTA } from "@/components/home/cta"
 
@@ -29,6 +31,8 @@ export default function HomePage() {
         <ProductsGrid />
         <Advantages />
         <CasesPreview />
+        <BlogPreview />
+        <HomeFaq />
         <PricingPreview />
         <CTA />
       </main>
