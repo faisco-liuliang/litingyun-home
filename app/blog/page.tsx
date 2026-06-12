@@ -229,7 +229,7 @@ export default function BlogPage() {
                 立即订阅
               </button>
             </div>
-            <p className="text-xs text-muted-foreground mt-3">无垃圾邮件，随时可取消订阅</p>
+            <p className="text-xs text-muted-foreground mt-3">不发垃圾邮件，随时可取消订阅</p>
           </div>
         </section>
       </main>
