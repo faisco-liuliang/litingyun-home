@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle, Play } from "lucide-react"
 
 const highlights = [
   "无需技术背景，7 天上线",
-  "凡科底层引擎，稳定可靠",
+  "5 万+ 企业用户信赖",
   "专属顾问一对一服务",
 ]
 
@@ -29,44 +29,46 @@ export function Hero() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="max-w-3xl">
           <Badge
-            className="mb-6 bg-blue-900/60 text-blue-300 border-blue-700/50 text-xs px-3 py-1"
+            className="mb-8 bg-blue-900/60 text-blue-300 border-blue-700/50 text-xs px-3 py-1"
           >
             <span className="inline-block size-1.5 rounded-full bg-blue-400 mr-2" />
-            凡科官方代理 · 企业数字化首选平台
+            企业数字化首选平台
           </Badge>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight text-balance mb-6">
-            一站式企业
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight text-balance mb-8">
+            一站式企业<br />
             <span className="text-blue-400">数字化平台</span>
-            <br />
-            让业务快速上线
           </h1>
 
-          <p className="text-lg text-slate-300 leading-relaxed mb-8 max-w-xl text-pretty">
-            立亭云整合私域商城、企业官网、教育系统、门店管理等核心产品，帮助中小企业低成本搭建完整线上业务体系，驱动持续增长。
+          <h2 className="text-2xl sm:text-3xl font-semibold text-slate-200 leading-tight text-balance mb-6">
+            让业务快速上线
+          </h2>
+
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed mb-12 max-w-2xl text-pretty">
+            立亭云整合私域商城、企业官网、教育系统、门店管理等核心产品，帮助中小企业低成本搭建完整线上业务体系，驱动业绩增长。
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 mb-10">
+          <div className="flex flex-col sm:flex-row gap-4 mb-14">
             <Link
               href="/contact"
-              className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground text-base px-8 h-12 shadow-lg shadow-blue-500/25")}
+              className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 h-12 shadow-lg shadow-blue-500/30")}
             >
               免费试用 14 天
               <ArrowRight className="size-4 ml-2" />
             </Link>
             <Link
               href="/cases"
-              className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 hover:text-white bg-transparent h-12 text-base")}
+              className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-blue-300/40 text-white hover:bg-white/10 hover:text-white bg-transparent h-12 font-semibold")}
             >
               <Play className="size-4 mr-2" />
-              查看客户案例
+              查看成功案例
             </Link>
           </div>
 
-          <ul className="flex flex-col sm:flex-row gap-3 sm:gap-6">
+          <ul className="flex flex-col sm:flex-row gap-4 sm:gap-8">
             {highlights.map((item) => (
-              <li key={item} className="flex items-center gap-2 text-sm text-slate-400">
-                <CheckCircle className="size-4 text-blue-400 shrink-0" />
+              <li key={item} className="flex items-center gap-2.5 text-sm text-slate-300 font-medium">
+                <CheckCircle className="size-5 text-blue-400 shrink-0" />
                 {item}
               </li>
             ))}
@@ -74,7 +76,7 @@ export function Hero() {
         </div>
 
         {/* Hero stats */}
-        <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6">
+        <div className="mt-24 grid grid-cols-2 sm:grid-cols-4 gap-6">
           {[
             { value: "50,000+", label: "服务企业客户" },
             { value: "98%", label: "客户满意度" },
@@ -83,12 +85,12 @@ export function Hero() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="text-center p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm"
+              className="p-4 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors"
             >
-              <div className="text-2xl sm:text-3xl font-bold text-white mb-1">
+              <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
                 {stat.value}
               </div>
-              <div className="text-xs text-slate-400">{stat.label}</div>
+              <div className="text-xs sm:text-sm text-slate-300">{stat.label}</div>
             </div>
           ))}
         </div>
