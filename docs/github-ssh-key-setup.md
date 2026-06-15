@@ -39,13 +39,13 @@ GitHub 仓库 -> Settings -> Collaborators and teams -> Add people
 当前仓库：
 
 ```text
-git@github.com:Denker2024/litingyun-home.git
+git@github.com:faisco-liuliang/litingyun-home.git
 ```
 
 如果电脑配置了专用 SSH Host，地址可能是：
 
 ```text
-git@github-denker2024:Denker2024/litingyun-home.git
+git@github-faisco-liuliang:faisco-liuliang/litingyun-home.git
 ```
 
 ## 三、Mac 配置 SSH Key
@@ -55,7 +55,7 @@ git@github-denker2024:Denker2024/litingyun-home.git
 打开终端：
 
 ```bash
-ssh-keygen -t ed25519 -C "你的名字 GitHub" -f ~/.ssh/id_ed25519_github_denker2024
+ssh-keygen -t ed25519 -C "你的名字 GitHub" -f ~/.ssh/id_ed25519_github_faisco_liuliang
 ```
 
 一路回车即可。如果提示输入密码，可以留空直接回车。
@@ -63,7 +63,7 @@ ssh-keygen -t ed25519 -C "你的名字 GitHub" -f ~/.ssh/id_ed25519_github_denke
 ### 2. 查看公钥
 
 ```bash
-cat ~/.ssh/id_ed25519_github_denker2024.pub
+cat ~/.ssh/id_ed25519_github_faisco_liuliang.pub
 ```
 
 复制输出内容，类似：
@@ -103,10 +103,10 @@ nano ~/.ssh/config
 添加：
 
 ```text
-Host github-denker2024
+Host github-faisco-liuliang
   HostName github.com
   User git
-  IdentityFile ~/.ssh/id_ed25519_github_denker2024
+  IdentityFile ~/.ssh/id_ed25519_github_faisco_liuliang
   IdentitiesOnly yes
   AddKeysToAgent yes
   UseKeychain yes
@@ -115,7 +115,7 @@ Host github-denker2024
 ### 5. 测试
 
 ```bash
-ssh -T git@github-denker2024
+ssh -T git@github-faisco-liuliang
 ```
 
 成功时会看到：
@@ -139,7 +139,7 @@ PowerShell
 ### 2. 生成 key
 
 ```powershell
-ssh-keygen -t ed25519 -C "你的名字 GitHub" -f $env:USERPROFILE\.ssh\id_ed25519_github_denker2024
+ssh-keygen -t ed25519 -C "你的名字 GitHub" -f $env:USERPROFILE\.ssh\id_ed25519_github_faisco_liuliang
 ```
 
 如果提示输入 passphrase，可以直接回车留空。
@@ -147,7 +147,7 @@ ssh-keygen -t ed25519 -C "你的名字 GitHub" -f $env:USERPROFILE\.ssh\id_ed255
 ### 3. 查看公钥
 
 ```powershell
-Get-Content $env:USERPROFILE\.ssh\id_ed25519_github_denker2024.pub
+Get-Content $env:USERPROFILE\.ssh\id_ed25519_github_faisco_liuliang.pub
 ```
 
 复制整行内容，类似：
@@ -187,10 +187,10 @@ notepad $env:USERPROFILE\.ssh\config
 写入：
 
 ```text
-Host github-denker2024
+Host github-faisco-liuliang
   HostName github.com
   User git
-  IdentityFile ~/.ssh/id_ed25519_github_denker2024
+  IdentityFile ~/.ssh/id_ed25519_github_faisco_liuliang
   IdentitiesOnly yes
 ```
 
@@ -199,7 +199,7 @@ Host github-denker2024
 ### 6. 测试
 
 ```powershell
-ssh -T git@github-denker2024
+ssh -T git@github-faisco-liuliang
 ```
 
 第一次会问：
@@ -225,7 +225,7 @@ Hi 用户名! You've successfully authenticated, but GitHub does not provide she
 Mac 和 Windows 都可以用：
 
 ```bash
-git clone git@github-denker2024:Denker2024/litingyun-home.git
+git clone git@github-faisco-liuliang:faisco-liuliang/litingyun-home.git
 cd litingyun-home
 npm install
 npm run dev
@@ -234,10 +234,10 @@ npm run dev
 如果不用 SSH Host，也可以用标准地址：
 
 ```bash
-git clone git@github.com:Denker2024/litingyun-home.git
+git clone git@github.com:faisco-liuliang/litingyun-home.git
 ```
 
-但如果电脑上有多个 GitHub 账号，推荐使用 `github-denker2024` 这种 Host 别名。
+但如果电脑上有多个 GitHub 账号，推荐使用 `github-faisco-liuliang` 这种 Host 别名。
 
 ## 六、把已有本地项目改到新仓库
 
@@ -245,7 +245,7 @@ git clone git@github.com:Denker2024/litingyun-home.git
 
 ```bash
 git remote -v
-git remote set-url origin git@github-denker2024:Denker2024/litingyun-home.git
+git remote set-url origin git@github-faisco-liuliang:faisco-liuliang/litingyun-home.git
 git push -u origin main
 ```
 
@@ -263,7 +263,7 @@ git push -u origin main
 
 ```bash
 git remote -v
-ssh -T git@github-denker2024
+ssh -T git@github-faisco-liuliang
 ```
 
 ### Permission denied to xxx
@@ -271,13 +271,13 @@ ssh -T git@github-denker2024
 如果看到：
 
 ```text
-Permission to Denker2024/litingyun-home.git denied to lisi20260424
+Permission to faisco-liuliang/litingyun-home.git denied to lisi20260424
 ```
 
 说明当前电脑用了另一个 GitHub 账号的 key。请改用：
 
 ```bash
-git remote set-url origin git@github-denker2024:Denker2024/litingyun-home.git
+git remote set-url origin git@github-faisco-liuliang:faisco-liuliang/litingyun-home.git
 ```
 
 ### Repository not found

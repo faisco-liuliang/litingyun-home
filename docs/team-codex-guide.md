@@ -9,14 +9,14 @@
 当前主站仓库：
 
 ```text
-git@github.com:Denker2024/litingyun-home.git
+git@github.com:faisco-liuliang/litingyun-home.git
 ```
 
 以后每个子品牌单独创建一个仓库，例如：
 
 ```text
-git@github.com:Denker2024/brand-a-home.git
-git@github.com:Denker2024/brand-b-home.git
+git@github.com:faisco-liuliang/brand-a-home.git
+git@github.com:faisco-liuliang/brand-b-home.git
 ```
 
 这样做的好处：
@@ -73,7 +73,7 @@ npm --version
 如果没有配好，会出现类似错误：
 
 ```text
-Permission to Denker2024/litingyun-home.git denied
+Permission to faisco-liuliang/litingyun-home.git denied
 ```
 
 ### 3. 登录 GitHub
@@ -88,14 +88,14 @@ Permission to Denker2024/litingyun-home.git denied
 
 1. 打开 GitHub Desktop
 2. 点击 `File` -> `Clone repository`
-3. 选择仓库，例如 `Denker2024/litingyun-home`
+3. 选择仓库，例如 `faisco-liuliang/litingyun-home`
 4. 选择本地目录
 5. 点击 `Clone`
 
 ### 方式 B：用命令行
 
 ```bash
-git clone git@github.com:Denker2024/litingyun-home.git
+git clone git@github.com:faisco-liuliang/litingyun-home.git
 cd litingyun-home
 npm install
 npm run dev
@@ -339,7 +339,7 @@ git remote -v
 应该看到类似：
 
 ```text
-origin git@github.com:Denker2024/litingyun-home.git
+origin git@github.com:faisco-liuliang/litingyun-home.git
 ```
 
 如果不是这个，说明 remote 配错了。
