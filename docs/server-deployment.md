@@ -7,7 +7,7 @@
 ```text
 /srv/litingyun/
   brands/
-    litingyun.com/
+    zjb2.fkw.com/
       repo/
       .env.production
     brand-a.com/
@@ -24,7 +24,7 @@
 ## 推荐端口
 
 ```text
-litingyun.com  -> 3100
+zjb2.fkw.com   -> 3100
 brand-a.com    -> 3101
 brand-b.com    -> 3102
 ```
@@ -32,7 +32,7 @@ brand-b.com    -> 3102
 ## 单品牌启动命令
 
 ```bash
-cd /srv/litingyun/brands/litingyun.com/repo
+cd /srv/litingyun/brands/zjb2.fkw.com/repo
 pnpm install --frozen-lockfile
 pnpm build
 PORT=3100 pnpm start
@@ -45,7 +45,7 @@ PORT=3100 pnpm start
 ```nginx
 server {
   listen 80;
-  server_name litingyun.com www.litingyun.com;
+  server_name zjb2.fkw.com;
 
   location / {
     proxy_pass http://127.0.0.1:3100;
