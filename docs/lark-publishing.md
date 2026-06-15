@@ -8,6 +8,19 @@
 
 ## 飞书表格字段
 
+当前共用飞书表格：
+
+```text
+https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg
+```
+
+当前主站 sheet：
+
+```text
+sheet 名称：zjb2.fkw.com
+sheet id：5b65f2
+```
+
 建议飞书表格第一行使用以下字段名：
 
 | 字段 | 必填 | 说明 |
@@ -31,13 +44,13 @@
 默认不会写入项目，也不会改飞书状态：
 
 ```bash
-LARK_SHEET_URL="https://example.feishu.cn/sheets/xxxx" npm run sync:lark
+LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:M200"
 ```
 
 如果表格有多个工作表，指定 `sheet-id`：
 
 ```bash
-npm run sync:lark -- --sheet-url "https://example.feishu.cn/sheets/xxxx" --sheet-id "xxxxxx" --range "A1:M500"
+npm run sync:lark -- --sheet-url "https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" --sheet-id "5b65f2" --range "A1:M200"
 ```
 
 ## 正式发布
@@ -50,7 +63,7 @@ npm run sync:lark -- --sheet-url "https://example.feishu.cn/sheets/xxxx" --sheet
 4. 回写 `发布链接` 和 `发布时间`（如果表格有这些列）
 
 ```bash
-npm run sync:lark -- --sheet-url "https://example.feishu.cn/sheets/xxxx" --range "A1:M500" --write
+npm run sync:lark -- --sheet-url "https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" --sheet-id "5b65f2" --range "A1:M200" --write
 npm exec tsc -- --noEmit
 npm run build
 git add lib/blog-data.ts
@@ -65,7 +78,7 @@ git push origin main
 ```bash
 cd /srv/litingyun/brands/litingyun.com/repo
 git pull --ff-only
-LARK_SHEET_URL="https://example.feishu.cn/sheets/xxxx" npm run sync:lark -- --write
+LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:M200" --write
 npm exec tsc -- --noEmit
 npm run build
 git diff --quiet || {

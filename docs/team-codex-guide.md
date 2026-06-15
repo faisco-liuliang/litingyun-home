@@ -30,6 +30,8 @@ git@github.com:faisco-liuliang/brand-b-home.git
 可以共用一个飞书表格文档，不同子品牌用不同 sheet：
 
 ```text
+共用表格：https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg
+
 立亭云
 子品牌A
 子品牌B
@@ -253,13 +255,13 @@ git push origin update-homepage-copy
 预演，不写入网站、不改飞书状态：
 
 ```bash
-LARK_SHEET_URL="飞书表格链接" npm run sync:lark
+LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:M200"
 ```
 
 正式同步：
 
 ```bash
-LARK_SHEET_URL="飞书表格链接" npm run sync:lark -- --sheet-id "子品牌sheetId" --range "A1:M500" --write
+LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:M200" --write
 ```
 
 同步后检查：
