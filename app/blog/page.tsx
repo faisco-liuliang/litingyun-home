@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { blogCategories, getBlogPosts, getFeaturedPost } from "@/lib/blog-data"
 import { ArrowRight, Clock, User, Tag, Search } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -20,84 +21,10 @@ export const metadata: Metadata = {
   },
 }
 
-const categories = ["全部", "SEO 优化", "GEO 优化", "私域运营", "产品教程", "行业洞察", "客户故事"]
-
-const featuredPost = {
-  slug: "geo-optimization-guide-2024",
-  title: "2024 年 GEO 优化完全指南：如何让 ChatGPT 推荐您的品牌",
-  excerpt:
-    "随着 AI 搜索工具的普及，生成式引擎优化（GEO）正在成为继 SEO 之后最重要的流量机会。本文详细介绍 GEO 的核心原理、优化策略和实操步骤，帮助您的品牌抢占 AI 推荐位。",
-  category: "GEO 优化",
-  author: "立亭云内容团队",
-  date: "2024-11-20",
-  readTime: "12 分钟",
-  tags: ["GEO", "AI 搜索", "ChatGPT", "品牌曝光"],
-}
-
-const posts = [
-  {
-    slug: "seo-local-business-guide",
-    title: "本地商家 SEO 建站完整教程：从零开始获取百度流量",
-    excerpt: "详解本地企业如何通过 SEO 优化官网，稳定获取百度本地搜索流量，每月节省数万广告费。",
-    category: "SEO 优化",
-    author: "李老师",
-    date: "2024-11-15",
-    readTime: "8 分钟",
-    tags: ["SEO", "本地搜索", "百度优化"],
-  },
-  {
-    slug: "private-domain-wechat-strategy",
-    title: "微信私域流量运营：从公域到私域的完整转化链路",
-    excerpt: "系统梳理企业如何将公众号、小程序、视频号流量转化为私域资产，实现用户长期留存和复购。",
-    category: "私域运营",
-    author: "王经理",
-    date: "2024-11-10",
-    readTime: "10 分钟",
-    tags: ["私域流量", "微信运营", "用户留存"],
-  },
-  {
-    slug: "ecommerce-mini-program-guide",
-    title: "微信小程序商城搭建实战：7 天完成店铺从零到上线",
-    excerpt: "手把手教你用立亭云私域商城搭建专业小程序店铺，包括装修、商品上架、支付配置全流程。",
-    category: "产品教程",
-    author: "产品团队",
-    date: "2024-11-05",
-    readTime: "15 分钟",
-    tags: ["小程序", "商城搭建", "教程"],
-  },
-  {
-    slug: "restaurant-digital-transformation",
-    title: "餐饮连锁数字化转型：从收银到会员的完整解决方案",
-    excerpt: "分析 2024 年餐饮连锁企业数字化转型的核心需求，以及如何用门店系统实现高效管理。",
-    category: "行业洞察",
-    author: "行业研究组",
-    date: "2024-10-28",
-    readTime: "9 分钟",
-    tags: ["餐饮", "连锁管理", "数字化"],
-  },
-  {
-    slug: "education-saas-online-school",
-    title: "知识付费变现指南：如何用教育系统搭建在线学校",
-    excerpt: "从课程定价到招生推广，完整解析知识博主和教育机构如何通过直播+录播实现稳定收入。",
-    category: "产品教程",
-    author: "产品团队",
-    date: "2024-10-20",
-    readTime: "11 分钟",
-    tags: ["知识付费", "在线教育", "教育系统"],
-  },
-  {
-    slug: "ai-search-seo-difference",
-    title: "SEO vs GEO：传统搜索优化与 AI 搜索优化有什么区别",
-    excerpt: "深入对比 SEO 和 GEO 的底层逻辑、优化方法和效果衡量指标，帮助企业制定合理的搜索流量策略。",
-    category: "GEO 优化",
-    author: "技术团队",
-    date: "2024-10-15",
-    readTime: "7 分钟",
-    tags: ["GEO", "SEO", "AI 搜索", "对比分析"],
-  },
-]
-
 export default function BlogPage() {
+  const featuredPost = getFeaturedPost()
+  const posts = getBlogPosts().filter((post) => post.slug !== featuredPost.slug)
+
   return (
     <>
       <Header />
@@ -131,7 +58,7 @@ export default function BlogPage() {
           <div className="max-w-7xl mx-auto">
             {/* Category Filter */}
             <div className="flex flex-wrap gap-2 mb-12">
-              {categories.map((cat) => (
+              {blogCategories.map((cat) => (
                 <span
                   key={cat}
                   className={`text-sm px-4 py-1.5 rounded-full cursor-pointer transition-colors ${

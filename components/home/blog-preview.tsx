@@ -1,40 +1,8 @@
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { getBlogPosts } from "@/lib/blog-data"
 import { ArrowRight, Clock, User } from "lucide-react"
-
-const featuredPosts = [
-  {
-    slug: "geo-optimization-guide-2024",
-    title: "2024 年 GEO 优化完全指南：如何让 AI 推荐您的品牌",
-    excerpt:
-      "随着 ChatGPT、Perplexity 等 AI 搜索工具普及，生成式引擎优化（GEO）正在成为继 SEO 之后最重要的流量机会。本文详解核心原理与实操步骤。",
-    category: "GEO 优化",
-    author: "立亭云内容团队",
-    date: "2024-11-20",
-    readTime: "12 分钟",
-  },
-  {
-    slug: "seo-local-business-guide",
-    title: "本地商家 SEO 建站完整教程：从零开始稳定获取百度流量",
-    excerpt:
-      "详解本地企业如何通过 SEO 官网建站，稳定获取百度本地搜索流量，每月节省数万广告费，实现低成本持续获客。",
-    category: "SEO 优化",
-    author: "李老师",
-    date: "2024-11-15",
-    readTime: "8 分钟",
-  },
-  {
-    slug: "private-domain-wechat-strategy",
-    title: "微信私域流量运营：从公域到私域的完整转化链路",
-    excerpt:
-      "系统梳理企业如何将公众号、小程序、视频号流量转化为私域资产，实现用户长期留存和复购增长。",
-    category: "私域运营",
-    author: "王经理",
-    date: "2024-11-10",
-    readTime: "10 分钟",
-  },
-]
 
 const categoryColors: Record<string, string> = {
   "GEO 优化": "bg-amber-100 text-amber-700 border-amber-200",
@@ -45,6 +13,8 @@ const categoryColors: Record<string, string> = {
 }
 
 export function BlogPreview() {
+  const featuredPosts = getBlogPosts().slice(0, 3)
+
   return (
     <section className="py-24 px-4 sm:px-6 bg-background">
       <div className="max-w-7xl mx-auto">
