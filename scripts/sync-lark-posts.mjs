@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { execFileSync } from "node:child_process"
-import { readFileSync, writeFileSync } from "node:fs"
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
 
@@ -11,7 +11,7 @@ const args = new Set(process.argv.slice(2))
 const writeMode = args.has("--write")
 const sheetUrl = getArg("--sheet-url") ?? process.env.LARK_SHEET_URL
 const sheetId = getArg("--sheet-id") ?? process.env.LARK_SHEET_ID
-const range = getArg("--range") ?? process.env.LARK_SHEET_RANGE ?? "A1:N500"
+const range = getArg("--range") ?? process.env.LARK_SHEET_RANGE ?? "A1:Q500"
 const reviewedStatus = process.env.LARK_REVIEWED_STATUS ?? "已审核"
 const publishedStatus = process.env.LARK_PUBLISHED_STATUS ?? "已发布"
 const siteBaseUrl = (process.env.SITE_BASE_URL ?? "https://litingyun.com").replace(/\/$/, "")
@@ -45,7 +45,10 @@ const approvedRows = rows
   .map((cells, index) => ({ cells, rowNumber: index + 2 }))
   .filter(({ cells }) => text(cells[statusIndex]) === reviewedStatus)
 
-const incomingPosts = approvedRows.map(({ cells, rowNumber }) => rowToPost(headers, cells, rowNumber))
+const incomingEntries = await Promise.all(
+  approvedRows.map(({ cells, rowNumber }) => rowToPost(headers, cells, rowNumber, { downloadImages: writeMode }))
+)
+const incomingPosts = incomingEntries.map(({ post }) => post)
 const currentPosts = readCurrentPosts()
 const mergedPosts = mergePosts(currentPosts, incomingPosts)
 
@@ -62,6 +65,7 @@ if (!writeMode) {
 writeBlogData(mergedPosts)
 
 for (const { cells, rowNumber } of approvedRows) {
+  const entry = incomingEntries.find(({ rowNumber: entryRowNumber }) => entryRowNumber === rowNumber)
   writeCell(statusIndex, rowNumber, publishedStatus)
 
   const linkIndex = optionalColumn(headers, ["发布链接", "链接", "url", "URL"])
@@ -69,6 +73,9 @@ for (const { cells, rowNumber } of approvedRows) {
 
   const publishedAtIndex = optionalColumn(headers, ["发布时间", "publishedAt", "published_at"])
   if (publishedAtIndex !== -1) writeCell(publishedAtIndex, rowNumber, new Date().toISOString())
+
+  const imageStatusIndex = optionalColumn(headers, ["图片状态", "imageStatus", "ImageStatus"])
+  if (imageStatusIndex !== -1 && entry?.imageStatus) writeCell(imageStatusIndex, rowNumber, entry.imageStatus)
 }
 
 console.log(`Published ${incomingPosts.length} post(s) and updated sheet status to ${publishedStatus}.`)
@@ -142,20 +149,54 @@ function rowToSlug(headers, cells, rowNumber) {
   return slugify(title)
 }
 
-function rowToPost(headers, cells, rowNumber) {
+async function rowToPost(headers, cells, rowNumber, options = { downloadImages: false }) {
   const title = cell(headers, cells, ["标题", "title", "Title"])
-  const content = cell(headers, cells, ["正文", "内容", "content", "Content", "markdown", "Markdown"])
+  let content = cell(headers, cells, ["正文", "内容", "content", "Content", "markdown", "Markdown"])
   if (!title) fail(`Row ${rowNumber} is missing title.`)
   if (!content) fail(`Row ${rowNumber} is missing content.`)
 
   const slug = rowToSlug(headers, cells, rowNumber)
+  const coverImageUrl = cell(headers, cells, ["封面图URL", "封面图", "coverImage", "coverImageUrl", "CoverImage"])
+  const coverImageAlt = cell(headers, cells, ["封面图Alt", "图片Alt", "coverImageAlt", "CoverImageAlt"], title)
+  const inlineImages = cell(headers, cells, ["正文配图", "contentImages", "ContentImages"])
+    .split(/\n/)
+    .map((item) => item.trim())
+    .filter(Boolean)
+
+  if (inlineImages.length > 0) {
+    const existingContent = content
+    const imageMarkdown = inlineImages
+      .filter((imageUrl) => !existingContent.includes(imageUrl))
+      .map((imageUrl, index) => `![${title} 配图 ${index + 1}](${imageUrl})`)
+      .join("\n\n")
+    if (imageMarkdown) content = `${content.trim()}\n\n${imageMarkdown}`
+  }
+
   const excerpt = cell(headers, cells, ["摘要", "excerpt", "Excerpt", "description", "Description"], content.replace(/[#>*_\-\n]/g, "").slice(0, 120))
   const tags = cell(headers, cells, ["标签", "tags", "Tags"])
     .split(/[,，、\n]/)
     .map((tag) => tag.trim())
     .filter(Boolean)
 
-  return {
+  let coverImage
+  let imageStatus = coverImageUrl ? "外链可用" : "无封面图"
+  if (coverImageUrl) {
+    if (options.downloadImages) {
+      const downloadResult = await downloadCoverImage(coverImageUrl, slug)
+      coverImage = {
+        src: downloadResult.src,
+        alt: coverImageAlt,
+      }
+      imageStatus = downloadResult.ok ? "已下载" : `下载失败：${downloadResult.message}`
+    } else {
+      coverImage = {
+        src: coverImageUrl,
+        alt: coverImageAlt,
+      }
+    }
+  }
+
+  const post = {
     slug,
     title,
     description: cell(headers, cells, ["SEO描述", "seoDescription", "description", "Description"], excerpt),
@@ -166,6 +207,48 @@ function rowToPost(headers, cells, rowNumber) {
     readTime: cell(headers, cells, ["阅读时长", "readTime", "ReadTime"], estimateReadTime(content)),
     tags,
     content,
+  }
+  if (coverImage) post.coverImage = coverImage
+
+  return { post, rowNumber, imageStatus }
+}
+
+async function downloadCoverImage(imageUrl, slug) {
+  try {
+    const response = await fetch(imageUrl)
+    if (!response.ok) {
+      return { ok: false, src: imageUrl, message: `HTTP ${response.status}` }
+    }
+
+    const contentType = response.headers.get("content-type") ?? ""
+    const extension = extensionFromContentType(contentType) ?? extensionFromUrl(imageUrl) ?? "jpg"
+    const dir = resolve(rootDir, "public", "blog", slug)
+    const filename = `cover.${extension}`
+    mkdirSync(dir, { recursive: true })
+    const arrayBuffer = await response.arrayBuffer()
+    writeFileSync(resolve(dir, filename), Buffer.from(arrayBuffer))
+
+    return { ok: true, src: `/blog/${slug}/${filename}`, message: "ok" }
+  } catch (error) {
+    return { ok: false, src: imageUrl, message: error.message }
+  }
+}
+
+function extensionFromContentType(contentType) {
+  if (contentType.includes("image/jpeg")) return "jpg"
+  if (contentType.includes("image/png")) return "png"
+  if (contentType.includes("image/webp")) return "webp"
+  if (contentType.includes("image/gif")) return "gif"
+  return undefined
+}
+
+function extensionFromUrl(imageUrl) {
+  try {
+    const pathname = new URL(imageUrl).pathname
+    const match = pathname.match(/\.([a-zA-Z0-9]+)$/)
+    return match?.[1]?.toLowerCase()
+  } catch {
+    return undefined
   }
 }
 

@@ -48,6 +48,13 @@ export function BlogPreview() {
             className="md:col-span-2 group"
           >
             <Card className="h-full border-border bg-card card-hover overflow-hidden">
+              {featuredPosts[0].coverImage && (
+                <img
+                  src={featuredPosts[0].coverImage.src}
+                  alt={featuredPosts[0].coverImage.alt}
+                  className="h-56 w-full object-cover"
+                />
+              )}
               <CardContent className="p-8 flex flex-col gap-5 h-full">
                 <Badge
                   className={`self-start text-xs border ${categoryColors[featuredPosts[0].category] ?? "bg-muted text-muted-foreground"}`}
@@ -87,6 +94,13 @@ export function BlogPreview() {
             {featuredPosts.slice(1).map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="group flex-1">
                 <Card className="h-full border-border bg-card card-hover overflow-hidden">
+                  {post.coverImage && (
+                    <img
+                      src={post.coverImage.src}
+                      alt={post.coverImage.alt}
+                      className="h-28 w-full object-cover"
+                    />
+                  )}
                   <CardContent className="p-6 flex flex-col gap-4 h-full">
                     <Badge
                       className={`self-start text-xs border ${categoryColors[post.category] ?? "bg-muted text-muted-foreground"}`}

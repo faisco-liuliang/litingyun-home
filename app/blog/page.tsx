@@ -76,6 +76,13 @@ export default function BlogPage() {
             <div className="mb-10">
               <Link href={`/blog/${featuredPost.slug}`}>
                 <Card className="border-primary/20 bg-gradient-to-br from-accent/60 to-card card-hover overflow-hidden">
+                  {featuredPost.coverImage && (
+                    <img
+                      src={featuredPost.coverImage.src}
+                      alt={featuredPost.coverImage.alt}
+                      className="h-64 w-full object-cover"
+                    />
+                  )}
                   <CardContent className="p-8">
                     <div className="flex flex-wrap items-center gap-3 mb-4">
                       <Badge className="bg-primary text-primary-foreground">精选推荐</Badge>
@@ -109,6 +116,13 @@ export default function BlogPage() {
               {posts.map((post) => (
                 <Link key={post.slug} href={`/blog/${post.slug}`}>
                   <Card className="h-full border-border card-hover">
+                    {post.coverImage && (
+                      <img
+                        src={post.coverImage.src}
+                        alt={post.coverImage.alt}
+                        className="aspect-[16/9] w-full object-cover"
+                      />
+                    )}
                     <CardContent className="p-6 flex flex-col gap-4 h-full">
                       <div className="flex items-center justify-between">
                         <Badge variant="secondary" className="text-xs">{post.category}</Badge>

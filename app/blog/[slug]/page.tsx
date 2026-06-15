@@ -35,6 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
+      images: post.coverImage ? [{ url: post.coverImage.src, alt: post.coverImage.alt }] : undefined,
     },
   }
 }
@@ -67,6 +68,7 @@ export default async function BlogPostPage({ params }: Props) {
     url: `${BASE_URL}/blog/${slug}`,
     keywords: post.tags.join(", "),
     articleSection: post.category,
+    image: post.coverImage ? `${BASE_URL}${post.coverImage.src}` : undefined,
     inLanguage: "zh-CN",
   }
 
@@ -113,6 +115,16 @@ export default async function BlogPostPage({ params }: Props) {
             <span className="flex items-center gap-1.5"><Clock className="size-4" />{post.readTime}阅读</span>
           </div>
 
+          {post.coverImage && (
+            <figure className="mb-10 overflow-hidden rounded-xl border border-border bg-card">
+              <img
+                src={post.coverImage.src}
+                alt={post.coverImage.alt}
+                className="aspect-[16/9] w-full object-cover"
+              />
+            </figure>
+          )}
+
           <Separator className="mb-10" />
 
           {/* Content */}
@@ -123,6 +135,14 @@ export default async function BlogPostPage({ params }: Props) {
               }
               if (line.startsWith("### ")) {
                 return <h3 key={i} className="text-xl font-semibold text-foreground mt-7 mb-3">{line.slice(4)}</h3>
+              }
+              const imageMatch = line.match(/^!\[(.*)\]\((.*)\)$/)
+              if (imageMatch) {
+                return (
+                  <figure key={i} className="my-8 overflow-hidden rounded-xl border border-border bg-card">
+                    <img src={imageMatch[2]} alt={imageMatch[1]} className="w-full object-cover" />
+                  </figure>
+                )
               }
               if (line.startsWith("| ")) {
                 return null // 表格简化处理

@@ -41,6 +41,7 @@ sass 哥：AJJLj0
 
 ```text
 标题 / slug / 摘要 / 分类 / 标签 / 作者 / 发布日期 / 阅读时长 / 正文 / SEO描述 / 状态 / 发布链接 / 发布时间
+封面图URL / 封面图Alt / 正文配图 / 图片状态
 ```
 
 发布规则：
@@ -255,13 +256,13 @@ git push origin update-homepage-copy
 预演，不写入网站、不改飞书状态：
 
 ```bash
-LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:M200"
+LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:Q200"
 ```
 
 正式同步：
 
 ```bash
-LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:M200" --write
+LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:Q200" --write
 ```
 
 同步后检查：

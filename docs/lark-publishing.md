@@ -39,19 +39,23 @@ sass 哥：AJJLj0
 | 状态 | 是 | `已审核` 的文章会进入发布队列 |
 | 发布链接 | 否 | 发布后脚本会回写 |
 | 发布时间 | 否 | 发布后脚本会回写 |
+| 封面图URL | 否 | 文章封面图。支持公网 URL，正式发布时会下载到 `public/blog/{slug}/cover.*` |
+| 封面图Alt | 否 | 图片 SEO 描述，不填时使用文章标题 |
+| 正文配图 | 否 | 多张图用换行分隔。脚本会追加为 Markdown 图片 |
+| 图片状态 | 否 | 发布后脚本会回写：`已下载`、`无封面图` 或失败原因 |
 
 ## 本地预演
 
 默认不会写入项目，也不会改飞书状态：
 
 ```bash
-LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:M200"
+LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:Q200"
 ```
 
 如果表格有多个工作表，指定 `sheet-id`：
 
 ```bash
-npm run sync:lark -- --sheet-url "https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" --sheet-id "5b65f2" --range "A1:M200"
+npm run sync:lark -- --sheet-url "https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" --sheet-id "5b65f2" --range "A1:Q200"
 ```
 
 不同子品牌替换 `sheet-id` 即可：
@@ -72,12 +76,13 @@ npm run sync:lark -- --sheet-url "https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWh
 加 `--write` 后会：
 
 1. 读取 `状态 = 已审核` 的文章
-2. 合并写入 `lib/blog-data.ts`
-3. 将飞书表格状态改成 `已发布`
-4. 回写 `发布链接` 和 `发布时间`（如果表格有这些列）
+2. 下载 `封面图URL` 到 `public/blog/{slug}/cover.*`（如果填写了封面图）
+3. 合并写入 `lib/blog-data.ts`
+4. 将飞书表格状态改成 `已发布`
+5. 回写 `发布链接`、`发布时间`、`图片状态`（如果表格有这些列）
 
 ```bash
-npm run sync:lark -- --sheet-url "https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" --sheet-id "5b65f2" --range "A1:M200" --write
+npm run sync:lark -- --sheet-url "https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" --sheet-id "5b65f2" --range "A1:Q200" --write
 npm exec tsc -- --noEmit
 npm run build
 git add lib/blog-data.ts
@@ -92,7 +97,7 @@ git push origin main
 ```bash
 cd /srv/litingyun/brands/litingyun.com/repo
 git pull --ff-only
-LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:M200" --write
+LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:Q200" --write
 npm exec tsc -- --noEmit
 npm run build
 git diff --quiet || {

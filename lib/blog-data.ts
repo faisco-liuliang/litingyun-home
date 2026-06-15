@@ -9,6 +9,10 @@ export type BlogPost = {
   readTime: string
   tags: string[]
   content: string
+  coverImage?: {
+    src: string
+    alt: string
+  }
   featured?: boolean
 }
 
