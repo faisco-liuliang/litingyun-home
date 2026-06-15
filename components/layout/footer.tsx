@@ -8,10 +8,6 @@ import {
   Store,
   Zap,
   Wrench,
-  Phone,
-  Mail,
-  MapPin,
-  MessageCircle,
 } from "lucide-react"
 
 const productLinks = [
@@ -55,30 +51,6 @@ export function Footer() {
               <p className="text-sm text-slate-400 leading-relaxed">
                 专注企业数字化建站与营销工具，帮助中小企业快速搭建私域流量阵地，实现线上业绩增长。
               </p>
-            </div>
-            <div className="flex flex-col gap-2.5">
-              <a
-                href="tel:400-000-0000"
-                className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors"
-              >
-                <Phone className="size-4 shrink-0" />
-                400-000-0000（服务热线）
-              </a>
-              <a
-                href="mailto:hello@litingyun.com"
-                className="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors"
-              >
-                <Mail className="size-4 shrink-0" />
-                hello@litingyun.com
-              </a>
-              <span className="flex items-center gap-2 text-sm text-slate-400">
-                <MapPin className="size-4 shrink-0" />
-                广州市天河区科技园
-              </span>
-              <span className="flex items-center gap-2 text-sm text-slate-400">
-                <MessageCircle className="size-4 shrink-0" />
-                微信客服：litingyun
-              </span>
             </div>
           </div>
 
@@ -142,15 +114,12 @@ export function Footer() {
             <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wide">
               扫码咨询
             </h3>
-            <div className="size-28 rounded-xl bg-white p-2 flex items-center justify-center mb-3">
-              {/* QR placeholder */}
-              <div className="w-full h-full bg-slate-100 rounded-lg flex items-center justify-center">
-                <span className="text-[10px] text-slate-400 text-center leading-tight">
-                  微信客服
-                  <br />
-                  二维码
-                </span>
-              </div>
+            <div className="size-32 rounded-xl bg-white p-2 flex items-center justify-center mb-3 shadow-sm">
+              <img
+                src="/contact-qr.png"
+                alt="微信客服二维码"
+                className="h-full w-full rounded-lg object-contain"
+              />
             </div>
             <p className="text-xs text-slate-500 leading-relaxed">
               微信扫码，专属顾问<br />为您一对一解答
