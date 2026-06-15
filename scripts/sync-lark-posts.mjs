@@ -15,6 +15,8 @@ const range = getArg("--range") ?? process.env.LARK_SHEET_RANGE ?? "A1:Q500"
 const reviewedStatus = process.env.LARK_REVIEWED_STATUS ?? "已审核"
 const publishedStatus = process.env.LARK_PUBLISHED_STATUS ?? "已发布"
 const siteBaseUrl = (process.env.SITE_BASE_URL ?? "https://litingyun.com").replace(/\/$/, "")
+const skippedStatus = process.env.LARK_SKIPPED_STATUS ?? publishedStatus
+const shouldCheckSite = process.env.LARK_CHECK_SITE !== "0" && Boolean(process.env.SITE_BASE_URL)
 
 if (!sheetUrl && !process.env.LARK_SPREADSHEET_TOKEN) {
   fail("Missing LARK_SHEET_URL. Pass --sheet-url or set LARK_SHEET_URL.")
@@ -45,16 +47,43 @@ const approvedRows = rows
   .map((cells, index) => ({ cells, rowNumber: index + 2 }))
   .filter(({ cells }) => text(cells[statusIndex]) === reviewedStatus)
 
-const incomingEntries = await Promise.all(
-  approvedRows.map(({ cells, rowNumber }) => rowToPost(headers, cells, rowNumber, { downloadImages: writeMode }))
-)
-const incomingPosts = incomingEntries.map(({ post }) => post)
 const currentPosts = readCurrentPosts()
+const existingSlugs = new Set(currentPosts.map((post) => post.slug))
+const incomingEntries = []
+const skippedEntries = []
+
+for (const { cells, rowNumber } of approvedRows) {
+  const slug = rowToSlug(headers, cells, rowNumber)
+  const title = cell(headers, cells, ["标题", "title", "Title"], slug)
+  const existingPost = currentPosts.find((post) => post.slug === slug)
+  const existsOnSite = existingPost ? true : await sitePostExists(slug)
+
+  if (existingSlugs.has(slug) || existsOnSite) {
+    skippedEntries.push({
+      rowNumber,
+      slug,
+      title,
+      link: `${siteBaseUrl}/blog/${slug}`,
+      reason: existingPost ? "代码中已存在" : "网站已发布",
+    })
+    existingSlugs.add(slug)
+    continue
+  }
+
+  const entry = await rowToPost(headers, cells, rowNumber, { downloadImages: writeMode })
+  incomingEntries.push(entry)
+  existingSlugs.add(slug)
+}
+
+const incomingPosts = incomingEntries.map(({ post }) => post)
 const mergedPosts = mergePosts(currentPosts, incomingPosts)
 
 console.log(`Found ${approvedRows.length} reviewed row(s).`)
 for (const post of incomingPosts) {
   console.log(`- ${post.slug}: ${post.title}`)
+}
+for (const entry of skippedEntries) {
+  console.log(`- skipped ${entry.slug}: ${entry.title} (${entry.reason})`)
 }
 
 if (!writeMode) {
@@ -62,14 +91,16 @@ if (!writeMode) {
   process.exit(0)
 }
 
-writeBlogData(mergedPosts)
+if (incomingPosts.length > 0) {
+  writeBlogData(mergedPosts)
+}
 
-for (const { cells, rowNumber } of approvedRows) {
-  const entry = incomingEntries.find(({ rowNumber: entryRowNumber }) => entryRowNumber === rowNumber)
+for (const entry of incomingEntries) {
+  const { rowNumber, post } = entry
   writeCell(statusIndex, rowNumber, publishedStatus)
 
   const linkIndex = optionalColumn(headers, ["发布链接", "链接", "url", "URL"])
-  if (linkIndex !== -1) writeCell(linkIndex, rowNumber, `${siteBaseUrl}/blog/${rowToSlug(headers, cells, rowNumber)}`)
+  if (linkIndex !== -1) writeCell(linkIndex, rowNumber, `${siteBaseUrl}/blog/${post.slug}`)
 
   const publishedAtIndex = optionalColumn(headers, ["发布时间", "publishedAt", "published_at"])
   if (publishedAtIndex !== -1) writeCell(publishedAtIndex, rowNumber, new Date().toISOString())
@@ -78,7 +109,17 @@ for (const { cells, rowNumber } of approvedRows) {
   if (imageStatusIndex !== -1 && entry?.imageStatus) writeCell(imageStatusIndex, rowNumber, entry.imageStatus)
 }
 
-console.log(`Published ${incomingPosts.length} post(s) and updated sheet status to ${publishedStatus}.`)
+for (const entry of skippedEntries) {
+  writeCell(statusIndex, entry.rowNumber, skippedStatus)
+
+  const linkIndex = optionalColumn(headers, ["发布链接", "链接", "url", "URL"])
+  if (linkIndex !== -1) writeCell(linkIndex, entry.rowNumber, entry.link)
+
+  const imageStatusIndex = optionalColumn(headers, ["图片状态", "imageStatus", "ImageStatus"])
+  if (imageStatusIndex !== -1) writeCell(imageStatusIndex, entry.rowNumber, `${entry.reason}，跳过发布`)
+}
+
+console.log(`Published ${incomingPosts.length} new post(s), skipped ${skippedEntries.length} existing post(s).`)
 
 function getArg(name) {
   const index = process.argv.indexOf(name)
@@ -281,6 +322,22 @@ function mergePosts(currentPosts, incomingPosts) {
     bySlug.set(post.slug, { ...bySlug.get(post.slug), ...post })
   }
   return [...bySlug.values()].sort((a, b) => b.date.localeCompare(a.date))
+}
+
+async function sitePostExists(slug) {
+  if (!shouldCheckSite) return false
+  const url = `${siteBaseUrl}/blog/${slug}`
+  try {
+    const response = await fetch(url, { method: "HEAD" })
+    if (response.ok) return true
+    if (response.status === 405) {
+      const getResponse = await fetch(url, { method: "GET" })
+      return getResponse.ok
+    }
+  } catch {
+    return false
+  }
+  return false
 }
 
 function writeBlogData(posts) {

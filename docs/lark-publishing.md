@@ -76,13 +76,16 @@ npm run sync:lark -- --sheet-url "https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWh
 加 `--write` 后会：
 
 1. 读取 `状态 = 已审核` 的文章
-2. 下载 `封面图URL` 到 `public/blog/{slug}/cover.*`（如果填写了封面图）
-3. 合并写入 `lib/blog-data.ts`
-4. 将飞书表格状态改成 `已发布`
-5. 回写 `发布链接`、`发布时间`、`图片状态`（如果表格有这些列）
+2. 先按 `slug` 检查网站代码里是否已经存在这篇文章
+3. 如果设置了 `SITE_BASE_URL`，还会检查线上 `/blog/{slug}` 是否已经返回成功
+4. 已存在的文章会跳过，不会重复写入博客代码，也不会重复发布
+5. 新文章会下载 `封面图URL` 到 `public/blog/{slug}/cover.*`（如果填写了封面图）
+6. 新文章会合并写入 `lib/blog-data.ts`
+7. 发布后将飞书表格状态改成 `已发布`
+8. 回写 `发布链接`、`发布时间`、`图片状态`（如果表格有这些列）
 
 ```bash
-npm run sync:lark -- --sheet-url "https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" --sheet-id "5b65f2" --range "A1:Q200" --write
+SITE_BASE_URL="http://106.75.167.39" npm run sync:lark -- --sheet-url "https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" --sheet-id "5b65f2" --range "A1:Q200" --write
 npm exec tsc -- --noEmit
 npm run build
 git add lib/blog-data.ts
@@ -97,7 +100,7 @@ git push origin main
 ```bash
 cd /srv/litingyun/brands/litingyun.com/repo
 git pull --ff-only
-LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:Q200" --write
+SITE_BASE_URL="http://106.75.167.39" LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:Q200" --write
 npm exec tsc -- --noEmit
 npm run build
 git diff --quiet || {
@@ -106,6 +109,13 @@ git diff --quiet || {
   git push origin main
 }
 ```
+
+自动任务的发布判断：
+
+- `状态 != 已审核`：不处理
+- `状态 = 已审核` 且 `slug` 已在 `lib/blog-data.ts`：跳过，并回写为 `已发布`
+- `状态 = 已审核` 且 `SITE_BASE_URL/blog/{slug}` 已经可访问：跳过，并回写为 `已发布`
+- 只有代码和线上都不存在时，才写入新文章并触发后续构建部署
 
 如果希望发布后不是改成 `已发布`，可以用环境变量覆盖：
 
