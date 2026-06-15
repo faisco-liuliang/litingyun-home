@@ -66,7 +66,17 @@ npm --version
 
 能看到版本号就说明已安装。
 
-### 2. 登录 GitHub
+### 2. 配置 GitHub SSH Key
+
+先按 [GitHub SSH Key 配置教程](./github-ssh-key-setup.md) 配好 GitHub 权限。
+
+如果没有配好，会出现类似错误：
+
+```text
+Permission to Denker2024/litingyun-home.git denied
+```
+
+### 3. 登录 GitHub
 
 用团队提供的 GitHub 账号登录 GitHub Desktop。
 
