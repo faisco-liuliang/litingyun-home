@@ -5,7 +5,6 @@ import { Footer } from "@/components/layout/footer"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
 import {
@@ -332,14 +331,16 @@ export default function PricingPage() {
               </p>
             </div>
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {products.slice(0, 4).map(({ icon: Icon, name, startPrice, bestFor }) => (
+              {products.map(({ id, icon: Icon, name, startPrice, bestFor }) => (
                 <Card key={name} className="rounded-lg border-border bg-card shadow-sm">
                   <CardContent className="flex items-start gap-4 p-5">
                     <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                       <Icon className="size-5" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground">{name}</h3>
+                      <Link href={`#${id}`} className="font-semibold text-foreground transition-colors hover:text-primary">
+                        {name}
+                      </Link>
                       <p className="mt-1 text-lg font-bold text-primary">{startPrice}</p>
                       <p className="mt-2 text-xs leading-5 text-muted-foreground">{bestFor}</p>
                     </div>
@@ -352,31 +353,39 @@ export default function PricingPage() {
 
         <section className="px-4 pb-16 sm:px-6">
           <div className="mx-auto max-w-7xl">
-            <Tabs defaultValue="website">
-              <TabsList className="mb-8 flex h-auto w-full flex-wrap justify-start gap-2 rounded-lg border border-border bg-white p-2 shadow-sm">
+            <div className="mb-8 rounded-lg border border-border bg-white p-3 shadow-sm">
+              <div className="flex flex-wrap gap-2">
                 {products.map(({ id, name, icon: Icon }) => (
-                  <TabsTrigger
+                  <Link
                     key={id}
-                    value={id}
-                    className="h-10 flex-none rounded-md px-3 data-active:bg-primary data-active:text-primary-foreground"
+                    href={`#${id}`}
+                    className="inline-flex h-10 items-center gap-2 rounded-md px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
                   >
                     <Icon className="size-4" />
                     {name}
-                  </TabsTrigger>
+                  </Link>
                 ))}
-              </TabsList>
+              </div>
+            </div>
 
+            <div className="space-y-12">
               {products.map((product) => {
                 const Icon = product.icon
                 return (
-                  <TabsContent key={product.id} value={product.id}>
-                    <div className="mb-5 flex items-start gap-3 rounded-lg border border-border bg-muted/40 p-4">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                        <Icon className="size-5" />
+                  <section key={product.id} id={product.id} className="scroll-mt-24">
+                    <div className="mb-5 flex flex-col gap-4 rounded-lg border border-border bg-muted/40 p-5 sm:flex-row sm:items-center sm:justify-between">
+                      <div className="flex items-start gap-3">
+                        <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                          <Icon className="size-5" />
+                        </div>
+                        <div>
+                          <h2 className="text-xl font-bold text-foreground">{product.name}</h2>
+                          <p className="mt-1 text-sm leading-6 text-muted-foreground">{product.summary}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h2 className="text-xl font-bold text-foreground">{product.name}</h2>
-                        <p className="mt-1 text-sm leading-6 text-muted-foreground">{product.summary}</p>
+                      <div className="rounded-lg border border-primary/15 bg-white px-4 py-3">
+                        <p className="text-xs text-muted-foreground">起步价格</p>
+                        <p className="mt-1 text-lg font-bold text-primary">{product.startPrice}</p>
                       </div>
                     </div>
 
@@ -428,10 +437,10 @@ export default function PricingPage() {
                         </Card>
                       ))}
                     </div>
-                  </TabsContent>
+                  </section>
                 )
               })}
-            </Tabs>
+            </div>
           </div>
         </section>
 
