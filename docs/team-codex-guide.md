@@ -32,9 +32,9 @@ git@github.com:faisco-liuliang/brand-b-home.git
 ```text
 共用表格：https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg
 
-立亭云
-子品牌A
-子品牌B
+立亭云：5b65f2
+维双云：uT6Iuv
+sass 哥：AJJLj0
 ```
 
 每个 sheet 的字段保持一致：

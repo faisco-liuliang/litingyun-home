@@ -14,11 +14,12 @@
 https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg
 ```
 
-当前主站 sheet：
+当前子品牌 sheet：
 
 ```text
-sheet 名称：zjb2.fkw.com
-sheet id：5b65f2
+立亭云：5b65f2
+维双云：uT6Iuv
+sass 哥：AJJLj0
 ```
 
 建议飞书表格第一行使用以下字段名：
@@ -51,6 +52,19 @@ LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg"
 
 ```bash
 npm run sync:lark -- --sheet-url "https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" --sheet-id "5b65f2" --range "A1:M200"
+```
+
+不同子品牌替换 `sheet-id` 即可：
+
+```bash
+# 立亭云
+--sheet-id "5b65f2"
+
+# 维双云
+--sheet-id "uT6Iuv"
+
+# sass 哥
+--sheet-id "AJJLj0"
 ```
 
 ## 正式发布
