@@ -26,15 +26,15 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "价格中心 - 立亭云全产品套餐",
+  title: "价格中心 - 立亭云 AI 赋能全产品套餐",
   description:
-    "立亭云价格中心，覆盖企业官网、私域商城、门店系统、教育系统、服务预约、营销工具、GEO 优化等产品套餐，开 2 年送 2 年，专属顾问协助上线。",
-  keywords: ["立亭云价格", "建站费用", "商城小程序价格", "企业官网套餐", "门店系统价格"],
+    "立亭云价格中心，覆盖 AI 建站、私域商城、门店系统、AI 题库教育系统、服务预约、AI 营销工具、GEO 优化等产品套餐。",
+  keywords: ["立亭云价格", "AI 建站价格", "商城小程序价格", "企业官网套餐", "GEO 优化价格", "门店系统价格"],
   alternates: { canonical: "https://litingyun.com/pricing" },
   openGraph: {
     url: "https://litingyun.com/pricing",
-    title: "价格中心 - 立亭云全产品套餐",
-    description: "多产品线清晰报价，开 2 年送 2 年，适合企业官网、商城、门店、教育和营销增长场景。",
+    title: "价格中心 - 立亭云 AI 赋能全产品套餐",
+    description: "多产品线清晰报价，开 2 年送 2 年，适合 AI 建站、商城、门店、教育和营销增长场景。",
   },
 }
 
@@ -49,7 +49,7 @@ const products = [
     id: "website",
     name: "企业官网",
     icon: LayoutTemplate,
-    summary: "适合展示型官网、获客型官网、SEO 内容站。",
+    summary: "适合 AI 建站、展示型官网、获客型官网、SEO/GEO 内容站。",
     startPrice: "¥698/年起",
     bestFor: "品牌展示 / 百度收录 / 表单获客",
     plans: [
@@ -57,20 +57,20 @@ const products = [
         name: "初级版",
         price: "698",
         note: "轻量官网快速上线",
-        features: ["电脑 + 手机自适应", "独立域名绑定", "SSL 证书", "基础 SEO 设置", "表单线索收集"],
+        features: ["AI 首页文案", "电脑 + 手机自适应", "独立域名绑定", "SSL 证书", "基础 SEO 设置", "表单线索收集"],
       },
       {
         name: "标准版",
         price: "1,298",
         note: "企业官网常用选择",
         popular: true,
-        features: ["全部初级版功能", "栏目与页面不限", "新闻/案例管理", "关键词与描述配置", "访问数据统计", "顾问协助上线"],
+        features: ["全部初级版功能", "AI 内容工具", "栏目与页面不限", "新闻/案例管理", "关键词与描述配置", "顾问协助上线"],
       },
       {
         name: "高级版",
         price: "1,998",
         note: "搜索获客与内容运营",
-        features: ["全部标准版功能", "SEO 结构化优化", "站点地图生成", "多语言扩展", "内容运营建议", "月度网站检查"],
+        features: ["全部标准版功能", "SEO/GEO 结构化优化", "站点地图生成", "多语言扩展", "内容运营建议", "月度网站检查"],
       },
     ],
   },
@@ -78,7 +78,7 @@ const products = [
     id: "mall",
     name: "私域商城",
     icon: ShoppingBag,
-    summary: "适合小程序商城、会员复购、分销裂变。",
+    summary: "适合 AI 商品文案、小程序商城、会员复购、分销裂变。",
     startPrice: "¥1,599/年起",
     bestFor: "商品销售 / 会员运营 / 分销活动",
     plans: [
@@ -86,14 +86,14 @@ const products = [
         name: "基础版",
         price: "1,599",
         note: "小程序商城起步",
-        features: ["商品与订单管理", "微信支付", "优惠券", "会员资料", "基础数据报表"],
+        features: ["AI 商品文案", "商品与订单管理", "微信支付", "优惠券", "会员资料", "基础数据报表"],
       },
       {
         name: "豪华版",
         price: "2,699",
         note: "活动运营主推版本",
         popular: true,
-        features: ["全部基础版功能", "拼团/秒杀/砍价", "分销员体系", "会员积分", "直播带货入口", "运营顾问指导"],
+        features: ["全部基础版功能", "智能活动建议", "拼团/秒杀/砍价", "分销员体系", "会员积分", "运营顾问指导"],
       },
       {
         name: "旗舰版",
@@ -107,7 +107,7 @@ const products = [
     id: "store",
     name: "门店系统",
     icon: Store,
-    summary: "适合单店、连锁店、会员储值和核销。",
+    summary: "适合 AI 经营分析、单店、连锁店、会员储值和核销。",
     startPrice: "¥1,299/年起",
     bestFor: "门店收银 / 会员储值 / 连锁管理",
     plans: [
@@ -115,14 +115,14 @@ const products = [
         name: "单店版",
         price: "1,299",
         note: "单门店数字化经营",
-        features: ["门店商品管理", "会员储值", "到店核销", "员工账号", "营业报表"],
+        features: ["AI 经营分析", "门店商品管理", "会员储值", "到店核销", "员工账号", "营业报表"],
       },
       {
         name: "连锁版",
         price: "2,299",
         note: "多门店统一运营",
         popular: true,
-        features: ["全部单店版功能", "10 家门店", "跨店会员通用", "总部数据汇总", "门店独立权限", "活动配置"],
+        features: ["全部单店版功能", "会员分层运营", "10 家门店", "跨店会员通用", "总部数据汇总", "活动配置"],
       },
       {
         name: "集团版",
@@ -136,7 +136,7 @@ const products = [
     id: "education",
     name: "教育系统",
     icon: GraduationCap,
-    summary: "适合知识付费、训练营、机构课程售卖。",
+    summary: "适合 AI 题库、知识付费、训练营、机构课程售卖。",
     startPrice: "¥1,599/年起",
     bestFor: "课程销售 / 学员管理 / 直播录播",
     plans: [
@@ -144,14 +144,14 @@ const products = [
         name: "入门版",
         price: "1,599",
         note: "课程售卖快速上线",
-        features: ["图文/音视频课程", "课程订单", "学员管理", "微信支付", "学习记录"],
+        features: ["AI 题库导入", "图文/音视频课程", "课程订单", "学员管理", "微信支付", "学习记录"],
       },
       {
         name: "专业版",
         price: "2,999",
         note: "机构与训练营推荐",
         popular: true,
-        features: ["全部入门版功能", "直播课程", "会员订阅", "邀请返佣", "作业打卡", "数据报表"],
+        features: ["全部入门版功能", "智能组卷纠错", "直播课程", "会员订阅", "邀请返佣", "数据报表"],
       },
       {
         name: "机构版",
@@ -165,7 +165,7 @@ const products = [
     id: "booking",
     name: "服务预约",
     icon: CalendarDays,
-    summary: "适合预约到店、上门服务、咨询排期。",
+    summary: "适合 AI 表单、预约到店、上门服务、咨询排期。",
     startPrice: "¥999/年起",
     bestFor: "预约排班 / 到店核销 / 服务订单",
     plans: [
@@ -173,14 +173,14 @@ const products = [
         name: "轻量版",
         price: "999",
         note: "单业务预约",
-        features: ["服务项目", "预约日历", "短信/微信提醒", "订单管理", "基础核销"],
+        features: ["AI 表单生成", "服务项目", "预约日历", "短信/微信提醒", "订单管理", "基础核销"],
       },
       {
         name: "标准版",
         price: "1,699",
         note: "多员工排班推荐",
         popular: true,
-        features: ["全部轻量版功能", "员工排班", "预约定金", "会员优惠", "服务评价", "数据统计"],
+        features: ["全部轻量版功能", "线索摘要", "员工排班", "预约定金", "会员优惠", "数据统计"],
       },
       {
         name: "高级版",
@@ -194,7 +194,7 @@ const products = [
     id: "tools",
     name: "营销工具",
     icon: Wrench,
-    summary: "适合裂变活动、留资页面、节日营销。",
+    summary: "适合 AI 海报、AI 短视频、裂变活动、留资页面、节日营销。",
     startPrice: "¥699/年起",
     bestFor: "活动获客 / 表单留资 / 私域增长",
     plans: [
@@ -202,14 +202,14 @@ const products = [
         name: "基础版",
         price: "699",
         note: "日常活动工具",
-        features: ["营销落地页", "表单留资", "优惠券", "抽奖活动", "线索导出"],
+        features: ["AI 海报设计", "营销落地页", "表单留资", "优惠券", "抽奖活动", "线索导出"],
       },
       {
         name: "增长版",
         price: "1,299",
         note: "私域裂变常用",
         popular: true,
-        features: ["全部基础版功能", "分享裂变", "助力活动", "渠道码", "企微承接", "活动数据看板"],
+        features: ["全部基础版功能", "AI 短视频", "分享裂变", "助力活动", "渠道码", "活动数据看板"],
       },
       {
         name: "矩阵版",
@@ -223,7 +223,7 @@ const products = [
     id: "geo",
     name: "GEO 优化",
     icon: SearchCheck,
-    summary: "适合 AI 搜索曝光、品牌内容资产建设。",
+    summary: "适合 DeepSeek、豆包、通义、百度 AI 搜索曝光和品牌内容资产建设。",
     startPrice: "¥2,999/年起",
     bestFor: "AI 推荐 / 内容结构 / 品牌实体",
     plans: [
@@ -231,14 +231,14 @@ const products = [
         name: "诊断版",
         price: "2,999",
         note: "明确优化方向",
-        features: ["品牌实体诊断", "竞品问答采样", "内容缺口分析", "基础结构化建议", "优化报告"],
+        features: ["AI 可见度诊断", "竞品问答采样", "提问词挖掘", "基础结构化建议", "优化报告"],
       },
       {
         name: "增长版",
         price: "5,999",
         note: "持续内容优化",
         popular: true,
-        features: ["全部诊断版内容", "问答内容库", "官网内容优化", "Schema 建议", "月度追踪报告", "顾问复盘"],
+        features: ["全部诊断版内容", "专属品牌智库", "AI 内容创作", "官网内容优化", "月度追踪报告", "顾问复盘"],
       },
       {
         name: "托管版",
@@ -271,10 +271,10 @@ export default function PricingPage() {
                 限时活动 · 多产品线可参与
               </Badge>
               <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-                立亭云全产品套餐价格
+                立亭云 AI 赋能全产品套餐价格
               </h1>
               <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-                参考成熟建站平台的套餐结构，按企业官网、商城、门店、教育、预约、营销和 GEO 优化拆分版本。现在开通 2 年直接送 2 年，适合一次性把线上业务体系搭起来。
+                参考成熟建站平台的套餐结构，按 AI 建站、商城、门店、教育、预约、营销和 GEO 优化拆分版本。现在开通 2 年直接送 2 年，适合一次性把线上业务体系搭起来。
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link

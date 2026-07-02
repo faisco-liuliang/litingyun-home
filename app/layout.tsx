@@ -6,12 +6,12 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://litingyun.com'),
   title: {
-    default: '立亭云 - 专业企业数字化建站与营销工具平台',
+    default: '立亭云 - AI 时代企业数字化建站与营销工具平台',
     template: '%s | 立亭云',
   },
   description:
-    '立亭云提供私域商城、企业官网、教育系统、门店管理、服务预约等一站式企业数字化解决方案，助力中小企业快速搭建线上业务，实现业绩增长。',
-  keywords: ['立亭云', '企业建站', '私域商城', '小程序建站', 'SEO建站', '知识付费', '门店管理系统', 'GEO优化', '企业数字化'],
+    '立亭云提供 AI 建站、私域商城、AI 题库教育系统、门店管理、服务预约、GEO 优化、AI 营销工具等一站式企业数字化解决方案。',
+  keywords: ['立亭云', 'AI建站', '企业建站', '私域商城', '小程序建站', 'SEO建站', 'AI题库', '门店管理系统', 'GEO优化', '企业数字化'],
   authors: [{ name: '立亭云', url: 'https://litingyun.com' }],
   creator: '立亭云',
   publisher: '立亭云',
@@ -23,21 +23,21 @@ export const metadata: Metadata = {
     locale: 'zh_CN',
     url: 'https://litingyun.com',
     siteName: '立亭云',
-    title: '立亭云 - 专业企业数字化建站与营销工具平台',
-    description: '一站式企业数字化解决方案，私域商城、企业官网、教育系统、门店管理，助力中小企业高速增长。',
+    title: '立亭云 - AI 时代企业数字化建站与营销工具平台',
+    description: '一站式 AI 企业数字化解决方案，AI 建站、私域商城、教育系统、门店管理、GEO 优化，助力中小企业高速增长。',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: '立亭云 - 企业数字化首选平台',
+        alt: '立亭云 - AI 企业数字化首选平台',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '立亭云 - 专业企业数字化建站与营销工具平台',
-    description: '一站式企业数字化解决方案，助力中小企业快速上线。',
+    title: '立亭云 - AI 时代企业数字化建站与营销工具平台',
+    description: '一站式 AI 企业数字化解决方案，助力中小企业快速上线。',
     images: ['/og-image.png'],
   },
   robots: {

@@ -25,10 +25,10 @@ export function BlogPreview() {
               干货博客
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground text-balance">
-              企业数字化增长实战指南
+              AI 企业数字化增长实战指南
             </h2>
             <p className="text-muted-foreground mt-3 text-base max-w-xl text-pretty">
-              SEO 建站、GEO 优化、私域运营……每周更新，帮助您掌握最新的数字化增长方法论。
+              AI 建站、SEO/GEO 优化、私域运营、AI 营销工具……每周更新，帮助您掌握最新的数字化增长方法论。
             </p>
           </div>
           <Link

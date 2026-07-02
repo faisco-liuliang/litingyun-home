@@ -18,7 +18,7 @@ export function OrganizationJsonLd() {
           height: 60,
         },
         description:
-          "立亭云提供私域商城、企业官网 SEO 建站、教育系统、门店管理等一站式企业数字化解决方案，助力中小企业快速搭建线上业务，实现业绩增长。",
+          "立亭云提供 AI 建站、私域商城、AI 题库教育系统、门店管理、GEO 优化、AI 营销工具等一站式企业数字化解决方案，助力中小企业快速搭建线上业务，实现业绩增长。",
         telephone: "400-000-0000",
         address: {
           "@type": "PostalAddress",
@@ -37,7 +37,7 @@ export function OrganizationJsonLd() {
         "@id": "https://litingyun.com/#website",
         url: "https://litingyun.com",
         name: "立亭云",
-        description: "一站式企业数字化建站与营销工具平台",
+        description: "AI 时代一站式企业数字化建站与营销工具平台",
         publisher: {
           "@id": "https://litingyun.com/#organization",
         },
@@ -54,36 +54,36 @@ export function OrganizationJsonLd() {
       {
         "@type": "ItemList",
         name: "立亭云产品列表",
-        description: "立亭云提供的企业数字化解决方案产品系列",
+        description: "立亭云提供的 AI 赋能企业数字化解决方案产品系列",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
-            name: "私域商城",
+            name: "AI 营销私域商城",
             url: "https://litingyun.com/products/mall",
           },
           {
             "@type": "ListItem",
             position: 2,
-            name: "企业官网 SEO 建站",
+            name: "企业官网 AI 建站",
             url: "https://litingyun.com/products/website",
           },
           {
             "@type": "ListItem",
             position: 3,
-            name: "教育系统",
+            name: "AI 题库教育系统",
             url: "https://litingyun.com/products/education",
           },
           {
             "@type": "ListItem",
             position: 4,
-            name: "轻应用 / 服务预约",
+            name: "AI 轻应用 / 服务预约",
             url: "https://litingyun.com/products/booking",
           },
           {
             "@type": "ListItem",
             position: 5,
-            name: "门店系统",
+            name: "AI 辅助门店系统",
             url: "https://litingyun.com/products/store",
           },
           {
@@ -208,4 +208,3 @@ export function FaqJsonLd({
     />
   )
 }
-

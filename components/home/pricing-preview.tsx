@@ -11,7 +11,7 @@ const plans = [
     price: "299",
     unit: "元/月",
     desc: "适合个人创业者和微小企业",
-    features: ["企业官网 1 个", "独立域名绑定", "模版 50+", "基础 SEO 工具", "表单收集"],
+    features: ["AI 首页文案", "企业官网 1 个", "独立域名绑定", "基础 SEO 工具", "表单收集"],
     cta: "立即开通",
     href: "/pricing",
     highlight: false,
@@ -23,10 +23,10 @@ const plans = [
     desc: "适合成长期中小企业",
     badge: "最受欢迎",
     features: [
-      "全功能商城 + 官网",
+      "AI 建站 + 私域商城",
       "会员管理系统",
       "分销裂变工具",
-      "SEO 高级优化",
+      "SEO/GEO 高级优化",
       "数据分析报表",
       "专属顾问服务",
     ],
@@ -42,8 +42,8 @@ const plans = [
     features: [
       "所有专业版功能",
       "GEO 优化系统",
+      "AI 营销内容工具",
       "多平台同步运营",
-      "API 接口对接",
       "定制化开发支持",
       "驻场培训服务",
     ],
@@ -62,10 +62,10 @@ export function PricingPreview() {
             价格方案
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-            透明定价，按需选择
+            AI 赋能套餐，按需选择
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto text-pretty">
-            所有套餐均含免费试用期，满意再付款，零风险起步。
+            从 AI 建站、私域商城到 GEO 优化，不同阶段都有匹配套餐，满意再付款，零风险起步。
           </p>
         </div>
 

@@ -9,15 +9,15 @@ import { blogCategories, getBlogPosts, getFeaturedPost } from "@/lib/blog-data"
 import { ArrowRight, Clock, User, Tag, Search } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "博客 - 企业数字化增长干货资讯",
+  title: "博客 - AI 企业数字化增长干货资讯",
   description:
-    "立亭云博客，分享 SEO 建站技巧、GEO 优化方法、私域运营策略、数字化转型案例等实战干货，帮助中小企业掌握数字化增长方法论。",
-  keywords: ["SEO 教程", "GEO 优化", "私域运营", "企业数字化", "建站教程", "营销干货"],
+    "立亭云博客，分享 AI 建站、SEO/GEO 优化、私域运营、AI 营销工具、数字化转型案例等实战干货，帮助中小企业掌握增长方法论。",
+  keywords: ["AI 建站", "SEO 教程", "GEO 优化", "私域运营", "企业数字化", "建站教程", "营销干货"],
   alternates: { canonical: "https://litingyun.com/blog" },
   openGraph: {
     url: "https://litingyun.com/blog",
-    title: "博客 - 立亭云企业数字化增长干货",
-    description: "SEO 建站、GEO 优化、私域运营实战干货，每周更新，助力企业掌握数字化增长方法论。",
+    title: "博客 - 立亭云 AI 企业数字化增长干货",
+    description: "AI 建站、SEO/GEO 优化、私域运营实战干货，每周更新，助力企业掌握数字化增长方法论。",
   },
 }
 
@@ -35,10 +35,10 @@ export default function BlogPage() {
             <div className="text-center mb-8">
               <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-3">立亭云博客</p>
               <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 text-balance">
-                企业数字化增长干货
+                AI 企业数字化增长干货
               </h1>
               <p className="text-lg text-muted-foreground max-w-xl mx-auto text-pretty leading-relaxed">
-                SEO 建站、GEO 优化、私域运营……每周更新实战干货，助力企业掌握数字化增长方法论。
+                AI 建站、SEO/GEO 优化、私域运营、AI 营销工具……每周更新实战干货，助力企业掌握数字化增长方法论。
               </p>
             </div>
 

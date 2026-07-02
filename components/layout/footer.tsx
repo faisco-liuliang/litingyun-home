@@ -11,13 +11,13 @@ import {
 } from "lucide-react"
 
 const productLinks = [
-  { name: "私域商城", href: "/products/mall", icon: ShoppingCart },
-  { name: "企业官网 SEO 建站", href: "/products/website", icon: Globe },
-  { name: "教育系统 / 知识付费", href: "/products/education", icon: GraduationCap },
-  { name: "轻应用 / 服务预约", href: "/products/booking", icon: CalendarCheck },
-  { name: "门店系统", href: "/products/store", icon: Store },
+  { name: "AI 营销私域商城", href: "/products/mall", icon: ShoppingCart },
+  { name: "企业官网 AI 建站", href: "/products/website", icon: Globe },
+  { name: "AI 题库 / 知识付费", href: "/products/education", icon: GraduationCap },
+  { name: "AI 轻应用 / 服务预约", href: "/products/booking", icon: CalendarCheck },
+  { name: "AI 辅助门店系统", href: "/products/store", icon: Store },
   { name: "GEO 优化系统", href: "/products/geo", icon: Zap },
-  { name: "其他营销工具", href: "/products/tools", icon: Wrench },
+  { name: "AI 营销工具", href: "/products/tools", icon: Wrench },
 ]
 
 const supportLinks = [
@@ -49,7 +49,7 @@ export function Footer() {
                 <span className="font-bold text-lg text-white">立亭云</span>
               </Link>
               <p className="text-sm text-slate-400 leading-relaxed">
-                专注企业数字化建站与营销工具，帮助中小企业快速搭建私域流量阵地，实现线上业绩增长。
+                专注 AI 时代企业数字化建站与营销工具，帮助中小企业快速搭建获客、转化、复购一体化增长体系。
               </p>
             </div>
           </div>

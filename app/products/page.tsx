@@ -9,95 +9,95 @@ import { cn } from "@/lib/utils"
 import { ArrowRight, ShoppingCart, Globe, GraduationCap, CalendarCheck, Store, Zap, Wrench } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "产品中心 - 7 大产品线，覆盖企业全业务场景",
+  title: "产品中心 - AI 赋能 7 大产品线，覆盖企业全业务场景",
   description:
-    "立亭云产品中心，提供私域商城、企业官网 SEO 建站、教育系统、轻应用预约、门店管理、GEO 优化、营销工具等 7 大产品线，一站式满足中小企业数字化需求。",
-  keywords: ["立亭云产品", "私域商城", "企业官网", "教育系统", "门店管理", "GEO 优化"],
+    "立亭云产品中心，提供 AI 建站、私域商城、教育系统、轻应用预约、门店管理、GEO 优化、AI 营销内容工具等 7 大产品线，一站式满足中小企业数字化增长需求。",
+  keywords: ["立亭云产品", "AI 建站", "私域商城", "企业官网", "教育系统", "门店管理", "GEO 优化"],
 }
 
 const products = [
   {
     name: "私域商城",
-    tagline: "小程序 + 微商城一体化",
-    desc: "分销裂变、拼团秒杀、直播带货，打造完整私域电商闭环，客户留存转化率提升 3 倍。",
+    tagline: "AI 营销商城，小程序 + 会员 + 分销闭环",
+    desc: "AI 商品文案、活动建议、分销裂变、拼团秒杀、直播带货，打造完整私域电商闭环。",
     href: "/products/mall",
     icon: ShoppingCart,
     color: "text-blue-600",
     bg: "bg-blue-50",
     badge: "热门",
-    highlights: ["小程序商城", "分销裂变", "直播带货", "数据报表"],
+    highlights: ["AI 商品文案", "小程序商城", "分销裂变", "直播带货"],
     priceFrom: "499",
   },
   {
     name: "企业官网",
-    tagline: "SEO 建站，精准引流",
-    desc: "内置专业 SEO 优化工具，百度 / Google 双引擎精准收录，月均自然流量增长 200%+。",
+    tagline: "AI 建站 + SEO/GEO，官网内容自动增长",
+    desc: "AI 辅助生成页面、栏目和内容，兼顾百度 SEO 与 AI 搜索可见度，让客户主动找到你。",
     href: "/products/website",
     icon: Globe,
     color: "text-sky-600",
     bg: "bg-sky-50",
     badge: "SEO 必备",
-    highlights: ["百度精准收录", "关键词排名", "表单线索收集", "响应式设计"],
+    highlights: ["AI 建站", "百度精准收录", "GEO 内容", "表单线索收集"],
     priceFrom: "299",
   },
   {
     name: "教育系统",
-    tagline: "知识付费全平台",
-    desc: "直播上课、录播点播、报名缴费、学员管理，完整教育 SaaS 方案，快速搭建在线学校。",
+    tagline: "AI 题库 + 直播课 + 知识付费",
+    desc: "AI 题库导入、智能组卷、直播录播、报名缴费和学员管理，快速搭建在线学校。",
     href: "/products/education",
     icon: GraduationCap,
     color: "text-violet-600",
     bg: "bg-violet-50",
     badge: "新品",
-    highlights: ["直播课堂", "录播视频", "付费订阅", "学员管理"],
+    highlights: ["AI 题库导入", "智能组卷", "直播课堂", "付费订阅"],
     priceFrom: "399",
   },
   {
     name: "轻应用",
-    tagline: "服务预约管理系统",
-    desc: "门诊预约、美业预订、家政服务，智能排班、自动提醒，运营效率大幅提升。",
+    tagline: "AI 表单/预约/内容发布小程序",
+    desc: "AI 辅助生成表单、预约页面和服务说明，适合门诊、美业、家政等服务快速上线。",
     href: "/products/booking",
     icon: CalendarCheck,
     color: "text-emerald-600",
     bg: "bg-emerald-50",
     badge: "服务行业",
-    highlights: ["在线预约", "智能排班", "自动提醒", "评价管理"],
+    highlights: ["AI 表单", "在线预约", "智能排班", "自动提醒"],
     priceFrom: "199",
   },
   {
     name: "门店系统",
-    tagline: "连锁多门店统一管理",
-    desc: "连锁门店统一管理，会员积分储值、跨店通用、数据实时汇总，提升整体运营效率。",
+    tagline: "AI 辅助门店经营，多门店会员一体化",
+    desc: "连锁门店统一管理，AI 辅助会员分层、活动建议和经营数据解读，提升整体运营效率。",
     href: "/products/store",
     icon: Store,
     color: "text-orange-600",
     bg: "bg-orange-50",
     badge: "连锁推荐",
-    highlights: ["多门店管理", "会员体系", "储值核销", "经营报表"],
+    highlights: ["AI 经营分析", "多门店管理", "会员体系", "经营报表"],
     priceFrom: "299",
   },
   {
     name: "GEO 优化系统",
-    tagline: "AI 搜索时代的流量入口",
-    desc: "让 ChatGPT、Perplexity、Kimi 主动推荐您的品牌，抢占 AI 时代流量先机。",
+    tagline: "AI 搜索品牌增长系统",
+    desc: "深度适配 DeepSeek、豆包、通义、百度 AI 等大模型，让品牌更容易成为 AI 推荐答案。",
     href: "/products/geo",
     icon: Zap,
     color: "text-amber-600",
     bg: "bg-amber-50",
     badge: "独家",
-    highlights: ["AI 曝光监控", "内容优化", "多平台分发", "竞品分析"],
+    highlights: ["AI 可见度诊断", "品牌智库", "内容创作", "竞品监控"],
     priceFrom: "799",
   },
   {
     name: "营销工具",
-    tagline: "全场景营销工具箱",
-    desc: "H5 活动页、微传单、投票抽奖、问卷调查，低成本高效完成各类营销推广活动。",
+    tagline: "AI 海报、短视频、H5 活动工具",
+    desc: "AI 海报、AI 短视频、H5 活动页、投票抽奖和问卷调查，低成本完成内容获客与活动裂变。",
     href: "/products/tools",
     icon: Wrench,
     color: "text-rose-600",
     bg: "bg-rose-50",
     badge: "多合一",
-    highlights: ["H5 活动页", "微传单", "有奖投票", "问卷调查"],
+    highlights: ["AI 海报", "AI 短视频", "H5 活动页", "有奖投票"],
     priceFrom: "按需购买",
   },
 ]
@@ -112,10 +112,10 @@ export default function ProductsPage() {
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-3">产品中心</p>
             <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 text-balance">
-              7 大产品线，覆盖企业全业务场景
+              AI 赋能 7 大产品线，覆盖企业全业务场景
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty leading-relaxed">
-              无论您是实体门店、教育机构、电商品牌还是服务业，立亭云都有专属解决方案，帮助企业快速建立完整的线上业务体系。
+              无论您是实体门店、教育机构、电商品牌还是服务业，立亭云都能把 AI 获客、线上交易、会员复购和经营管理串成一套完整体系。
             </p>
           </div>
         </section>

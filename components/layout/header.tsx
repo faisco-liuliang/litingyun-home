@@ -22,7 +22,7 @@ import {
 const products = [
   {
     name: "私域商城",
-    desc: "小程序+微商城，私域电商闭环",
+    desc: "AI 营销商城，小程序+会员+分销闭环",
     href: "/products/mall",
     icon: ShoppingCart,
     color: "text-blue-600",
@@ -30,7 +30,7 @@ const products = [
   },
   {
     name: "企业官网",
-    desc: "SEO 优化建站，百度精准引流",
+    desc: "AI 建站+SEO/GEO，官网内容自动增长",
     href: "/products/website",
     icon: Globe,
     color: "text-sky-600",
@@ -38,7 +38,7 @@ const products = [
   },
   {
     name: "教育系统",
-    desc: "直播上课、知识付费一体化",
+    desc: "AI 题库+直播课+知识付费",
     href: "/products/education",
     icon: GraduationCap,
     color: "text-violet-600",
@@ -46,7 +46,7 @@ const products = [
   },
   {
     name: "轻应用",
-    desc: "服务预约、内容管理、社交功能",
+    desc: "AI 表单/预约/内容发布小程序",
     href: "/products/booking",
     icon: CalendarCheck,
     color: "text-emerald-600",
@@ -54,7 +54,7 @@ const products = [
   },
   {
     name: "门店系统",
-    desc: "多门店统一管理、会员体系",
+    desc: "AI 经营分析，多门店会员一体化",
     href: "/products/store",
     icon: Store,
     color: "text-orange-600",
@@ -62,7 +62,7 @@ const products = [
   },
   {
     name: "GEO 优化系统",
-    desc: "AI 搜索时代的品牌曝光优化",
+    desc: "让 DeepSeek、豆包等大模型推荐品牌",
     href: "/products/geo",
     icon: Zap,
     color: "text-amber-600",
@@ -70,7 +70,7 @@ const products = [
   },
   {
     name: "其他工具",
-    desc: "营销 H5、微传单、活动工具",
+    desc: "AI 海报、短视频、H5 活动工具",
     href: "/products/tools",
     icon: Wrench,
     color: "text-rose-600",

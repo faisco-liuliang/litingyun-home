@@ -7,16 +7,18 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
-import { CheckCircle, ArrowRight, Video, BookOpen, CreditCard, Users, Bell, Star } from "lucide-react"
+import { CheckCircle, ArrowRight, Video, BookOpen, CreditCard, Users, Bell, Star, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "教育系统 / 知识付费平台 - 在线课程、直播教学一体化",
+  title: "教育系统 / AI 题库 + 知识付费平台",
   description:
-    "立亭云教育系统，整合直播课堂、录播点播、报名缴费、学员管理，帮助教育机构和知识创业者快速搭建在线学校，实现知识变现。",
-  keywords: ["知识付费", "在线教育系统", "直播上课", "教育 SaaS", "网络学校", "录播课程"],
+    "立亭云教育系统，整合 AI 题库导入、智能组卷、直播课堂、录播点播、报名缴费、学员管理，帮助教育机构快速搭建在线学校。",
+  keywords: ["AI 题库", "知识付费", "在线教育系统", "直播上课", "教育 SaaS", "网络学校", "录播课程"],
 }
 
 const features = [
+  { icon: Sparkles, title: "AI 题库导入", desc: "支持把 Word、Excel、扫描件题库整理为线上题库，减少人工录入和格式校对成本。" },
+  { icon: BookOpen, title: "智能组卷纠错", desc: "按知识点、难度和题型智能组卷，辅助检查答案缺失、题型混淆、标号错乱等问题。" },
   { icon: Video, title: "直播课堂", desc: "稳定高清直播，互动弹幕、答题、抽奖，打造沉浸式在线课堂体验。" },
   { icon: BookOpen, title: "录播课程", desc: "上传视频课程，防录制防下载，学员随时回看，内容资产长期变现。" },
   { icon: CreditCard, title: "付费系统", desc: "课程单独定价、会员包月订阅、拼团特价，多种付费模式灵活配置。" },
@@ -26,8 +28,8 @@ const features = [
 ]
 
 const plans = [
-  { name: "入门版", price: "399", features: ["直播课堂 100 人", "录播视频 50G", "课程定价销售", "学员管理", "微信支付"] },
-  { name: "专业版", price: "899", highlight: true, features: ["直播课堂 500 人", "录播视频 500G", "会员订阅系统", "邀请返佣裂变", "数据报表", "专属顾问"] },
+  { name: "入门版", price: "399", features: ["AI 题库导入", "直播课堂 100 人", "录播视频 50G", "课程定价销售", "学员管理", "微信支付"] },
+  { name: "专业版", price: "899", highlight: true, features: ["全部入门版功能", "智能组卷纠错", "直播课堂 500 人", "会员订阅系统", "邀请返佣裂变", "专属顾问"] },
   { name: "机构版", price: "1,699", features: ["直播课堂不限人数", "存储不限量", "多讲师协作", "API 对接", "专属 App 定制", "驻场服务"] },
 ]
 
@@ -39,14 +41,14 @@ export default function EducationPage() {
         <section className="hero-dark-bg py-24 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl">
-              <Badge className="mb-5 bg-violet-900/60 text-violet-300 border-violet-700/50">知识付费解决方案</Badge>
+              <Badge className="mb-5 bg-violet-900/60 text-violet-300 border-violet-700/50">AI 题库 + 知识付费解决方案</Badge>
               <h1 className="text-4xl sm:text-5xl font-bold text-white mb-5 text-balance">
-                教育系统 / 知识付费
+                教育系统 / AI 题库
                 <br />
-                <span className="text-violet-400">让知识持续变现</span>
+                <span className="text-violet-400">让教学资产持续变现</span>
               </h1>
               <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-xl text-pretty">
-                整合直播课堂、录播点播、付费订阅、学员管理，帮助教育机构和知识博主快速搭建属于自己的在线学校，实现知识稳定变现。
+                整合 AI 题库导入、智能组卷、直播课堂、录播点播、付费订阅和学员管理，帮助教育机构快速搭建可招生、可交付、可复购的在线学校。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
@@ -63,8 +65,8 @@ export default function EducationPage() {
         <section className="py-20 px-4 sm:px-6 bg-background">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-3 text-balance">完整教育 SaaS 功能矩阵</h2>
-              <p className="text-muted-foreground text-lg max-w-xl mx-auto">从招生到授课，从收费到复购，全链路数字化管理</p>
+              <h2 className="text-3xl font-bold text-foreground mb-3 text-balance">AI 题库 + 教育 SaaS 功能矩阵</h2>
+              <p className="text-muted-foreground text-lg max-w-xl mx-auto">从题库建设、招生转化到授课交付，全链路数字化管理</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((f) => (

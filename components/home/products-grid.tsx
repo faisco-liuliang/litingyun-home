@@ -6,87 +6,87 @@ import { ArrowRight, ShoppingCart, Globe, GraduationCap, CalendarCheck, Store, Z
 const products = [
   {
     name: "私域商城",
-    tagline: "小程序 + 微商城",
-    desc: "分销、拼团、直播带货，打造完整私域电商闭环，客户留存转化率提升 3 倍。",
+    tagline: "AI 营销商城",
+    desc: "AI 商品文案、活动建议、分销拼团和直播带货，打造从下单到复购的私域电商闭环。",
     href: "/products/mall",
     icon: ShoppingCart,
     iconColor: "text-blue-600",
     iconBg: "bg-blue-50",
     badge: "热门",
     badgeColor: "bg-blue-100 text-blue-700",
-    features: ["小程序商城", "分销体系", "直播带货", "私域运营"],
+    features: ["AI 商品文案", "小程序商城", "分销体系", "私域运营"],
   },
   {
     name: "企业官网",
-    tagline: "SEO 建站",
-    desc: "百度精准收录，搜索排名靠前，让客户主动找到你。内置 SEO 优化工具。",
+    tagline: "AI 建站 + SEO/GEO",
+    desc: "AI 辅助生成页面、栏目和内容，兼顾百度 SEO 与 AI 搜索可见度，让客户主动找到你。",
     href: "/products/website",
     icon: Globe,
     iconColor: "text-sky-600",
     iconBg: "bg-sky-50",
     badge: "SEO 必备",
     badgeColor: "bg-sky-100 text-sky-700",
-    features: ["百度收录", "SEO 优化", "表单线索", "响应式设计"],
+    features: ["AI 建站", "SEO 优化", "GEO 内容", "表单线索"],
   },
   {
     name: "教育系统",
-    tagline: "知识付费平台",
-    desc: "直播上课、录播点播、报名缴费，完整教育 SaaS 方案，快速搭建在线学校。",
+    tagline: "AI 题库 + 知识付费",
+    desc: "AI 题库导入、智能组卷、直播录播和知识付费，快速搭建可招生、可交付的在线学校。",
     href: "/products/education",
     icon: GraduationCap,
     iconColor: "text-violet-600",
     iconBg: "bg-violet-50",
     badge: "新品",
     badgeColor: "bg-violet-100 text-violet-700",
-    features: ["直播课堂", "录播视频", "付费课程", "学员管理"],
+    features: ["AI 题库", "直播课堂", "付费课程", "学员管理"],
   },
   {
     name: "轻应用",
-    tagline: "服务预约平台",
-    desc: "门诊预约、家政服务、美业预订，轻量级服务管理系统，快速响应客户需求。",
+    tagline: "AI 表单/预约小程序",
+    desc: "AI 辅助生成表单、预约页面和服务说明，适合门诊、美业、家政等服务快速上线。",
     href: "/products/booking",
     icon: CalendarCheck,
     iconColor: "text-emerald-600",
     iconBg: "bg-emerald-50",
     badge: "灵活定制",
     badgeColor: "bg-emerald-100 text-emerald-700",
-    features: ["在线预约", "服务管理", "消息提醒", "评价体系"],
+    features: ["AI 表单", "在线预约", "服务管理", "消息提醒"],
   },
   {
     name: "门店系统",
-    tagline: "多门店管理",
-    desc: "连锁门店统一管理，会员积分、优惠券、核销一体化，提升门店运营效率。",
+    tagline: "AI 辅助门店经营",
+    desc: "多门店统一管理，AI 辅助会员分层、活动建议和经营数据解读，提升门店运营效率。",
     href: "/products/store",
     icon: Store,
     iconColor: "text-orange-600",
     iconBg: "bg-orange-50",
     badge: "连锁推荐",
     badgeColor: "bg-orange-100 text-orange-700",
-    features: ["多门店管理", "会员体系", "储值核销", "数据报表"],
+    features: ["AI 经营分析", "多门店管理", "会员体系", "数据报表"],
   },
   {
     name: "GEO 优化系统",
-    tagline: "AI 搜索时代",
-    desc: "专为 AI 搜索（ChatGPT、Perplexity 等）优化的品牌内容投放系统，抢占 AI 推荐位。",
+    tagline: "AI 搜索品牌增长",
+    desc: "面向 DeepSeek、豆包、通义、百度 AI 等大模型优化品牌内容，让你的品牌更容易成为推荐答案。",
     href: "/products/geo",
     icon: Zap,
     iconColor: "text-amber-600",
     iconBg: "bg-amber-50",
     badge: "独家",
     badgeColor: "bg-amber-100 text-amber-700",
-    features: ["AI 内容优化", "品牌曝光", "知识图谱", "舆情监控"],
+    features: ["AI 可见度", "品牌智库", "内容创作", "竞品监控"],
   },
   {
     name: "其他工具",
-    tagline: "营销工具箱",
-    desc: "H5 营销页面、微传单、有奖活动、投票问卷，灵活组合，满足各类营销需求。",
+    tagline: "AI 内容营销工具箱",
+    desc: "AI 海报、AI 短视频、H5 活动页、投票问卷和活码工具，覆盖内容获客与活动裂变。",
     href: "/products/tools",
     icon: Wrench,
     iconColor: "text-rose-600",
     iconBg: "bg-rose-50",
     badge: "多合一",
     badgeColor: "bg-rose-100 text-rose-700",
-    features: ["H5 活动页", "微传单", "投票问卷", "表单收集"],
+    features: ["AI 海报", "AI 短视频", "H5 活动页", "表单收集"],
   },
 ]
 
@@ -99,10 +99,10 @@ export function ProductsGrid() {
             产品中心
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-            7 大产品线，覆盖企业全业务场景
+            AI 赋能 7 大产品线，覆盖企业全业务场景
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty">
-            无论您是实体门店、教育机构、服务业还是电商，立亭云都有匹配的解决方案。
+            从 AI 建站、AI 内容到私域成交和门店经营，立亭云把获客、转化、复购串成一套可落地的增长系统。
           </p>
         </div>
 

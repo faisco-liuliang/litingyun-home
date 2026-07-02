@@ -4,9 +4,9 @@ import { cn } from "@/lib/utils"
 import { ArrowRight, CheckCircle, Play, ShoppingBag, Globe, GraduationCap, Store, Calendar, Sparkles, Wrench } from "lucide-react"
 
 const highlights = [
-  "无需技术背景，7 天上线",
+  "AI 辅助搭建，7 天上线",
   "5 万+ 企业用户信赖",
-  "专属顾问一对一服务",
+  "专属顾问 + AI 工具陪跑",
 ]
 
 const stats = [
@@ -57,16 +57,16 @@ export function Hero() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-8">
               <span className="size-1.5 rounded-full bg-blue-300 animate-pulse" />
-              <span className="text-xs font-medium text-blue-100 tracking-wide">企业数字化首选平台</span>
+              <span className="text-xs font-medium text-blue-100 tracking-wide">AI 时代企业数字化首选平台</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-bold text-white leading-[1.15] tracking-tight mb-5">
-              一站式企业<br />
-              <span className="text-blue-200">数字化解决方案</span>
+              AI 时代的一站式<br />
+              <span className="text-blue-200">企业数字化平台</span>
             </h1>
 
             <p className="text-base sm:text-lg text-blue-100/80 leading-relaxed mb-10 max-w-lg">
-              整合私域商城、企业官网、教育系统、门店管理等核心产品，帮助中小企业低成本快速搭建完整线上业务体系，驱动业绩增长。
+              整合 AI 建站、私域商城、教育系统、门店管理、GEO 优化和营销内容工具，帮助中小企业低成本搭建获客、转化、复购一体化增长体系。
             </p>
 
             <div className="flex flex-wrap gap-3 mb-10">

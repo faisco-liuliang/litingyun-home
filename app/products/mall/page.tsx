@@ -7,16 +7,21 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
-import { CheckCircle, ArrowRight, ShoppingCart, Users, TrendingUp, Smartphone, Share2, BarChart3 } from "lucide-react"
+import { CheckCircle, ArrowRight, ShoppingCart, Users, TrendingUp, Smartphone, Share2, BarChart3, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "私域商城 - 小程序+微商城一体化解决方案",
+  title: "私域商城 - AI 营销商城，小程序+微商城一体化解决方案",
   description:
-    "立亭云私域商城系统，集小程序、微商城、分销裂变、直播带货于一体，帮助企业快速搭建私域电商闭环，提升用户留存与复购率。",
-  keywords: ["私域商城", "小程序商城", "微商城", "分销系统", "私域电商"],
+    "立亭云 AI 私域商城系统，集小程序、微商城、AI 商品文案、智能活动建议、分销裂变、直播带货于一体，帮助企业搭建私域电商闭环。",
+  keywords: ["私域商城", "AI 商城", "小程序商城", "微商城", "分销系统", "私域电商"],
 }
 
 const features = [
+  {
+    icon: Sparkles,
+    title: "AI 商品文案",
+    desc: "根据商品卖点、目标人群和活动主题生成标题、详情页文案、直播话术和朋友圈素材。",
+  },
   {
     icon: ShoppingCart,
     title: "多端商城",
@@ -39,8 +44,8 @@ const features = [
   },
   {
     icon: TrendingUp,
-    title: "营销工具",
-    desc: "限时秒杀、满减优惠、包邮活动，多种促销玩法一键配置。",
+    title: "智能活动建议",
+    desc: "结合商品、客单价和会员数据，推荐秒杀、满减、拼团、优惠券等更适合的促销玩法。",
   },
   {
     icon: BarChart3,
@@ -53,13 +58,13 @@ const plans = [
   {
     name: "入门版",
     price: "499",
-    features: ["小程序商城", "商品管理 500 件", "订单管理", "基础会员功能", "微信支付"],
+    features: ["小程序商城", "AI 商品文案", "商品管理 500 件", "订单管理", "基础会员功能", "微信支付"],
   },
   {
     name: "标准版",
     price: "999",
     highlight: true,
-    features: ["全部入门版功能", "分销裂变系统", "拼团秒杀活动", "会员积分体系", "数据报表", "专属顾问"],
+    features: ["全部入门版功能", "智能活动建议", "分销裂变系统", "拼团秒杀活动", "会员积分体系", "专属顾问"],
   },
   {
     name: "旗舰版",
@@ -81,12 +86,12 @@ export default function MallPage() {
                 私域电商解决方案
               </Badge>
               <h1 className="text-4xl sm:text-5xl font-bold text-white mb-5 text-balance">
-                私域商城系统
+                AI 私域商城系统
                 <br />
-                <span className="text-blue-400">从流量到留量</span>
+                <span className="text-blue-400">从获客到复购</span>
               </h1>
               <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-xl text-pretty">
-                整合小程序、微商城、分销、直播带货，打造属于企业自己的私域电商阵地，让每一位用户都成为您的增长引擎。
+                整合 AI 商品文案、小程序商城、会员运营、分销裂变和直播带货，打造属于企业自己的私域电商阵地，让每一位用户都成为增长引擎。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
@@ -104,8 +109,8 @@ export default function MallPage() {
         <section className="py-20 px-4 sm:px-6 bg-background">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-3 text-balance">全套私域电商功能，开箱即用</h2>
-              <p className="text-muted-foreground text-lg max-w-xl mx-auto">从建店到运营，每个环节都有专业工具支撑</p>
+              <h2 className="text-3xl font-bold text-foreground mb-3 text-balance">AI 赋能私域电商，开箱即用</h2>
+              <p className="text-muted-foreground text-lg max-w-xl mx-auto">从商品上架、内容种草到活动转化，每个环节都有专业工具支撑</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((f) => (

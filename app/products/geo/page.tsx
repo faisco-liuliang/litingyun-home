@@ -12,17 +12,17 @@ import { CheckCircle, ArrowRight, Zap, Bot, Globe, TrendingUp, Search, Eye } fro
 export const metadata: Metadata = {
   title: "GEO 优化系统 - AI 搜索时代的品牌曝光优化",
   description:
-    "立亭云 GEO（生成式引擎优化）系统，专为 ChatGPT、Perplexity、Gemini 等 AI 搜索引擎优化，帮助品牌抢占 AI 推荐位，实现 AI 时代的流量增长。",
-  keywords: ["GEO 优化", "生成式引擎优化", "AI 搜索优化", "ChatGPT 曝光", "AI 品牌优化", "Perplexity SEO"],
+    "立亭云 GEO（生成式引擎优化）系统，深度适配 DeepSeek、豆包、通义千问、百度 AI 等主流大模型，帮助品牌抢占 AI 推荐位，实现 AI 时代的流量增长。",
+  keywords: ["GEO 优化", "生成式引擎优化", "AI 搜索优化", "DeepSeek 曝光", "豆包推荐", "AI 品牌优化"],
 }
 
 const features = [
-  { icon: Bot, title: "AI 内容生成", desc: "针对 AI 大模型训练数据特征，优化品牌内容结构，提升在 AI 回答中的引用概率。" },
-  { icon: Search, title: "关键词覆盖", desc: "深度挖掘 AI 搜索高频问题场景，布局品牌相关答案内容，全面覆盖 AI 引用关键词。" },
-  { icon: Globe, title: "多平台分发", desc: "内容一键分发至百度、知乎、头条等平台，扩大品牌在 AI 训练数据中的覆盖面。" },
-  { icon: Eye, title: "曝光监控", desc: "实时监控品牌在 ChatGPT、Perplexity、Kimi 等主流 AI 工具中的出现频率和呈现方式。" },
-  { icon: TrendingUp, title: "排名优化", desc: "持续跟踪优化效果，根据 AI 搜索趋势调整内容策略，保持长期曝光优势。" },
-  { icon: Zap, title: "竞品分析", desc: "分析竞品在 AI 搜索中的表现，找到差距和机会点，针对性制定超越策略。" },
+  { icon: Bot, title: "AI 可见度诊断", desc: "输入品牌、产品或企业名称，诊断在 DeepSeek、豆包、通义、百度 AI 等平台的声量表现。" },
+  { icon: Search, title: "提问词挖掘", desc: "深挖用户高频提问词，围绕购买决策、行业痛点和竞品对比布局品牌答案。" },
+  { icon: Globe, title: "专属品牌智库", desc: "整合企业文档、官网内容、案例和竞品素材，沉淀可供 AI 引用的品牌知识资产。" },
+  { icon: Eye, title: "品牌监控", desc: "定期追踪品牌在 AI 搜索中的出现频率、呈现方式和竞品差距，及时发现波动。" },
+  { icon: TrendingUp, title: "AI 内容创作", desc: "贴合主流大模型内容偏好，生成问答、专题页、案例和科普文章，提升推荐概率。" },
+  { icon: Zap, title: "智能信源布局", desc: "拆解大模型回答信源，围绕高权重平台布局内容，让品牌信息更容易被引用。" },
 ]
 
 const plans = [
@@ -41,7 +41,7 @@ export default function GeoPage() {
             <div className="max-w-3xl">
               <Badge className="mb-5 bg-amber-900/60 text-amber-300 border-amber-700/50">
                 <span className="inline-block size-1.5 rounded-full bg-amber-400 mr-2 animate-pulse" />
-                AI 时代独家产品
+                AI 搜索品牌增长系统
               </Badge>
               <h1 className="text-4xl sm:text-5xl font-bold text-white mb-5 text-balance">
                 GEO 优化系统
@@ -49,7 +49,7 @@ export default function GeoPage() {
                 <span className="text-amber-400">抢占 AI 推荐位</span>
               </h1>
               <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-xl text-pretty">
-                当用户问 ChatGPT、Perplexity、Kimi 时，您的品牌会被推荐吗？GEO（生成式引擎优化）是 SEO 之后最重要的流量机会，立亭云帮您提前布局。
+                当用户问 DeepSeek、豆包、通义、百度 AI 时，您的品牌会被推荐吗？GEO（生成式引擎优化）是 SEO 之后最重要的流量机会，立亭云帮您提前布局。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-amber-500 hover:bg-amber-600 text-white h-12 px-8")}>
@@ -69,7 +69,7 @@ export default function GeoPage() {
             <div className="bg-amber-50 border border-amber-100 rounded-2xl p-8">
               <h2 className="text-2xl font-bold text-foreground mb-4">什么是 GEO（生成式引擎优化）？</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                传统 SEO 让您的网站出现在谷歌、百度的搜索结果页面。而 <strong className="text-foreground">GEO（Generative Engine Optimization）</strong> 则是优化您的品牌内容，让 ChatGPT、Perplexity、Gemini 等 AI 搜索引擎在回答用户问题时，主动推荐和引用您的品牌。
+                传统 SEO 让您的网站出现在谷歌、百度的搜索结果页面。而 <strong className="text-foreground">GEO（Generative Engine Optimization）</strong> 则是优化您的品牌内容，让 DeepSeek、豆包、通义千问、百度 AI 等大模型在回答用户问题时，主动推荐和引用您的品牌。
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 随着 AI 搜索使用率快速增长，越来越多的用户开始直接向 AI 提问而非传统搜索引擎。<strong className="text-foreground">提前布局 GEO，就是抢占未来的流量入口。</strong>
