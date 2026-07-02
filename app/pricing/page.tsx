@@ -38,8 +38,8 @@ export const metadata: Metadata = {
 }
 
 const promoStats = [
-  { label: "入门小程序", value: "¥198/年起" },
-  { label: "买 2 年送 2 年", value: "低至 ¥99/年" },
+  { label: "入门小程序", value: "¥99/年起" },
+  { label: "买 2 年送 2 年", value: "4 年权益" },
   { label: "渠道特惠", value: "可叠加优惠" },
 ]
 
@@ -124,15 +124,15 @@ const products = [
     name: "门店系统",
     icon: Store,
     summary: "门店会员、预约、收银、营销和多端小程序经营。",
-    startPrice: "¥198/年起",
+    startPrice: "¥99/年起",
     bestFor: "门店收银 / 会员储值 / 连锁管理",
     promo: "买 2 年送 2 年",
     source: "渠道特惠价可叠加",
     plans: [
       {
         name: "门店入门版",
-        originalPrice: "398",
-        price: "198",
+        originalPrice: "198",
+        price: "99",
         note: "适合低成本上线门店小程序",
         features: ["基础门店小程序", "产品/服务展示", "在线预约与销售", "基础会员档案", "基础表单留资", "支持买 2 年送 2 年"],
       },
@@ -313,12 +313,12 @@ export default function PricingPage() {
                 <div className="flex min-h-[440px] flex-col justify-center px-6 py-10 sm:px-10 lg:px-14">
                   <Badge className="mb-5 w-fit border-primary/20 bg-white text-primary shadow-sm">
                     <Sparkles className="size-3" />
-                    198 元做小程序 · 多产品线可参与
+                    99 元/年做小程序 · 多产品线可参与
                   </Badge>
                   <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
                     价格中心
                   </h1>
-                  <p className="mt-4 text-2xl font-semibold text-primary">198 元做小程序，买 2 年送 2 年，低至 99 元/年</p>
+                  <p className="mt-4 text-2xl font-semibold text-primary">99 元/年做小程序，支持买 2 年送 2 年</p>
                   <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
                     多年优惠、渠道特惠价和顾问服务可叠加享受。按企业官网、商城小程序、门店系统、教育系统、轻应用和 GEO 优化拆分报价，版本功能清晰透明。
                   </p>
