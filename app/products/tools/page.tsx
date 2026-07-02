@@ -40,6 +40,14 @@ const detailScenarios = [
   { title: "团队缺设计和剪辑", desc: "用 AI 工具降低素材制作门槛，让销售、运营和门店员工也能快速出图出视频。" },
 ]
 
+const toolSpecs = [
+  { name: "AI 素材", values: ["海报、商品图、基础文案", "短视频脚本、配音、批量素材", "品牌素材库、活动模板和复用规范"] },
+  { name: "活动页面", values: ["H5 活动页、微传单", "投票、抽奖、问卷、报名", "多活动并行、渠道追踪和数据复盘"] },
+  { name: "私域承接", values: ["表单和客服线索", "活码、标签、渠道码", "多渠道留资和客户分层"] },
+  { name: "适用频率", values: ["偶发活动", "每月活动和门店日常营销", "品牌长期活动矩阵"] },
+  { name: "组合建议", values: ["单独开通工具", "搭配官网、商城或小程序", "搭配门店/教育/商城做全链路活动"] },
+]
+
 export default function ToolsPage() {
   return (
     <>
@@ -73,10 +81,13 @@ export default function ToolsPage() {
           tone="rose"
           eyebrow="营销工具灵活开通"
           title="把营销素材、活动页面和线索收集做成日常工具箱"
-          description="营销工具页参考乔拓云营销活动的弹幕、全景、朋友圈、品牌传播、获客拉新等思路，并结合 AI 海报、AI 短视频、H5 活动页、问卷投票和活码管理，让团队能低成本连续做活动。"
+          description="营销工具围绕弹幕互动、全景展示、朋友圈传播、品牌活动和获客拉新展开，并结合 AI 海报、AI 短视频、H5 活动页、问卷投票和活码管理，让团队能低成本连续做活动。"
           capabilities={detailCapabilities}
           scenarios={detailScenarios}
+          promoTitle="按需开通 + 渠道特惠"
           promoNote="营销工具支持按需开通，也可与商城、官网、门店系统组合购买，活动优惠以顾问方案为准。"
+          specColumns={["轻量工具", "活动套装", "品牌套装"]}
+          specs={toolSpecs}
         />
 
         <section className="py-20 px-4 sm:px-6 bg-background">

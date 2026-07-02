@@ -29,9 +29,9 @@ const features = [
 ]
 
 const plans = [
-  { name: "入门版", price: "1,599", features: ["AI 题库导入", "图文/音视频课程", "课程订单", "学员管理", "微信支付", "学习记录"] },
-  { name: "专业版", price: "2,999", highlight: true, features: ["全部入门版功能", "智能组卷纠错", "直播课程", "会员订阅系统", "邀请返佣裂变", "数据报表"] },
-  { name: "机构版", price: "4,999", features: ["全部专业版功能", "多讲师协作", "班级管理", "课程分销", "API 对接", "专属培训"] },
+  { name: "入门版", price: "999", features: ["AI 题库导入", "图文/音视频课程", "课程订单", "学员管理", "微信支付", "学习记录"] },
+  { name: "专业版", price: "1,499", highlight: true, features: ["全部入门版功能", "智能组卷纠错", "直播课程", "会员订阅系统", "邀请返佣裂变", "数据报表"] },
+  { name: "机构版", price: "1,999", features: ["全部专业版功能", "多讲师协作", "班级管理", "课程分销", "题库考试", "专属培训"] },
 ]
 
 const detailCapabilities = [
@@ -45,6 +45,15 @@ const detailScenarios = [
   { title: "教培机构线上化", desc: "线下机构希望把课程、题库、直播和学员管理放到统一系统。" },
   { title: "知识 IP 变现", desc: "专家、讲师、顾问把课程、专栏、社群和训练营做成可复购产品。" },
   { title: "企业内训和考试", desc: "适合企业把培训资料、题库测评、员工学习进度和证书管理做成在线流程。" },
+]
+
+const educationSpecs = [
+  { name: "课程形态", values: ["图文、音频、视频课程", "直播、录播、专栏组合", "训练营、班级、讲师协作"] },
+  { name: "题库考试", values: ["题库导入、基础练习", "智能组卷、纠错、考试", "多题库、测评报告、证书"] },
+  { name: "招生转化", values: ["课程订单、优惠券", "拼团、邀请返佣、会员订阅", "课程分销、训练营转化"] },
+  { name: "学员管理", values: ["学员档案、学习记录", "作业、进度、数据报表", "班级、讲师、机构权限"] },
+  { name: "直播能力", values: ["按需开通", "互动直播、答题、回放", "多场次直播和专属培训"] },
+  { name: "适用机构", values: ["轻量知识付费", "教培机构和课程团队", "连锁机构、内训和考试场景"] },
 ]
 
 export default function EducationPage() {
@@ -80,10 +89,13 @@ export default function EducationPage() {
           tone="violet"
           eyebrow="教育系统活动"
           title="把课程、题库、直播和付费转化做成一套在线学校"
-          description="教育系统参考乔拓云教育系统的知识付费、直播上课、招生付费思路，并结合题库、智能组卷和学员管理，帮助机构从内容交付走向持续经营。"
+          description="教育系统把知识付费、直播上课、招生付费、题库、智能组卷和学员管理放在一起，帮助机构从内容交付走向持续经营。"
           capabilities={detailCapabilities}
           scenarios={detailScenarios}
-          promoNote="教育系统适合参与买 2 年送 2 年活动，若涉及直播并发、存储或专属实施，具体权益以顾问确认为准。"
+          promoTitle="买 2 年送 2 年 + 渠道特惠"
+          promoNote="教育系统可参与多年优惠和渠道特惠，若涉及直播并发、存储或专属实施，具体权益以顾问确认为准。"
+          specColumns={["入门版", "专业版", "机构版"]}
+          specs={educationSpecs}
         />
 
         <section className="py-20 px-4 sm:px-6 bg-background">

@@ -36,7 +36,7 @@ const values = [
   { icon: Target, title: "结果导向", desc: "我们以客户业务增长为最终目标，不卖功能，卖结果。每一个方案都基于客户的实际业务需求量身定制。" },
   { icon: Heart, title: "长期陪伴", desc: "我们不是卖软件就消失的供应商，而是与客户同行的长期合作伙伴，从建设到运营全程支持。" },
   { icon: Users, title: "以人为本", desc: "关注每一位用户的真实体验，产品简单易用，服务温暖专业，让每个人都能驾驭数字化工具。" },
-  { icon: Award, title: "追求卓越", desc: "基于凡科十余年技术积累，持续迭代产品，跟进最新技术趋势，确保客户始终使用行业领先的工具。" },
+  { icon: Award, title: "追求卓越", desc: "基于成熟 SaaS 技术积累，持续迭代产品，跟进最新技术趋势，确保客户始终使用稳定易用的工具。" },
 ]
 
 const team = [
@@ -62,7 +62,7 @@ export default function AboutPage() {
                 <span className="text-blue-400">中小企业数字化增长</span>
               </h1>
               <p className="text-lg text-slate-300 leading-relaxed max-w-xl text-pretty">
-                立亭云成立于 2018 年，是凡科官方授权代理商。我们深信，每一家中小企业都值得拥有专业的数字化工具和贴心的服务支持，这是我们每天坚持的使命。
+                立亭云成立于 2018 年，专注为中小企业提供数字化工具和顾问式交付服务。我们深信，每一家中小企业都值得拥有专业的数字化能力和贴心的服务支持，这是我们每天坚持的使命。
               </p>
             </div>
 
@@ -96,7 +96,7 @@ export default function AboutPage() {
                   我们看到太多中小企业在数字化转型中迷路：要么因高昂费用望而却步，要么因缺乏专业指导白花了冤枉钱。立亭云的存在，就是要打破这个困局。
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  基于凡科的强大技术底座，结合我们对本地市场的深度理解，我们为客户提供的不只是软件工具，更是从建设到运营的全程陪伴式服务。
+                  基于成熟的 SaaS 技术底座，结合我们对本地市场的深度理解，我们为客户提供的不只是软件工具，更是从建设到运营的全程陪伴式服务。
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-4">

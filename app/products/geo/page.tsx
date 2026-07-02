@@ -27,9 +27,9 @@ const features = [
 ]
 
 const plans = [
-  { name: "诊断版", price: "2,999", features: ["AI 可见度诊断", "竞品问答采样", "提问词挖掘", "基础结构化建议", "优化报告"] },
-  { name: "增长版", price: "5,999", highlight: true, features: ["全部诊断版内容", "专属品牌智库", "AI 内容创作", "官网内容优化", "月度追踪报告", "顾问复盘"] },
-  { name: "托管版", price: "12,000", features: ["全部增长版内容", "内容月更", "品牌百科建议", "行业专题页", "多渠道引用建设", "专项运营会"] },
+  { name: "诊断版", price: "1,998", features: ["AI 可见度诊断", "竞品问答采样", "提问词挖掘", "基础结构化建议", "优化报告"] },
+  { name: "增长版", price: "3,998", highlight: true, features: ["全部诊断版内容", "专属品牌智库", "AI 内容创作", "官网内容优化", "月度追踪报告", "顾问复盘"] },
+  { name: "托管版", price: "5,998", features: ["全部增长版内容", "内容月更", "品牌百科建议", "行业专题页", "多渠道引用建设", "专项运营会"] },
 ]
 
 const detailCapabilities = [
@@ -43,6 +43,15 @@ const detailScenarios = [
   { title: "新品牌想被 AI 推荐", desc: "适合搜索量不大但客单价高，希望在 AI 问答场景里提前占位的品牌。" },
   { title: "竞品已经被频繁提到", desc: "通过竞品问答采样找到缺口，补齐官网、问答、案例和权威内容。" },
   { title: "已有 SEO 内容基础", desc: "把原来的 SEO 文章升级成更适合大模型引用的结构化问答和专题内容。" },
+]
+
+const geoSpecs = [
+  { name: "诊断范围", values: ["品牌词、产品词基础采样", "品牌/场景/竞品词组合采样", "多产品线、多平台持续采样"] },
+  { name: "提问词建设", values: ["核心问题清单", "购买决策、竞品对比、痛点词", "行业专题词库和长尾问题库"] },
+  { name: "内容建设", values: ["优化建议和结构清单", "问答、案例、专题页规划", "内容月更和多渠道信源布局"] },
+  { name: "品牌智库", values: ["基础资料整理", "产品、案例、FAQ、资质整合", "持续维护的品牌知识资产"] },
+  { name: "监控复盘", values: ["一次性诊断报告", "月度追踪报告", "专项运营会和优化复盘"] },
+  { name: "适用阶段", values: ["先判断现状", "开始做 AI 搜索增长", "需要长期托管和持续曝光"] },
 ]
 
 export default function GeoPage() {
@@ -81,10 +90,13 @@ export default function GeoPage() {
           tone="amber"
           eyebrow="GEO 免费诊断"
           title="从搜索排名走向 AI 推荐，先诊断再持续优化"
-          description="凡科极鸥 GEO 强调品牌在豆包、元宝、DeepSeek 等 AI 搜索里的提及和推荐表现。立亭云的 GEO 页围绕诊断、提问词、品牌智库、内容优化和持续监控展开，适合想提前布局 AI 流量的企业。"
+          description="GEO 围绕品牌在豆包、元宝、DeepSeek 等 AI 搜索里的提及和推荐表现展开，通过诊断、提问词、品牌智库、内容优化和持续监控，帮助企业提前布局 AI 流量。"
           capabilities={detailCapabilities}
           scenarios={detailScenarios}
+          promoTitle="诊断优惠 + 渠道特惠"
           promoNote="GEO 产品含免费现状诊断，后续增长版/托管版会按关键词、内容量和平台范围确定具体服务。"
+          specColumns={["诊断版", "增长版", "托管版"]}
+          specs={geoSpecs}
         />
 
         {/* What is GEO */}

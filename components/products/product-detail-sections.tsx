@@ -5,6 +5,11 @@ import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { ArrowRight, BadgeCheck, CheckCircle, Clock3, Gift } from "lucide-react"
 
+type SpecRow = {
+  name: string
+  values: string[]
+}
+
 type ProductDetailSectionsProps = {
   tone?: "blue" | "sky" | "emerald" | "violet" | "orange" | "amber" | "rose"
   eyebrow: string
@@ -13,6 +18,11 @@ type ProductDetailSectionsProps = {
   capabilities: Array<{ title: string; desc: string }>
   scenarios: Array<{ title: string; desc: string }>
   promoNote?: string
+  promoTitle?: string
+  specTitle?: string
+  specDescription?: string
+  specColumns?: string[]
+  specs?: SpecRow[]
 }
 
 const toneClass = {
@@ -33,7 +43,15 @@ export function ProductDetailSections({
   capabilities,
   scenarios,
   promoNote = "限时活动：开通 2 年送 2 年，部分基础版本是否参与以顾问确认为准。",
+  promoTitle = "买 2 年送 2 年",
+  specTitle = "规格介绍",
+  specDescription = "按常用版本整理核心规格，具体开通范围、赠送权益和实施内容以顾问方案确认为准。",
+  specColumns = [],
+  specs = [],
 }: ProductDetailSectionsProps) {
+  const columns = specColumns.length ? specColumns : ["基础版", "推荐版", "高阶版"]
+  const tableTemplate = `minmax(160px, 0.9fr) repeat(${columns.length}, minmax(150px, 1fr))`
+
   return (
     <section className="border-b border-border bg-white px-4 py-16 sm:px-6">
       <div className="mx-auto max-w-7xl">
@@ -63,7 +81,7 @@ export function ProductDetailSections({
               </div>
               <div>
                 <p className="text-sm text-white/70">当前促销</p>
-                <p className="text-2xl font-bold">买 2 年送 2 年</p>
+                <p className="text-2xl font-bold">{promoTitle}</p>
               </div>
             </div>
             <p className="mt-5 text-sm leading-6 text-white/78">{promoNote}</p>
@@ -121,6 +139,47 @@ export function ProductDetailSections({
             </div>
           </div>
         </div>
+
+        {specs.length > 0 && (
+          <div className="mt-12">
+            <div className="mb-5 flex flex-col justify-between gap-3 md:flex-row md:items-end">
+              <div>
+                <p className="text-sm font-semibold text-primary">版本规格</p>
+                <h3 className="mt-2 text-2xl font-bold text-foreground">{specTitle}</h3>
+              </div>
+              <p className="max-w-2xl text-sm leading-6 text-muted-foreground">{specDescription}</p>
+            </div>
+            <div className="overflow-x-auto rounded-lg border border-border bg-white shadow-sm">
+              <div className="min-w-[760px]">
+                <div
+                  className="grid border-b border-border bg-muted/50 text-sm font-semibold text-foreground"
+                  style={{ gridTemplateColumns: tableTemplate }}
+                >
+                  <div className="p-4">规格项</div>
+                  {columns.map((column) => (
+                    <div key={column} className="p-4">
+                      {column}
+                    </div>
+                  ))}
+                </div>
+                {specs.map((row) => (
+                  <div
+                    key={row.name}
+                    className="grid border-b border-border last:border-b-0"
+                    style={{ gridTemplateColumns: tableTemplate }}
+                  >
+                    <div className="bg-muted/25 p-4 text-sm font-medium text-foreground">{row.name}</div>
+                    {columns.map((column, index) => (
+                      <div key={`${row.name}-${column}`} className="p-4 text-sm leading-6 text-muted-foreground">
+                        {row.values[index] ?? "-"}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )

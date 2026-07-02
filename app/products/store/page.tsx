@@ -28,9 +28,9 @@ const features = [
 ]
 
 const plans = [
-  { name: "单店版", price: "1,299", features: ["AI 经营分析", "单门店管理", "会员储值", "到店核销", "员工账号", "营业报表"] },
-  { name: "连锁版", price: "2,299", highlight: true, features: ["全部单店版功能", "会员分层运营", "10 家门店", "跨店会员通用", "总部数据汇总", "活动配置"] },
-  { name: "集团版", price: "3,699", features: ["全部连锁版功能", "门店数量不限", "区域权限", "API 对接 ERP", "经营看板", "专属实施服务"] },
+  { name: "体验版", price: "0", features: ["基础门店档案", "会员导入", "到店核销", "员工账号", "基础报表", "上线指导"] },
+  { name: "连锁版", price: "1,499", highlight: true, features: ["全部体验版功能", "会员分层运营", "多门店管理", "跨店会员通用", "总部数据汇总", "活动配置"] },
+  { name: "集团版", price: "1,999", features: ["全部连锁版功能", "门店数量扩展", "区域权限", "经营看板", "AI 经营分析", "专属实施服务"] },
 ]
 
 const detailCapabilities = [
@@ -44,6 +44,15 @@ const detailScenarios = [
   { title: "单店数字化起步", desc: "适合先解决会员、储值、核销、活动和基础报表问题。" },
   { title: "多门店统一运营", desc: "适合美业、餐饮、零售、生活服务等需要总部管控和门店执行的连锁品牌。" },
   { title: "线下转私域", desc: "适合有线下客流，但客户信息分散、复购触达弱的门店。" },
+]
+
+const storeSpecs = [
+  { name: "门店数量", values: ["单店体验", "多门店连锁", "区域/集团扩展"] },
+  { name: "会员能力", values: ["会员导入、基础标签", "会员分层、储值、积分", "跨区域会员和精细化权益"] },
+  { name: "核销收银", values: ["到店核销、基础收款", "跨店核销、优惠券、活动", "储值、次卡、组合活动"] },
+  { name: "经营分析", values: ["基础营业报表", "总部数据汇总、门店对比", "AI 经营分析、专项看板"] },
+  { name: "员工权限", values: ["基础员工账号", "门店角色、操作权限", "区域权限、管理审批"] },
+  { name: "交付服务", values: ["上线指导", "数据迁移和活动配置", "专属实施、培训和运营复盘"] },
 ]
 
 export default function StorePage() {
@@ -82,7 +91,10 @@ export default function StorePage() {
           description="门店系统的重点是把线下经营动作数字化：会员沉淀、储值核销、员工权限、门店活动、总部报表和 AI 经营分析，适合线下门店从单店走向连锁。"
           capabilities={detailCapabilities}
           scenarios={detailScenarios}
-          promoNote="门店系统可参与买 2 年送 2 年活动，数据迁移、门店数量和实施范围以实际方案确认为准。"
+          promoTitle="买 2 年送 2 年 + 渠道特惠"
+          promoNote="门店系统可参与多年优惠和渠道特惠，数据迁移、门店数量和实施范围以实际方案确认为准。"
+          specColumns={["体验版", "连锁版", "集团版"]}
+          specs={storeSpecs}
         />
 
         <section className="py-20 px-4 sm:px-6 bg-background">

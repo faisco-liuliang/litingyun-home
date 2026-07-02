@@ -5,8 +5,8 @@ const advantages = [
     icon: Shield,
     iconColor: "text-blue-600",
     iconBg: "bg-blue-50",
-    title: "凡科官方技术支撑",
-    desc: "底层基于凡科十余年 SaaS 技术积累，99.9% 可用性保障，企业数据安全存储，无后顾之忧。",
+    title: "成熟 SaaS 技术支撑",
+    desc: "底层采用成熟云端架构，99.9% 可用性保障，企业数据安全存储，无后顾之忧。",
   },
   {
     icon: TrendingUp,

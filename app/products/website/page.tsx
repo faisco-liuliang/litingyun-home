@@ -30,24 +30,24 @@ const features = [
 const plans = [
   {
     name: "网站标准版",
-    price: "698",
+    price: "349",
     features: ["AI 建站", "电脑 + 手机 + 微网站", "独立域名绑定", "SSL 证书", "基础 SEO 工具", "留言/表单收集"],
   },
   {
     name: "网站推广版",
-    price: "998",
+    price: "499",
     highlight: true,
     features: ["全部标准版功能", "AI 智能写作", "AI 生成页面 TDK", "新闻/案例管理", "基础数据导出", "顾问协助上线"],
   },
   {
     name: "网站商务版",
-    price: "1,498",
+    price: "749",
     features: ["全部推广版功能", "SEO/GEO 结构化优化", "AI 文章配图", "站点地图生成", "多语言扩展", "月度网站检查"],
   },
 ]
 
 const detailCapabilities = [
-  { title: "AI 建站与全站 TDK", desc: "参考凡科建站 AI 系统能力，围绕行业、产品和关键词生成页面结构、文章标题描述和产品 TDK。" },
+  { title: "AI 建站与全站 TDK", desc: "围绕行业、产品和关键词生成页面结构、文章标题描述和产品 TDK，降低内容初始化成本。" },
   { title: "PC + 手机 + 微网站", desc: "官网一次搭建，多端自适应，适合企业展示、案例沉淀、服务介绍和线索收集。" },
   { title: "SEO/GEO 内容增长", desc: "传统搜索做百度收录和关键词布局，AI 搜索做问答内容、品牌实体和可引用素材。" },
   { title: "表单、留言和在线查询", desc: "把官网从展示页升级成获客工具，咨询、报价、预约、资料下载都能沉淀为线索。" },
@@ -57,6 +57,15 @@ const detailScenarios = [
   { title: "刚起步的本地服务商", desc: "需要快速上线官网、绑定域名、做基础 SEO，让客户搜索时能找到可靠入口。" },
   { title: "想做内容获客的企业", desc: "适合持续发布案例、行业知识、解决方案，用文章和问答覆盖长尾搜索需求。" },
   { title: "需要 AI 搜索曝光的品牌", desc: "官网内容可以作为 GEO 的底层信源，让 DeepSeek、豆包等模型更容易理解和引用品牌。" },
+]
+
+const websiteSpecs = [
+  { name: "建站端口", values: ["电脑站 + 手机站", "电脑站 + 手机站 + 微网站", "多端官网 + 多语言扩展"] },
+  { name: "页面与栏目", values: ["适合展示型官网", "适合服务、案例、新闻栏目", "适合多产品线和内容矩阵"] },
+  { name: "AI 能力", values: ["AI 页面初稿", "AI 写作、TDK、文章标题", "AI 配图、批量内容建议"] },
+  { name: "获客组件", values: ["留言表单、在线咨询", "表单、预约、资料下载", "多表单、线索分组和数据导出"] },
+  { name: "SEO/GEO", values: ["基础 SEO 设置", "站点地图、关键词页面", "结构化内容、问答页、月度检查"] },
+  { name: "交付服务", values: ["基础上线指导", "顾问协助上线", "内容规划、搜索诊断和复盘"] },
 ]
 
 export default function WebsitePage() {
@@ -95,7 +104,10 @@ export default function WebsitePage() {
           description="官网产品页不只讲建站，而是把页面结构、内容生产、搜索收录、AI 引用和线索转化连起来。基础版本适合快速上线，推广/商务版本更适合持续做内容和搜索获客。"
           capabilities={detailCapabilities}
           scenarios={detailScenarios}
-          promoNote="企业官网套餐参考凡科建站公开价格，活动折扣、域名/邮箱等赠送权益以顾问最终确认为准。"
+          promoTitle="买 3 年送 3 年 + 渠道特惠"
+          promoNote="企业官网可参与买 3 年送 3 年活动，同时可叠加渠道特惠价；域名、邮箱、设计和内容权益以顾问最终确认为准。"
+          specColumns={["标准版", "推广版", "商务版"]}
+          specs={websiteSpecs}
         />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
@@ -124,7 +136,7 @@ export default function WebsitePage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-3">企业官网定价方案</h2>
-              <p className="text-muted-foreground">按年展示，官网套餐参考凡科建站公开价格，活动折扣和赠送权益以顾问确认为准</p>
+              <p className="text-muted-foreground">按年展示，可参与多年优惠和渠道特惠，活动折扣和赠送权益以顾问确认为准</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {plans.map((plan) => (
