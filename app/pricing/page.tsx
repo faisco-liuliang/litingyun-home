@@ -38,8 +38,8 @@ export const metadata: Metadata = {
 }
 
 const promoStats = [
-  { label: "官网建站", value: "买 3 年送 3 年" },
-  { label: "小程序", value: "买 2 年送 2 年" },
+  { label: "入门小程序", value: "¥198/年起" },
+  { label: "买 2 年送 2 年", value: "低至 ¥99/年" },
   { label: "渠道特惠", value: "可叠加优惠" },
 ]
 
@@ -124,16 +124,23 @@ const products = [
     name: "门店系统",
     icon: Store,
     summary: "门店会员、预约、收银、营销和多端小程序经营。",
-    startPrice: "¥0/年起",
+    startPrice: "¥198/年起",
     bestFor: "门店收银 / 会员储值 / 连锁管理",
     promo: "买 2 年送 2 年",
     source: "渠道特惠价可叠加",
     plans: [
       {
+        name: "门店入门版",
+        originalPrice: "398",
+        price: "198",
+        note: "适合低成本上线门店小程序",
+        features: ["基础门店小程序", "产品/服务展示", "在线预约与销售", "基础会员档案", "基础表单留资", "支持买 2 年送 2 年"],
+      },
+      {
         name: "门店基础版",
-        originalPrice: "0",
-        price: "0",
-        note: "适合零门槛开启数字化",
+        originalPrice: "698",
+        price: "349",
+        note: "适合基础收银、预约和会员沉淀",
         features: ["海量模板 3 分钟建店", "20 个产品/服务", "在线预约与销售", "进销存/开单收银/记账", "支持 10 位会员", "AI 店推助手"],
       },
       {
@@ -302,16 +309,16 @@ export default function PricingPage() {
             </aside>
 
             <div className="overflow-hidden rounded-lg border border-blue-100 bg-white shadow-sm">
-              <div className="grid min-h-[440px] lg:grid-cols-[minmax(0,1fr)_360px]">
-                <div className="flex flex-col justify-center px-6 py-10 sm:px-10 lg:px-14">
+              <div className="min-h-[440px]">
+                <div className="flex min-h-[440px] flex-col justify-center px-6 py-10 sm:px-10 lg:px-14">
                   <Badge className="mb-5 w-fit border-primary/20 bg-white text-primary shadow-sm">
                     <Sparkles className="size-3" />
-                    限时活动 · 多产品线可参与
+                    198 元做小程序 · 多产品线可参与
                   </Badge>
                   <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
                     价格中心
                   </h1>
-                  <p className="mt-4 text-2xl font-semibold text-primary">官网买 3 送 3，小程序买 2 送 2</p>
+                  <p className="mt-4 text-2xl font-semibold text-primary">198 元做小程序，买 2 年送 2 年，低至 99 元/年</p>
                   <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
                     多年优惠、渠道特惠价和顾问服务可叠加享受。按企业官网、商城小程序、门店系统、教育系统、轻应用和 GEO 优化拆分报价，版本功能清晰透明。
                   </p>
@@ -339,33 +346,13 @@ export default function PricingPage() {
                       </div>
                     ))}
                   </div>
-                </div>
-
-                <div className="hidden bg-[linear-gradient(135deg,#eff6ff_0%,#dbeafe_100%)] p-8 lg:block">
-                  <div className="rounded-2xl bg-primary p-6 text-primary-foreground shadow-xl shadow-primary/20">
-                    <p className="text-sm text-white/75">当前优惠</p>
-                    <p className="mt-2 text-4xl font-bold">多年优惠 + 渠道特惠价</p>
-                    <div className="mt-5 grid gap-3 text-sm">
-                      <div className="rounded-lg bg-white/12 px-3 py-2">
-                        <p className="font-semibold">买 2 送 2 / 买 3 送 3</p>
-                        <p className="mt-1 text-white/75">按业务产品匹配多年活动年限</p>
+                  <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                    {["多年活动年限", "渠道特惠价", "顾问陪跑上线"].map((text) => (
+                      <div key={text} className="flex items-center gap-3 rounded-lg bg-white px-3 py-3 text-sm text-slate-700 shadow-sm ring-1 ring-blue-100">
+                        <CheckCircle className="size-4 text-primary" />
+                        {text}
                       </div>
-                      <div className="rounded-lg bg-white/12 px-3 py-2">
-                        <p className="font-semibold">渠道特惠价</p>
-                        <p className="mt-1 text-white/75">在活动基础上继续叠加优惠</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mt-5 rounded-2xl border border-white/70 bg-white/80 p-5 shadow-lg shadow-blue-900/10">
-                    <p className="font-semibold text-foreground">多重优惠可叠加</p>
-                    <div className="mt-4 space-y-3">
-                      {["多年活动年限", "渠道特惠价", "顾问陪跑上线"].map((text) => (
-                        <div key={text} className="flex items-center gap-3 rounded-lg bg-blue-50 px-3 py-2 text-sm text-slate-700">
-                          <CheckCircle className="size-4 text-primary" />
-                          {text}
-                        </div>
-                      ))}
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>

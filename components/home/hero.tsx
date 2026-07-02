@@ -11,9 +11,11 @@ import {
   GraduationCap,
   Layers3,
   Megaphone,
+  Share2,
   ShoppingBag,
   Sparkles,
   Store,
+  Users,
   Wrench,
 } from "lucide-react"
 
@@ -80,9 +82,65 @@ const serviceProofs = [
   },
 ]
 
+const heroSlides = [
+  {
+    eyebrow: "198 元做小程序 · 买 2 年送 2 年",
+    title: "198 元做小程序",
+    accent: "低至 99 元/年",
+    subtitle: "门店、预约、表单、会员，小团队也能低成本上线",
+    desc: "适合先把门店展示、预约留资、服务项目和基础会员沉淀起来。买 2 年送 2 年后折算低至 99 元/年，再叠加渠道特惠更划算。",
+    primary: "领取 198 元方案",
+    secondary: "查看小程序价格",
+    href: "/contact",
+    secondaryHref: "/pricing#store",
+    proofs: [
+      { icon: Calendar, title: "预约表单", desc: "服务预约、报名咨询、线索收集" },
+      { icon: Store, title: "门店展示", desc: "项目、地址、活动一页展示" },
+      { icon: BadgeCheck, title: "买 2 送 2", desc: "4 年使用期，年均更低" },
+    ],
+  },
+  {
+    eyebrow: "企业数字化与 AI 增长平台",
+    title: "立亭云",
+    accent: "AI 智能建站",
+    subtitle: "多产品矩阵，总有一款适合您",
+    desc: "整合官网、商城、小程序、教育、门店、营销和 GEO 优化，帮助中小企业低成本完成上线、获客和复购。",
+    primary: "立即咨询",
+    secondary: "查看价格",
+    href: "/contact",
+    secondaryHref: "/pricing",
+    proofs: serviceProofs,
+  },
+  {
+    eyebrow: "商城小程序 · 会员分销 · 私域复购",
+    title: "私域商城",
+    accent: "买 2 送 2",
+    subtitle: "把商品、会员、直播和分销放进同一套系统",
+    desc: "适合有商品、有复购、有社群资源的商家，用商城小程序承接内容流量，再通过会员、优惠券、拼团和分销持续转化。",
+    primary: "咨询商城方案",
+    secondary: "查看商城功能",
+    href: "/contact",
+    secondaryHref: "/products/mall",
+    proofs: [
+      { icon: ShoppingBag, title: "一站多端", desc: "小程序、微商城、PC 统一管理" },
+      { icon: Users, title: "会员复购", desc: "积分、储值、等级和优惠券" },
+      { icon: Share2, title: "分销裂变", desc: "推广员、拼团、社群团购" },
+    ],
+  },
+]
+
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#eef5ff_100%)] pt-16">
+      <style>
+        {`
+          @keyframes litingyunHeroSlide {
+            0%, 29% { opacity: 1; transform: translateY(0); pointer-events: auto; }
+            33%, 96% { opacity: 0; transform: translateY(14px); pointer-events: none; }
+            100% { opacity: 1; transform: translateY(0); pointer-events: auto; }
+          }
+        `}
+      </style>
       <div
         className="absolute inset-0 opacity-60"
         style={{
@@ -119,48 +177,61 @@ export function Hero() {
           <div className="relative overflow-hidden rounded-lg bg-white/75 shadow-sm ring-1 ring-blue-100 backdrop-blur">
             <div className="grid h-full xl:grid-cols-[minmax(0,1fr)_360px]">
               <div className="flex flex-col justify-center px-6 py-10 sm:px-10 lg:px-14">
-                <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-primary/15 bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm">
-                  <span className="size-2 rounded-full bg-primary" />
-                  企业数字化与 AI 增长平台
-                </div>
-
-                <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight text-slate-950 sm:text-5xl xl:text-[56px]">
-                  立亭云
-                  <span className="text-primary"> AI 智能建站</span>
-                </h1>
-                <p className="mt-3 text-xl font-semibold text-slate-500 sm:text-2xl">多产品矩阵，总有一款适合您</p>
-                <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
-                  参考成熟 SaaS 建站平台的产品矩阵，整合官网、商城、小程序、教育、门店、营销和 GEO 优化，帮助中小企业低成本完成上线、获客和复购。
-                </p>
-
-                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                  <Link
-                    href="/contact"
-                    className={cn(buttonVariants({ size: "lg" }), "h-12 rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90")}
-                  >
-                    立即咨询
-                    <ArrowRight className="ml-2 size-5" />
-                  </Link>
-                  <Link
-                    href="/pricing"
-                    className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12 rounded-full border-primary/30 bg-white px-8 text-primary hover:bg-primary/5")}
-                  >
-                    查看价格
-                  </Link>
-                </div>
-
-                <div className="mt-10 grid gap-3 sm:grid-cols-3">
-                  {serviceProofs.map(({ icon: Icon, title, desc }) => (
-                    <div key={title} className="flex gap-3 rounded-lg bg-white/65 p-3 ring-1 ring-blue-100">
-                      <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-primary">
-                        <Icon className="size-4" />
+                <div className="relative min-h-[560px] sm:min-h-[520px]">
+                  {heroSlides.map((slide, index) => (
+                    <div
+                      key={slide.eyebrow}
+                      className="absolute inset-0 flex flex-col justify-center opacity-0"
+                      style={{ animation: "litingyunHeroSlide 15s infinite", animationDelay: `${index * 5}s` }}
+                    >
+                      <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-primary/15 bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm">
+                        <span className="size-2 rounded-full bg-primary" />
+                        {slide.eyebrow}
                       </div>
-                      <div>
-                        <p className="font-semibold text-slate-900">{title}</p>
-                        <p className="mt-1 text-sm leading-5 text-slate-500">{desc}</p>
+
+                      <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight text-slate-950 sm:text-5xl xl:text-[56px]">
+                        {slide.title}
+                        <span className="text-primary"> {slide.accent}</span>
+                      </h1>
+                      <p className="mt-3 text-xl font-semibold text-slate-500 sm:text-2xl">{slide.subtitle}</p>
+                      <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">{slide.desc}</p>
+
+                      <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                        <Link
+                          href={slide.href}
+                          className={cn(buttonVariants({ size: "lg" }), "h-12 rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90")}
+                        >
+                          {slide.primary}
+                          <ArrowRight className="ml-2 size-5" />
+                        </Link>
+                        <Link
+                          href={slide.secondaryHref}
+                          className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12 rounded-full border-primary/30 bg-white px-8 text-primary hover:bg-primary/5")}
+                        >
+                          {slide.secondary}
+                        </Link>
+                      </div>
+
+                      <div className="mt-10 grid gap-3 sm:grid-cols-3">
+                        {slide.proofs.map(({ icon: Icon, title, desc }) => (
+                          <div key={title} className="flex gap-3 rounded-lg bg-white/65 p-3 ring-1 ring-blue-100">
+                            <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-primary">
+                              <Icon className="size-4" />
+                            </div>
+                            <div>
+                              <p className="font-semibold text-slate-900">{title}</p>
+                              <p className="mt-1 text-sm leading-5 text-slate-500">{desc}</p>
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   ))}
+                  <div className="absolute bottom-0 left-0 flex gap-2">
+                    {heroSlides.map((slide, index) => (
+                      <span key={slide.eyebrow} className={cn("h-1.5 rounded-full bg-primary/25", index === 0 ? "w-10 bg-primary" : "w-5")} />
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -205,8 +276,6 @@ export function Hero() {
                   </div>
                 </div>
 
-                <div className="absolute -bottom-12 -right-12 size-44 rounded-full bg-primary/15" />
-                <div className="absolute left-8 top-20 size-20 rounded-full bg-white/70" />
               </div>
             </div>
           </div>

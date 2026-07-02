@@ -7,7 +7,6 @@ import { Advantages } from "@/components/home/advantages"
 import { CasesPreview } from "@/components/home/cases-preview"
 import { BlogPreview } from "@/components/home/blog-preview"
 import { HomeFaq } from "@/components/home/home-faq"
-import { PricingPreview } from "@/components/home/pricing-preview"
 import { CTA } from "@/components/home/cta"
 
 export const metadata: Metadata = {
@@ -33,7 +32,6 @@ export default function HomePage() {
         <CasesPreview />
         <BlogPreview />
         <HomeFaq />
-        <PricingPreview />
         <CTA />
       </main>
       <Footer />
