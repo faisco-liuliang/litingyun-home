@@ -452,7 +452,7 @@ export default function PricingPage() {
                                 "mt-auto w-full"
                               )}
                             >
-                              咨询此套餐
+                              立即购买
                             </Link>
                           </CardContent>
                         </Card>
