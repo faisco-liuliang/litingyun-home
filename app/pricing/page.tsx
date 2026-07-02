@@ -49,7 +49,7 @@ const products = [
     id: "website",
     name: "企业官网",
     icon: LayoutTemplate,
-    summary: "适合 AI 建站、展示型官网、获客型官网、SEO/GEO 内容站。官网价格参考凡科建站公开价目表。",
+    summary: "AI 建站+SEO/GEO，官网内容自动增长。",
     startPrice: "¥698/年起",
     bestFor: "品牌展示 / 百度收录 / 表单获客",
     plans: [
@@ -78,7 +78,7 @@ const products = [
     id: "mall",
     name: "私域商城",
     icon: ShoppingBag,
-    summary: "适合 AI 商品文案、小程序商城、会员复购、分销裂变。",
+    summary: "AI 营销商城，小程序+会员+分销闭环。",
     startPrice: "¥1,599/年起",
     bestFor: "商品销售 / 会员运营 / 分销活动",
     plans: [
@@ -107,7 +107,7 @@ const products = [
     id: "store",
     name: "门店系统",
     icon: Store,
-    summary: "适合 AI 经营分析、单店、连锁店、会员储值和核销。",
+    summary: "AI 经营分析，多门店会员一体化。",
     startPrice: "¥1,299/年起",
     bestFor: "门店收银 / 会员储值 / 连锁管理",
     plans: [
@@ -136,7 +136,7 @@ const products = [
     id: "education",
     name: "教育系统",
     icon: GraduationCap,
-    summary: "适合 AI 题库、知识付费、训练营、机构课程售卖。",
+    summary: "AI 题库+直播课+知识付费。",
     startPrice: "¥1,599/年起",
     bestFor: "课程销售 / 学员管理 / 直播录播",
     plans: [
@@ -163,9 +163,9 @@ const products = [
   },
   {
     id: "booking",
-    name: "服务预约",
+    name: "轻应用",
     icon: CalendarDays,
-    summary: "适合 AI 表单、预约到店、上门服务、咨询排期。",
+    summary: "AI 表单/预约/内容发布小程序。",
     startPrice: "¥999/年起",
     bestFor: "预约排班 / 到店核销 / 服务订单",
     plans: [
@@ -192,9 +192,9 @@ const products = [
   },
   {
     id: "tools",
-    name: "营销工具",
+    name: "其他工具",
     icon: Wrench,
-    summary: "适合 AI 海报、AI 短视频、裂变活动、留资页面、节日营销。",
+    summary: "AI 海报、短视频、H5 活动工具。",
     startPrice: "¥699/年起",
     bestFor: "活动获客 / 表单留资 / 私域增长",
     plans: [
@@ -223,7 +223,7 @@ const products = [
     id: "geo",
     name: "GEO 优化",
     icon: SearchCheck,
-    summary: "适合 DeepSeek、豆包、通义、百度 AI 搜索曝光和品牌内容资产建设。",
+    summary: "让 DeepSeek、豆包等大模型推荐品牌。",
     startPrice: "¥2,999/年起",
     bestFor: "AI 推荐 / 内容结构 / 品牌实体",
     plans: [
@@ -263,57 +263,90 @@ export default function PricingPage() {
     <>
       <Header />
       <main className="pt-16 bg-background">
-        <section className="border-b border-border bg-[linear-gradient(180deg,#f8fafc_0%,#eef6ff_100%)] px-4 py-16 sm:px-6 lg:py-20">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-            <div>
-              <Badge className="mb-5 border-primary/20 bg-white text-primary shadow-sm">
-                <Sparkles className="size-3" />
-                限时活动 · 多产品线可参与
-              </Badge>
-              <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-                立亭云 AI 赋能全产品套餐价格
-              </h1>
-              <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-                参考成熟建站平台的套餐结构，按 AI 建站、商城、门店、教育、预约、营销和 GEO 优化拆分版本。现在开通 2 年直接送 2 年，适合一次性把线上业务体系搭起来。
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/contact"
-                  className={cn(buttonVariants({ size: "lg" }), "h-12 bg-primary px-8 text-primary-foreground hover:bg-primary/90")}
-                >
-                  领取套餐报价
-                  <ArrowRight className="ml-2 size-4" />
-                </Link>
-                <a
-                  href="tel:400-000-0000"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-border bg-white px-6 text-sm font-medium text-foreground shadow-sm transition-colors hover:text-primary"
-                >
-                  <Phone className="size-4" />
-                  400-000-0000
-                </a>
+        <section className="border-b border-border bg-[linear-gradient(180deg,#f8fbff_0%,#eef5ff_100%)] px-4 py-8 sm:px-6">
+          <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-[280px_minmax(0,1fr)]">
+            <aside className="rounded-lg bg-primary p-4 text-primary-foreground shadow-xl shadow-primary/15">
+              <div className="mb-3 flex items-center gap-2 px-1 text-sm font-semibold text-white/80">
+                <Megaphone className="size-4" />
+                产品价格
               </div>
-            </div>
-
-            <div className="rounded-2xl border border-primary/15 bg-white p-5 shadow-xl shadow-primary/10">
-              <div className="rounded-xl bg-primary p-5 text-primary-foreground">
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-sm text-white/75">当前优惠</p>
-                    <p className="mt-1 text-3xl font-bold">买 2 年送 2 年</p>
-                  </div>
-                  <Badge className="bg-white text-primary">限时</Badge>
-                </div>
-                <p className="mt-4 text-sm leading-6 text-white/80">
-                  例如商城豪华版按 2 年付费，合计 ¥5,398，可获得 4 年使用期。企业官网初级版是否参与活动，以顾问最终确认为准。
-                </p>
-              </div>
-              <div className="mt-4 grid grid-cols-3 gap-3">
-                {promoStats.map((item) => (
-                  <div key={item.label} className="rounded-xl border border-border bg-muted/40 p-4">
-                    <p className="text-xs text-muted-foreground">{item.label}</p>
-                    <p className="mt-1 text-sm font-semibold text-foreground">{item.value}</p>
-                  </div>
+              <nav className="grid gap-1.5 sm:grid-cols-2 lg:grid-cols-1">
+                {products.map(({ id, name, summary, icon: Icon }) => (
+                  <Link
+                    key={id}
+                    href={`#${id}`}
+                    className="group flex items-start gap-3 rounded-md px-3 py-2.5 transition-colors hover:bg-white/12"
+                  >
+                    <Icon className="mt-0.5 size-4 shrink-0 text-white" />
+                    <span className="min-w-0">
+                      <span className="block text-base font-bold tracking-tight">{name}</span>
+                      <span className="mt-0.5 block text-xs font-medium leading-5 text-blue-100/85">{summary}</span>
+                    </span>
+                  </Link>
                 ))}
+              </nav>
+            </aside>
+
+            <div className="overflow-hidden rounded-lg border border-blue-100 bg-white shadow-sm">
+              <div className="grid min-h-[440px] lg:grid-cols-[minmax(0,1fr)_360px]">
+                <div className="flex flex-col justify-center px-6 py-10 sm:px-10 lg:px-14">
+                  <Badge className="mb-5 w-fit border-primary/20 bg-white text-primary shadow-sm">
+                    <Sparkles className="size-3" />
+                    限时活动 · 多产品线可参与
+                  </Badge>
+                  <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                    价格中心
+                  </h1>
+                  <p className="mt-4 text-2xl font-semibold text-primary">买 2 年送 2 年，价格透明公开</p>
+                  <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
+                    参考乔拓云的产品矩阵展示方式，按官网、商城、轻应用、教育、门店、营销工具和 GEO 优化拆分价格；具体版本规格参考凡科公开能力表，并结合立亭云交付服务整理。
+                  </p>
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <Link
+                      href="/contact"
+                      className={cn(buttonVariants({ size: "lg" }), "h-12 rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90")}
+                    >
+                      领取套餐报价
+                      <ArrowRight className="ml-2 size-4" />
+                    </Link>
+                    <a
+                      href="tel:400-000-0000"
+                      className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-primary/25 bg-white px-6 text-sm font-medium text-primary shadow-sm transition-colors hover:bg-primary/5"
+                    >
+                      <Phone className="size-4" />
+                      400-000-0000
+                    </a>
+                  </div>
+                  <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                    {promoStats.map((item) => (
+                      <div key={item.label} className="rounded-lg border border-blue-100 bg-blue-50/60 p-4">
+                        <p className="text-xs text-muted-foreground">{item.label}</p>
+                        <p className="mt-1 text-sm font-semibold text-foreground">{item.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="hidden bg-[linear-gradient(135deg,#eff6ff_0%,#dbeafe_100%)] p-8 lg:block">
+                  <div className="rounded-2xl bg-primary p-6 text-primary-foreground shadow-xl shadow-primary/20">
+                    <p className="text-sm text-white/75">当前优惠</p>
+                    <p className="mt-2 text-4xl font-bold">买 2 送 2</p>
+                    <p className="mt-4 text-sm leading-6 text-white/80">
+                      例如商城豪华版按 2 年付费，合计 ¥5,398，可获得 4 年使用期。企业官网基础版本是否参与活动，以顾问最终确认为准。
+                    </p>
+                  </div>
+                  <div className="mt-5 rounded-2xl border border-white/70 bg-white/80 p-5 shadow-lg shadow-blue-900/10">
+                    <p className="font-semibold text-foreground">版本规格清晰</p>
+                    <div className="mt-4 space-y-3">
+                      {["官网公开价参考", "功能清单逐项说明", "上线顾问全程指导"].map((text) => (
+                        <div key={text} className="flex items-center gap-3 rounded-lg bg-blue-50 px-3 py-2 text-sm text-slate-700">
+                          <CheckCircle className="size-4 text-primary" />
+                          {text}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

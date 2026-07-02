@@ -21,44 +21,44 @@ const productLinks = [
   {
     href: "/products/mall",
     icon: ShoppingBag,
-    title: "立亭云商城",
-    tags: "分销 社区团购 直播",
+    title: "私域商城",
+    tags: "AI 营销商城，小程序+会员+分销闭环",
   },
   {
     href: "/products/website",
     icon: Globe,
-    title: "立亭云企业官网",
-    tags: "AI建站 SEO优化 百度收录",
+    title: "企业官网",
+    tags: "AI 建站+SEO/GEO，官网内容自动增长",
   },
   {
     href: "/products/booking",
     icon: Calendar,
-    title: "立亭云轻应用",
-    tags: "服务预约 表单 内容",
+    title: "轻应用",
+    tags: "AI 表单/预约/内容发布小程序",
   },
   {
     href: "/products/education",
     icon: GraduationCap,
-    title: "立亭云教育系统",
-    tags: "AI题库 知识付费 招生",
+    title: "教育系统",
+    tags: "AI 题库+直播课+知识付费",
   },
   {
     href: "/products/store",
     icon: Store,
-    title: "立亭云门店系统",
-    tags: "打通线下 多门店管理",
+    title: "门店系统",
+    tags: "AI 经营分析，多门店会员一体化",
   },
   {
     href: "/products/tools",
     icon: Wrench,
-    title: "立亭云营销活动",
-    tags: "AI海报 推广 数据监控",
+    title: "其他工具",
+    tags: "AI 海报、短视频、H5 活动工具",
   },
   {
     href: "/products/geo",
     icon: Sparkles,
     title: "GEO 优化系统",
-    tags: "AI搜索 品牌曝光 监控",
+    tags: "让 DeepSeek、豆包等大模型推荐品牌",
   },
 ]
 
@@ -82,7 +82,7 @@ const serviceProofs = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#eef5ff_100%)] pt-20">
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#eef5ff_100%)] pt-16">
       <div
         className="absolute inset-0 opacity-60"
         style={{
@@ -92,24 +92,24 @@ export function Hero() {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:py-10">
-        <div className="grid min-h-[640px] gap-6 lg:grid-cols-[300px_1fr] lg:items-stretch">
-          <aside className="rounded-lg bg-primary p-5 text-primary-foreground shadow-xl shadow-primary/15 lg:my-8">
-            <div className="mb-5 flex items-center gap-2 px-1 text-sm font-semibold text-white/80">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:py-8">
+        <div className="grid gap-5 lg:grid-cols-[280px_minmax(0,1fr)] lg:items-stretch">
+          <aside className="rounded-lg bg-primary p-4 text-primary-foreground shadow-xl shadow-primary/15">
+            <div className="mb-3 flex items-center gap-2 px-1 text-sm font-semibold text-white/80">
               <Megaphone className="size-4" />
               产品中心
             </div>
-            <nav className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
+            <nav className="grid gap-1.5 sm:grid-cols-2 lg:grid-cols-1">
               {productLinks.map(({ href, icon: Icon, title, tags }) => (
                 <Link
                   key={title}
                   href={href}
-                  className="group flex items-start gap-3 rounded-md px-3 py-3 transition-colors hover:bg-white/12"
+                  className="group flex items-start gap-3 rounded-md px-3 py-2.5 transition-colors hover:bg-white/12"
                 >
-                  <Icon className="mt-1 size-5 shrink-0 text-white" />
-                  <span>
-                    <span className="block text-lg font-bold tracking-tight">{title}</span>
-                    <span className="mt-1 block text-sm font-medium text-blue-100/85">{tags}</span>
+                  <Icon className="mt-0.5 size-4 shrink-0 text-white" />
+                  <span className="min-w-0">
+                    <span className="block text-base font-bold tracking-tight">{title}</span>
+                    <span className="mt-0.5 block text-xs font-medium leading-5 text-blue-100/85">{tags}</span>
                   </span>
                 </Link>
               ))}
@@ -117,23 +117,23 @@ export function Hero() {
           </aside>
 
           <div className="relative overflow-hidden rounded-lg bg-white/75 shadow-sm ring-1 ring-blue-100 backdrop-blur">
-            <div className="grid h-full lg:grid-cols-[1fr_420px]">
-              <div className="flex flex-col justify-center px-6 py-12 sm:px-10 lg:px-16">
-                <div className="mb-7 inline-flex w-fit items-center gap-2 rounded-full border border-primary/15 bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm">
+            <div className="grid h-full xl:grid-cols-[minmax(0,1fr)_360px]">
+              <div className="flex flex-col justify-center px-6 py-10 sm:px-10 lg:px-14">
+                <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-primary/15 bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm">
                   <span className="size-2 rounded-full bg-primary" />
                   企业数字化与 AI 增长平台
                 </div>
 
-                <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+                <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight text-slate-950 sm:text-5xl xl:text-[56px]">
                   立亭云
                   <span className="text-primary"> AI 智能建站</span>
                 </h1>
-                <p className="mt-4 text-xl font-semibold text-slate-500 sm:text-2xl">多产品矩阵，总有一款适合您</p>
-                <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+                <p className="mt-3 text-xl font-semibold text-slate-500 sm:text-2xl">多产品矩阵，总有一款适合您</p>
+                <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">
                   参考成熟 SaaS 建站平台的产品矩阵，整合官网、商城、小程序、教育、门店、营销和 GEO 优化，帮助中小企业低成本完成上线、获客和复购。
                 </p>
 
-                <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                   <Link
                     href="/contact"
                     className={cn(buttonVariants({ size: "lg" }), "h-12 rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90")}
@@ -149,11 +149,11 @@ export function Hero() {
                   </Link>
                 </div>
 
-                <div className="mt-16 grid gap-4 sm:grid-cols-3">
+                <div className="mt-10 grid gap-3 sm:grid-cols-3">
                   {serviceProofs.map(({ icon: Icon, title, desc }) => (
-                    <div key={title} className="flex gap-3">
-                      <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-primary">
-                        <Icon className="size-5" />
+                    <div key={title} className="flex gap-3 rounded-lg bg-white/65 p-3 ring-1 ring-blue-100">
+                      <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-primary">
+                        <Icon className="size-4" />
                       </div>
                       <div>
                         <p className="font-semibold text-slate-900">{title}</p>
@@ -164,8 +164,8 @@ export function Hero() {
                 </div>
               </div>
 
-              <div className="relative hidden overflow-hidden bg-[linear-gradient(135deg,#eff6ff_0%,#dbeafe_100%)] lg:block">
-                <div className="absolute right-10 top-16 h-56 w-72 rotate-3 rounded-2xl border border-white/70 bg-white/75 p-5 shadow-2xl shadow-blue-900/10">
+              <div className="relative hidden overflow-hidden bg-[linear-gradient(135deg,#eff6ff_0%,#dbeafe_100%)] xl:block">
+                <div className="absolute right-8 top-12 h-52 w-64 rotate-3 rounded-2xl border border-white/70 bg-white/75 p-5 shadow-2xl shadow-blue-900/10">
                   <div className="mb-4 flex items-center gap-2">
                     <span className="size-3 rounded-full bg-red-300" />
                     <span className="size-3 rounded-full bg-yellow-300" />
@@ -184,7 +184,7 @@ export function Hero() {
                   </div>
                 </div>
 
-                <div className="absolute bottom-16 right-20 w-64 rounded-2xl border border-white/70 bg-white/85 p-5 shadow-2xl shadow-blue-900/10">
+                <div className="absolute bottom-10 right-14 w-60 rounded-2xl border border-white/70 bg-white/85 p-5 shadow-2xl shadow-blue-900/10">
                   <div className="mb-4 flex items-center justify-between">
                     <p className="text-sm font-semibold text-slate-900">AI 获客看板</p>
                     <CheckCircle className="size-5 text-primary" />
