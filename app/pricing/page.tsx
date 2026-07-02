@@ -33,14 +33,14 @@ export const metadata: Metadata = {
   openGraph: {
     url: "https://litingyun.com/pricing",
     title: "价格中心 - 立亭云 AI 赋能全产品套餐",
-    description: "多产品线清晰报价，开 2 年送 2 年，适合 AI 建站、商城、门店、教育和营销增长场景。",
+    description: "多产品线清晰报价，支持多年优惠与渠道特惠，适合 AI 建站、商城、门店、教育和营销增长场景。",
   },
 }
 
 const promoStats = [
   { label: "官网建站", value: "买 3 年送 3 年" },
-  { label: "经营系统", value: "买 2 年送 2 年" },
-  { label: "报价口径", value: "对齐凡科版本" },
+  { label: "小程序", value: "买 2 年送 2 年" },
+  { label: "渠道特惠", value: "可叠加优惠" },
 ]
 
 const products = [
@@ -52,8 +52,7 @@ const products = [
     startPrice: "¥349/年起",
     bestFor: "品牌展示 / 百度收录 / 表单获客",
     promo: "买 3 年送 3 年",
-    source: "参考凡科建站版本",
-    sourceUrl: "https://jz.fkw.com/proFunc.html",
+    source: "渠道特惠价可叠加",
     plans: [
       {
         name: "网站标准版",
@@ -94,8 +93,7 @@ const products = [
     startPrice: "¥999/年起",
     bestFor: "商品销售 / 会员运营 / 分销活动",
     promo: "买 2 年送 2 年",
-    source: "参考凡科商城版本",
-    sourceUrl: "https://mall.fkw.com/proFunc.html",
+    source: "渠道特惠价可叠加",
     plans: [
       {
         name: "商城基础版",
@@ -125,12 +123,11 @@ const products = [
     id: "store",
     name: "门店系统",
     icon: Store,
-    summary: "门店通会员、预约、收银、营销和多端小程序经营。",
+    summary: "门店会员、预约、收银、营销和多端小程序经营。",
     startPrice: "¥0/年起",
     bestFor: "门店收银 / 会员储值 / 连锁管理",
     promo: "买 2 年送 2 年",
-    source: "参考凡科门店通版本",
-    sourceUrl: "https://yk.fkw.com/product.html",
+    source: "渠道特惠价可叠加",
     plans: [
       {
         name: "门店基础版",
@@ -164,8 +161,7 @@ const products = [
     startPrice: "¥999/年起",
     bestFor: "课程销售 / 学员管理 / 直播录播",
     promo: "买 2 年送 2 年",
-    source: "参考凡科教育版本",
-    sourceUrl: "https://edu.fkw.com/proFunc.html",
+    source: "渠道特惠价可叠加",
     plans: [
       {
         name: "教育标准版",
@@ -199,8 +195,7 @@ const products = [
     startPrice: "¥349/年起",
     bestFor: "预约排班 / 到店核销 / 服务订单",
     promo: "买 2 年送 2 年",
-    source: "参考凡科轻站小程序版本",
-    sourceUrl: "https://qz.fkw.com/proFunc.html",
+    source: "渠道特惠价可叠加",
     plans: [
       {
         name: "小程序标准版",
@@ -234,8 +229,7 @@ const products = [
     startPrice: "¥1,998/年起",
     bestFor: "AI 推荐 / 内容结构 / 品牌实体",
     promo: "按点数与权益报价",
-    source: "参考凡科极鸥 GEO 版本",
-    sourceUrl: "https://geo.fkw.com/proFunc.html",
+    source: "渠道特惠价可叠加",
     plans: [
       {
         name: "GEO 基础版",
@@ -310,9 +304,9 @@ export default function PricingPage() {
                   <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
                     价格中心
                   </h1>
-                  <p className="mt-4 text-2xl font-semibold text-primary">官网买 3 送 3，经营系统买 2 送 2</p>
+                  <p className="mt-4 text-2xl font-semibold text-primary">官网买 3 送 3，小程序买 2 送 2</p>
                   <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-                    价格和功能按业务产品对齐凡科官方版本：企业官网参考凡科建站，商城参考凡科商城，轻应用参考轻站小程序，教育参考凡科教育，门店参考门店通，GEO 参考凡科极鸥。
+                    多年优惠、渠道特惠价和顾问服务可叠加享受。按企业官网、商城小程序、门店系统、教育系统、轻应用和 GEO 优化拆分报价，版本功能清晰透明。
                   </p>
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                     <Link
@@ -343,15 +337,22 @@ export default function PricingPage() {
                 <div className="hidden bg-[linear-gradient(135deg,#eff6ff_0%,#dbeafe_100%)] p-8 lg:block">
                   <div className="rounded-2xl bg-primary p-6 text-primary-foreground shadow-xl shadow-primary/20">
                     <p className="text-sm text-white/75">当前优惠</p>
-                    <p className="mt-2 text-4xl font-bold">买 2 送 2 / 买 3 送 3</p>
-                    <p className="mt-4 text-sm leading-6 text-white/80">
-                      官网建站按凡科建站买 3 送 3口径展示；商城、轻应用、教育和门店按买 2 送 2口径展示。GEO 以点数、报告和发文权益报价。
-                    </p>
+                    <p className="mt-2 text-4xl font-bold">多年优惠 + 渠道特惠价</p>
+                    <div className="mt-5 grid gap-3 text-sm">
+                      <div className="rounded-lg bg-white/12 px-3 py-2">
+                        <p className="font-semibold">买 2 送 2 / 买 3 送 3</p>
+                        <p className="mt-1 text-white/75">按业务产品匹配多年活动年限</p>
+                      </div>
+                      <div className="rounded-lg bg-white/12 px-3 py-2">
+                        <p className="font-semibold">渠道特惠价</p>
+                        <p className="mt-1 text-white/75">在活动基础上继续叠加优惠</p>
+                      </div>
+                    </div>
                   </div>
                   <div className="mt-5 rounded-2xl border border-white/70 bg-white/80 p-5 shadow-lg shadow-blue-900/10">
-                    <p className="font-semibold text-foreground">版本规格对齐官方</p>
+                    <p className="font-semibold text-foreground">多重优惠可叠加</p>
                     <div className="mt-4 space-y-3">
-                      {["价格对齐凡科公开版本", "活动按业务产品区分", "功能清单按版本整理"].map((text) => (
+                      {["多年活动年限", "渠道特惠价", "顾问陪跑上线"].map((text) => (
                         <div key={text} className="flex items-center gap-3 rounded-lg bg-blue-50 px-3 py-2 text-sm text-slate-700">
                           <CheckCircle className="size-4 text-primary" />
                           {text}
@@ -366,38 +367,6 @@ export default function PricingPage() {
         </section>
 
         <section className="px-4 py-12 sm:px-6">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="text-sm font-semibold text-primary">产品线总览</p>
-                <h2 className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">先选业务类型，再选版本</h2>
-              </div>
-              <p className="max-w-xl text-sm leading-6 text-muted-foreground">
-                页面显示参考原价和活动折算价。官网类支持买三送三，经营类产品支持买二送二，最终开通年限和权益以顾问确认为准。
-              </p>
-            </div>
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {products.map(({ id, icon: Icon, name, startPrice, bestFor }) => (
-                <Card key={name} className="rounded-lg border-border bg-card shadow-sm">
-                  <CardContent className="flex items-start gap-4 p-5">
-                    <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <Icon className="size-5" />
-                    </div>
-                    <div>
-                      <Link href={`#${id}`} className="font-semibold text-foreground transition-colors hover:text-primary">
-                        {name}
-                      </Link>
-                      <p className="mt-1 text-lg font-bold text-primary">{startPrice}</p>
-                      <p className="mt-2 text-xs leading-5 text-muted-foreground">{bestFor}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="px-4 pb-16 sm:px-6">
           <div className="mx-auto max-w-7xl">
             <div className="mb-8 rounded-lg border border-border bg-white p-3 shadow-sm">
               <div className="flex flex-wrap gap-2">
@@ -494,12 +463,6 @@ export default function PricingPage() {
                           </CardContent>
                         </Card>
                       ))}
-                    </div>
-                    <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-border bg-white px-4 py-3 text-xs text-muted-foreground">
-                      <span>功能与价格参考：{product.source}</span>
-                      <a href={product.sourceUrl} target="_blank" rel="noreferrer" className="font-medium text-primary hover:underline">
-                        查看官方版本说明
-                      </a>
                     </div>
                   </section>
                 )
