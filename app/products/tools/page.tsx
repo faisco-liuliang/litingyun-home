@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
+import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
 import { ArrowRight, FileText, Vote, Megaphone, QrCode, ClipboardList, ImageIcon, Video, Sparkles } from "lucide-react"
 
@@ -24,6 +25,19 @@ const tools = [
   { icon: ClipboardList, name: "问卷调查", desc: "多题型问卷，满意度调研、市场调研、需求收集，数据自动汇总分析。", badge: "", color: "text-emerald-600", bg: "bg-emerald-50" },
   { icon: Megaphone, name: "抽奖活动", desc: "大转盘、刮刮卡、红包封面，节日营销、周年庆活动一键搞定。", badge: "新品", color: "text-orange-600", bg: "bg-orange-50" },
   { icon: QrCode, name: "活码管理", desc: "微信活码统一管理，渠道追踪、防封号、自动备份，私域引流必备工具。", badge: "", color: "text-rose-600", bg: "bg-rose-50" },
+]
+
+const detailCapabilities = [
+  { title: "AI 素材生产", desc: "围绕节日、活动、商品和门店场景生成海报、短视频脚本、配音和推广素材。" },
+  { title: "H5 活动和微传单", desc: "适合新品发布、门店开业、节日促销、招生推广和品牌传播，一键生成可分享页面。" },
+  { title: "互动裂变工具", desc: "投票、抽奖、问卷、助力、渠道码等玩法，用低成本活动收集线索和提升转发。" },
+  { title: "私域承接和追踪", desc: "活码、表单、标签和数据汇总，帮助团队知道线索来自哪里、哪些活动有效。" },
+]
+
+const detailScenarios = [
+  { title: "节日和节点营销", desc: "适合每月都需要海报、短视频、活动页和朋友圈素材的门店或品牌。" },
+  { title: "低成本线索收集", desc: "通过问卷、抽奖、报名表和优惠券，把流量沉淀到微信或客服线索池。" },
+  { title: "团队缺设计和剪辑", desc: "用 AI 工具降低素材制作门槛，让销售、运营和门店员工也能快速出图出视频。" },
 ]
 
 export default function ToolsPage() {
@@ -54,6 +68,16 @@ export default function ToolsPage() {
             </div>
           </div>
         </section>
+
+        <ProductDetailSections
+          tone="rose"
+          eyebrow="营销工具灵活开通"
+          title="把营销素材、活动页面和线索收集做成日常工具箱"
+          description="营销工具页参考乔拓云营销活动的弹幕、全景、朋友圈、品牌传播、获客拉新等思路，并结合 AI 海报、AI 短视频、H5 活动页、问卷投票和活码管理，让团队能低成本连续做活动。"
+          capabilities={detailCapabilities}
+          scenarios={detailScenarios}
+          promoNote="营销工具支持按需开通，也可与商城、官网、门店系统组合购买，活动优惠以顾问方案为准。"
+        />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
           <div className="max-w-7xl mx-auto">

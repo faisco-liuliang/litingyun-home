@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
 import { CheckCircle, ArrowRight, Store, Users, CreditCard, BarChart3, Gift, Smartphone, Sparkles } from "lucide-react"
 
@@ -30,6 +31,19 @@ const plans = [
   { name: "单店版", price: "1,299", features: ["AI 经营分析", "单门店管理", "会员储值", "到店核销", "员工账号", "营业报表"] },
   { name: "连锁版", price: "2,299", highlight: true, features: ["全部单店版功能", "会员分层运营", "10 家门店", "跨店会员通用", "总部数据汇总", "活动配置"] },
   { name: "集团版", price: "3,699", features: ["全部连锁版功能", "门店数量不限", "区域权限", "API 对接 ERP", "经营看板", "专属实施服务"] },
+]
+
+const detailCapabilities = [
+  { title: "多门店统一管理", desc: "总部统一商品、员工、会员和活动配置，各门店独立运营，总部实时看数据。" },
+  { title: "会员储值和跨店核销", desc: "储值卡、次卡、积分、优惠券和跨店核销，帮助门店把客户沉淀到自己的会员体系。" },
+  { title: "经营报表和 AI 分析", desc: "围绕营收、客单价、复购率、会员增长和商品销量做经营解读，帮助老板更快决策。" },
+  { title: "线上预约和到店转化", desc: "与轻应用/预约能力组合，完成线上留资、预约、到店核销和二次复购。" },
+]
+
+const detailScenarios = [
+  { title: "单店数字化起步", desc: "适合先解决会员、储值、核销、活动和基础报表问题。" },
+  { title: "多门店统一运营", desc: "适合美业、餐饮、零售、生活服务等需要总部管控和门店执行的连锁品牌。" },
+  { title: "线下转私域", desc: "适合有线下客流，但客户信息分散、复购触达弱的门店。" },
 ]
 
 export default function StorePage() {
@@ -60,6 +74,16 @@ export default function StorePage() {
             </div>
           </div>
         </section>
+
+        <ProductDetailSections
+          tone="orange"
+          eyebrow="门店系统活动"
+          title="先统一会员和门店数据，再做储值、复购和连锁管理"
+          description="门店系统的重点是把线下经营动作数字化：会员沉淀、储值核销、员工权限、门店活动、总部报表和 AI 经营分析，适合线下门店从单店走向连锁。"
+          capabilities={detailCapabilities}
+          scenarios={detailScenarios}
+          promoNote="门店系统可参与买 2 年送 2 年活动，数据迁移、门店数量和实施范围以实际方案确认为准。"
+        />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
           <div className="max-w-7xl mx-auto">

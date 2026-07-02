@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
 import { CheckCircle, ArrowRight, ShoppingCart, Users, TrendingUp, Smartphone, Share2, BarChart3, Sparkles } from "lucide-react"
 
@@ -73,6 +74,19 @@ const plans = [
   },
 ]
 
+const detailCapabilities = [
+  { title: "1 站 3 端商城", desc: "参考凡科商城能力，小程序商城、手机微商城、电脑商城统一管理，覆盖微信、移动端和 PC 搜索流量。" },
+  { title: "分销与社群团购", desc: "推广员、分销商、社团团购、拼团砍价组合使用，让老客户、社群和门店员工都能参与获客。" },
+  { title: "直播与短视频导购", desc: "适合新品种草、节日促销和爆品转化，把内容流量直接导向商品和会员沉淀。" },
+  { title: "会员储值和复购", desc: "优惠券、积分、储值、等级会员和专属价格，帮助商家把一次购买变成长期复购。" },
+]
+
+const detailScenarios = [
+  { title: "线下门店想做线上下单", desc: "适合餐饮、烘焙、生鲜、茶叶、酒旅、农特产品等需要小程序成交的商家。" },
+  { title: "有老客户但复购弱", desc: "通过会员、储值、优惠券和社群活动，提高回购频次和客单价。" },
+  { title: "想做分销裂变", desc: "适合有标准化商品、毛利空间和达人/员工/老客资源的品牌。" },
+]
+
 export default function MallPage() {
   return (
     <>
@@ -104,6 +118,16 @@ export default function MallPage() {
             </div>
           </div>
         </section>
+
+        <ProductDetailSections
+          tone="blue"
+          eyebrow="商城买 2 送 2"
+          title="把商城、会员、分销和直播放进同一套经营系统"
+          description="私域商城适合有商品、有复购、有社群资源的企业。页面重点参考凡科商城的 1 站 3 端、直播电商、短视频导购、拼团砍价、会员储值、多商户和分销能力，并结合立亭云顾问交付做套餐化。"
+          capabilities={detailCapabilities}
+          scenarios={detailScenarios}
+          promoNote="商城产品可参与买 2 年送 2 年活动，例如豪华版按 2 年付费可获得 4 年使用期，具体权益以顾问确认为准。"
+        />
 
         {/* Features */}
         <section className="py-20 px-4 sm:px-6 bg-background">

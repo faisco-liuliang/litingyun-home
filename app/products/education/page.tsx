@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
 import { CheckCircle, ArrowRight, Video, BookOpen, CreditCard, Users, Bell, Star, Sparkles } from "lucide-react"
 
@@ -31,6 +32,19 @@ const plans = [
   { name: "入门版", price: "1,599", features: ["AI 题库导入", "图文/音视频课程", "课程订单", "学员管理", "微信支付", "学习记录"] },
   { name: "专业版", price: "2,999", highlight: true, features: ["全部入门版功能", "智能组卷纠错", "直播课程", "会员订阅系统", "邀请返佣裂变", "数据报表"] },
   { name: "机构版", price: "4,999", features: ["全部专业版功能", "多讲师协作", "班级管理", "课程分销", "API 对接", "专属培训"] },
+]
+
+const detailCapabilities = [
+  { title: "知识付费和课程售卖", desc: "图文、音频、视频、专栏和训练营都能包装成付费内容，适合把经验和课程资产产品化。" },
+  { title: "直播、录播和学习记录", desc: "直播课堂负责交付和互动，录播课程负责长期复用，学习记录帮助机构跟进学员。" },
+  { title: "报名约课和招生转化", desc: "把课程介绍、报名缴费、优惠活动、邀请返佣串起来，降低招生链路损耗。" },
+  { title: "AI 题库和智能组卷", desc: "题库导入、组卷纠错、作业练习和考试测评，适合教培机构和知识类 IP 做标准化交付。" },
+]
+
+const detailScenarios = [
+  { title: "教培机构线上化", desc: "线下机构希望把课程、题库、直播和学员管理放到统一系统。" },
+  { title: "知识 IP 变现", desc: "专家、讲师、顾问把课程、专栏、社群和训练营做成可复购产品。" },
+  { title: "企业内训和考试", desc: "适合企业把培训资料、题库测评、员工学习进度和证书管理做成在线流程。" },
 ]
 
 export default function EducationPage() {
@@ -61,6 +75,16 @@ export default function EducationPage() {
             </div>
           </div>
         </section>
+
+        <ProductDetailSections
+          tone="violet"
+          eyebrow="教育系统活动"
+          title="把课程、题库、直播和付费转化做成一套在线学校"
+          description="教育系统参考乔拓云教育系统的知识付费、直播上课、招生付费思路，并结合题库、智能组卷和学员管理，帮助机构从内容交付走向持续经营。"
+          capabilities={detailCapabilities}
+          scenarios={detailScenarios}
+          promoNote="教育系统适合参与买 2 年送 2 年活动，若涉及直播并发、存储或专属实施，具体权益以顾问确认为准。"
+        />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
           <div className="max-w-7xl mx-auto">

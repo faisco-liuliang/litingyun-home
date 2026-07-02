@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
 import { CheckCircle, ArrowRight, CalendarCheck, Clock, Bell, Star, Map, MessageSquare, Sparkles } from "lucide-react"
 
@@ -30,6 +31,19 @@ const plans = [
   { name: "轻量版", price: "999", features: ["AI 表单生成", "预约管理", "服务项目 20 项", "微信通知", "内容展示", "基础数据"] },
   { name: "标准版", price: "1,699", highlight: true, features: ["全部轻量版功能", "万能表单", "员工排班", "在线支付", "会员优惠", "数据报表"] },
   { name: "高级版", price: "2,999", features: ["全部标准版功能", "多端发布", "多门店预约", "内容付费", "企业微信通知", "定制流程"] },
+]
+
+const detailCapabilities = [
+  { title: "多端发布小程序", desc: "参考凡科轻站能力，内容一次配置，可覆盖微信、百度、抖音、头条、支付宝、快手等小程序场景。" },
+  { title: "服务预约和排班", desc: "服务项目、人员、时段、门店和提醒统一配置，减少人工排班和反复沟通。" },
+  { title: "万能表单和在线支付", desc: "报名、咨询、报价、预约、信息收集和在线支付都能通过轻应用快速完成。" },
+  { title: "内容付费与流量变现", desc: "支持内容展示、知识付费、同城信息发布和流量主广告，适合服务型企业做轻量变现。" },
+]
+
+const detailScenarios = [
+  { title: "预约型服务", desc: "美业、口腔、体检、家政、维修、摄影、咨询等需要客户选择时间和项目的业务。" },
+  { title: "活动报名和线索收集", desc: "招生报名、展会预约、资料领取、报价计算、需求调研等轻量获客场景。" },
+  { title: "内容展示型小程序", desc: "适合想快速做品牌介绍、案例展示、服务说明和内容付费的小团队。" },
 ]
 
 export default function BookingPage() {
@@ -60,6 +74,16 @@ export default function BookingPage() {
             </div>
           </div>
         </section>
+
+        <ProductDetailSections
+          tone="emerald"
+          eyebrow="轻应用限时体验"
+          title="不做复杂开发，也能快速上线预约、表单和内容小程序"
+          description="轻应用的重点不是重商城，而是用更低门槛完成展示、预约、表单、支付和内容发布。适合服务行业先跑通获客流程，再逐步升级到商城或门店系统。"
+          capabilities={detailCapabilities}
+          scenarios={detailScenarios}
+          promoNote="轻应用可先体验再选版本，公开入口价格和活动权益会随版本变化，最终以顾问确认为准。"
+        />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
           <div className="max-w-7xl mx-auto">

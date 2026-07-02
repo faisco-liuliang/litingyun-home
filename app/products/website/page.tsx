@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
 import { CheckCircle, ArrowRight, Search, Globe, FileText, BarChart3, Link2, Smartphone, Sparkles } from "lucide-react"
 
@@ -45,6 +46,19 @@ const plans = [
   },
 ]
 
+const detailCapabilities = [
+  { title: "AI 建站与全站 TDK", desc: "参考凡科建站 AI 系统能力，围绕行业、产品和关键词生成页面结构、文章标题描述和产品 TDK。" },
+  { title: "PC + 手机 + 微网站", desc: "官网一次搭建，多端自适应，适合企业展示、案例沉淀、服务介绍和线索收集。" },
+  { title: "SEO/GEO 内容增长", desc: "传统搜索做百度收录和关键词布局，AI 搜索做问答内容、品牌实体和可引用素材。" },
+  { title: "表单、留言和在线查询", desc: "把官网从展示页升级成获客工具，咨询、报价、预约、资料下载都能沉淀为线索。" },
+]
+
+const detailScenarios = [
+  { title: "刚起步的本地服务商", desc: "需要快速上线官网、绑定域名、做基础 SEO，让客户搜索时能找到可靠入口。" },
+  { title: "想做内容获客的企业", desc: "适合持续发布案例、行业知识、解决方案，用文章和问答覆盖长尾搜索需求。" },
+  { title: "需要 AI 搜索曝光的品牌", desc: "官网内容可以作为 GEO 的底层信源，让 DeepSeek、豆包等模型更容易理解和引用品牌。" },
+]
+
 export default function WebsitePage() {
   return (
     <>
@@ -73,6 +87,16 @@ export default function WebsitePage() {
             </div>
           </div>
         </section>
+
+        <ProductDetailSections
+          tone="sky"
+          eyebrow="官网建站活动"
+          title="先把官网做成获客入口，再持续做 SEO/GEO 增长"
+          description="官网产品页不只讲建站，而是把页面结构、内容生产、搜索收录、AI 引用和线索转化连起来。基础版本适合快速上线，推广/商务版本更适合持续做内容和搜索获客。"
+          capabilities={detailCapabilities}
+          scenarios={detailScenarios}
+          promoNote="企业官网套餐参考凡科建站公开价格，活动折扣、域名/邮箱等赠送权益以顾问最终确认为准。"
+        />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
           <div className="max-w-7xl mx-auto">

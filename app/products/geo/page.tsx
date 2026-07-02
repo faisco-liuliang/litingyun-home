@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
 import { CheckCircle, ArrowRight, Zap, Bot, Globe, TrendingUp, Search, Eye } from "lucide-react"
 
@@ -29,6 +30,19 @@ const plans = [
   { name: "诊断版", price: "2,999", features: ["AI 可见度诊断", "竞品问答采样", "提问词挖掘", "基础结构化建议", "优化报告"] },
   { name: "增长版", price: "5,999", highlight: true, features: ["全部诊断版内容", "专属品牌智库", "AI 内容创作", "官网内容优化", "月度追踪报告", "顾问复盘"] },
   { name: "托管版", price: "12,000", features: ["全部增长版内容", "内容月更", "品牌百科建议", "行业专题页", "多渠道引用建设", "专项运营会"] },
+]
+
+const detailCapabilities = [
+  { title: "AI 搜索可见度诊断", desc: "围绕品牌词、产品词、场景词采样主流大模型回答，判断提及率、首推率和竞品差距。" },
+  { title: "用户提问词挖掘", desc: "把用户在 AI 搜索里可能问的问题拆成购买决策、竞品对比、行业痛点和解决方案。" },
+  { title: "品牌知识资产建设", desc: "把官网、案例、问答、百科、专题页整理成模型更容易理解和引用的品牌内容。" },
+  { title: "持续监控和复盘", desc: "按月追踪品牌在 DeepSeek、豆包、元宝、通义、百度 AI 等平台里的回答变化。" },
+]
+
+const detailScenarios = [
+  { title: "新品牌想被 AI 推荐", desc: "适合搜索量不大但客单价高，希望在 AI 问答场景里提前占位的品牌。" },
+  { title: "竞品已经被频繁提到", desc: "通过竞品问答采样找到缺口，补齐官网、问答、案例和权威内容。" },
+  { title: "已有 SEO 内容基础", desc: "把原来的 SEO 文章升级成更适合大模型引用的结构化问答和专题内容。" },
 ]
 
 export default function GeoPage() {
@@ -62,6 +76,16 @@ export default function GeoPage() {
             </div>
           </div>
         </section>
+
+        <ProductDetailSections
+          tone="amber"
+          eyebrow="GEO 免费诊断"
+          title="从搜索排名走向 AI 推荐，先诊断再持续优化"
+          description="凡科极鸥 GEO 强调品牌在豆包、元宝、DeepSeek 等 AI 搜索里的提及和推荐表现。立亭云的 GEO 页围绕诊断、提问词、品牌智库、内容优化和持续监控展开，适合想提前布局 AI 流量的企业。"
+          capabilities={detailCapabilities}
+          scenarios={detailScenarios}
+          promoNote="GEO 产品含免费现状诊断，后续增长版/托管版会按关键词、内容量和平台范围确定具体服务。"
+        />
 
         {/* What is GEO */}
         <section className="py-16 px-4 sm:px-6 bg-background">
