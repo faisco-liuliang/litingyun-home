@@ -22,7 +22,6 @@ import {
   ShoppingBag,
   Sparkles,
   Store,
-  Wrench,
 } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -39,9 +38,9 @@ export const metadata: Metadata = {
 }
 
 const promoStats = [
-  { label: "活动权益", value: "买 2 年送 2 年" },
-  { label: "价格口径", value: "原价 + 优惠价" },
-  { label: "上线陪跑", value: "顾问全程指导" },
+  { label: "官网建站", value: "买 3 年送 3 年" },
+  { label: "经营系统", value: "买 2 年送 2 年" },
+  { label: "报价口径", value: "对齐凡科版本" },
 ]
 
 const products = [
@@ -49,9 +48,12 @@ const products = [
     id: "website",
     name: "企业官网",
     icon: LayoutTemplate,
-    summary: "AI 建站+SEO/GEO，官网内容自动增长。",
+    summary: "AI 建站、SEO/GEO 双优化、品牌官网与外贸站。",
     startPrice: "¥349/年起",
     bestFor: "品牌展示 / 百度收录 / 表单获客",
+    promo: "买 3 年送 3 年",
+    source: "参考凡科建站版本",
+    sourceUrl: "https://jz.fkw.com/proFunc.html",
     plans: [
       {
         name: "网站标准版",
@@ -75,37 +77,47 @@ const products = [
         note: "适合内容、支付和 GEO 增长",
         features: ["推广版全部功能", "支持在线支付", "SEO + GEO 双优化", "知识付费系统", "AI 文章配图与 TDK", "资源库 2T 空间"],
       },
+      {
+        name: "网站海外版",
+        originalPrice: "2,998",
+        price: "1,499",
+        note: "适合外贸展示和跨境询盘",
+        features: ["皇冠版全部功能", "全球 CDN 动态加速", "50 种语言版本", "AI 翻译 10 万 AI 豆", "PayPal 支付/产品询盘", "保证谷歌收录"],
+      },
     ],
   },
   {
     id: "mall",
     name: "私域商城",
     icon: ShoppingBag,
-    summary: "AI 营销商城，小程序+会员+分销闭环。",
-    startPrice: "¥799/年起",
+    summary: "单商户/多商户商城，交易、会员、分销和高阶营销玩法。",
+    startPrice: "¥999/年起",
     bestFor: "商品销售 / 会员运营 / 分销活动",
+    promo: "买 2 年送 2 年",
+    source: "参考凡科商城版本",
+    sourceUrl: "https://mall.fkw.com/proFunc.html",
     plans: [
       {
-        name: "商城标准版",
-        originalPrice: "1,599",
-        price: "799",
-        note: "适合搭建在线商城和小程序",
-        features: ["小程序商城 + 微商城", "商品与订单管理", "微信支付", "优惠券/新客有礼", "会员资料", "AI 商品文案"],
-      },
-      {
-        name: "商城豪华版",
-        originalPrice: "2,699",
-        price: "1,349",
-        note: "适合活动运营和分销增长",
-        popular: true,
-        features: ["标准版全部功能", "限时促销/优惠券", "推广员/分销商", "砍价/拼团", "会员积分", "超大空间"],
+        name: "商城基础版",
+        originalPrice: "1,998",
+        price: "999",
+        note: "适合品牌展示与核心交易",
+        features: ["免费版全部功能", "品牌展示 + 核心交易", "多种支付方式", "物流信息跟踪", "会员/订单一体化管理", "10G 资源空间"],
       },
       {
         name: "商城旗舰版",
-        originalPrice: "4,999",
-        price: "2,499",
-        note: "适合多端渠道和复购经营",
-        features: ["豪华版全部功能", "一站 3 端", "多端渠道铺货", "留存复购工具", "分享裂变", "N 元 M 件/礼品卡"],
+        originalPrice: "3,998",
+        price: "1,999",
+        note: "适合渠道拓展和社交营销",
+        popular: true,
+        features: ["基础版全部功能", "会员储值", "分销推广", "1.5T 超大容量", "砍价/拼团等社交玩法", "私域直播/短视频导购"],
+      },
+      {
+        name: "商城至尊版",
+        originalPrice: "5,998",
+        price: "2,999",
+        note: "适合一站 3 端和高阶玩法",
+        features: ["旗舰版全部功能", "一站 3 端多端铺货", "推广获客/成交转化/复购", "N 元 M 件/礼品卡", "2T 资源空间", "AI 试衣/AI 销售按需扩展"],
       },
     ],
   },
@@ -113,31 +125,34 @@ const products = [
     id: "store",
     name: "门店系统",
     icon: Store,
-    summary: "AI 经营分析，多门店会员一体化。",
-    startPrice: "¥649/年起",
+    summary: "门店通会员、预约、收银、营销和多端小程序经营。",
+    startPrice: "¥0/年起",
     bestFor: "门店收银 / 会员储值 / 连锁管理",
+    promo: "买 2 年送 2 年",
+    source: "参考凡科门店通版本",
+    sourceUrl: "https://yk.fkw.com/product.html",
     plans: [
       {
-        name: "门店初级版",
-        originalPrice: "1,299",
-        price: "649",
-        note: "适合单店会员和收银起步",
-        features: ["支持 1000 会员", "扫码点餐", "自有微信小程序", "小票/杯贴打印", "PC 端开单收银", "会员档案与动态"],
+        name: "门店基础版",
+        originalPrice: "0",
+        price: "0",
+        note: "适合零门槛开启数字化",
+        features: ["海量模板 3 分钟建店", "20 个产品/服务", "在线预约与销售", "进销存/开单收银/记账", "支持 10 位会员", "AI 店推助手"],
       },
       {
-        name: "门店中级版",
-        originalPrice: "2,299",
-        price: "1,149",
-        note: "适合门店预约和会员运营",
+        name: "门店商业版",
+        originalPrice: "2,998",
+        price: "1,499",
+        note: "适合会员营销和预约增长",
         popular: true,
-        features: ["初级版全部功能", "支持 2000 会员", "每天 100 个预约服务", "会员标签", "到店次数统计", "小程序会员卡"],
+        features: ["基础版全部功能", "会员数 5000 位", "日预约 1000 个", "会员标签 1000 个", "进店有礼/优惠券/发券宝", "微信通知触达员工和会员"],
       },
       {
-        name: "门店高级版",
-        originalPrice: "3,699",
-        price: "1,849",
-        note: "适合连锁营销和总部管理",
-        features: ["中级版全部功能", "不限会员数量", "不限预约服务", "优惠券/进店有礼", "全民推广/员工分销", "积分商城与数据看板"],
+        name: "门店旗舰版",
+        originalPrice: "3,998",
+        price: "1,999",
+        note: "适合全域引流和私域裂变",
+        features: ["商业版全部功能", "会员/商品/预约容量全开放", "抖音小程序/美团团购核销", "全民推广/员工分销/拼团", "付费券包/第二件半价", "AI 美业测评/换发型"],
       },
     ],
   },
@@ -145,31 +160,34 @@ const products = [
     id: "education",
     name: "教育系统",
     icon: GraduationCap,
-    summary: "AI 题库+直播课+知识付费。",
-    startPrice: "¥799/年起",
+    summary: "三站合一教育系统，课程、教务、题库、招生和直播教学。",
+    startPrice: "¥999/年起",
     bestFor: "课程销售 / 学员管理 / 直播录播",
+    promo: "买 2 年送 2 年",
+    source: "参考凡科教育版本",
+    sourceUrl: "https://edu.fkw.com/proFunc.html",
     plans: [
       {
-        name: "教育初级版",
-        originalPrice: "1,599",
-        price: "799",
-        note: "适合课程与知识付费上线",
-        features: ["H5 + 微信小程序", "电脑端 + 百度 SEO + 独立域名", "知识付费 + 线下课程", "基础答题 + 作业", "智能排课 + 扫码签到", "班级/学员管理"],
+        name: "教育标准版",
+        originalPrice: "1,998",
+        price: "999",
+        note: "适合课程服务和基础教务",
+        features: ["微官网 H5 + 微信小程序", "电脑端 + 百度 SEO + 独立域名", "知识付费 + 线下课程", "基础答题/作业/家校互评", "智能排课 + 扫码签到", "班级/学员/预约上课"],
       },
       {
-        name: "教育高级版",
-        originalPrice: "2,999",
+        name: "教育专业版",
+        originalPrice: "2,998",
         price: "1,499",
-        note: "适合机构招生和直播教学",
+        note: "适合全渠道招生和助学互动",
         popular: true,
-        features: ["初级版全部功能", "抖音/百度小程序", "等级会员/付费会员", "3 万题库 + 批量录入", "直播教学", "拼团拼课 + 推广员"],
+        features: ["标准版全部功能", "抖音小程序 + 百度小程序", "会员标签/等级/付费会员", "3 万题目 + 智能批量录入", "闯关打卡 + 证书颁发", "直播教学 + 推广员分销"],
       },
       {
         name: "教育旗舰版",
-        originalPrice: "4,999",
-        price: "2,499",
-        note: "适合课程矩阵和高阶运营",
-        features: ["高级版全部功能", "老带新转介绍", "会员储值", "1T 超大容量", "20 万题目 + 高级刷题", "积分商城/实物商品"],
+        originalPrice: "3,998",
+        price: "1,999",
+        note: "适合精细化运营和实物售卖",
+        features: ["专业版全部功能", "老带新转介绍", "会员储值 + 赠送金额", "1T 容量/单文件 5G", "20 万题库 + 高级刷题", "学习积分/积分商城/实物商品"],
       },
     ],
   },
@@ -177,63 +195,34 @@ const products = [
     id: "booking",
     name: "轻应用",
     icon: CalendarDays,
-    summary: "AI 表单/预约/内容发布小程序。",
-    startPrice: "¥499/年起",
-    bestFor: "预约排班 / 到店核销 / 服务订单",
-    plans: [
-      {
-        name: "小程序初级版",
-        originalPrice: "999",
-        price: "499",
-        note: "适合轻量服务预约和内容发布",
-        features: ["精美模板", "5 个自定义页面", "400 个自定义模块", "200 个预约订单", "资源空间 100M", "AI 表单生成"],
-      },
-      {
-        name: "小程序中级版",
-        originalPrice: "1,699",
-        price: "849",
-        note: "适合预约转化和线索承接",
-        popular: true,
-        features: ["初级版全部功能", "微信客服", "搜索关键词优化", "1 万预约订单", "资源空间 1G", "万能表单/查询"],
-      },
-      {
-        name: "小程序高级版",
-        originalPrice: "2,999",
-        price: "1,499",
-        note: "适合复杂服务和多端发布",
-        features: ["中级版全部功能", "1000 个页面", "1 万个模块", "资源空间 100G", "不限预约订单", "多端发布"],
-      },
-    ],
-  },
-  {
-    id: "tools",
-    name: "其他工具",
-    icon: Wrench,
-    summary: "AI 海报、短视频、H5 活动工具。",
+    summary: "微信/百度/抖音/快手多端小程序，预约、表单、会员和同城信息。",
     startPrice: "¥349/年起",
-    bestFor: "活动获客 / 表单留资 / 私域增长",
+    bestFor: "预约排班 / 到店核销 / 服务订单",
+    promo: "买 2 年送 2 年",
+    source: "参考凡科轻站小程序版本",
+    sourceUrl: "https://qz.fkw.com/proFunc.html",
     plans: [
       {
-        name: "营销版",
-        originalPrice: "699",
+        name: "小程序标准版",
+        originalPrice: "698",
         price: "349",
-        note: "适合日常活动和留资获客",
-        features: ["500 个活动", "单游戏 2 万人参与", "强制关注", "H5 活动页", "投票/抽奖", "表单留资"],
+        note: "适合基础展示和信息收集",
+        features: ["免费版全部功能", "微信/百度端", "访客不限", "服务预约", "万能表单", "资源空间 1G"],
       },
       {
-        name: "支付版",
-        originalPrice: "1,299",
-        price: "649",
-        note: "适合活动转化和私域裂变",
+        name: "小程序推广版",
+        originalPrice: "1,198",
+        price: "599",
+        note: "适合品牌展示和流量加持",
         popular: true,
-        features: ["营销版全部功能", "微信支付", "单游戏 50 万人参与", "优惠券", "渠道码", "活动数据看板"],
+        features: ["标准版全部功能", "抖音/快手等 6 端合一", "隐藏制作信息", "24 种流量/商机转化", "视频号/抖音直播间跳转", "资源空间 100G"],
       },
       {
-        name: "旗舰版",
-        originalPrice: "2,499",
-        price: "1,249",
-        note: "适合多活动和团队协作",
-        features: ["最高活动权限", "微传单高级版权限", "参与人数不限", "云设计中级版", "多活动并行", "顾问策划"],
+        name: "小程序商务版",
+        originalPrice: "1,998",
+        price: "999",
+        note: "适合行业营销和支付预约",
+        features: ["推广版全部功能", "会员等级", "微信支付（表单/服务预约）", "推广员", "集 Call/督学", "查询缴费/计算报价/1T 空间"],
       },
     ],
   },
@@ -241,31 +230,34 @@ const products = [
     id: "geo",
     name: "GEO 优化",
     icon: SearchCheck,
-    summary: "让 DeepSeek、豆包等大模型推荐品牌。",
-    startPrice: "¥1,499/年起",
+    summary: "AI 可见度诊断、品牌监控、内容创作和多平台自动发文。",
+    startPrice: "¥1,998/年起",
     bestFor: "AI 推荐 / 内容结构 / 品牌实体",
+    promo: "按点数与权益报价",
+    source: "参考凡科极鸥 GEO 版本",
+    sourceUrl: "https://geo.fkw.com/proFunc.html",
     plans: [
       {
-        name: "诊断版",
-        originalPrice: "2,999",
-        price: "1,499",
-        note: "明确优化方向",
-        features: ["AI 可见度诊断", "竞品问答采样", "提问词挖掘", "AI 回答关键位诊断", "基础结构化建议", "优化报告"],
+        name: "GEO 基础版",
+        originalPrice: "3,996",
+        price: "1,998",
+        note: "适合精准布局 AI 回答关键位",
+        features: ["20 万点数/年", "最多 50 份可见度报告", "每份报告 30 个提问词", "1 个品牌监控", "最多创作 5000 篇文章", "20 个自媒体账号"],
       },
       {
-        name: "增长版",
-        originalPrice: "5,999",
-        price: "2,999",
-        note: "持续内容优化",
+        name: "GEO 专业版",
+        originalPrice: "7,996",
+        price: "3,998",
+        note: "适合全域覆盖品牌 AI 竞争力",
         popular: true,
-        features: ["诊断版全部内容", "精准布局 AI 回答", "专属品牌智库", "AI 内容创作", "官网内容优化", "月度追踪报告"],
+        features: ["40 万点数/年", "最多 100 份可见度报告", "每份报告 50 个提问词", "3 个品牌监控", "最多创作 10000 篇文章", "50 个自媒体账号"],
       },
       {
-        name: "托管版",
-        originalPrice: "12,000",
-        price: "6,000",
-        note: "品牌长期占位",
-        features: ["增长版全部内容", "全域覆盖品牌 AI 竞争力", "内容月更", "品牌百科建议", "行业专题页", "多渠道引用建设"],
+        name: "GEO 旗舰版",
+        originalPrice: "10,996",
+        price: "5,998",
+        note: "适合锁定品牌 AI 声量领先位",
+        features: ["80 万点数/年", "最多 200 份可见度报告", "最多 5 个品牌监控", "竞品追踪最多 20 个", "最多创作 20000 篇文章", "200 个自媒体账号"],
       },
     ],
   },
@@ -318,9 +310,9 @@ export default function PricingPage() {
                   <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
                     价格中心
                   </h1>
-                  <p className="mt-4 text-2xl font-semibold text-primary">买 2 年送 2 年，按优惠价开通到手 4 年</p>
+                  <p className="mt-4 text-2xl font-semibold text-primary">官网买 3 送 3，经营系统买 2 送 2</p>
                   <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
-                    参考乔拓云的产品矩阵展示方式，按官网、商城、轻应用、教育、门店、营销工具和 GEO 优化拆分价格；版本规格参考凡科公开能力表和 OEM 价格页，立亭云在参考原价基础上给出活动优惠价。
+                    价格和功能按业务产品对齐凡科官方版本：企业官网参考凡科建站，商城参考凡科商城，轻应用参考轻站小程序，教育参考凡科教育，门店参考门店通，GEO 参考凡科极鸥。
                   </p>
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                     <Link
@@ -351,15 +343,15 @@ export default function PricingPage() {
                 <div className="hidden bg-[linear-gradient(135deg,#eff6ff_0%,#dbeafe_100%)] p-8 lg:block">
                   <div className="rounded-2xl bg-primary p-6 text-primary-foreground shadow-xl shadow-primary/20">
                     <p className="text-sm text-white/75">当前优惠</p>
-                    <p className="mt-2 text-4xl font-bold">买 2 年送 2 年</p>
+                    <p className="mt-2 text-4xl font-bold">买 2 送 2 / 买 3 送 3</p>
                     <p className="mt-4 text-sm leading-6 text-white/80">
-                      例如商城豪华版参考原价 ¥2,699/年，立亭云优惠价 ¥1,349/年；按优惠价开 2 年，到账 4 年使用期。
+                      官网建站按凡科建站买 3 送 3口径展示；商城、轻应用、教育和门店按买 2 送 2口径展示。GEO 以点数、报告和发文权益报价。
                     </p>
                   </div>
                   <div className="mt-5 rounded-2xl border border-white/70 bg-white/80 p-5 shadow-lg shadow-blue-900/10">
-                    <p className="font-semibold text-foreground">版本规格清晰</p>
+                    <p className="font-semibold text-foreground">版本规格对齐官方</p>
                     <div className="mt-4 space-y-3">
-                      {["参考原价清晰标注", "优惠价直接展示", "功能清单逐项说明"].map((text) => (
+                      {["价格对齐凡科公开版本", "活动按业务产品区分", "功能清单按版本整理"].map((text) => (
                         <div key={text} className="flex items-center gap-3 rounded-lg bg-blue-50 px-3 py-2 text-sm text-slate-700">
                           <CheckCircle className="size-4 text-primary" />
                           {text}
@@ -381,7 +373,7 @@ export default function PricingPage() {
                 <h2 className="mt-2 text-2xl font-bold text-foreground sm:text-3xl">先选业务类型，再选版本</h2>
               </div>
               <p className="max-w-xl text-sm leading-6 text-muted-foreground">
-                价格按年展示，参考原价用于对齐凡科/OEM版本，优惠价为立亭云当前活动价；实际开通可叠加活动年限、顾问服务和实施内容。
+                页面显示参考原价和活动折算价。官网类支持买三送三，经营类产品支持买二送二，最终开通年限和权益以顾问确认为准。
               </p>
             </div>
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -443,7 +435,7 @@ export default function PricingPage() {
                       </div>
                     </div>
 
-                    <div className="grid gap-5 lg:grid-cols-3">
+                    <div className={cn("grid gap-5", product.plans.length > 3 ? "lg:grid-cols-2 xl:grid-cols-4" : "lg:grid-cols-3")}>
                       {product.plans.map((plan) => (
                         <Card
                           key={plan.name}
@@ -468,13 +460,17 @@ export default function PricingPage() {
                                 <span className="pb-1 text-sm text-muted-foreground">/年</span>
                               </div>
                               <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
-                                <span className="rounded-full bg-primary/10 px-2 py-1 font-medium text-primary">立亭云优惠价</span>
-                                <span className="text-muted-foreground">
-                                  参考原价 <span className="line-through">¥{plan.originalPrice}/年</span>
-                                </span>
+                                <span className="rounded-full bg-primary/10 px-2 py-1 font-medium text-primary">活动折算价</span>
+                                {plan.originalPrice !== "0" ? (
+                                  <span className="text-muted-foreground">
+                                    参考原价 <span className="line-through">¥{plan.originalPrice}/年</span>
+                                  </span>
+                                ) : (
+                                  <span className="text-muted-foreground">永久免费起步</span>
+                                )}
                               </div>
                               <p className="mt-3 rounded-md bg-blue-50 px-3 py-2 text-xs font-medium leading-5 text-primary">
-                                买 2 年送 2 年，按优惠价付 2 年，到手 4 年使用期
+                                {product.promo} · {product.source}
                               </p>
                             </div>
                             <Separator />
@@ -498,6 +494,12 @@ export default function PricingPage() {
                           </CardContent>
                         </Card>
                       ))}
+                    </div>
+                    <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-border bg-white px-4 py-3 text-xs text-muted-foreground">
+                      <span>功能与价格参考：{product.source}</span>
+                      <a href={product.sourceUrl} target="_blank" rel="noreferrer" className="font-medium text-primary hover:underline">
+                        查看官方版本说明
+                      </a>
                     </div>
                   </section>
                 )
