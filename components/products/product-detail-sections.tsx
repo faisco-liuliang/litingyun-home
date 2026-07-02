@@ -155,15 +155,6 @@ export function ProductDetailSections({
 
         {plans.length > 0 && (
           <div className="mt-12">
-            <div className="mb-5 flex flex-col justify-between gap-3 md:flex-row md:items-end">
-              <div>
-                <p className="text-sm font-semibold text-primary">版本价格</p>
-                <h3 className="mt-2 text-2xl font-bold text-foreground">版本和价格对齐价格中心</h3>
-              </div>
-              <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
-                展示参考原价、当前优惠价和核心权益，多年活动与渠道特惠可叠加，最终开通范围以顾问方案确认为准。
-              </p>
-            </div>
             <div className={cn("grid gap-4", plans.length > 3 ? "lg:grid-cols-2 xl:grid-cols-4" : "lg:grid-cols-3")}>
               {plans.map((plan) => {
                 const emphasized = plan.popular ?? plan.highlight
@@ -206,6 +197,16 @@ export function ProductDetailSections({
                           </li>
                         ))}
                       </ul>
+                      <Link
+                        href="/contact"
+                        className={cn(
+                          buttonVariants({ variant: emphasized ? "default" : "outline" }),
+                          "mt-2 w-full"
+                        )}
+                      >
+                        立即试用
+                        <ArrowRight className="ml-2 size-4" />
+                      </Link>
                     </CardContent>
                   </Card>
                 )
@@ -221,7 +222,13 @@ export function ProductDetailSections({
                 <p className="text-sm font-semibold text-primary">版本规格</p>
                 <h3 className="mt-2 text-2xl font-bold text-foreground">{specTitle}</h3>
               </div>
-              <p className="max-w-2xl text-sm leading-6 text-muted-foreground">{specDescription}</p>
+              <div className="flex max-w-2xl flex-col gap-3 md:items-end">
+                <p className="text-sm leading-6 text-muted-foreground">{specDescription}</p>
+                <Link href="/contact" className={cn(buttonVariants({ size: "sm" }), "w-fit")}>
+                  立即试用
+                  <ArrowRight className="ml-2 size-4" />
+                </Link>
+              </div>
             </div>
             <div className="overflow-x-auto rounded-lg border border-border bg-white shadow-sm">
               <div className="min-w-[760px]">
