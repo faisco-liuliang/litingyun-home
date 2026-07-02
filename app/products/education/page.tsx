@@ -5,10 +5,9 @@ import { Footer } from "@/components/layout/footer"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
 import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
-import { CheckCircle, ArrowRight, Video, BookOpen, CreditCard, Users, Bell, Star, Sparkles } from "lucide-react"
+import { ArrowRight, Video, BookOpen, CreditCard, Users, Bell, Star, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "教育系统 / AI 题库 + 知识付费平台",
@@ -29,9 +28,9 @@ const features = [
 ]
 
 const plans = [
-  { name: "教育标准版", price: "999", features: ["三站合一", "知识付费", "线下课程", "基础答题", "智能排课", "学员管理"] },
-  { name: "教育专业版", price: "1,499", highlight: true, features: ["全部标准版功能", "多端小程序", "会员体系", "3 万题目", "直播教学", "推广员分销"] },
-  { name: "教育旗舰版", price: "1,999", features: ["全部专业版功能", "会员储值", "1T 容量", "20 万题库", "学习积分", "实物商品"] },
+  { name: "教育标准版", originalPrice: "1,998", price: "999", note: "适合课程服务和基础教务", features: ["微官网 H5 + 微信小程序", "电脑端 + 百度 SEO + 独立域名", "知识付费 + 线下课程", "基础答题/作业/家校互评", "智能排课 + 扫码签到", "班级/学员/预约上课"] },
+  { name: "教育专业版", originalPrice: "2,998", price: "1,499", popular: true, note: "适合全渠道招生和助学互动", features: ["标准版全部功能", "抖音小程序 + 百度小程序", "会员标签/等级/付费会员", "3 万题目 + 智能批量录入", "闯关打卡 + 证书颁发", "直播教学 + 推广员分销"] },
+  { name: "教育旗舰版", originalPrice: "3,998", price: "1,999", note: "适合精细化运营和实物售卖", features: ["专业版全部功能", "老带新转介绍", "会员储值 + 赠送金额", "1T 容量/单文件 5G", "20 万题库 + 高级刷题", "学习积分/积分商城/实物商品"] },
 ]
 
 const detailCapabilities = [
@@ -118,8 +117,9 @@ export default function EducationPage() {
           scenarios={detailScenarios}
           promoTitle="买 2 年送 2 年 + 渠道特惠"
           promoNote="教育系统可参与多年优惠和渠道特惠，若涉及直播并发、存储或专属实施，具体权益以顾问确认为准。"
-          specColumns={["入门版", "专业版", "机构版"]}
+          specColumns={["标准版", "专业版", "旗舰版"]}
           specs={educationSpecs}
+          plans={plans}
         />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
@@ -137,41 +137,6 @@ export default function EducationPage() {
                     </div>
                     <h3 className="font-bold text-foreground mb-2">{f.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 px-4 sm:px-6 section-blue-bg">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-3">教育系统定价方案</h2>
-              <p className="text-muted-foreground">按年展示，可参与买 2 年送 2 年活动，具体权益以顾问确认为准</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {plans.map((plan) => (
-                <Card key={plan.name} className={plan.highlight ? "border-primary shadow-lg shadow-primary/10" : "border-border"}>
-                  <CardContent className="p-6 flex flex-col gap-4">
-                    <div>
-                      <h3 className="font-bold text-foreground text-base">{plan.name}</h3>
-                      <div className="flex items-baseline gap-1 mt-2">
-                        <span className="text-3xl font-bold text-foreground">¥{plan.price}</span>
-                        <span className="text-sm text-muted-foreground">/年</span>
-                      </div>
-                    </div>
-                    <Separator />
-                    <ul className="flex flex-col gap-2">
-                      {plan.features.map((feat) => (
-                        <li key={feat} className="flex items-center gap-2 text-sm text-foreground">
-                          <CheckCircle className="size-4 text-primary shrink-0" />{feat}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link href="/contact" className={cn(buttonVariants({ variant: plan.highlight ? "default" : "outline" }), plan.highlight ? "bg-primary text-primary-foreground" : "")}>
-                      {plan.highlight ? "免费试用" : "立即开通"}
-                    </Link>
                   </CardContent>
                 </Card>
               ))}

@@ -5,10 +5,9 @@ import { Footer } from "@/components/layout/footer"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
 import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
-import { CheckCircle, ArrowRight, Store, Users, CreditCard, BarChart3, Gift, Smartphone, Sparkles } from "lucide-react"
+import { ArrowRight, Store, Users, CreditCard, BarChart3, Gift, Smartphone, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "门店系统 - AI 辅助经营，多门店会员体系一体化",
@@ -28,9 +27,9 @@ const features = [
 ]
 
 const plans = [
-  { name: "体验版", price: "0", features: ["基础门店档案", "会员导入", "到店核销", "员工账号", "基础报表", "上线指导"] },
-  { name: "连锁版", price: "1,499", highlight: true, features: ["全部体验版功能", "会员分层运营", "多门店管理", "跨店会员通用", "总部数据汇总", "活动配置"] },
-  { name: "集团版", price: "1,999", features: ["全部连锁版功能", "门店数量扩展", "区域权限", "经营看板", "AI 经营分析", "专属实施服务"] },
+  { name: "门店基础版", originalPrice: "0", price: "0", note: "适合零门槛开启数字化", features: ["海量模板 3 分钟建店", "20 个产品/服务", "在线预约与销售", "进销存/开单收银/记账", "支持 10 位会员", "AI 店推助手"] },
+  { name: "门店商业版", originalPrice: "2,998", price: "1,499", popular: true, note: "适合会员营销和预约增长", features: ["基础版全部功能", "会员数 5000 位", "日预约 1000 个", "会员标签 1000 个", "进店有礼/优惠券/发券宝", "微信通知触达员工和会员"] },
+  { name: "门店旗舰版", originalPrice: "3,998", price: "1,999", note: "适合全域引流和私域裂变", features: ["商业版全部功能", "会员/商品/预约容量全开放", "抖音小程序/美团团购核销", "全民推广/员工分销/拼团", "付费券包/第二件半价", "AI 美业测评/换发型"] },
 ]
 
 const detailCapabilities = [
@@ -109,8 +108,9 @@ export default function StorePage() {
           scenarios={detailScenarios}
           promoTitle="买 2 年送 2 年 + 渠道特惠"
           promoNote="门店系统可参与多年优惠和渠道特惠，数据迁移、门店数量和实施范围以实际方案确认为准。"
-          specColumns={["体验版", "连锁版", "集团版"]}
+          specColumns={["基础版", "商业版", "旗舰版"]}
           specs={storeSpecs}
+          plans={plans}
         />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
@@ -128,41 +128,6 @@ export default function StorePage() {
                     </div>
                     <h3 className="font-bold text-foreground mb-2">{f.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 px-4 sm:px-6 section-blue-bg">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-3">门店系统定价方案</h2>
-              <p className="text-muted-foreground">按年展示，可参与买 2 年送 2 年活动，支持免费迁移数据</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {plans.map((plan) => (
-                <Card key={plan.name} className={plan.highlight ? "border-primary shadow-lg shadow-primary/10" : "border-border"}>
-                  <CardContent className="p-6 flex flex-col gap-4">
-                    <div>
-                      <h3 className="font-bold text-foreground text-base">{plan.name}</h3>
-                      <div className="flex items-baseline gap-1 mt-2">
-                        <span className="text-3xl font-bold text-foreground">¥{plan.price}</span>
-                        <span className="text-sm text-muted-foreground">/年</span>
-                      </div>
-                    </div>
-                    <Separator />
-                    <ul className="flex flex-col gap-2">
-                      {plan.features.map((feat) => (
-                        <li key={feat} className="flex items-center gap-2 text-sm text-foreground">
-                          <CheckCircle className="size-4 text-primary shrink-0" />{feat}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link href="/contact" className={cn(buttonVariants({ variant: plan.highlight ? "default" : "outline" }), plan.highlight ? "bg-primary text-primary-foreground" : "")}>
-                      {plan.highlight ? "免费试用" : "立即开通"}
-                    </Link>
                   </CardContent>
                 </Card>
               ))}

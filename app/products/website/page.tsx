@@ -5,10 +5,9 @@ import { Footer } from "@/components/layout/footer"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
 import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
-import { CheckCircle, ArrowRight, Search, Globe, FileText, BarChart3, Link2, Smartphone, Sparkles } from "lucide-react"
+import { ArrowRight, Search, Globe, FileText, BarChart3, Link2, Smartphone, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "企业官网 AI 建站 - SEO/GEO 双引擎获客官网",
@@ -30,24 +29,32 @@ const features = [
 const plans = [
   {
     name: "网站标准版",
+    originalPrice: "698",
     price: "349",
-    features: ["AI 建站", "电脑 + 手机 + 微网站", "独立域名绑定", "SSL 证书", "基础 SEO 工具", "留言/表单收集"],
+    note: "适合展示型官网快速上线",
+    features: ["免费版全部功能", "支持 SEO", "不限流量", "第三方代码支持", "资源库 10G 空间", "电脑 + 手机 + 微网站"],
   },
   {
     name: "网站推广版",
+    originalPrice: "998",
     price: "499",
-    highlight: true,
-    features: ["全部标准版功能", "AI 智能写作", "AI 生成页面 TDK", "新闻/案例管理", "基础数据导出", "顾问协助上线"],
+    popular: true,
+    note: "适合百度收录与内容获客",
+    features: ["标准版全部功能", "百度优化系统", "百度不收录可协助复盘", "AI 智能写作", "多语言与网站统计", "资源库 50G 空间"],
   },
   {
-    name: "网站商务版",
+    name: "网站皇冠版",
+    originalPrice: "1,498",
     price: "749",
-    features: ["全部推广版功能", "SEO/GEO 结构化优化", "AI 文章配图", "站点地图生成", "多语言扩展", "月度网站检查"],
+    note: "适合内容、支付和 GEO 增长",
+    features: ["推广版全部功能", "支持在线支付", "SEO + GEO 双优化", "知识付费系统", "AI 文章配图与 TDK", "资源库 2T 空间"],
   },
   {
     name: "网站海外版",
+    originalPrice: "2,998",
     price: "1,499",
-    features: ["全部商务版功能", "全球 CDN 加速", "50 种语言版本", "AI 翻译额度", "PayPal/询盘", "外贸收录支持"],
+    note: "适合外贸展示和跨境询盘",
+    features: ["皇冠版全部功能", "全球 CDN 动态加速", "50 种语言版本", "AI 翻译 10 万 AI 豆", "PayPal 支付/产品询盘", "保证谷歌收录"],
   },
 ]
 
@@ -138,6 +145,7 @@ export default function WebsitePage() {
           promoNote="企业官网可参与买 3 年送 3 年活动，同时可叠加渠道特惠价；域名、邮箱、设计和内容权益以顾问最终确认为准。"
           specColumns={["标准版", "推广版", "皇冠版", "海外版"]}
           specs={websiteSpecs}
+          plans={plans}
         />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
@@ -155,42 +163,6 @@ export default function WebsitePage() {
                     </div>
                     <h3 className="font-bold text-foreground mb-2">{f.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 px-4 sm:px-6 section-blue-bg">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-3">企业官网定价方案</h2>
-              <p className="text-muted-foreground">按年展示，可参与多年优惠和渠道特惠，活动折扣和赠送权益以顾问确认为准</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {plans.map((plan) => (
-                <Card key={plan.name} className={plan.highlight ? "border-primary shadow-lg shadow-primary/10" : "border-border"}>
-                  <CardContent className="p-6 flex flex-col gap-4">
-                    <div>
-                      <h3 className="font-bold text-foreground text-base">{plan.name}</h3>
-                      <div className="flex items-baseline gap-1 mt-2">
-                        <span className="text-3xl font-bold text-foreground">¥{plan.price}</span>
-                        <span className="text-sm text-muted-foreground">/年</span>
-                      </div>
-                    </div>
-                    <Separator />
-                    <ul className="flex flex-col gap-2">
-                      {plan.features.map((feat) => (
-                        <li key={feat} className="flex items-center gap-2 text-sm text-foreground">
-                          <CheckCircle className="size-4 text-primary shrink-0" />
-                          {feat}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link href="/contact" className={cn(buttonVariants({ variant: plan.highlight ? "default" : "outline" }), plan.highlight ? "bg-primary text-primary-foreground" : "")}>
-                      {plan.highlight ? "免费咨询" : "立即开通"}
-                    </Link>
                   </CardContent>
                 </Card>
               ))}

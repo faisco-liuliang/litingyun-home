@@ -5,10 +5,9 @@ import { Footer } from "@/components/layout/footer"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
 import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
-import { CheckCircle, ArrowRight, CalendarCheck, Clock, Bell, Star, Map, MessageSquare, Sparkles } from "lucide-react"
+import { ArrowRight, CalendarCheck, Clock, Bell, Star, Map, MessageSquare, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "轻应用 / AI 表单与服务预约系统",
@@ -28,10 +27,10 @@ const features = [
 ]
 
 const plans = [
-  { name: "小程序标准版", price: "349", features: ["微信/百度端", "服务预约", "万能表单", "访客不限", "资源空间 1G", "基础数据"] },
-  { name: "小程序推广版", price: "599", highlight: true, features: ["全部标准版功能", "6 端合一", "隐藏制作信息", "商机转化工具", "直播间跳转", "资源空间 100G"] },
-  { name: "小程序商务版", price: "999", features: ["全部推广版功能", "会员等级", "支付预约", "推广员", "查询缴费", "资源空间 1T"] },
-  { name: "小程序平台版", price: "1,499", features: ["全部商务版功能", "同城/社区", "付费发布", "付费置顶", "内容订阅", "资源空间 2T"] },
+  { name: "小程序标准版", originalPrice: "698", price: "349", note: "适合基础展示和信息收集", features: ["免费版全部功能", "微信/百度端", "访客不限", "服务预约", "万能表单", "资源空间 1G"] },
+  { name: "小程序推广版", originalPrice: "1,198", price: "599", popular: true, note: "适合品牌展示和流量加持", features: ["标准版全部功能", "抖音/快手等 6 端合一", "隐藏制作信息", "24 种流量/商机转化", "视频号/抖音直播间跳转", "资源空间 100G"] },
+  { name: "小程序商务版", originalPrice: "1,998", price: "999", note: "适合行业营销和支付预约", features: ["推广版全部功能", "会员等级", "微信支付（表单/服务预约）", "推广员", "查询缴费/计算报价", "资源空间 1T"] },
+  { name: "小程序平台版", originalPrice: "2,998", price: "1,499", note: "适合同城信息和平台型运营", features: ["商务版全部功能", "同城/社区", "付费发布", "付费置顶", "内容订阅", "资源空间 2T"] },
 ]
 
 const detailCapabilities = [
@@ -123,6 +122,7 @@ export default function BookingPage() {
           promoNote="轻应用可先体验再选版本，可参与多年优惠和渠道特惠，最终版本权益以顾问确认为准。"
           specColumns={["标准版", "推广版", "商务版", "平台版"]}
           specs={bookingSpecs}
+          plans={plans}
         />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
@@ -140,41 +140,6 @@ export default function BookingPage() {
                     </div>
                     <h3 className="font-bold text-foreground mb-2">{f.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 px-4 sm:px-6 section-blue-bg">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-3">轻应用定价方案</h2>
-              <p className="text-muted-foreground">按年展示，轻应用公开入口价格低至 349 元，实际版本和权益以顾问确认为准</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {plans.map((plan) => (
-                <Card key={plan.name} className={plan.highlight ? "border-primary shadow-lg shadow-primary/10" : "border-border"}>
-                  <CardContent className="p-6 flex flex-col gap-4">
-                    <div>
-                      <h3 className="font-bold text-foreground text-base">{plan.name}</h3>
-                      <div className="flex items-baseline gap-1 mt-2">
-                        <span className="text-3xl font-bold text-foreground">¥{plan.price}</span>
-                        <span className="text-sm text-muted-foreground">/年</span>
-                      </div>
-                    </div>
-                    <Separator />
-                    <ul className="flex flex-col gap-2">
-                      {plan.features.map((feat) => (
-                        <li key={feat} className="flex items-center gap-2 text-sm text-foreground">
-                          <CheckCircle className="size-4 text-primary shrink-0" />{feat}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link href="/contact" className={cn(buttonVariants({ variant: plan.highlight ? "default" : "outline" }), plan.highlight ? "bg-primary text-primary-foreground" : "")}>
-                      {plan.highlight ? "免费试用" : "立即开通"}
-                    </Link>
                   </CardContent>
                 </Card>
               ))}

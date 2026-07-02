@@ -5,10 +5,9 @@ import { Footer } from "@/components/layout/footer"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
 import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
-import { CheckCircle, ArrowRight, Zap, Bot, Globe, TrendingUp, Search, Eye } from "lucide-react"
+import { ArrowRight, Zap, Bot, Globe, TrendingUp, Search, Eye } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "GEO 优化系统 - AI 搜索时代的品牌曝光优化",
@@ -27,9 +26,9 @@ const features = [
 ]
 
 const plans = [
-  { name: "GEO 基础版", price: "1,998", features: ["20 万点数/年", "50 份可见度报告", "30 个提问词/报告", "1 个品牌监控", "5000 篇内容额度", "20 个自媒体账号"] },
-  { name: "GEO 专业版", price: "3,998", highlight: true, features: ["40 万点数/年", "100 份可见度报告", "50 个提问词/报告", "3 个品牌监控", "10000 篇内容额度", "50 个自媒体账号"] },
-  { name: "GEO 旗舰版", price: "5,998", features: ["80 万点数/年", "200 份可见度报告", "50 个提问词/报告", "5 个品牌监控", "20000 篇内容额度", "200 个自媒体账号"] },
+  { name: "GEO 基础版", originalPrice: "3,996", price: "1,998", note: "适合精准布局 AI 回答关键位", features: ["20 万点数/年", "最多 50 份可见度报告", "每份报告 30 个提问词", "1 个品牌监控", "最多创作 5000 篇文章", "20 个自媒体账号"] },
+  { name: "GEO 专业版", originalPrice: "7,996", price: "3,998", popular: true, note: "适合全域覆盖品牌 AI 竞争力", features: ["40 万点数/年", "最多 100 份可见度报告", "每份报告 50 个提问词", "3 个品牌监控", "最多创作 10000 篇文章", "50 个自媒体账号"] },
+  { name: "GEO 旗舰版", originalPrice: "10,996", price: "5,998", note: "适合锁定品牌 AI 声量领先位", features: ["80 万点数/年", "最多 200 份可见度报告", "最多 5 个品牌监控", "竞品追踪最多 20 个", "最多创作 20000 篇文章", "200 个自媒体账号"] },
 ]
 
 const detailCapabilities = [
@@ -113,6 +112,7 @@ export default function GeoPage() {
           promoNote="GEO 产品含免费现状诊断，后续增长版/托管版会按关键词、内容量和平台范围确定具体服务。"
           specColumns={["基础版", "专业版", "旗舰版"]}
           specs={geoSpecs}
+          plans={plans}
         />
 
         {/* What is GEO */}
@@ -145,41 +145,6 @@ export default function GeoPage() {
                     </div>
                     <h3 className="font-bold text-foreground mb-2">{f.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 px-4 sm:px-6 section-blue-bg">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-3">GEO 优化系统定价</h2>
-              <p className="text-muted-foreground">按年展示，含免费 GEO 现状诊断，托管类服务以实际优化范围确认为准</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {plans.map((plan) => (
-                <Card key={plan.name} className={plan.highlight ? "border-primary shadow-lg shadow-primary/10" : "border-border"}>
-                  <CardContent className="p-6 flex flex-col gap-4">
-                    <div>
-                      <h3 className="font-bold text-foreground text-base">{plan.name}</h3>
-                      <div className="flex items-baseline gap-1 mt-2">
-                        <span className="text-3xl font-bold text-foreground">¥{plan.price}</span>
-                        <span className="text-sm text-muted-foreground">/年</span>
-                      </div>
-                    </div>
-                    <Separator />
-                    <ul className="flex flex-col gap-2">
-                      {plan.features.map((feat) => (
-                        <li key={feat} className="flex items-center gap-2 text-sm text-foreground">
-                          <CheckCircle className="size-4 text-primary shrink-0" />{feat}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link href="/contact" className={cn(buttonVariants({ variant: plan.highlight ? "default" : "outline" }), plan.highlight ? "bg-primary text-primary-foreground" : "")}>
-                      {plan.highlight ? "免费诊断" : "立即开通"}
-                    </Link>
                   </CardContent>
                 </Card>
               ))}

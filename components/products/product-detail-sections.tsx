@@ -11,6 +11,16 @@ type SpecRow = {
   section?: boolean
 }
 
+type ProductPlan = {
+  name: string
+  price: string
+  originalPrice?: string
+  note?: string
+  popular?: boolean
+  highlight?: boolean
+  features: string[]
+}
+
 type ProductDetailSectionsProps = {
   tone?: "blue" | "sky" | "emerald" | "violet" | "orange" | "amber" | "rose"
   eyebrow: string
@@ -24,6 +34,7 @@ type ProductDetailSectionsProps = {
   specDescription?: string
   specColumns?: string[]
   specs?: SpecRow[]
+  plans?: ProductPlan[]
 }
 
 const toneClass = {
@@ -49,6 +60,7 @@ export function ProductDetailSections({
   specDescription = "按常用版本整理核心规格，具体开通范围、赠送权益和实施内容以顾问方案确认为准。",
   specColumns = [],
   specs = [],
+  plans = [],
 }: ProductDetailSectionsProps) {
   const columns = specColumns.length ? specColumns : ["基础版", "推荐版", "高阶版"]
   const tableTemplate = `minmax(160px, 0.9fr) repeat(${columns.length}, minmax(150px, 1fr))`
@@ -140,6 +152,67 @@ export function ProductDetailSections({
             </div>
           </div>
         </div>
+
+        {plans.length > 0 && (
+          <div className="mt-12">
+            <div className="mb-5 flex flex-col justify-between gap-3 md:flex-row md:items-end">
+              <div>
+                <p className="text-sm font-semibold text-primary">版本价格</p>
+                <h3 className="mt-2 text-2xl font-bold text-foreground">版本和价格对齐价格中心</h3>
+              </div>
+              <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
+                展示参考原价、当前优惠价和核心权益，多年活动与渠道特惠可叠加，最终开通范围以顾问方案确认为准。
+              </p>
+            </div>
+            <div className={cn("grid gap-4", plans.length > 3 ? "lg:grid-cols-2 xl:grid-cols-4" : "lg:grid-cols-3")}>
+              {plans.map((plan) => {
+                const emphasized = plan.popular ?? plan.highlight
+                return (
+                  <Card key={plan.name} className={cn("relative rounded-lg border-border bg-card", emphasized && "border-primary shadow-xl shadow-primary/10")}>
+                    {emphasized && (
+                      <div className="absolute right-4 top-4">
+                        <Badge className="bg-primary text-primary-foreground">推荐</Badge>
+                      </div>
+                    )}
+                    <CardContent className="flex h-full flex-col gap-4 p-5">
+                      <div className="pr-16">
+                        <h4 className="text-base font-bold text-foreground">{plan.name}</h4>
+                        {plan.note && <p className="mt-1 text-sm leading-5 text-muted-foreground">{plan.note}</p>}
+                      </div>
+                      <div>
+                        <div className="flex items-end gap-1">
+                          <span className="text-3xl font-bold tracking-tight text-foreground">¥{plan.price}</span>
+                          <span className="pb-1 text-sm text-muted-foreground">/年</span>
+                        </div>
+                        <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
+                          <span className="rounded-full bg-primary/10 px-2 py-1 font-medium text-primary">优惠价</span>
+                          {plan.originalPrice && plan.originalPrice !== "0" ? (
+                            <span className="text-muted-foreground">
+                              原价 <span className="line-through">¥{plan.originalPrice}/年</span>
+                            </span>
+                          ) : (
+                            <span className="text-muted-foreground">免费起步</span>
+                          )}
+                        </div>
+                      </div>
+                      <div className="rounded-md bg-blue-50 px-3 py-2 text-xs font-medium leading-5 text-primary">
+                        {promoTitle} · 渠道特惠可叠加
+                      </div>
+                      <ul className="mt-auto grid gap-2">
+                        {plan.features.slice(0, 6).map((feature) => (
+                          <li key={feature} className="flex gap-2 text-sm leading-5 text-foreground">
+                            <CheckCircle className="mt-0.5 size-4 shrink-0 text-primary" />
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )
+              })}
+            </div>
+          </div>
+        )}
 
         {specs.length > 0 && (
           <div className="mt-12">

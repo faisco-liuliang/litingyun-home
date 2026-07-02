@@ -5,10 +5,9 @@ import { Footer } from "@/components/layout/footer"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
 import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
-import { CheckCircle, ArrowRight, ShoppingCart, Users, TrendingUp, Smartphone, Share2, BarChart3, Sparkles } from "lucide-react"
+import { ArrowRight, ShoppingCart, Users, TrendingUp, Smartphone, Share2, BarChart3, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "私域商城 - AI 营销商城，小程序+微商城一体化解决方案",
@@ -57,20 +56,26 @@ const features = [
 
 const plans = [
   {
-    name: "基础版",
+    name: "商城基础版",
+    originalPrice: "1,998",
     price: "999",
-    features: ["小程序/微商城/电脑商城任选", "AI 商品文案", "商品与订单管理", "微信支付", "优惠券", "基础会员功能"],
+    note: "适合品牌展示与核心交易",
+    features: ["免费版全部功能", "品牌展示 + 核心交易", "多种支付方式", "物流信息跟踪", "会员/订单一体化管理", "10G 资源空间"],
   },
   {
-    name: "豪华版",
+    name: "商城旗舰版",
+    originalPrice: "3,998",
     price: "1,999",
-    highlight: true,
-    features: ["全部基础版功能", "智能活动建议", "分销裂变系统", "拼团秒杀活动", "会员储值/积分", "专属顾问"],
+    popular: true,
+    features: ["基础版全部功能", "会员储值", "分销推广", "1.5T 超大容量", "砍价/拼团等社交玩法", "私域直播/短视频导购"],
+    note: "适合渠道拓展和社交营销",
   },
   {
-    name: "旗舰版",
+    name: "商城至尊版",
+    originalPrice: "5,998",
     price: "2,999",
-    features: ["全部豪华版功能", "直播带货模块", "多商户入驻", "跨店分销", "高阶营销玩法", "专属上线培训"],
+    note: "适合一站 3 端和高阶玩法",
+    features: ["旗舰版全部功能", "一站 3 端多端铺货", "推广获客/成交转化/复购", "N 元 M 件/礼品卡", "2T 资源空间", "AI 试衣/AI 销售按需扩展"],
   },
 ]
 
@@ -176,8 +181,9 @@ export default function MallPage() {
           scenarios={detailScenarios}
           promoTitle="买 2 年送 2 年 + 渠道特惠"
           promoNote="商城产品可参与买 2 年送 2 年活动，同时可叠加渠道特惠价；例如豪华版按 2 年付费可获得 4 年使用期，具体权益以顾问确认为准。"
-          specColumns={["基础版", "豪华版", "旗舰版"]}
+          specColumns={["基础版", "旗舰版", "至尊版"]}
           specs={mallSpecs}
+          plans={plans}
         />
 
         {/* Features */}
@@ -196,46 +202,6 @@ export default function MallPage() {
                     </div>
                     <h3 className="font-bold text-foreground mb-2">{f.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing */}
-        <section className="py-20 px-4 sm:px-6 section-blue-bg">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-3">私域商城定价方案</h2>
-              <p className="text-muted-foreground">按年展示，可参与买 2 年送 2 年活动，具体权益以顾问确认为准</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {plans.map((plan) => (
-                <Card key={plan.name} className={plan.highlight ? "border-primary shadow-lg shadow-primary/10" : "border-border"}>
-                  <CardContent className="p-6 flex flex-col gap-4">
-                    <div>
-                      <h3 className="font-bold text-foreground text-base">{plan.name}</h3>
-                      <div className="flex items-baseline gap-1 mt-2">
-                        <span className="text-3xl font-bold text-foreground">¥{plan.price}</span>
-                        <span className="text-sm text-muted-foreground">/年</span>
-                      </div>
-                    </div>
-                    <Separator />
-                    <ul className="flex flex-col gap-2">
-                      {plan.features.map((feat) => (
-                        <li key={feat} className="flex items-center gap-2 text-sm text-foreground">
-                          <CheckCircle className="size-4 text-primary shrink-0" />
-                          {feat}
-                        </li>
-                      ))}
-                    </ul>
-                    <Link
-                      href="/contact"
-                      className={cn(buttonVariants({ variant: plan.highlight ? "default" : "outline" }), plan.highlight ? "bg-primary text-primary-foreground" : "")}
-                    >
-                      {plan.highlight ? "免费试用" : "立即开通"}
-                    </Link>
                   </CardContent>
                 </Card>
               ))}
