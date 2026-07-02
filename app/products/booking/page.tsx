@@ -28,9 +28,10 @@ const features = [
 ]
 
 const plans = [
-  { name: "轻量版", price: "349", features: ["AI 表单生成", "预约管理", "服务项目 20 项", "微信通知", "内容展示", "基础数据"] },
-  { name: "标准版", price: "599", highlight: true, features: ["全部轻量版功能", "万能表单", "员工排班", "在线支付", "会员优惠", "数据报表"] },
-  { name: "高级版", price: "999", features: ["全部标准版功能", "多端发布", "多门店预约", "内容付费", "企业微信通知", "定制流程"] },
+  { name: "小程序标准版", price: "349", features: ["微信/百度端", "服务预约", "万能表单", "访客不限", "资源空间 1G", "基础数据"] },
+  { name: "小程序推广版", price: "599", highlight: true, features: ["全部标准版功能", "6 端合一", "隐藏制作信息", "商机转化工具", "直播间跳转", "资源空间 100G"] },
+  { name: "小程序商务版", price: "999", features: ["全部推广版功能", "会员等级", "支付预约", "推广员", "查询缴费", "资源空间 1T"] },
+  { name: "小程序平台版", price: "1,499", features: ["全部商务版功能", "同城/社区", "付费发布", "付费置顶", "内容订阅", "资源空间 2T"] },
 ]
 
 const detailCapabilities = [
@@ -47,12 +48,39 @@ const detailScenarios = [
 ]
 
 const bookingSpecs = [
-  { name: "发布端口", values: ["微信小程序优先", "多端小程序发布", "多端发布 + 定制流程"] },
-  { name: "预约能力", values: ["服务项目、基础预约", "员工排班、时段管理、提醒", "多门店预约、复杂排班"] },
-  { name: "表单能力", values: ["AI 表单、报名咨询", "万能表单、数据导出", "多表单、分组统计、流程配置"] },
-  { name: "支付与会员", values: ["基础在线支付", "会员优惠、服务套餐", "内容付费、会员分层和复购"] },
-  { name: "内容运营", values: ["服务展示、图文内容", "内容发布、评价展示", "内容付费、同城信息、流量变现"] },
-  { name: "适用团队", values: ["单店或小团队", "服务门店和招生团队", "多门店、连锁和复杂服务流程"] },
+  { name: "适用定位", values: ["基础展示和信息收集", "品牌展示和多端获客", "行业营销和支付预约", "同城信息和平台型运营"] },
+  { name: "终端", values: [], section: true },
+  { name: "发布端口", values: ["微信/百度端", "微信、百度、抖音、头条、支付宝、快手", "多端发布 + 支付能力", "多端发布 + 同城社区"] },
+  { name: "微信小程序", values: ["支持", "支持", "支持", "支持"] },
+  { name: "百度小程序", values: ["支持", "支持", "支持", "支持"] },
+  { name: "抖音/头条/快手", values: ["按需配置", "支持", "支持", "支持"] },
+  { name: "基础系统", values: [], section: true },
+  { name: "自定义页面", values: ["约 100 个", "约 1000 个", "约 2000 个", "约 5000 个"] },
+  { name: "自定义模块", values: ["约 1000 个", "约 1 万个", "约 3 万个", "约 3 万个"] },
+  { name: "资源空间", values: ["1G", "100G", "1T", "2T"] },
+  { name: "文件数量", values: ["约 1000 个", "约 10 万个", "约 20 万个", "约 30 万个"] },
+  { name: "单个文件大小", values: ["约 50M", "约 100M", "约 500M", "约 1G"] },
+  { name: "服务预约", values: [], section: true },
+  { name: "服务预约", values: ["约 100 个服务", "约 500 个服务", "约 1 万个服务", "约 2 万个服务"] },
+  { name: "预约订单数", values: ["约 1 万个", "不限", "不限", "不限"] },
+  { name: "预约项类型", values: ["支持多种预约项", "支持多种预约项", "支持多种预约项", "支持多种预约项"] },
+  { name: "服务分类/协议/限购", values: ["支持", "支持", "支持", "支持"] },
+  { name: "访客/管理员通知", values: ["短信/邮件按需", "短信/邮件按需", "短信/邮件按需", "短信/邮件按需"] },
+  { name: "内容与表单", values: [], section: true },
+  { name: "表单能力", values: ["万能表单、报名咨询", "高级表单和数据导出", "表单支付、查询缴费、计算报价", "信息发布、付费置顶、内容订阅"] },
+  { name: "文章数量", values: ["约 100 篇", "约 1 万篇", "约 10 万篇", "约 20 万篇"] },
+  { name: "文章分类", values: ["约 10 个", "约 100 个", "约 1000 个", "约 5000 个"] },
+  { name: "信息库/信息发布", values: ["基础展示", "支持", "支持", "支持同城/社区"] },
+  { name: "查询系统/计算报价", values: ["按需配置", "支持", "支持", "支持"] },
+  { name: "会员与营销", values: [], section: true },
+  { name: "会员与营销", values: ["基础会员档案", "智能名片、商机雷达", "会员等级、推广员、集 Call", "同城社区、付费发布、更多容量"] },
+  { name: "智能名片数量", values: ["约 100 个", "约 1000 个", "不限", "不限"] },
+  { name: "会员标签/收藏", values: ["基础档案", "支持标签和收藏", "等级会员/付费会员", "平台型会员运营"] },
+  { name: "支付能力", values: ["按需配置", "按需配置", "表单/服务预约支付", "付费发布/置顶/订阅"] },
+  { name: "流量转化", values: ["基础咨询", "视频号/直播间跳转", "推广员和行业营销", "同城信息和平台运营"] },
+  { name: "数据与服务", values: [], section: true },
+  { name: "数据统计", values: ["基础数据", "流量/商机转化统计", "订单与会员统计", "平台数据和内容统计"] },
+  { name: "适用团队", values: ["单店或小团队", "服务门店和获客团队", "预约、缴费、报名类业务", "同城平台和信息发布业务"] },
 ]
 
 export default function BookingPage() {
@@ -93,7 +121,7 @@ export default function BookingPage() {
           scenarios={detailScenarios}
           promoTitle="买 2 年送 2 年 + 渠道特惠"
           promoNote="轻应用可先体验再选版本，可参与多年优惠和渠道特惠，最终版本权益以顾问确认为准。"
-          specColumns={["轻量版", "标准版", "高级版"]}
+          specColumns={["标准版", "推广版", "商务版", "平台版"]}
           specs={bookingSpecs}
         />
 
@@ -125,7 +153,7 @@ export default function BookingPage() {
               <h2 className="text-3xl font-bold text-foreground mb-3">轻应用定价方案</h2>
               <p className="text-muted-foreground">按年展示，轻应用公开入口价格低至 349 元，实际版本和权益以顾问确认为准</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {plans.map((plan) => (
                 <Card key={plan.name} className={plan.highlight ? "border-primary shadow-lg shadow-primary/10" : "border-border"}>
                   <CardContent className="p-6 flex flex-col gap-4">

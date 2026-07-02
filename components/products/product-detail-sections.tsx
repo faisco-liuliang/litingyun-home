@@ -8,6 +8,7 @@ import { ArrowRight, BadgeCheck, CheckCircle, Clock3, Gift } from "lucide-react"
 type SpecRow = {
   name: string
   values: string[]
+  section?: boolean
 }
 
 type ProductDetailSectionsProps = {
@@ -162,20 +163,26 @@ export function ProductDetailSections({
                     </div>
                   ))}
                 </div>
-                {specs.map((row) => (
-                  <div
-                    key={row.name}
-                    className="grid border-b border-border last:border-b-0"
-                    style={{ gridTemplateColumns: tableTemplate }}
-                  >
-                    <div className="bg-muted/25 p-4 text-sm font-medium text-foreground">{row.name}</div>
-                    {columns.map((column, index) => (
-                      <div key={`${row.name}-${column}`} className="p-4 text-sm leading-6 text-muted-foreground">
-                        {row.values[index] ?? "-"}
-                      </div>
-                    ))}
-                  </div>
-                ))}
+                {specs.map((row) =>
+                  row.section ? (
+                    <div key={row.name} className="border-b border-border bg-primary/5 px-4 py-3 text-sm font-bold text-primary">
+                      {row.name}
+                    </div>
+                  ) : (
+                    <div
+                      key={row.name}
+                      className="grid border-b border-border last:border-b-0"
+                      style={{ gridTemplateColumns: tableTemplate }}
+                    >
+                      <div className="bg-muted/25 p-4 text-sm font-medium text-foreground">{row.name}</div>
+                      {columns.map((column, index) => (
+                        <div key={`${row.name}-${column}`} className="p-4 text-sm leading-6 text-muted-foreground">
+                          {row.values[index] ?? "-"}
+                        </div>
+                      ))}
+                    </div>
+                  )
+                )}
               </div>
             </div>
           </div>

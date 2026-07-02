@@ -44,6 +44,11 @@ const plans = [
     price: "749",
     features: ["全部推广版功能", "SEO/GEO 结构化优化", "AI 文章配图", "站点地图生成", "多语言扩展", "月度网站检查"],
   },
+  {
+    name: "网站海外版",
+    price: "1,499",
+    features: ["全部商务版功能", "全球 CDN 加速", "50 种语言版本", "AI 翻译额度", "PayPal/询盘", "外贸收录支持"],
+  },
 ]
 
 const detailCapabilities = [
@@ -60,12 +65,37 @@ const detailScenarios = [
 ]
 
 const websiteSpecs = [
-  { name: "建站端口", values: ["电脑站 + 手机站", "电脑站 + 手机站 + 微网站", "多端官网 + 多语言扩展"] },
-  { name: "页面与栏目", values: ["适合展示型官网", "适合服务、案例、新闻栏目", "适合多产品线和内容矩阵"] },
-  { name: "AI 能力", values: ["AI 页面初稿", "AI 写作、TDK、文章标题", "AI 配图、批量内容建议"] },
-  { name: "获客组件", values: ["留言表单、在线咨询", "表单、预约、资料下载", "多表单、线索分组和数据导出"] },
-  { name: "SEO/GEO", values: ["基础 SEO 设置", "站点地图、关键词页面", "结构化内容、问答页、月度检查"] },
-  { name: "交付服务", values: ["基础上线指导", "顾问协助上线", "内容规划、搜索诊断和复盘"] },
+  { name: "适用定位", values: ["展示型官网快速上线", "搜索收录与内容获客", "内容、支付和 GEO 增长", "外贸展示和跨境询盘"] },
+  { name: "版本信息", values: [], section: true },
+  { name: "建站端口", values: ["电脑站 + 手机站 + 微网站", "电脑站 + 手机站 + 微网站", "多端官网 + 知识付费", "多端官网 + 外贸端能力"] },
+  { name: "访客流量", values: ["不限", "不限", "不限", "不限"] },
+  { name: "隐藏制作信息", values: ["支持", "支持", "支持", "支持"] },
+  { name: "赠送权益", values: ["域名/SSL 等按活动确认", "域名/SSL/短信等按活动确认", "域名/SSL/短信等按活动确认", "域名/SSL/短信等按活动确认"] },
+  { name: "基础系统", values: [], section: true },
+  { name: "资源空间", values: ["10G", "50G", "2T", "3T"] },
+  { name: "文件数量", values: ["约 10 万个", "约 10 万个", "约 30 万个", "约 30 万个"] },
+  { name: "单个文件大小", values: ["约 50M", "约 500M", "约 1G", "约 1G"] },
+  { name: "图册数量", values: ["约 500 个", "约 1000 个", "约 1 万个", "约 1 万个"] },
+  { name: "电脑网站栏目", values: ["约 500 个", "约 1000 个", "约 1 万个", "约 1 万个"] },
+  { name: "手机网站页面", values: ["约 500 个", "约 1000 个", "约 1 万个", "约 1 万个"] },
+  { name: "自定义模块", values: ["约 1000 个", "约 5000 个", "约 5 万个", "约 5 万个"] },
+  { name: "产品系统", values: [], section: true },
+  { name: "产品数量", values: ["约 5000 个", "约 1 万个", "约 20 万个", "约 20 万个"] },
+  { name: "产品咨询/评论", values: ["支持", "支持", "支持", "支持"] },
+  { name: "表单提交/询价", values: ["支持", "支持", "支持在线支付", "支持外贸询盘"] },
+  { name: "知识付费", values: ["按需配置", "按需配置", "支持", "支持"] },
+  { name: "文章与内容", values: [], section: true },
+  { name: "文章系统", values: ["新闻/案例/服务内容", "内容获客和统计", "问答/专题/知识付费", "多语言内容和外贸文章"] },
+  { name: "AI 能力", values: ["AI 页面初稿", "AI 写作、TDK、文章标题", "AI 配图、批量内容建议", "AI 翻译与多语言内容"] },
+  { name: "获客组件", values: ["留言表单、在线咨询", "表单、预约、资料下载", "表单、支付、知识付费", "产品询盘、PayPal 支付"] },
+  { name: "搜索与营销", values: [], section: true },
+  { name: "SEO/GEO", values: ["基础 SEO 设置", "搜索收录优化与统计", "SEO + GEO 双优化", "海外搜索收录与多语言优化"] },
+  { name: "多语言", values: ["按需配置", "支持", "支持", "50 种语言版本"] },
+  { name: "网站统计", values: ["基础统计", "高级统计", "高级统计 + 转化复盘", "海外访问与询盘分析"] },
+  { name: "安全与服务", values: [], section: true },
+  { name: "SSL/安全", values: ["SSL 按活动确认", "SSL 按活动确认", "SSL 按活动确认", "SSL 按活动确认"] },
+  { name: "第三方代码", values: ["支持", "支持", "支持", "支持"] },
+  { name: "交付服务", values: ["基础上线指导", "顾问协助上线", "内容规划、搜索诊断和复盘", "外贸站上线和询盘链路建议"] },
 ]
 
 export default function WebsitePage() {
@@ -106,7 +136,7 @@ export default function WebsitePage() {
           scenarios={detailScenarios}
           promoTitle="买 3 年送 3 年 + 渠道特惠"
           promoNote="企业官网可参与买 3 年送 3 年活动，同时可叠加渠道特惠价；域名、邮箱、设计和内容权益以顾问最终确认为准。"
-          specColumns={["标准版", "推广版", "商务版"]}
+          specColumns={["标准版", "推广版", "皇冠版", "海外版"]}
           specs={websiteSpecs}
         />
 
@@ -138,7 +168,7 @@ export default function WebsitePage() {
               <h2 className="text-3xl font-bold text-foreground mb-3">企业官网定价方案</h2>
               <p className="text-muted-foreground">按年展示，可参与多年优惠和渠道特惠，活动折扣和赠送权益以顾问确认为准</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {plans.map((plan) => (
                 <Card key={plan.name} className={plan.highlight ? "border-primary shadow-lg shadow-primary/10" : "border-border"}>
                   <CardContent className="p-6 flex flex-col gap-4">
