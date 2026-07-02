@@ -10,14 +10,14 @@ import { HomeFaq } from "@/components/home/home-faq"
 import { CTA } from "@/components/home/cta"
 
 export const metadata: Metadata = {
-  title: "立亭云 - AI 时代一站式企业数字化建站与营销工具平台",
+  title: "立亭云 - 企业官网、小程序与 GEO 获客解决方案",
   description:
-    "立亭云提供 AI 建站、私域商城、AI 题库教育系统、门店管理、GEO 优化、AI 营销工具等一站式企业数字化解决方案。5 万+ 企业客户信赖。",
+    "立亭云面向中小企业提供官网建设、小程序搭建、SEO/GEO 内容布局和私域转化方案，帮助品牌在搜索与 AI 问答场景中获得更多曝光。",
   alternates: { canonical: "https://litingyun.com" },
   openGraph: {
     url: "https://litingyun.com",
-    title: "立亭云 - AI 时代一站式企业数字化建站与营销工具平台",
-    description: "5 万+ 企业信赖的 AI 数字化平台，AI 建站、私域商城、教育系统、门店管理、GEO 优化，7 天快速上线。",
+    title: "立亭云 - 企业官网、小程序与 GEO 获客解决方案",
+    description: "立亭云帮助中小企业低成本搭建线上入口，并通过内容布局提升搜索和 AI 问答场景中的品牌曝光。",
   },
 }
 

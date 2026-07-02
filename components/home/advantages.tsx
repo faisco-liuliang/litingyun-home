@@ -5,43 +5,43 @@ const advantages = [
     icon: Shield,
     iconColor: "text-blue-600",
     iconBg: "bg-blue-50",
-    title: "成熟 SaaS 技术支撑",
-    desc: "底层采用成熟云端架构，99.9% 可用性保障，企业数据安全存储，无后顾之忧。",
+    title: "低成本启动，持续获客",
+    desc: "可以先上线基础官网、小程序和核心内容页，再逐步扩展行业专题、案例和 GEO 内容矩阵。",
   },
   {
     icon: TrendingUp,
     iconColor: "text-emerald-600",
     iconBg: "bg-emerald-50",
     title: "SEO & GEO 双引擎",
-    desc: "传统 SEO 与 AI 搜索（GEO）双重优化，百度、Google、ChatGPT 等渠道全覆盖，流量持续增长。",
+    desc: "传统 SEO 负责搜索收录，GEO 负责 AI 问答曝光，让官网内容更容易被客户和大模型找到。",
   },
   {
     icon: Headphones,
     iconColor: "text-violet-600",
     iconBg: "bg-violet-50",
-    title: "专属顾问一对一服务",
-    desc: "每位客户配备专属客户成功经理，从建站到推广全程陪跑，7×12 小时响应。",
+    title: "顾问式梳理，不让客户瞎搭",
+    desc: "从业务、关键词、页面结构到咨询路径一起规划，让网站和小程序上线后能承接真实线索。",
   },
   {
     icon: Clock,
     iconColor: "text-orange-600",
     iconBg: "bg-orange-50",
-    title: "极速上线，无需技术",
-    desc: "最快 1 天建站上线，拖拽式编辑器，数百套行业模版，零代码快速搭建专业网站。",
+    title: "7 天上线，30 天启动内容布局",
+    desc: "基础官网和小程序可快速上线，随后围绕行业词、案例页、FAQ 和 GEO 文章持续扩展。",
   },
   {
     icon: Users,
     iconColor: "text-rose-600",
     iconBg: "bg-rose-50",
-    title: "完整私域流量体系",
-    desc: "公众号、小程序、视频号、企业微信无缝联动，将公域流量沉淀为私域资产。",
+    title: "官网、小程序、内容一起规划",
+    desc: "不是单点建站，而是把官网、小程序、私域商城、行业内容和咨询转化放在同一套获客路径里。",
   },
   {
     icon: CheckCircle,
     iconColor: "text-sky-600",
     iconBg: "bg-sky-50",
-    title: "按需付费，灵活扩展",
-    desc: "从个人版到旗舰版，按实际需求选择，随时升级，不多付一分冤枉钱。",
+    title: "预算有限也能分阶段做",
+    desc: "先做启动方案，验证咨询和曝光后再升级商城、门店、教育系统或 GEO 托管服务。",
   },
 ]
 
@@ -54,10 +54,10 @@ export function Advantages() {
             为什么选择立亭云
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-            专业服务，让您的数字化投入真正产生价值
+            不只是搭页面，而是帮企业搭建可获客的线上入口
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty">
-            我们不只是工具提供商，更是您企业数字化增长的长期合作伙伴。
+            立亭云更重视搜索收录、AI 问答曝光和客户咨询转化，让官网和小程序成为长期线索入口。
           </p>
         </div>
 

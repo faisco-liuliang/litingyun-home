@@ -6,7 +6,6 @@ import {
   BadgeCheck,
   BarChart3,
   Calendar,
-  CheckCircle,
   Globe,
   GraduationCap,
   Layers3,
@@ -67,22 +66,34 @@ const productLinks = [
 const serviceProofs = [
   {
     icon: BadgeCheck,
-    title: "包教包会使用",
-    desc: "从试用到付费，全流程顾问指导",
+    title: "顾问式梳理",
+    desc: "先梳理业务、关键词和转化路径",
   },
   {
     icon: BarChart3,
-    title: "价格透明公开",
-    desc: "产品套餐清晰，提前说明第三方成本",
+    title: "搜索与 AI 曝光",
+    desc: "兼顾百度收录和 AI 问答引用",
   },
   {
     icon: Layers3,
-    title: "多产品一站式",
-    desc: "官网、商城、预约、教育、门店统一规划",
+    title: "获客闭环",
+    desc: "官网、小程序、内容和咨询承接",
   },
 ]
 
 const heroSlides = [
+  {
+    eyebrow: "官网 + 小程序 + GEO 获客解决方案",
+    title: "立亭云",
+    accent: "让企业官网和小程序成为 AI 时代的获客入口",
+    subtitle: "不只搭建页面，更帮企业被搜索、被 AI 推荐、被客户找到",
+    desc: "立亭云为中小企业提供官网建设、小程序搭建、SEO/GEO 内容布局和私域转化方案，帮助品牌在百度、豆包、元宝、DeepSeek 等搜索与 AI 问答场景中获得更多曝光。",
+    primary: "规划获客入口",
+    secondary: "查看 GEO 方案",
+    href: "/contact",
+    secondaryHref: "/products/geo",
+    proofs: serviceProofs,
+  },
   {
     eyebrow: "198 元做小程序 · 买 2 年送 2 年",
     title: "198 元做小程序",
@@ -100,16 +111,20 @@ const heroSlides = [
     ],
   },
   {
-    eyebrow: "企业数字化与 AI 增长平台",
-    title: "立亭云",
-    accent: "AI 智能建站",
-    subtitle: "多产品矩阵，总有一款适合您",
-    desc: "整合官网、商城、小程序、教育、门店、营销和 GEO 优化，帮助中小企业低成本完成上线、获客和复购。",
-    primary: "立即咨询",
-    secondary: "查看价格",
+    eyebrow: "7 天上线基础官网 · 30 天启动 GEO 内容布局",
+    title: "官网建设",
+    accent: "从上线到持续获客",
+    subtitle: "先搭建能承接咨询的官网，再逐步扩展内容矩阵",
+    desc: "适合预算有限但希望长期获客的企业：先上线基础官网、核心产品页、案例页和 FAQ，再围绕行业关键词持续布局 GEO 文章和专题内容。",
+    primary: "获取官网方案",
+    secondary: "查看官网产品",
     href: "/contact",
-    secondaryHref: "/pricing",
-    proofs: serviceProofs,
+    secondaryHref: "/products/website",
+    proofs: [
+      { icon: Globe, title: "营销型官网", desc: "产品页、案例页、FAQ 和表单承接" },
+      { icon: BarChart3, title: "内容布局", desc: "关键词、专题页和 GEO 文章规划" },
+      { icon: BadgeCheck, title: "30 天启动", desc: "从上线到内容曝光逐步推进" },
+    ],
   },
   {
     eyebrow: "商城小程序 · 会员分销 · 私域复购",
@@ -135,8 +150,8 @@ export function Hero() {
       <style>
         {`
           @keyframes litingyunHeroSlide {
-            0%, 29% { opacity: 1; transform: translateY(0); pointer-events: auto; }
-            33%, 96% { opacity: 0; transform: translateY(14px); pointer-events: none; }
+            0%, 21% { opacity: 1; transform: translateY(0); pointer-events: auto; }
+            25%, 96% { opacity: 0; transform: translateY(14px); pointer-events: none; }
             100% { opacity: 1; transform: translateY(0); pointer-events: auto; }
           }
         `}
@@ -155,7 +170,7 @@ export function Hero() {
           <aside className="rounded-lg bg-primary p-4 text-primary-foreground shadow-xl shadow-primary/15">
             <div className="mb-3 flex items-center gap-2 px-1 text-sm font-semibold text-white/80">
               <Megaphone className="size-4" />
-              产品中心
+              获客产品
             </div>
             <nav className="grid gap-1.5 sm:grid-cols-2 lg:grid-cols-1">
               {productLinks.map(({ href, icon: Icon, title, tags }) => (
@@ -174,15 +189,15 @@ export function Hero() {
             </nav>
           </aside>
 
-          <div className="relative overflow-hidden rounded-lg bg-white/75 shadow-sm ring-1 ring-blue-100 backdrop-blur">
-            <div className="grid h-full xl:grid-cols-[minmax(0,1fr)_360px]">
-              <div className="flex flex-col justify-center px-6 py-10 sm:px-10 lg:px-14">
+          <div className="relative overflow-hidden rounded-lg bg-white/80 shadow-sm ring-1 ring-blue-100 backdrop-blur">
+            <div className="h-full">
+              <div className="flex flex-col justify-center px-6 py-10 sm:px-10 lg:px-16">
                 <div className="relative min-h-[560px] sm:min-h-[520px]">
                   {heroSlides.map((slide, index) => (
                     <div
                       key={slide.eyebrow}
                       className="absolute inset-0 flex flex-col justify-center opacity-0"
-                      style={{ animation: "litingyunHeroSlide 15s infinite", animationDelay: `${index * 5}s` }}
+                      style={{ animation: "litingyunHeroSlide 20s infinite", animationDelay: `${index * 5}s` }}
                     >
                       <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-primary/15 bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm">
                         <span className="size-2 rounded-full bg-primary" />
@@ -233,49 +248,6 @@ export function Hero() {
                     ))}
                   </div>
                 </div>
-              </div>
-
-              <div className="relative hidden overflow-hidden bg-[linear-gradient(135deg,#eff6ff_0%,#dbeafe_100%)] xl:block">
-                <div className="absolute right-8 top-12 h-52 w-64 rotate-3 rounded-2xl border border-white/70 bg-white/75 p-5 shadow-2xl shadow-blue-900/10">
-                  <div className="mb-4 flex items-center gap-2">
-                    <span className="size-3 rounded-full bg-red-300" />
-                    <span className="size-3 rounded-full bg-yellow-300" />
-                    <span className="size-3 rounded-full bg-green-300" />
-                    <span className="ml-2 h-3 flex-1 rounded-full bg-blue-100" />
-                  </div>
-                  <div className="space-y-3">
-                    <div className="h-8 rounded-md bg-primary/90" />
-                    <div className="grid grid-cols-3 gap-2">
-                      <div className="h-16 rounded-md bg-blue-100" />
-                      <div className="h-16 rounded-md bg-sky-100" />
-                      <div className="h-16 rounded-md bg-indigo-100" />
-                    </div>
-                    <div className="h-3 w-4/5 rounded-full bg-blue-100" />
-                    <div className="h-3 w-2/3 rounded-full bg-blue-100" />
-                  </div>
-                </div>
-
-                <div className="absolute bottom-10 right-14 w-60 rounded-2xl border border-white/70 bg-white/85 p-5 shadow-2xl shadow-blue-900/10">
-                  <div className="mb-4 flex items-center justify-between">
-                    <p className="text-sm font-semibold text-slate-900">AI 获客看板</p>
-                    <CheckCircle className="size-5 text-primary" />
-                  </div>
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between rounded-md bg-blue-50 p-3 text-sm">
-                      <span className="text-slate-600">搜索收录</span>
-                      <span className="font-bold text-primary">+62%</span>
-                    </div>
-                    <div className="flex items-center justify-between rounded-md bg-sky-50 p-3 text-sm">
-                      <span className="text-slate-600">表单线索</span>
-                      <span className="font-bold text-primary">+38%</span>
-                    </div>
-                    <div className="flex items-center justify-between rounded-md bg-indigo-50 p-3 text-sm">
-                      <span className="text-slate-600">AI 曝光</span>
-                      <span className="font-bold text-primary">+24%</span>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>

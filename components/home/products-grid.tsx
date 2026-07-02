@@ -6,8 +6,8 @@ import { ArrowRight, ShoppingCart, Globe, GraduationCap, CalendarCheck, Store, Z
 const products = [
   {
     name: "私域商城",
-    tagline: "AI 营销商城",
-    desc: "AI 商品文案、活动建议、分销拼团和直播带货，打造从下单到复购的私域电商闭环。",
+    tagline: "商城小程序 + 私域复购",
+    desc: "用商城小程序承接内容流量，再通过会员、优惠券、拼团和分销把一次成交变成持续复购。",
     href: "/products/mall",
     icon: ShoppingCart,
     iconColor: "text-blue-600",
@@ -18,8 +18,8 @@ const products = [
   },
   {
     name: "企业官网",
-    tagline: "AI 建站 + SEO/GEO",
-    desc: "AI 辅助生成页面、栏目和内容，兼顾百度 SEO 与 AI 搜索可见度，让客户主动找到你。",
+    tagline: "营销型官网 + SEO/GEO",
+    desc: "不只搭建页面，而是围绕关键词、案例、FAQ 和表单转化，做一个能被搜索和 AI 理解的获客入口。",
     href: "/products/website",
     icon: Globe,
     iconColor: "text-sky-600",
@@ -42,8 +42,8 @@ const products = [
   },
   {
     name: "轻应用",
-    tagline: "AI 表单/预约小程序",
-    desc: "AI 辅助生成表单、预约页面和服务说明，适合门诊、美业、家政等服务快速上线。",
+    tagline: "低成本小程序入口",
+    desc: "适合门诊、美业、家政、本地服务快速上线预约、表单和服务说明，先把线索承接起来。",
     href: "/products/booking",
     icon: CalendarCheck,
     iconColor: "text-emerald-600",
@@ -54,8 +54,8 @@ const products = [
   },
   {
     name: "门店系统",
-    tagline: "AI 辅助门店经营",
-    desc: "多门店统一管理，AI 辅助会员分层、活动建议和经营数据解读，提升门店运营效率。",
+    tagline: "门店会员 + 到店转化",
+    desc: "把门店展示、预约、会员、核销和活动放到同一套小程序里，让本地流量能被承接和复购。",
     href: "/products/store",
     icon: Store,
     iconColor: "text-orange-600",
@@ -66,8 +66,8 @@ const products = [
   },
   {
     name: "GEO 优化系统",
-    tagline: "AI 搜索品牌增长",
-    desc: "面向 DeepSeek、豆包、通义、百度 AI 等大模型优化品牌内容，让你的品牌更容易成为推荐答案。",
+    tagline: "AI 搜索品牌曝光",
+    desc: "围绕豆包、元宝、DeepSeek 等 AI 问答场景布局品牌内容，让企业更容易被模型理解和推荐。",
     href: "/products/geo",
     icon: Zap,
     iconColor: "text-amber-600",
@@ -99,10 +99,10 @@ export function ProductsGrid() {
             产品中心
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 text-balance">
-            AI 赋能 7 大产品线，覆盖企业全业务场景
+            官网、小程序与 GEO 内容布局，形成线上获客闭环
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto text-pretty">
-            从 AI 建站、AI 内容到私域成交和门店经营，立亭云把获客、转化、复购串成一套可落地的增长系统。
+            企业不只是需要一个网站，更需要一个能被客户找到、被 AI 理解、能承接咨询的线上入口。
           </p>
         </div>
 
