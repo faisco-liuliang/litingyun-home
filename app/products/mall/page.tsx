@@ -24,13 +24,13 @@ const features = [
   },
   {
     icon: ShoppingCart,
-    title: "多端商城",
-    desc: "小程序 + H5 + PC 三端同步，消费者随时随地下单，零门槛购物体验。",
+    title: "1 站 3 端商城",
+    desc: "小程序商城、手机微商城、电脑商城统一管理，多渠道流量铺货，消费者随时随地下单。",
   },
   {
     icon: Share2,
     title: "分销裂变",
-    desc: "二级分销、拼团、砍价、邀请有礼，利用老客带新客，低成本获客。",
+    desc: "推广员、分销商、社群团购、拼团砍价、邀请有礼，利用老客带新客，低成本获客。",
   },
   {
     icon: Users,
@@ -39,8 +39,8 @@ const features = [
   },
   {
     icon: Smartphone,
-    title: "直播带货",
-    desc: "微信直播间一键导流商品，边播边买，实时互动提升转化率。",
+    title: "直播与短视频导购",
+    desc: "直播电商、短视频导购和社交活动组合引流，边种草边转化，提升成交效率。",
   },
   {
     icon: TrendingUp,
@@ -56,20 +56,20 @@ const features = [
 
 const plans = [
   {
-    name: "入门版",
-    price: "499",
-    features: ["小程序商城", "AI 商品文案", "商品管理 500 件", "订单管理", "基础会员功能", "微信支付"],
+    name: "基础版",
+    price: "1,599",
+    features: ["1 站 3 端商城", "AI 商品文案", "商品与订单管理", "微信支付", "优惠券", "基础会员功能"],
   },
   {
-    name: "标准版",
-    price: "999",
+    name: "豪华版",
+    price: "2,699",
     highlight: true,
-    features: ["全部入门版功能", "智能活动建议", "分销裂变系统", "拼团秒杀活动", "会员积分体系", "专属顾问"],
+    features: ["全部基础版功能", "智能活动建议", "分销裂变系统", "拼团秒杀活动", "会员储值/积分", "专属顾问"],
   },
   {
     name: "旗舰版",
-    price: "1,999",
-    features: ["全部标准版功能", "直播带货模块", "跨店分销", "API 对接", "定制开发", "驻场服务"],
+    price: "4,999",
+    features: ["全部豪华版功能", "直播带货模块", "多商户入驻", "跨店分销", "API 对接", "专属上线培训"],
   },
 ]
 
@@ -133,7 +133,7 @@ export default function MallPage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-3">私域商城定价方案</h2>
-              <p className="text-muted-foreground">按年付费享 8 折优惠</p>
+              <p className="text-muted-foreground">按年展示，可参与买 2 年送 2 年活动，具体权益以顾问确认为准</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {plans.map((plan) => (
@@ -143,7 +143,7 @@ export default function MallPage() {
                       <h3 className="font-bold text-foreground text-base">{plan.name}</h3>
                       <div className="flex items-baseline gap-1 mt-2">
                         <span className="text-3xl font-bold text-foreground">¥{plan.price}</span>
-                        <span className="text-sm text-muted-foreground">/月</span>
+                        <span className="text-sm text-muted-foreground">/年</span>
                       </div>
                     </div>
                     <Separator />

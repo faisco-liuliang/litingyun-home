@@ -28,9 +28,9 @@ const features = [
 ]
 
 const plans = [
-  { name: "入门版", price: "399", features: ["AI 题库导入", "直播课堂 100 人", "录播视频 50G", "课程定价销售", "学员管理", "微信支付"] },
-  { name: "专业版", price: "899", highlight: true, features: ["全部入门版功能", "智能组卷纠错", "直播课堂 500 人", "会员订阅系统", "邀请返佣裂变", "专属顾问"] },
-  { name: "机构版", price: "1,699", features: ["直播课堂不限人数", "存储不限量", "多讲师协作", "API 对接", "专属 App 定制", "驻场服务"] },
+  { name: "入门版", price: "1,599", features: ["AI 题库导入", "图文/音视频课程", "课程订单", "学员管理", "微信支付", "学习记录"] },
+  { name: "专业版", price: "2,999", highlight: true, features: ["全部入门版功能", "智能组卷纠错", "直播课程", "会员订阅系统", "邀请返佣裂变", "数据报表"] },
+  { name: "机构版", price: "4,999", features: ["全部专业版功能", "多讲师协作", "班级管理", "课程分销", "API 对接", "专属培训"] },
 ]
 
 export default function EducationPage() {
@@ -88,7 +88,7 @@ export default function EducationPage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-3">教育系统定价方案</h2>
-              <p className="text-muted-foreground">按年付费享 8 折优惠</p>
+              <p className="text-muted-foreground">按年展示，可参与买 2 年送 2 年活动，具体权益以顾问确认为准</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {plans.map((plan) => (
@@ -98,7 +98,7 @@ export default function EducationPage() {
                       <h3 className="font-bold text-foreground text-base">{plan.name}</h3>
                       <div className="flex items-baseline gap-1 mt-2">
                         <span className="text-3xl font-bold text-foreground">¥{plan.price}</span>
-                        <span className="text-sm text-muted-foreground">/月</span>
+                        <span className="text-sm text-muted-foreground">/年</span>
                       </div>
                     </div>
                     <Separator />

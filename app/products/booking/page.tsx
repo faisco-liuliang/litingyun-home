@@ -18,18 +18,18 @@ export const metadata: Metadata = {
 
 const features = [
   { icon: Sparkles, title: "AI 表单生成", desc: "根据行业和业务目标，快速生成报名、咨询、报价、预约等表单字段和提示文案。" },
-  { icon: CalendarCheck, title: "在线预约", desc: "客户手机扫码即可预约，服务时间、项目、人员一键选择，极简预约体验。" },
+  { icon: CalendarCheck, title: "服务预约", desc: "客户手机扫码即可预约，服务时间、项目、人员一键选择，适合门诊、美业、家政和咨询排期。" },
   { icon: Clock, title: "智能排班", desc: "员工排班管理、服务时段配置、超额自动拒绝，轻松应对高峰期预约压力。" },
   { icon: Bell, title: "自动提醒", desc: "预约成功、到店前 1 小时、服务完成后自动发送微信提醒，减少爽约率。" },
-  { icon: Map, title: "多门店支持", desc: "连锁门店统一管理，客户可选择就近门店预约，总部数据实时汇总查看。" },
+  { icon: Map, title: "多端发布", desc: "支持微信、百度、抖音、头条、支付宝、快手等多端小程序场景，内容一次配置多端展示。" },
   { icon: Star, title: "服务评价", desc: "服务完成后自动触发评价邀请，好评展示增强信任，差评及时内部处理。" },
-  { icon: MessageSquare, title: "线索摘要", desc: "自动汇总客户需求、预约来源和服务偏好，方便顾问更快跟进和二次转化。" },
+  { icon: MessageSquare, title: "内容与支付", desc: "支持内容展示、表单收集、在线支付、内容付费和流量主广告，兼顾展示与转化。" },
 ]
 
 const plans = [
-  { name: "轻量版", price: "199", features: ["AI 表单生成", "预约管理", "员工管理 5 人", "服务项目 20 项", "微信通知", "基础数据"] },
-  { name: "标准版", price: "499", highlight: true, features: ["全部轻量版功能", "线索摘要", "员工管理不限", "服务项目不限", "多门店管理 3 家", "数据报表"] },
-  { name: "连锁版", price: "999", features: ["全部标准版功能", "多门店不限", "总部统一管理", "API 对接", "自定义表单", "专属顾问"] },
+  { name: "轻量版", price: "999", features: ["AI 表单生成", "预约管理", "服务项目 20 项", "微信通知", "内容展示", "基础数据"] },
+  { name: "标准版", price: "1,699", highlight: true, features: ["全部轻量版功能", "万能表单", "员工排班", "在线支付", "会员优惠", "数据报表"] },
+  { name: "高级版", price: "2,999", features: ["全部标准版功能", "多端发布", "多门店预约", "内容付费", "企业微信通知", "定制流程"] },
 ]
 
 export default function BookingPage() {
@@ -87,7 +87,7 @@ export default function BookingPage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-3">轻应用定价方案</h2>
-              <p className="text-muted-foreground">按年付费享 8 折优惠</p>
+              <p className="text-muted-foreground">按年展示，轻应用公开入口价格低至 349 元，实际版本和权益以顾问确认为准</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {plans.map((plan) => (
@@ -97,7 +97,7 @@ export default function BookingPage() {
                       <h3 className="font-bold text-foreground text-base">{plan.name}</h3>
                       <div className="flex items-baseline gap-1 mt-2">
                         <span className="text-3xl font-bold text-foreground">¥{plan.price}</span>
-                        <span className="text-sm text-muted-foreground">/月</span>
+                        <span className="text-sm text-muted-foreground">/年</span>
                       </div>
                     </div>
                     <Separator />

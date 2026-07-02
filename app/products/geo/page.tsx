@@ -17,18 +17,18 @@ export const metadata: Metadata = {
 }
 
 const features = [
-  { icon: Bot, title: "AI 可见度诊断", desc: "输入品牌、产品或企业名称，诊断在 DeepSeek、豆包、通义、百度 AI 等平台的声量表现。" },
+  { icon: Bot, title: "AI 可见度诊断", desc: "输入品牌、产品或企业名称，诊断在 DeepSeek、豆包、元宝、通义、百度 AI 等平台的声量表现。" },
   { icon: Search, title: "提问词挖掘", desc: "深挖用户高频提问词，围绕购买决策、行业痛点和竞品对比布局品牌答案。" },
   { icon: Globe, title: "专属品牌智库", desc: "整合企业文档、官网内容、案例和竞品素材，沉淀可供 AI 引用的品牌知识资产。" },
-  { icon: Eye, title: "品牌监控", desc: "定期追踪品牌在 AI 搜索中的出现频率、呈现方式和竞品差距，及时发现波动。" },
+  { icon: Eye, title: "品牌监控", desc: "定期追踪品牌提及率、首推率、呈现方式和竞品差距，及时发现 AI 搜索曝光波动。" },
   { icon: TrendingUp, title: "AI 内容创作", desc: "贴合主流大模型内容偏好，生成问答、专题页、案例和科普文章，提升推荐概率。" },
   { icon: Zap, title: "智能信源布局", desc: "拆解大模型回答信源，围绕高权重平台布局内容，让品牌信息更容易被引用。" },
 ]
 
 const plans = [
-  { name: "入门版", price: "799", features: ["AI 曝光监控", "每月内容优化 10 篇", "3 个关键词追踪", "月度报告", "基础竞品分析"] },
-  { name: "专业版", price: "1,999", highlight: true, features: ["AI 曝光监控（全平台）", "每月内容优化 50 篇", "20 个关键词追踪", "多平台内容分发", "竞品深度分析", "专属 GEO 顾问"] },
-  { name: "企业版", price: "4,999", features: ["全部专业版功能", "内容优化不限量", "关键词不限", "定制化 AI 策略", "品牌知识图谱建设", "驻场服务"] },
+  { name: "诊断版", price: "2,999", features: ["AI 可见度诊断", "竞品问答采样", "提问词挖掘", "基础结构化建议", "优化报告"] },
+  { name: "增长版", price: "5,999", highlight: true, features: ["全部诊断版内容", "专属品牌智库", "AI 内容创作", "官网内容优化", "月度追踪报告", "顾问复盘"] },
+  { name: "托管版", price: "12,000", features: ["全部增长版内容", "内容月更", "品牌百科建议", "行业专题页", "多渠道引用建设", "专项运营会"] },
 ]
 
 export default function GeoPage() {
@@ -49,7 +49,7 @@ export default function GeoPage() {
                 <span className="text-amber-400">抢占 AI 推荐位</span>
               </h1>
               <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-xl text-pretty">
-                当用户问 DeepSeek、豆包、通义、百度 AI 时，您的品牌会被推荐吗？GEO（生成式引擎优化）是 SEO 之后最重要的流量机会，立亭云帮您提前布局。
+                当用户问 DeepSeek、豆包、元宝、通义、百度 AI 时，您的品牌会被推荐吗？GEO（生成式引擎优化）是 SEO 之后最重要的流量机会，立亭云帮您提前布局。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-amber-500 hover:bg-amber-600 text-white h-12 px-8")}>
@@ -104,7 +104,7 @@ export default function GeoPage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-3">GEO 优化系统定价</h2>
-              <p className="text-muted-foreground">按年付费享 8 折优惠，含免费 GEO 现状诊断</p>
+              <p className="text-muted-foreground">按年展示，含免费 GEO 现状诊断，托管类服务以实际优化范围确认为准</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {plans.map((plan) => (
@@ -114,7 +114,7 @@ export default function GeoPage() {
                       <h3 className="font-bold text-foreground text-base">{plan.name}</h3>
                       <div className="flex items-baseline gap-1 mt-2">
                         <span className="text-3xl font-bold text-foreground">¥{plan.price}</span>
-                        <span className="text-sm text-muted-foreground">/月</span>
+                        <span className="text-sm text-muted-foreground">/年</span>
                       </div>
                     </div>
                     <Separator />

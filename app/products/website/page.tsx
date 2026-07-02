@@ -17,31 +17,31 @@ export const metadata: Metadata = {
 }
 
 const features = [
-  { icon: Sparkles, title: "AI 建站助手", desc: "根据行业、产品和目标客户，辅助生成网站栏目、首页文案、服务介绍和行动按钮。" },
-  { icon: Search, title: "SEO 内置工具", desc: "自动生成 sitemap、结构化数据标记、关键词密度分析，让搜索引擎更好地理解您的网站。" },
-  { icon: Globe, title: "百度 + Google 双优化", desc: "针对百度和 Google 的差异化 SEO 策略，国内国际市场双线布局，流量全覆盖。" },
-  { icon: FileText, title: "SEO/GEO 内容增长", desc: "AI 辅助文章创作、关键词布局和问答内容补全，兼顾搜索排名与大模型引用。" },
-  { icon: Link2, title: "外链建设支持", desc: "专业外链资源整合，提升网站权重，加速搜索排名爬升。" },
-  { icon: BarChart3, title: "流量数据监控", desc: "实时查看关键词排名、页面收录情况、流量来源分析，精准指导优化方向。" },
-  { icon: Smartphone, title: "响应式全端适配", desc: "自动适配手机、平板、PC，移动端体验满分，Google 移动优先索引高分通过。" },
+  { icon: Sparkles, title: "AI 建站与写作", desc: "支持 AI 建站、AI 智能写作、批量写作和文章配图，降低官网内容生产成本。" },
+  { icon: Search, title: "AI 生成 TDK", desc: "可围绕全站、页面、文章、产品和图册生成标题、描述和关键词，提升搜索理解效率。" },
+  { icon: Globe, title: "SEO/GEO 双优化", desc: "兼顾百度收录、传统搜索排名和 AI 搜索引用，让官网更容易被客户和大模型找到。" },
+  { icon: FileText, title: "内容与文章系统", desc: "支持新闻、案例、服务介绍和问答内容沉淀，适合持续做行业关键词和长尾内容。" },
+  { icon: Link2, title: "表单与线索收集", desc: "留言板、表单、在线查询和预约支付等能力，把官网访问转成可跟进的客户线索。" },
+  { icon: BarChart3, title: "统计与经营看板", desc: "跟踪访问来源、页面表现和线索转化，方便持续判断哪些内容真正带来客户。" },
+  { icon: Smartphone, title: "多端与安全适配", desc: "一键覆盖 PC、手机和微网站，支持 SSL、IPv6、安全防护和多语言扩展。" },
 ]
 
 const plans = [
   {
-    name: "基础建站版",
-    price: "299",
-    features: ["AI 首页文案", "专业官网模版 100+", "独立域名绑定", "SSL 证书", "基础 SEO 工具", "表单收集"],
+    name: "网站标准版",
+    price: "698",
+    features: ["AI 建站", "电脑 + 手机 + 微网站", "独立域名绑定", "SSL 证书", "基础 SEO 工具", "留言/表单收集"],
   },
   {
-    name: "SEO 优化版",
-    price: "699",
+    name: "网站推广版",
+    price: "998",
     highlight: true,
-    features: ["全部基础版功能", "AI 内容工具", "关键词排名监控", "结构化数据", "流量分析报表", "专属 SEO 顾问"],
+    features: ["全部标准版功能", "AI 智能写作", "AI 生成页面 TDK", "新闻/案例管理", "基础数据导出", "顾问协助上线"],
   },
   {
-    name: "全渠道版",
-    price: "1,299",
-    features: ["全部优化版功能", "GEO 内容优化", "AI 内容创作", "外链建设资源", "月度 SEO 报告", "驻场服务"],
+    name: "网站商务版",
+    price: "1,498",
+    features: ["全部推广版功能", "SEO/GEO 结构化优化", "AI 文章配图", "站点地图生成", "多语言扩展", "月度网站检查"],
   },
 ]
 
@@ -100,7 +100,7 @@ export default function WebsitePage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-3">企业官网定价方案</h2>
-              <p className="text-muted-foreground">按年付费享 8 折优惠，含免费域名注册</p>
+              <p className="text-muted-foreground">按年展示，官网套餐参考凡科建站公开价格，活动折扣和赠送权益以顾问确认为准</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {plans.map((plan) => (
@@ -110,7 +110,7 @@ export default function WebsitePage() {
                       <h3 className="font-bold text-foreground text-base">{plan.name}</h3>
                       <div className="flex items-baseline gap-1 mt-2">
                         <span className="text-3xl font-bold text-foreground">¥{plan.price}</span>
-                        <span className="text-sm text-muted-foreground">/月</span>
+                        <span className="text-sm text-muted-foreground">/年</span>
                       </div>
                     </div>
                     <Separator />

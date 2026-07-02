@@ -27,9 +27,9 @@ const features = [
 ]
 
 const plans = [
-  { name: "单店版", price: "299", features: ["AI 经营分析", "单门店管理", "会员管理 5000 人", "储值卡核销", "基础报表", "微信通知"] },
-  { name: "连锁版", price: "799", highlight: true, features: ["全部单店版功能", "会员分层运营", "多门店管理 10 家", "跨店通用储值", "营业数据汇总", "专属顾问"] },
-  { name: "集团版", price: "1,599", features: ["多门店不限", "集团数据中台", "API 对接 ERP", "自定义角色权限", "定制开发支持", "驻场培训"] },
+  { name: "单店版", price: "1,299", features: ["AI 经营分析", "单门店管理", "会员储值", "到店核销", "员工账号", "营业报表"] },
+  { name: "连锁版", price: "2,299", highlight: true, features: ["全部单店版功能", "会员分层运营", "10 家门店", "跨店会员通用", "总部数据汇总", "活动配置"] },
+  { name: "集团版", price: "3,699", features: ["全部连锁版功能", "门店数量不限", "区域权限", "API 对接 ERP", "经营看板", "专属实施服务"] },
 ]
 
 export default function StorePage() {
@@ -87,7 +87,7 @@ export default function StorePage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-3">门店系统定价方案</h2>
-              <p className="text-muted-foreground">按年付费享 8 折优惠，支持免费迁移数据</p>
+              <p className="text-muted-foreground">按年展示，可参与买 2 年送 2 年活动，支持免费迁移数据</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {plans.map((plan) => (
@@ -97,7 +97,7 @@ export default function StorePage() {
                       <h3 className="font-bold text-foreground text-base">{plan.name}</h3>
                       <div className="flex items-baseline gap-1 mt-2">
                         <span className="text-3xl font-bold text-foreground">¥{plan.price}</span>
-                        <span className="text-sm text-muted-foreground">/月</span>
+                        <span className="text-sm text-muted-foreground">/年</span>
                       </div>
                     </div>
                     <Separator />

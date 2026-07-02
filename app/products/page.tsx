@@ -25,8 +25,8 @@ const products = [
     color: "text-blue-600",
     bg: "bg-blue-50",
     badge: "热门",
-    highlights: ["AI 商品文案", "小程序商城", "分销裂变", "直播带货"],
-    priceFrom: "499",
+    highlights: ["1站3端商城", "分销裂变", "直播电商", "拼团砍价"],
+    priceFrom: "1,599",
   },
   {
     name: "企业官网",
@@ -38,7 +38,7 @@ const products = [
     bg: "bg-sky-50",
     badge: "SEO 必备",
     highlights: ["AI 建站", "百度精准收录", "GEO 内容", "表单线索收集"],
-    priceFrom: "299",
+    priceFrom: "698",
   },
   {
     name: "教育系统",
@@ -49,8 +49,8 @@ const products = [
     color: "text-violet-600",
     bg: "bg-violet-50",
     badge: "新品",
-    highlights: ["AI 题库导入", "智能组卷", "直播课堂", "付费订阅"],
-    priceFrom: "399",
+    highlights: ["AI 题库导入", "智能组卷", "直播课堂", "知识付费"],
+    priceFrom: "1,599",
   },
   {
     name: "轻应用",
@@ -61,8 +61,8 @@ const products = [
     color: "text-emerald-600",
     bg: "bg-emerald-50",
     badge: "服务行业",
-    highlights: ["AI 表单", "在线预约", "智能排班", "自动提醒"],
-    priceFrom: "199",
+    highlights: ["多端发布", "在线预约", "万能表单", "自动提醒"],
+    priceFrom: "999",
   },
   {
     name: "门店系统",
@@ -74,7 +74,7 @@ const products = [
     bg: "bg-orange-50",
     badge: "连锁推荐",
     highlights: ["AI 经营分析", "多门店管理", "会员体系", "经营报表"],
-    priceFrom: "299",
+    priceFrom: "1,299",
   },
   {
     name: "GEO 优化系统",
@@ -86,7 +86,7 @@ const products = [
     bg: "bg-amber-50",
     badge: "独家",
     highlights: ["AI 可见度诊断", "品牌智库", "内容创作", "竞品监控"],
-    priceFrom: "799",
+    priceFrom: "2,999",
   },
   {
     name: "营销工具",
@@ -98,7 +98,7 @@ const products = [
     bg: "bg-rose-50",
     badge: "多合一",
     highlights: ["AI 海报", "AI 短视频", "H5 活动页", "有奖投票"],
-    priceFrom: "按需购买",
+    priceFrom: "699",
   },
 ]
 
@@ -156,7 +156,7 @@ export default function ProductsPage() {
                               ) : (
                                 <>
                                   <span className="text-2xl font-bold text-primary">¥{product.priceFrom}</span>
-                                  <span className="text-sm text-muted-foreground">/月</span>
+                                  <span className="text-sm text-muted-foreground">/年起</span>
                                 </>
                               )}
                             </div>
