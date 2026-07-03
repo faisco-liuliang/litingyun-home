@@ -16,7 +16,6 @@ import {
   GraduationCap,
   LayoutTemplate,
   Megaphone,
-  Phone,
   SearchCheck,
   ShieldCheck,
   ShoppingBag,
@@ -330,13 +329,6 @@ export default function PricingPage() {
                       领取套餐报价
                       <ArrowRight className="ml-2 size-4" />
                     </Link>
-                    <a
-                      href="tel:400-000-0000"
-                      className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-primary/25 bg-white px-6 text-sm font-medium text-primary shadow-sm transition-colors hover:bg-primary/5"
-                    >
-                      <Phone className="size-4" />
-                      400-000-0000
-                    </a>
                   </div>
                   <div className="mt-8 grid gap-3 sm:grid-cols-3">
                     {promoStats.map((item) => (
@@ -526,10 +518,6 @@ export default function PricingPage() {
               <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "h-12 bg-primary px-10 text-primary-foreground hover:bg-primary/90")}>
                 免费获取方案
               </Link>
-              <a href="tel:400-000-0000" className="inline-flex h-12 items-center gap-2 text-sm font-medium text-slate-200 hover:text-white">
-                <Phone className="size-4" />
-                400-000-0000
-              </a>
             </div>
           </div>
         </section>

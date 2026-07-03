@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
-import { ArrowRight, Users, Target, Heart, Award, Phone, Mail, MapPin } from "lucide-react"
+import { ArrowRight, Users, Target, Heart, Award, Mail, MapPin } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "关于立亭云 - 专注企业数字化增长的 SaaS 服务商",
@@ -173,9 +173,8 @@ export default function AboutPage() {
               <h2 className="text-3xl font-bold text-foreground mb-3">联系我们</h2>
               <p className="text-muted-foreground">无论您有任何问题，我们都乐于解答</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                { icon: Phone, label: "服务热线", value: "400-000-0000", sub: "周一至周六 09:00–18:00" },
                 { icon: Mail, label: "邮件咨询", value: "hello@litingyun.com", sub: "24 小时内回复" },
                 { icon: MapPin, label: "公司地址", value: "广州市天河区科技园", sub: "欢迎预约上门拜访" },
               ].map((contact) => (

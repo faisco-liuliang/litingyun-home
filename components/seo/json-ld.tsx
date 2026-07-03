@@ -19,18 +19,11 @@ export function OrganizationJsonLd() {
         },
         description:
           "立亭云提供 AI 建站、私域商城、AI 题库教育系统、门店管理、GEO 优化、AI 营销工具等一站式企业数字化解决方案，助力中小企业快速搭建线上业务，实现业绩增长。",
-        telephone: "400-000-0000",
         address: {
           "@type": "PostalAddress",
           addressCountry: "CN",
         },
         sameAs: [],
-        contactPoint: {
-          "@type": "ContactPoint",
-          telephone: "400-000-0000",
-          contactType: "customer service",
-          availableLanguage: "Chinese",
-        },
       },
       {
         "@type": "WebSite",

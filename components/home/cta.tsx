@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { ArrowRight, MessageCircle, Phone } from "lucide-react"
+import { ArrowRight, MessageCircle } from "lucide-react"
 
 export function CTA() {
   return (
@@ -22,13 +22,6 @@ export function CTA() {
           >
             规划获客方案
             <ArrowRight className="size-4 ml-2" />
-          </Link>
-          <Link
-            href="tel:400-000-0000"
-            className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 hover:text-white bg-transparent h-12 text-base w-full sm:w-auto")}
-          >
-            <Phone className="size-4 mr-2" />
-            400-000-0000 咨询
           </Link>
         </div>
 

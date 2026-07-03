@@ -16,7 +16,6 @@ import {
   ChevronDown,
   Menu,
   X,
-  Phone,
 } from "lucide-react"
 
 const products = [
@@ -195,13 +194,6 @@ export function Header() {
 
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <a
-              href="tel:400-000-0000"
-              className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
-            >
-              <Phone className="size-3.5" />
-              400-000-0000
-            </a>
             <Link href="/pricing" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
               查看价格
             </Link>
