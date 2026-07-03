@@ -115,7 +115,7 @@ export function Header() {
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-start gap-8 h-16">
+        <div className="relative flex items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <div className="size-8 rounded-lg bg-primary flex items-center justify-center">
@@ -127,7 +127,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1">
             {navLinks.map((link) =>
               link.hasDropdown ? (
                 <div
