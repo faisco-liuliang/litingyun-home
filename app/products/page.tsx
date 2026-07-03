@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
+import { ContactQrButton } from "@/components/contact/contact-qr-button"
 import { cn } from "@/lib/utils"
 import { ArrowRight, ShoppingCart, Globe, GraduationCap, CalendarCheck, Store, Zap, Wrench } from "lucide-react"
 
@@ -84,7 +85,7 @@ const products = [
     icon: Zap,
     color: "text-amber-600",
     bg: "bg-amber-50",
-    badge: "独家",
+    badge: "新品上线",
     highlights: ["AI 可见度诊断", "品牌智库", "内容创作", "竞品监控"],
     priceFrom: "2,999",
   },
@@ -165,9 +166,9 @@ export default function ProductsPage() {
                             <Link href={product.href} className={cn(buttonVariants())}>
                               了解详情 <ArrowRight className="size-4 ml-1.5" />
                             </Link>
-                            <Link href="/contact" className={cn(buttonVariants({ variant: "outline" }))}>
+                            <ContactQrButton variant="outline">
                               免费咨询
-                            </Link>
+                            </ContactQrButton>
                           </div>
                         </div>
                       </div>
@@ -184,9 +185,9 @@ export default function ProductsPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">不确定选哪款产品？</h2>
             <p className="text-slate-300 mb-8">联系专属顾问，免费为您推荐最适合的解决方案</p>
-            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-10")}>
+            <ContactQrButton size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-10">
               免费顾问咨询 <ArrowRight className="size-4 ml-2" />
-            </Link>
+            </ContactQrButton>
           </div>
         </section>
       </main>

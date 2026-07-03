@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { buttonVariants } from "@/components/ui/button"
+import { ContactQrButton } from "@/components/contact/contact-qr-button"
 import { cn } from "@/lib/utils"
 import {
   ArrowRight,
@@ -9,13 +10,11 @@ import {
   Globe,
   GraduationCap,
   Layers3,
-  Megaphone,
   Share2,
   ShoppingBag,
   Sparkles,
   Store,
   Users,
-  Wrench,
 } from "lucide-react"
 
 const productLinks = [
@@ -50,16 +49,11 @@ const productLinks = [
     tags: "AI 经营分析，多门店会员一体化",
   },
   {
-    href: "/products/tools",
-    icon: Wrench,
-    title: "其他工具",
-    tags: "AI 海报、短视频、H5 活动工具",
-  },
-  {
     href: "/products/geo",
     icon: Sparkles,
     title: "GEO 优化系统",
     tags: "让 DeepSeek、豆包等大模型推荐品牌",
+    badge: "新品上线",
   },
 ]
 
@@ -168,12 +162,8 @@ export function Hero() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:py-8">
         <div className="grid gap-5 lg:grid-cols-[280px_minmax(0,1fr)] lg:items-stretch">
           <aside className="rounded-lg bg-primary p-4 text-primary-foreground shadow-xl shadow-primary/15">
-            <div className="mb-3 flex items-center gap-2 px-1 text-sm font-semibold text-white/80">
-              <Megaphone className="size-4" />
-              获客产品
-            </div>
             <nav className="grid gap-1.5 sm:grid-cols-2 lg:grid-cols-1">
-              {productLinks.map(({ href, icon: Icon, title, tags }) => (
+              {productLinks.map(({ href, icon: Icon, title, tags, badge }) => (
                 <Link
                   key={title}
                   href={href}
@@ -181,7 +171,10 @@ export function Hero() {
                 >
                   <Icon className="mt-0.5 size-4 shrink-0 text-white" />
                   <span className="min-w-0">
-                    <span className="block text-base font-bold tracking-tight">{title}</span>
+                    <span className="flex flex-wrap items-center gap-2 text-base font-bold tracking-tight">
+                      {title}
+                      {badge && <span className="rounded-full bg-white/18 px-2 py-0.5 text-[10px] font-semibold text-white">{badge}</span>}
+                    </span>
                     <span className="mt-0.5 block text-xs font-medium leading-5 text-blue-100/85">{tags}</span>
                   </span>
                 </Link>
@@ -212,13 +205,20 @@ export function Hero() {
                       <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg">{slide.desc}</p>
 
                       <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                        <Link
-                          href={slide.href}
-                          className={cn(buttonVariants({ size: "lg" }), "h-12 rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90")}
-                        >
-                          {slide.primary}
-                          <ArrowRight className="ml-2 size-5" />
-                        </Link>
+                        {slide.href === "/contact" ? (
+                          <ContactQrButton size="lg" className="h-12 rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90">
+                            {slide.primary}
+                            <ArrowRight className="ml-2 size-5" />
+                          </ContactQrButton>
+                        ) : (
+                          <Link
+                            href={slide.href}
+                            className={cn(buttonVariants({ size: "lg" }), "h-12 rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90")}
+                          >
+                            {slide.primary}
+                            <ArrowRight className="ml-2 size-5" />
+                          </Link>
+                        )}
                         <Link
                           href={slide.secondaryHref}
                           className={cn(buttonVariants({ variant: "outline", size: "lg" }), "h-12 rounded-full border-primary/30 bg-white px-8 text-primary hover:bg-primary/5")}

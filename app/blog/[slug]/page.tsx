@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { getBlogPost, getBlogSlugs } from "@/lib/blog-data"
+import { defaultRegisterUrl } from "@/lib/product-links"
 import { ArrowLeft, Clock, User, Tag, Calendar } from "lucide-react"
 
 const BASE_URL = "https://litingyun.com"
@@ -174,13 +175,15 @@ export default async function BlogPostPage({ params }: Props) {
         <section className="py-16 px-4 sm:px-6 section-blue-bg border-t border-border">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-2xl font-bold text-foreground mb-3">准备好开始了吗？</h2>
-            <p className="text-muted-foreground mb-8">免费试用立亭云 14 天，专属顾问一对一指导您快速上线。</p>
-            <Link
-              href="/contact"
+            <p className="text-muted-foreground mb-8">免费试用立亭云，专属顾问一对一指导您快速上线。</p>
+            <a
+              href={defaultRegisterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors"
             >
-              免费试用 14 天
-            </Link>
+              免费试用
+            </a>
           </div>
         </section>
       </main>

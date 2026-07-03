@@ -1,6 +1,4 @@
-import Link from "next/link"
-import { buttonVariants } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { ContactQrButton } from "@/components/contact/contact-qr-button"
 import { ArrowRight, MessageCircle } from "lucide-react"
 
 export function CTA() {
@@ -16,13 +14,10 @@ export function CTA() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="/contact"
-            className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground text-base px-8 h-12 shadow-lg shadow-blue-500/25 w-full sm:w-auto")}
-          >
+          <ContactQrButton size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-base px-8 h-12 shadow-lg shadow-blue-500/25 w-full sm:w-auto">
             规划获客方案
             <ArrowRight className="size-4 ml-2" />
-          </Link>
+          </ContactQrButton>
         </div>
 
         <div className="mt-10 flex items-center justify-center gap-2 text-sm text-slate-400">

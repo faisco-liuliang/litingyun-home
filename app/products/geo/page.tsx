@@ -5,8 +5,10 @@ import { Footer } from "@/components/layout/footer"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
+import { ContactQrButton } from "@/components/contact/contact-qr-button"
 import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
+import { productRegisterUrls } from "@/lib/product-links"
 import { ArrowRight, Zap, Bot, Globe, TrendingUp, Search, Eye } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -90,9 +92,9 @@ export default function GeoPage() {
                 当用户问 DeepSeek、豆包、元宝、通义、百度 AI 时，您的品牌会被推荐吗？GEO（生成式引擎优化）是 SEO 之后最重要的流量机会，立亭云帮您提前布局。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-amber-500 hover:bg-amber-600 text-white h-12 px-8")}>
+                <ContactQrButton size="lg" className="bg-amber-500 hover:bg-amber-600 text-white h-12 px-8">
                   免费 GEO 诊断 <ArrowRight className="size-4 ml-2" />
-                </Link>
+                </ContactQrButton>
                 <Link href="/blog" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12")}>
                   了解 GEO 趋势
                 </Link>
@@ -113,6 +115,7 @@ export default function GeoPage() {
           specColumns={["基础版", "专业版", "旗舰版"]}
           specs={geoSpecs}
           plans={plans}
+          registerUrl={productRegisterUrls.geo}
         />
 
         {/* What is GEO */}
@@ -156,9 +159,9 @@ export default function GeoPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">立即开始您的 GEO 布局</h2>
             <p className="text-blue-100 mb-8">免费诊断您的品牌在 AI 搜索中的现状，制定专属优化策略</p>
-            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
+            <ContactQrButton size="lg" className="bg-white text-primary hover:bg-blue-50 h-12 px-10">
               免费 GEO 诊断 <ArrowRight className="size-4 ml-2" />
-            </Link>
+            </ContactQrButton>
           </div>
         </section>
       </main>

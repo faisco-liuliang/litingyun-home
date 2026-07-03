@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, ShoppingCart, Globe, GraduationCap, CalendarCheck, Store, Zap, Wrench } from "lucide-react"
+import { ArrowRight, ShoppingCart, Globe, GraduationCap, CalendarCheck, Store, Zap } from "lucide-react"
 
 const products = [
   {
@@ -72,21 +72,9 @@ const products = [
     icon: Zap,
     iconColor: "text-amber-600",
     iconBg: "bg-amber-50",
-    badge: "独家",
+    badge: "新品上线",
     badgeColor: "bg-amber-100 text-amber-700",
     features: ["AI 可见度", "品牌智库", "内容创作", "竞品监控"],
-  },
-  {
-    name: "其他工具",
-    tagline: "AI 内容营销工具箱",
-    desc: "AI 海报、AI 短视频、H5 活动页、投票问卷和活码工具，覆盖内容获客与活动裂变。",
-    href: "/products/tools",
-    icon: Wrench,
-    iconColor: "text-rose-600",
-    iconBg: "bg-rose-50",
-    badge: "多合一",
-    badgeColor: "bg-rose-100 text-rose-700",
-    features: ["AI 海报", "AI 短视频", "H5 活动页", "表单收集"],
   },
 ]
 

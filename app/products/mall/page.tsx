@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
+import { productRegisterUrls } from "@/lib/product-links"
 import { ArrowRight, ShoppingCart, Users, TrendingUp, Smartphone, Share2, BarChart3, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -161,9 +162,9 @@ export default function MallPage() {
                 整合 AI 商品文案、小程序商城、会员运营、分销裂变和直播带货，打造属于企业自己的私域电商阵地，让每一位用户都成为增长引擎。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
-                  免费试用 14 天 <ArrowRight className="size-4 ml-2" />
-                </Link>
+                <a href={productRegisterUrls.mall} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
+                  免费试用 <ArrowRight className="size-4 ml-2" />
+                </a>
                 <Link href="/cases" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12")}>
                   查看案例
                 </Link>
@@ -184,6 +185,7 @@ export default function MallPage() {
           specColumns={["基础版", "旗舰版", "至尊版"]}
           specs={mallSpecs}
           plans={plans}
+          registerUrl={productRegisterUrls.mall}
         />
 
         {/* Features */}
@@ -215,10 +217,10 @@ export default function MallPage() {
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 text-balance">
               立即开启您的私域商城之旅
             </h2>
-            <p className="text-blue-100 mb-8">14 天免费试用，专属顾问全程陪跑</p>
-            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
+            <p className="text-blue-100 mb-8">免费试用，专属顾问全程陪跑</p>
+            <a href={productRegisterUrls.mall} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
               免费试用 <ArrowRight className="size-4 ml-2" />
-            </Link>
+            </a>
           </div>
         </section>
       </main>

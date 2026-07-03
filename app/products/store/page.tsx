@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
+import { productRegisterUrls } from "@/lib/product-links"
 import { ArrowRight, Store, Users, CreditCard, BarChart3, Gift, Smartphone, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -89,9 +90,9 @@ export default function StorePage() {
                 专为连锁零售和服务企业设计，AI 经营分析、多门店统一管理、会员分层、储值核销和数据实时汇总，帮助连锁品牌提升运营效率和客户粘性。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
-                  免费试用 14 天 <ArrowRight className="size-4 ml-2" />
-                </Link>
+                <a href={productRegisterUrls.store} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
+                  免费试用 <ArrowRight className="size-4 ml-2" />
+                </a>
                 <Link href="/cases" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12")}>
                   查看案例
                 </Link>
@@ -112,6 +113,7 @@ export default function StorePage() {
           specColumns={["入门版", "基础版", "商业版", "旗舰版"]}
           specs={storeSpecs}
           plans={plans}
+          registerUrl={productRegisterUrls.store}
         />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
@@ -140,9 +142,9 @@ export default function StorePage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">开始管理您的连锁门店</h2>
             <p className="text-blue-100 mb-8">免费数据迁移，7 天快速上线</p>
-            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
+            <a href={productRegisterUrls.store} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
               免费试用 <ArrowRight className="size-4 ml-2" />
-            </Link>
+            </a>
           </div>
         </section>
       </main>

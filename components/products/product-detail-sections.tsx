@@ -2,7 +2,9 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { buttonVariants } from "@/components/ui/button"
+import { ContactQrButton } from "@/components/contact/contact-qr-button"
 import { cn } from "@/lib/utils"
+import { defaultRegisterUrl } from "@/lib/product-links"
 import { ArrowRight, BadgeCheck, CheckCircle, Clock3, Gift } from "lucide-react"
 
 type SpecRow = {
@@ -35,6 +37,7 @@ type ProductDetailSectionsProps = {
   specColumns?: string[]
   specs?: SpecRow[]
   plans?: ProductPlan[]
+  registerUrl?: string
 }
 
 const toneClass = {
@@ -61,6 +64,7 @@ export function ProductDetailSections({
   specColumns = [],
   specs = [],
   plans = [],
+  registerUrl = defaultRegisterUrl,
 }: ProductDetailSectionsProps) {
   const columns = specColumns.length ? specColumns : ["基础版", "推荐版", "高阶版"]
   const tableTemplate = `minmax(160px, 0.9fr) repeat(${columns.length}, minmax(150px, 1fr))`
@@ -77,10 +81,10 @@ export function ProductDetailSections({
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">{title}</h2>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-muted-foreground sm:text-base">{description}</p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact" className={cn(buttonVariants(), "bg-primary text-primary-foreground hover:bg-primary/90")}>
+              <ContactQrButton className="bg-primary text-primary-foreground hover:bg-primary/90">
                 领取活动方案
                 <ArrowRight className="ml-2 size-4" />
-              </Link>
+              </ContactQrButton>
               <Link href="/pricing" className={cn(buttonVariants({ variant: "outline" }))}>
                 查看价格中心
               </Link>
@@ -197,8 +201,10 @@ export function ProductDetailSections({
                           </li>
                         ))}
                       </ul>
-                      <Link
-                        href="/contact"
+                      <a
+                        href={registerUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={cn(
                           buttonVariants({ variant: emphasized ? "default" : "outline" }),
                           "mt-2 w-full"
@@ -206,7 +212,7 @@ export function ProductDetailSections({
                       >
                         立即试用
                         <ArrowRight className="ml-2 size-4" />
-                      </Link>
+                      </a>
                     </CardContent>
                   </Card>
                 )
@@ -224,10 +230,10 @@ export function ProductDetailSections({
               </div>
               <div className="flex max-w-2xl flex-col gap-3 md:items-end">
                 <p className="text-sm leading-6 text-muted-foreground">{specDescription}</p>
-                <Link href="/contact" className={cn(buttonVariants({ size: "sm" }), "w-fit")}>
+                <a href={registerUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "sm" }), "w-fit")}>
                   立即试用
                   <ArrowRight className="ml-2 size-4" />
-                </Link>
+                </a>
               </div>
             </div>
             <div className="overflow-x-auto rounded-lg border border-border bg-white shadow-sm">

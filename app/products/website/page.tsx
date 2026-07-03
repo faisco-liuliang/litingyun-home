@@ -5,8 +5,10 @@ import { Footer } from "@/components/layout/footer"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
+import { ContactQrButton } from "@/components/contact/contact-qr-button"
 import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
+import { productRegisterUrls } from "@/lib/product-links"
 import { ArrowRight, Search, Globe, FileText, BarChart3, Link2, Smartphone, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -123,9 +125,9 @@ export default function WebsitePage() {
                 AI 辅助生成页面、栏目和内容，内置专业 SEO/GEO 优化工具，帮助企业官网稳步提升搜索排名和 AI 搜索可见度。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
+                <ContactQrButton size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8">
                   免费建站咨询 <ArrowRight className="size-4 ml-2" />
-                </Link>
+                </ContactQrButton>
                 <Link href="/cases" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12")}>
                   查看 SEO 案例
                 </Link>
@@ -146,6 +148,7 @@ export default function WebsitePage() {
           specColumns={["标准版", "推广版", "皇冠版", "海外版"]}
           specs={websiteSpecs}
           plans={plans}
+          registerUrl={productRegisterUrls.website}
         />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
@@ -174,9 +177,9 @@ export default function WebsitePage() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 text-balance">开始打造您的 AI 获客官网</h2>
             <p className="text-blue-100 mb-8">免费 SEO/GEO 诊断，专属顾问为您制定建站方案</p>
-            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
+            <ContactQrButton size="lg" className="bg-white text-primary hover:bg-blue-50 h-12 px-10">
               免费 SEO 诊断 <ArrowRight className="size-4 ml-2" />
-            </Link>
+            </ContactQrButton>
           </div>
         </section>
       </main>

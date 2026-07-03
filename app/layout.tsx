@@ -1,5 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
+import { FloatingContact } from '@/components/contact/floating-contact'
 import { OrganizationJsonLd } from '@/components/seo/json-ld'
 import './globals.css'
 
@@ -63,6 +64,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <OrganizationJsonLd />
         {children}
+        <FloatingContact />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { cn } from "@/lib/utils"
+import { defaultRegisterUrl } from "@/lib/product-links"
 import { ArrowRight, Users, Target, Heart, Award, Mail, MapPin } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -198,10 +199,10 @@ export default function AboutPage() {
         <section className="py-16 px-4 sm:px-6 hero-dark-bg">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">加入 5 万+ 企业，开启数字化增长</h2>
-            <p className="text-slate-300 mb-8">立即免费试用，专属顾问陪您全程</p>
-            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-10")}>
-              免费试用 14 天 <ArrowRight className="size-4 ml-2" />
-            </Link>
+            <p className="text-slate-300 mb-8">免费试用，专属顾问陪您全程</p>
+            <a href={defaultRegisterUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-10")}>
+              免费试用 <ArrowRight className="size-4 ml-2" />
+            </a>
           </div>
         </section>
       </main>

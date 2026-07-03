@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
+import { defaultRegisterUrl } from "@/lib/product-links"
 import { ArrowRight, Quote } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -199,10 +200,10 @@ export default function CasesPage() {
         <section className="py-16 px-4 sm:px-6 hero-dark-bg">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">让立亭云也成为您的增长故事</h2>
-            <p className="text-slate-300 mb-8">14 天免费试用，专属顾问为您量身定制方案</p>
-            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-10")}>
-              免费试用 14 天 <ArrowRight className="size-4 ml-2" />
-            </Link>
+            <p className="text-slate-300 mb-8">免费试用，专属顾问为您量身定制方案</p>
+            <a href={defaultRegisterUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-10")}>
+              免费试用 <ArrowRight className="size-4 ml-2" />
+            </a>
           </div>
         </section>
       </main>

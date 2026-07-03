@@ -6,7 +6,9 @@ import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { ContactQrButton } from "@/components/contact/contact-qr-button"
 import { cn } from "@/lib/utils"
+import { productRegisterUrls } from "@/lib/product-links"
 import {
   ArrowRight,
   BadgeCheck,
@@ -322,13 +324,10 @@ export default function PricingPage() {
                     多年优惠、渠道特惠价和顾问服务可叠加享受。按企业官网、商城小程序、门店系统、教育系统、轻应用和 GEO 优化拆分报价，版本功能清晰透明。
                   </p>
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <Link
-                      href="/contact"
-                      className={cn(buttonVariants({ size: "lg" }), "h-12 rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90")}
-                    >
+                    <ContactQrButton size="lg" className="h-12 rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90">
                       领取套餐报价
                       <ArrowRight className="ml-2 size-4" />
-                    </Link>
+                    </ContactQrButton>
                   </div>
                   <div className="mt-8 grid gap-3 sm:grid-cols-3">
                     {promoStats.map((item) => (
@@ -437,15 +436,17 @@ export default function PricingPage() {
                                 </li>
                               ))}
                             </ul>
-                            <Link
-                              href="/contact"
+                            <a
+                              href={productRegisterUrls[product.id as keyof typeof productRegisterUrls] ?? productRegisterUrls.website}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className={cn(
                                 buttonVariants({ variant: plan.popular ? "default" : "outline" }),
                                 "mt-auto w-full"
                               )}
                             >
                               立即购买
-                            </Link>
+                            </a>
                           </CardContent>
                         </Card>
                       ))}
@@ -515,9 +516,9 @@ export default function PricingPage() {
               告诉我们你的业务类型、门店数量、是否需要商城/小程序/SEO，我们会给你推荐最合适的版本和活动年限。
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "h-12 bg-primary px-10 text-primary-foreground hover:bg-primary/90")}>
+              <ContactQrButton size="lg" className="h-12 bg-primary px-10 text-primary-foreground hover:bg-primary/90">
                 免费获取方案
-              </Link>
+              </ContactQrButton>
             </div>
           </div>
         </section>

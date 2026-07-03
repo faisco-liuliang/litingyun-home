@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
+import { productRegisterUrls } from "@/lib/product-links"
 import { ArrowRight, CalendarCheck, Clock, Bell, Star, Map, MessageSquare, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -100,9 +101,9 @@ export default function BookingPage() {
                 专为美业、医疗、教培、家政等服务行业设计，AI 表单、在线预约、智能排班、自动提醒和线索摘要，帮助服务型企业提升运营效率与客户满意度。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
-                  免费试用 14 天 <ArrowRight className="size-4 ml-2" />
-                </Link>
+                <a href={productRegisterUrls.booking} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
+                  免费试用 <ArrowRight className="size-4 ml-2" />
+                </a>
                 <Link href="/pricing" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12")}>
                   查看价格
                 </Link>
@@ -123,6 +124,7 @@ export default function BookingPage() {
           specColumns={["标准版", "推广版", "商务版", "平台版"]}
           specs={bookingSpecs}
           plans={plans}
+          registerUrl={productRegisterUrls.booking}
         />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
@@ -150,10 +152,10 @@ export default function BookingPage() {
         <section className="py-16 px-4 sm:px-6 bg-primary">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">让服务预约更专业</h2>
-            <p className="text-blue-100 mb-8">14 天免费体验，无需技术背景即可上线</p>
-            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
-              立即免费试用 <ArrowRight className="size-4 ml-2" />
-            </Link>
+            <p className="text-blue-100 mb-8">免费试用，无需技术背景即可上线</p>
+            <a href={productRegisterUrls.booking} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
+              免费试用 <ArrowRight className="size-4 ml-2" />
+            </a>
           </div>
         </section>
       </main>

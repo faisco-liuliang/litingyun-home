@@ -5,8 +5,10 @@ import { Footer } from "@/components/layout/footer"
 import { buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
+import { ContactQrButton } from "@/components/contact/contact-qr-button"
 import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
+import { productRegisterUrls } from "@/lib/product-links"
 import { ArrowRight, FileText, Vote, Megaphone, QrCode, ClipboardList, ImageIcon, Video, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -66,9 +68,9 @@ export default function ToolsPage() {
                 AI 海报、AI 短视频、商品图处理、H5 活动页、投票活动、问卷调查……无需技术，快速创作，轻松实现品牌传播与线索收集。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
+                <a href={productRegisterUrls.booking} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
                   免费试用 <ArrowRight className="size-4 ml-2" />
-                </Link>
+                </a>
                 <Link href="/pricing" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12")}>
                   查看价格
                 </Link>
@@ -88,6 +90,7 @@ export default function ToolsPage() {
           promoNote="营销工具支持按需开通，也可与商城、官网、门店系统组合购买，活动优惠以顾问方案为准。"
           specColumns={["轻量工具", "活动套装", "品牌套装"]}
           specs={toolSpecs}
+          registerUrl={productRegisterUrls.booking}
         />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
@@ -124,9 +127,9 @@ export default function ToolsPage() {
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">开启您的营销工具之旅</h2>
             <p className="text-blue-100 mb-8">营销工具按需购买，无需整套购入，灵活实惠</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
+              <ContactQrButton size="lg" className="bg-white text-primary hover:bg-blue-50 h-12 px-10">
                 免费咨询 <ArrowRight className="size-4 ml-2" />
-              </Link>
+              </ContactQrButton>
               <Link href="/pricing" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-white text-white hover:bg-white/10 bg-transparent h-12 px-8")}>
                 查看完整价格
               </Link>

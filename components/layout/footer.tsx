@@ -7,7 +7,6 @@ import {
   CalendarCheck,
   Store,
   Zap,
-  Wrench,
 } from "lucide-react"
 
 const productLinks = [
@@ -17,7 +16,6 @@ const productLinks = [
   { name: "AI 轻应用 / 服务预约", href: "/products/booking", icon: CalendarCheck },
   { name: "AI 辅助门店系统", href: "/products/store", icon: Store },
   { name: "GEO 优化系统", href: "/products/geo", icon: Zap },
-  { name: "AI 营销工具", href: "/products/tools", icon: Wrench },
 ]
 
 const supportLinks = [
@@ -31,7 +29,27 @@ const aboutLinks = [
   { name: "关于立亭云", href: "/about" },
   { name: "加入我们", href: "/about#join" },
   { name: "代理合作", href: "/about#partner" },
-  { name: "联系我们", href: "/contact" },
+]
+
+const seoKeywords = [
+  { name: "网站建站", href: "/products/website" },
+  { name: "企业网站建设", href: "/products/website" },
+  { name: "营销型网站建设", href: "/products/website" },
+  { name: "AI 建站", href: "/products/website" },
+  { name: "SEO 建站", href: "/products/website" },
+  { name: "小程序制作", href: "/products/booking" },
+  { name: "小程序开发", href: "/products/booking" },
+  { name: "小程序商城", href: "/products/mall" },
+  { name: "商城小程序制作", href: "/products/mall" },
+  { name: "私域商城系统", href: "/products/mall" },
+  { name: "门店小程序", href: "/products/store" },
+  { name: "门店管理系统", href: "/products/store" },
+  { name: "教育小程序", href: "/products/education" },
+  { name: "知识付费系统", href: "/products/education" },
+  { name: "GEO 优化", href: "/products/geo" },
+  { name: "AI 搜索优化", href: "/products/geo" },
+  { name: "AI 推荐品牌优化", href: "/products/geo" },
+  { name: "企业获客系统", href: "/" },
 ]
 
 export function Footer() {
@@ -124,15 +142,25 @@ export function Footer() {
             <p className="text-xs text-slate-500 leading-relaxed">
               微信扫码，专属顾问<br />为您一对一解答
             </p>
-
-            <div className="mt-6 p-3 bg-slate-800 rounded-lg">
-              <p className="text-xs text-slate-400 mb-1 font-medium">工作时间</p>
-              <p className="text-xs text-slate-500">周一至周六 09:00–18:00</p>
-            </div>
           </div>
         </div>
 
         <Separator className="my-10 bg-slate-800" />
+
+        <div className="mb-10">
+          <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-white">热门搜索词</h3>
+          <div className="flex flex-wrap gap-2">
+            {seoKeywords.map((keyword) => (
+              <Link
+                key={keyword.name}
+                href={keyword.href}
+                className="rounded-md border border-slate-800 bg-slate-900/60 px-3 py-1.5 text-xs text-slate-400 transition-colors hover:border-slate-700 hover:text-white"
+              >
+                {keyword.name}
+              </Link>
+            ))}
+          </div>
+        </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© 2024 立亭云. 保留所有权利.</p>
@@ -146,7 +174,6 @@ export function Footer() {
             <Link href="/sitemap.xml" className="hover:text-slate-300 transition-colors">
               网站地图
             </Link>
-            <span>粤ICP备XXXXXXXX号</span>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { ProductDetailSections } from "@/components/products/product-detail-sections"
 import { cn } from "@/lib/utils"
+import { productRegisterUrls } from "@/lib/product-links"
 import { ArrowRight, Video, BookOpen, CreditCard, Users, Bell, Star, Sparkles } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -97,9 +98,9 @@ export default function EducationPage() {
                 整合 AI 题库导入、智能组卷、直播课堂、录播点播、付费订阅和学员管理，帮助教育机构快速搭建可招生、可交付、可复购的在线学校。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
-                  免费试用 14 天 <ArrowRight className="size-4 ml-2" />
-                </Link>
+                <a href={productRegisterUrls.education} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
+                  免费试用 <ArrowRight className="size-4 ml-2" />
+                </a>
                 <Link href="/cases" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "border-slate-600 text-slate-200 hover:bg-slate-800 bg-transparent h-12")}>
                   查看教育案例
                 </Link>
@@ -120,6 +121,7 @@ export default function EducationPage() {
           specColumns={["标准版", "专业版", "旗舰版"]}
           specs={educationSpecs}
           plans={plans}
+          registerUrl={productRegisterUrls.education}
         />
 
         <section className="py-20 px-4 sm:px-6 bg-background">
@@ -147,10 +149,10 @@ export default function EducationPage() {
         <section className="py-16 px-4 sm:px-6 bg-primary">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">开始搭建您的在线学校</h2>
-            <p className="text-blue-100 mb-8">14 天免费试用，0 技术门槛快速上线</p>
-            <Link href="/contact" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
-              立即免费试用 <ArrowRight className="size-4 ml-2" />
-            </Link>
+            <p className="text-blue-100 mb-8">免费试用，0 技术门槛快速上线</p>
+            <a href={productRegisterUrls.education} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-white text-primary hover:bg-blue-50 h-12 px-10")}>
+              免费试用 <ArrowRight className="size-4 ml-2" />
+            </a>
           </div>
         </section>
       </main>

@@ -1,10 +1,11 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { defaultRegisterUrl } from "@/lib/product-links"
 import {
   ShoppingCart,
   Globe,
@@ -12,7 +13,6 @@ import {
   CalendarCheck,
   Store,
   Zap,
-  Wrench,
   ChevronDown,
   Menu,
   X,
@@ -66,14 +66,7 @@ const products = [
     icon: Zap,
     color: "text-amber-600",
     bg: "bg-amber-50",
-  },
-  {
-    name: "其他工具",
-    desc: "AI 海报、短视频、H5 活动工具",
-    href: "/products/tools",
-    icon: Wrench,
-    color: "text-rose-600",
-    bg: "bg-rose-50",
+    badge: "新品上线",
   },
 ]
 
@@ -90,6 +83,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -102,6 +96,16 @@ export function Header() {
     setMobileOpen(false)
     setDropdownOpen(false)
   }, [pathname])
+
+  useEffect(() => {
+    const onPointerDown = (event: PointerEvent) => {
+      if (!dropdownRef.current?.contains(event.target as Node)) {
+        setDropdownOpen(false)
+      }
+    }
+    document.addEventListener("pointerdown", onPointerDown)
+    return () => document.removeEventListener("pointerdown", onPointerDown)
+  }, [])
 
   return (
     <header
@@ -131,10 +135,12 @@ export function Header() {
                 <div
                   key={link.name}
                   className="relative"
-                  onMouseEnter={() => setDropdownOpen(true)}
-                  onMouseLeave={() => setDropdownOpen(false)}
+                  ref={dropdownRef}
                 >
                   <button
+                    type="button"
+                    onClick={() => setDropdownOpen((open) => !open)}
+                    aria-expanded={dropdownOpen}
                     className={cn(
                       "flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-colors",
                       pathname.startsWith("/products")
@@ -163,8 +169,9 @@ export function Header() {
                             <product.icon className={cn("size-4", product.color)} />
                           </div>
                           <div>
-                            <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                            <p className="flex flex-wrap items-center gap-2 text-sm font-semibold text-foreground transition-colors group-hover:text-primary">
                               {product.name}
+                              {product.badge && <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-700">{product.badge}</span>}
                             </p>
                             <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
                               {product.desc}
@@ -197,9 +204,9 @@ export function Header() {
             <Link href="/pricing" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
               查看价格
             </Link>
-            <Link href="/contact" className={cn(buttonVariants({ size: "sm" }), "bg-primary hover:bg-primary/90 text-primary-foreground")}>
+            <a href={defaultRegisterUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "sm" }), "bg-primary hover:bg-primary/90 text-primary-foreground")}>
               免费试用
-            </Link>
+            </a>
           </div>
 
           {/* Mobile menu toggle */}
@@ -235,9 +242,9 @@ export function Header() {
               <Link href="/pricing" className={cn(buttonVariants({ variant: "outline" }), "w-full justify-center")}>
                 查看价格
               </Link>
-              <Link href="/contact" className={cn(buttonVariants(), "bg-primary hover:bg-primary/90 text-primary-foreground w-full justify-center")}>
+              <a href={defaultRegisterUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants(), "bg-primary hover:bg-primary/90 text-primary-foreground w-full justify-center")}>
                 免费试用
-              </Link>
+              </a>
             </div>
           </nav>
         </div>
