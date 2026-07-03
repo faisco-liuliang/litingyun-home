@@ -3,9 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { defaultRegisterUrl } from "@/lib/product-links"
 import {
   ShoppingCart,
   Globe,
@@ -199,16 +197,6 @@ export function Header() {
             )}
           </nav>
 
-          {/* CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <Link href="/pricing" className={cn(buttonVariants({ variant: "outline", size: "sm" }))}>
-              查看价格
-            </Link>
-            <a href={defaultRegisterUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "sm" }), "bg-primary hover:bg-primary/90 text-primary-foreground")}>
-              免费试用
-            </a>
-          </div>
-
           {/* Mobile menu toggle */}
           <button
             className="lg:hidden p-2 rounded-md text-foreground hover:bg-accent"
@@ -238,14 +226,6 @@ export function Header() {
                 {link.name}
               </Link>
             ))}
-            <div className="pt-3 flex flex-col gap-2">
-              <Link href="/pricing" className={cn(buttonVariants({ variant: "outline" }), "w-full justify-center")}>
-                查看价格
-              </Link>
-              <a href={defaultRegisterUrl} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants(), "bg-primary hover:bg-primary/90 text-primary-foreground w-full justify-center")}>
-                免费试用
-              </a>
-            </div>
           </nav>
         </div>
       )}

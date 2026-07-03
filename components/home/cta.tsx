@@ -1,5 +1,5 @@
 import { ContactQrButton } from "@/components/contact/contact-qr-button"
-import { ArrowRight, MessageCircle } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 export function CTA() {
   return (
@@ -20,10 +20,6 @@ export function CTA() {
           </ContactQrButton>
         </div>
 
-        <div className="mt-10 flex items-center justify-center gap-2 text-sm text-slate-400">
-          <MessageCircle className="size-4" />
-          <span>或扫码添加微信顾问：litingyun</span>
-        </div>
       </div>
     </section>
   )
