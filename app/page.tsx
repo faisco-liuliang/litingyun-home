@@ -13,9 +13,9 @@ export const metadata: Metadata = {
   title: "立亭云 - 企业官网、小程序与 GEO 获客解决方案",
   description:
     "立亭云面向中小企业提供官网建设、小程序搭建、SEO/GEO 内容布局和私域转化方案，帮助品牌在搜索与 AI 问答场景中获得更多曝光。",
-  alternates: { canonical: "https://litingyun.com" },
+  alternates: { canonical: "https://litingyun.fkw.com" },
   openGraph: {
-    url: "https://litingyun.com",
+    url: "https://litingyun.fkw.com",
     title: "立亭云 - 企业官网、小程序与 GEO 获客解决方案",
     description: "立亭云帮助中小企业低成本搭建线上入口，并通过内容布局提升搜索和 AI 问答场景中的品牌曝光。",
   },

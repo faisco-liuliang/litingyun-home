@@ -115,14 +115,14 @@ export default function WebsitePage() {
         <section className="hero-dark-bg py-24 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl">
-              <Badge className="mb-5 bg-sky-900/60 text-sky-300 border-sky-700/50">AI 建站 + SEO/GEO 解决方案</Badge>
+              <Badge className="mb-5 bg-sky-900/60 text-sky-300 border-sky-700/50">10分钟轻松做网站 · AI 建站 + SEO/GEO</Badge>
               <h1 className="text-4xl sm:text-5xl font-bold text-white mb-5 text-balance">
-                企业官网 AI 建站
+                10分钟轻松做网站
                 <br />
-                <span className="text-sky-400">让客户主动找到你</span>
+                <span className="text-sky-400">让企业官网成为获客入口</span>
               </h1>
               <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-xl text-pretty">
-                AI 辅助生成页面、栏目和内容，内置专业 SEO/GEO 优化工具，帮助企业官网稳步提升搜索排名和 AI 搜索可见度。
+                AI 辅助生成页面、栏目和内容，小白也能快速搭建企业网站；内置专业 SEO/GEO 优化工具，帮助企业官网稳步提升搜索排名和 AI 搜索可见度。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <ContactQrButton size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8">
@@ -139,12 +139,12 @@ export default function WebsitePage() {
         <ProductDetailSections
           tone="sky"
           eyebrow="官网建站活动"
-          title="先把官网做成获客入口，再持续做 SEO/GEO 增长"
-          description="官网产品页不只讲建站，而是把页面结构、内容生产、搜索收录、AI 引用和线索转化连起来。基础版本适合快速上线，推广/商务版本更适合持续做内容和搜索获客。"
+          title="10分钟轻松做网站，先把官网做成获客入口"
+          description="官网产品页不只讲建站，而是把页面结构、内容生产、搜索收录、AI 引用和线索转化连起来。基础版本适合快速上线企业网站，推广/商务版本更适合持续做内容和搜索获客。"
           capabilities={detailCapabilities}
           scenarios={detailScenarios}
-          promoTitle="买 3 年送 3 年 + 渠道特惠"
-          promoNote="企业官网可参与买 3 年送 3 年活动，同时可叠加渠道特惠价；域名、邮箱、设计和内容权益以顾问最终确认为准。"
+          promoTitle="买三年送三年 + 渠道特惠"
+          promoNote="企业官网可参与买三年送三年活动，同时可叠加渠道特惠价；域名、邮箱、设计和内容权益以顾问最终确认为准。"
           specColumns={["标准版", "推广版", "皇冠版", "海外版"]}
           specs={websiteSpecs}
           plans={plans}

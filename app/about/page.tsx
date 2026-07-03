@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   description:
     "立亭云深耕企业数字化领域，为 5 万+ 中小企业提供私域商城、企业官网、教育系统等一站式 SaaS 服务，专属顾问一对一服务，助力企业实现持续增长。",
   keywords: ["立亭云", "关于我们", "企业介绍", "SaaS 服务商", "企业数字化"],
-  alternates: { canonical: "https://litingyun.com/about" },
+  alternates: { canonical: "https://litingyun.fkw.com/about" },
   openGraph: {
-    url: "https://litingyun.com/about",
+    url: "https://litingyun.fkw.com/about",
     title: "关于立亭云 - 专注企业数字化增长的 SaaS 服务商",
     description: "5 万+ 企业信赖，专属顾问一对一服务，助力企业实现数字化转型。",
   },

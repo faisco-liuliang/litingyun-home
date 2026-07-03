@@ -91,14 +91,14 @@ export default function BookingPage() {
         <section className="hero-dark-bg py-24 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             <div className="max-w-3xl">
-              <Badge className="mb-5 bg-emerald-900/60 text-emerald-300 border-emerald-700/50">AI 表单 + 服务预约解决方案</Badge>
+              <Badge className="mb-5 bg-emerald-900/60 text-emerald-300 border-emerald-700/50">10分钟轻松做小程序 · AI 表单 + 服务预约</Badge>
               <h1 className="text-4xl sm:text-5xl font-bold text-white mb-5 text-balance">
-                轻应用 / AI 表单
+                10分钟轻松做小程序
                 <br />
-                <span className="text-emerald-400">让预约管理更简单</span>
+                <span className="text-emerald-400">让预约、表单和内容发布更简单</span>
               </h1>
               <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-xl text-pretty">
-                专为美业、医疗、教培、家政等服务行业设计，AI 表单、在线预约、智能排班、自动提醒和线索摘要，帮助服务型企业提升运营效率与客户满意度。
+                专为美业、医疗、教培、家政等服务行业设计，AI 表单、在线预约、智能排班、自动提醒和线索摘要，帮助服务型企业快速制作小程序并提升运营效率。
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a href={productRegisterUrls.booking} target="_blank" rel="noopener noreferrer" className={cn(buttonVariants({ size: "lg" }), "bg-primary hover:bg-primary/90 text-primary-foreground h-12 px-8")}>
@@ -115,11 +115,11 @@ export default function BookingPage() {
         <ProductDetailSections
           tone="emerald"
           eyebrow="轻应用限时体验"
-          title="不做复杂开发，也能快速上线预约、表单和内容小程序"
-          description="轻应用的重点不是重商城，而是用更低门槛完成展示、预约、表单、支付和内容发布。适合服务行业先跑通获客流程，再逐步升级到商城或门店系统。"
+          title="10分钟轻松做小程序，不做复杂开发也能上线"
+          description="轻应用的重点不是重商城，而是用更低门槛完成展示、预约、表单、支付和内容发布。适合服务行业先跑通小程序获客流程，再逐步升级到商城或门店系统。"
           capabilities={detailCapabilities}
           scenarios={detailScenarios}
-          promoTitle="买 2 年送 2 年 + 渠道特惠"
+          promoTitle="买2年送2年 + 渠道特惠"
           promoNote="轻应用可先体验再选版本，可参与多年优惠和渠道特惠，最终版本权益以顾问确认为准。"
           specColumns={["标准版", "推广版", "商务版", "平台版"]}
           specs={bookingSpecs}

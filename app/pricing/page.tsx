@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   description:
     "立亭云价格中心，覆盖 AI 建站、私域商城、门店系统、AI 题库教育系统、服务预约、AI 营销工具、GEO 优化等产品套餐。",
   keywords: ["立亭云价格", "AI 建站价格", "商城小程序价格", "企业官网套餐", "GEO 优化价格", "门店系统价格"],
-  alternates: { canonical: "https://litingyun.com/pricing" },
+  alternates: { canonical: "https://litingyun.fkw.com/pricing" },
   openGraph: {
-    url: "https://litingyun.com/pricing",
+    url: "https://litingyun.fkw.com/pricing",
     title: "价格中心 - 立亭云 AI 赋能全产品套餐",
     description: "多产品线清晰报价，支持多年优惠与渠道特惠，适合 AI 建站、商城、门店、教育和营销增长场景。",
   },
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 
 const promoStats = [
   { label: "入门小程序", value: "¥99/年起" },
-  { label: "买 2 年送 2 年", value: "4 年权益" },
+  { label: "买2年送2年", value: "4 年权益" },
   { label: "渠道特惠", value: "可叠加优惠" },
 ]
 
@@ -49,10 +49,10 @@ const products = [
     id: "website",
     name: "企业官网",
     icon: LayoutTemplate,
-    summary: "AI 建站、SEO/GEO 双优化、品牌官网与外贸站。",
+    summary: "10分钟轻松做网站，AI 建站、SEO/GEO 双优化。",
     startPrice: "¥349/年起",
     bestFor: "品牌展示 / 百度收录 / 表单获客",
-    promo: "买 3 年送 3 年",
+    promo: "买三年送三年",
     source: "渠道特惠价可叠加",
     plans: [
       {
@@ -93,7 +93,7 @@ const products = [
     summary: "单商户/多商户商城，交易、会员、分销和高阶营销玩法。",
     startPrice: "¥999/年起",
     bestFor: "商品销售 / 会员运营 / 分销活动",
-    promo: "买 2 年送 2 年",
+    promo: "买2年送2年",
     source: "渠道特惠价可叠加",
     plans: [
       {
@@ -124,10 +124,10 @@ const products = [
     id: "store",
     name: "门店系统",
     icon: Store,
-    summary: "门店会员、预约、收银、营销和多端小程序经营。",
+    summary: "10分钟轻松做小程序，门店会员、预约、收银一体化。",
     startPrice: "¥99/年起",
     bestFor: "门店收银 / 会员储值 / 连锁管理",
-    promo: "买 2 年送 2 年",
+    promo: "买2年送2年",
     source: "渠道特惠价可叠加",
     plans: [
       {
@@ -135,7 +135,7 @@ const products = [
         originalPrice: "198",
         price: "99",
         note: "适合低成本上线门店小程序",
-        features: ["基础门店小程序", "产品/服务展示", "在线预约与销售", "基础会员档案", "基础表单留资", "支持买 2 年送 2 年"],
+        features: ["基础门店小程序", "产品/服务展示", "在线预约与销售", "基础会员档案", "基础表单留资", "支持买2年送2年"],
       },
       {
         name: "门店基础版",
@@ -168,7 +168,7 @@ const products = [
     summary: "三站合一教育系统，课程、教务、题库、招生和直播教学。",
     startPrice: "¥999/年起",
     bestFor: "课程销售 / 学员管理 / 直播录播",
-    promo: "买 2 年送 2 年",
+    promo: "买2年送2年",
     source: "渠道特惠价可叠加",
     plans: [
       {
@@ -199,10 +199,10 @@ const products = [
     id: "booking",
     name: "轻应用",
     icon: CalendarDays,
-    summary: "微信/百度/抖音/快手多端小程序，预约、表单、会员和同城信息。",
+    summary: "10分钟轻松做小程序，微信/百度/抖音/快手多端发布。",
     startPrice: "¥349/年起",
     bestFor: "预约排班 / 到店核销 / 服务订单",
-    promo: "买 2 年送 2 年",
+    promo: "买2年送2年",
     source: "渠道特惠价可叠加",
     plans: [
       {
@@ -319,7 +319,7 @@ export default function PricingPage() {
                   <h1 className="max-w-3xl text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
                     价格中心
                   </h1>
-                  <p className="mt-4 text-2xl font-semibold text-primary">99 元/年做小程序，支持买 2 年送 2 年</p>
+                  <p className="mt-4 text-2xl font-semibold text-primary">99 元/年做小程序，支持买2年送2年</p>
                   <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">
                     多年优惠、渠道特惠价和顾问服务可叠加享受。按企业官网、商城小程序、门店系统、教育系统、轻应用和 GEO 优化拆分报价，版本功能清晰透明。
                   </p>

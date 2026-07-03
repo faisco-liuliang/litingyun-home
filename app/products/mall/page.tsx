@@ -175,13 +175,13 @@ export default function MallPage() {
 
         <ProductDetailSections
           tone="blue"
-          eyebrow="商城买 2 送 2"
+          eyebrow="商城买2年送2年"
           title="把商城、会员、分销和直播放进同一套私域系统"
           description="私域商城适合有商品、有复购、有社群资源的企业。页面围绕小程序、微商城、PC 商城、直播电商、短视频导购、拼团砍价、会员储值、多商户和分销能力做套餐化，帮助商家从上架商品走到持续复购。"
           capabilities={detailCapabilities}
           scenarios={detailScenarios}
-          promoTitle="买 2 年送 2 年 + 渠道特惠"
-          promoNote="商城产品可参与买 2 年送 2 年活动，同时可叠加渠道特惠价；例如豪华版按 2 年付费可获得 4 年使用期，具体权益以顾问确认为准。"
+          promoTitle="买2年送2年 + 渠道特惠"
+          promoNote="商城产品可参与买2年送2年活动，同时可叠加渠道特惠价；例如豪华版按 2 年付费可获得 4 年使用期，具体权益以顾问确认为准。"
           specColumns={["基础版", "旗舰版", "至尊版"]}
           specs={mallSpecs}
           plans={plans}

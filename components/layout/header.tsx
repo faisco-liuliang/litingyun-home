@@ -115,7 +115,7 @@ export function Header() {
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-start gap-8 h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <div className="size-8 rounded-lg bg-primary flex items-center justify-center">
@@ -199,9 +199,9 @@ export function Header() {
 
           {/* Mobile menu toggle */}
           <button
-            className="lg:hidden p-2 rounded-md text-foreground hover:bg-accent"
+            className="ml-auto lg:hidden p-2 rounded-md text-foreground hover:bg-accent"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "关闭菜单" : "打���菜单"}
+            aria-label={mobileOpen ? "关闭菜单" : "打开菜单"}
           >
             {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>

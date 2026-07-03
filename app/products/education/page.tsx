@@ -116,7 +116,7 @@ export default function EducationPage() {
           description="教育系统把知识付费、直播上课、招生付费、题库、智能组卷和学员管理放在一起，帮助机构从内容交付走向持续经营。"
           capabilities={detailCapabilities}
           scenarios={detailScenarios}
-          promoTitle="买 2 年送 2 年 + 渠道特惠"
+          promoTitle="买2年送2年 + 渠道特惠"
           promoNote="教育系统可参与多年优惠和渠道特惠，若涉及直播并发、存储或专属实施，具体权益以顾问确认为准。"
           specColumns={["标准版", "专业版", "旗舰版"]}
           specs={educationSpecs}

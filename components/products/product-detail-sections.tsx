@@ -58,7 +58,7 @@ export function ProductDetailSections({
   capabilities,
   scenarios,
   promoNote = "限时活动：开通 2 年送 2 年，部分基础版本是否参与以顾问确认为准。",
-  promoTitle = "买 2 年送 2 年",
+  promoTitle = "买2年送2年",
   specTitle = "规格介绍",
   specDescription = "按常用版本整理核心规格，具体开通范围、赠送权益和实施内容以顾问方案确认为准。",
   specColumns = [],
