@@ -81,7 +81,7 @@ export default function GeoPage() {
             <div className="max-w-3xl">
               <Badge className="mb-5 bg-amber-900/60 text-amber-300 border-amber-700/50">
                 <span className="inline-block size-1.5 rounded-full bg-amber-400 mr-2 animate-pulse" />
-                AI 搜索品牌增长系统
+                新品上线 · AI 搜索品牌增长系统
               </Badge>
               <h1 className="text-4xl sm:text-5xl font-bold text-white mb-5 text-balance">
                 GEO 优化系统
