@@ -85,9 +85,9 @@ npm run sync:lark -- --sheet-url "https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWh
 8. 回写 `发布链接`、`发布时间`、`图片状态`（如果表格有这些列）
 
 ```bash
-SITE_BASE_URL="http://106.75.167.39" npm run sync:lark -- --sheet-url "https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" --sheet-id "5b65f2" --range "A1:Q200" --write
-npm exec tsc -- --noEmit
-npm run build
+SITE_BASE_URL="http://106.75.167.39" pnpm run sync:lark -- --sheet-url "https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" --sheet-id "5b65f2" --range "A1:Q200" --write
+pnpm exec tsc --noEmit
+pnpm build
 git add lib/blog-data.ts
 git commit -m "chore: publish reviewed articles"
 git push origin main
@@ -100,9 +100,9 @@ git push origin main
 ```bash
 cd /srv/litingyun/brands/litingyun.com/repo
 git pull --ff-only
-SITE_BASE_URL="http://106.75.167.39" LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:Q200" --write
-npm exec tsc -- --noEmit
-npm run build
+SITE_BASE_URL="http://106.75.167.39" LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" pnpm run sync:lark -- --sheet-id "5b65f2" --range "A1:Q200" --write
+pnpm exec tsc --noEmit
+pnpm build
 git diff --quiet || {
   git add lib/blog-data.ts
   git commit -m "chore: publish reviewed articles"

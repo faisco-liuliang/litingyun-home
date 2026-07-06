@@ -59,6 +59,7 @@ sass 哥：AJJLj0
 - GitHub Desktop
 - Codex 桌面版
 - Node.js
+- pnpm
 
 如果不确定有没有 Node.js，在终端运行：
 
@@ -68,6 +69,12 @@ npm --version
 ```
 
 能看到版本号就说明已安装。
+
+安装 pnpm：
+
+```bash
+npm install -g pnpm
+```
 
 ### 2. 配置 GitHub SSH Key
 
@@ -100,8 +107,8 @@ Permission to faisco-liuliang/litingyun-home.git denied
 ```bash
 git clone git@github.com:faisco-liuliang/litingyun-home.git
 cd litingyun-home
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 浏览器打开：
@@ -126,7 +133,13 @@ http://localhost:3001
 litingyun-home
 ```
 
-### 2. 用自然语言描述需求
+### 2. 第一次打开后先发给 Codex
+
+```text
+请先阅读 README.md、docs/windows-codex-sop.md、docs/team-codex-guide.md 和 docs/github-ssh-key-setup.md。这个项目是立亭云官网项目，我主要用 Codex 修改官网。请先执行 git status --short，确认工作区状态，然后告诉我如何启动本地预览。后续每次修改前都要先检查 git status，修改后运行 pnpm exec tsc --noEmit 和 pnpm build。没有我的确认，不要部署线上。
+```
+
+### 3. 用自然语言描述需求
 
 可以这样说：
 
@@ -140,13 +153,13 @@ litingyun-home
 把价格页的商城豪华版价格改成 2999 元/年，并同步修改促销说明
 ```
 
-### 3. 修改后让 Codex 检查
+### 4. 修改后让 Codex 检查
 
 每次修改后，让 Codex 运行：
 
 ```bash
-npm exec tsc -- --noEmit
-npm run build
+pnpm exec tsc --noEmit
+pnpm build
 ```
 
 只要这两个命令通过，说明代码基本可以部署。
@@ -158,7 +171,6 @@ npm run build
 ```text
 components/home/hero.tsx
 components/home/products-grid.tsx
-components/home/pricing-preview.tsx
 components/home/blog-preview.tsx
 components/home/home-faq.tsx
 components/home/cta.tsx
@@ -236,14 +248,14 @@ git push origin main
 git checkout main
 git pull
 git checkout -b update-homepage-copy
-npm run dev
+pnpm dev
 ```
 
 修改完成后：
 
 ```bash
-npm exec tsc -- --noEmit
-npm run build
+pnpm exec tsc --noEmit
+pnpm build
 git add .
 git commit -m "update homepage copy"
 git push origin update-homepage-copy
@@ -256,20 +268,20 @@ git push origin update-homepage-copy
 预演，不写入网站、不改飞书状态：
 
 ```bash
-LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:Q200"
+LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" pnpm run sync:lark -- --sheet-id "5b65f2" --range "A1:Q200"
 ```
 
 正式同步：
 
 ```bash
-LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" npm run sync:lark -- --sheet-id "5b65f2" --range "A1:Q200" --write
+LARK_SHEET_URL="https://uqy118p26b.feishu.cn/sheets/B4SlsgTdWhoWtMtKjnRciZbJnFg" pnpm run sync:lark -- --sheet-id "5b65f2" --range "A1:Q200" --write
 ```
 
 同步后检查：
 
 ```bash
-npm exec tsc -- --noEmit
-npm run build
+pnpm exec tsc --noEmit
+pnpm build
 ```
 
 再提交：
@@ -314,7 +326,7 @@ zjb2.fkw.com
 重新运行：
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 ### 端口不是 3000

@@ -227,8 +227,8 @@ Mac 和 Windows 都可以用：
 ```bash
 git clone git@github-faisco-liuliang:faisco-liuliang/litingyun-home.git
 cd litingyun-home
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 如果不用 SSH Host，也可以用标准地址：
