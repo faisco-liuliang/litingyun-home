@@ -328,6 +328,18 @@ export default function PricingPage() {
                       领取套餐报价
                       <ArrowRight className="ml-2 size-4" />
                     </ContactQrButton>
+                    <a
+                      href={productRegisterUrls.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cn(
+                        buttonVariants({ variant: "outline", size: "lg" }),
+                        "h-12 rounded-full border-primary/30 bg-white px-8 text-primary hover:bg-primary/5",
+                      )}
+                    >
+                      免费试用
+                      <ArrowRight className="ml-2 size-4" />
+                    </a>
                   </div>
                   <div className="mt-8 grid gap-3 sm:grid-cols-3">
                     {promoStats.map((item) => (
