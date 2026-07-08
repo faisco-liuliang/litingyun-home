@@ -10,6 +10,7 @@ import { ContactQrButton } from "@/components/contact/contact-qr-button"
 import { cn } from "@/lib/utils"
 import { productRegisterUrls } from "@/lib/product-links"
 import {
+  ArrowDown,
   ArrowRight,
   BadgeCheck,
   CalendarDays,
@@ -324,10 +325,16 @@ export default function PricingPage() {
                     多年优惠、渠道特惠价和顾问服务可叠加享受。按企业官网、商城小程序、门店系统、教育系统、轻应用和 GEO 优化拆分报价，版本功能清晰透明。
                   </p>
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <ContactQrButton size="lg" className="h-12 rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90">
-                      领取套餐报价
-                      <ArrowRight className="ml-2 size-4" />
-                    </ContactQrButton>
+                    <Link
+                      href="#pricing-quotes"
+                      className={cn(
+                        buttonVariants({ size: "lg" }),
+                        "h-12 rounded-full bg-primary px-8 text-primary-foreground hover:bg-primary/90",
+                      )}
+                    >
+                      下拉查看报价
+                      <ArrowDown className="ml-2 size-4" />
+                    </Link>
                     <a
                       href={productRegisterUrls.website}
                       target="_blank"
@@ -363,7 +370,7 @@ export default function PricingPage() {
           </div>
         </section>
 
-        <section className="px-4 py-12 sm:px-6">
+        <section id="pricing-quotes" className="scroll-mt-24 px-4 py-12 sm:px-6">
           <div className="mx-auto max-w-7xl">
             <div className="mb-8 rounded-lg border border-border bg-white p-3 shadow-sm">
               <div className="flex flex-wrap gap-2">
