@@ -4908,7 +4908,14 @@ export const blogPosts: BlogPost[] = [
   ]
 
 export function getBlogPosts() {
-  return [...blogPosts].sort((a, b) => b.date.localeCompare(a.date))
+  return [...blogPosts]
+    .map((post, index) => ({ post, index }))
+    .sort((a, b) => {
+      const byDate = b.post.date.localeCompare(a.post.date)
+      if (byDate !== 0) return byDate
+      return b.index - a.index
+    })
+    .map(({ post }) => post)
 }
 
 export function getFeaturedPost() {
