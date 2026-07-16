@@ -15,7 +15,8 @@ type Props = { params: Promise<{ slug: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = getBlogPost(slug)
+  const decodedSlug = decodeURIComponent(slug)
+  const post = getBlogPost(decodedSlug)
   if (!post) return {}
 
   return {
@@ -24,12 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: post.tags,
     authors: [{ name: post.author }],
     alternates: {
-      canonical: `${BASE_URL}/blog/${slug}`,
+      canonical: `${BASE_URL}/blog/${decodedSlug}`,
     },
     openGraph: {
       type: "article",
       locale: "zh_CN",
-      url: `${BASE_URL}/blog/${slug}`,
+      url: `${BASE_URL}/blog/${decodedSlug}`,
       title: post.title,
       description: post.description,
       siteName: "立亭云",
@@ -47,7 +48,8 @@ export function generateStaticParams() {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
-  const post = getBlogPost(slug)
+  const decodedSlug = decodeURIComponent(slug)
+  const post = getBlogPost(decodedSlug)
   if (!post) notFound()
 
   const jsonLd = {
@@ -66,7 +68,7 @@ export default async function BlogPostPage({ params }: Props) {
     },
     datePublished: post.date,
     dateModified: post.date,
-    url: `${BASE_URL}/blog/${slug}`,
+    url: `${BASE_URL}/blog/${decodedSlug}`,
     keywords: post.tags.join(", "),
     articleSection: post.category,
     image: post.coverImage ? `${BASE_URL}${post.coverImage.src}` : undefined,
