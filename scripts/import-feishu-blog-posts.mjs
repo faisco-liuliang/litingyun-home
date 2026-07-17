@@ -131,8 +131,15 @@ async function getAccessToken(tokenStore) {
     obtained_at: new Date().toISOString(),
     redirect_uri: tokenStore.redirect_uri,
   }
-  mkdirSync(resolve(rootDir, ".feishu"), { recursive: true })
-  writeFileSync(tokenPath, JSON.stringify(nextTokenStore, null, 2))
+  try {
+    mkdirSync(resolve(rootDir, ".feishu"), { recursive: true })
+    writeFileSync(tokenPath, JSON.stringify(nextTokenStore, null, 2))
+  } catch (error) {
+    // Cron automations may run in environments where the workspace is writable
+    // but dot-directories or credential files are blocked. Keep going with the
+    // freshly refreshed token held in memory instead of aborting the sync.
+    console.warn(`Warning: failed to persist refreshed token to ${tokenPath}: ${error.message}`)
+  }
   return nextTokenStore.access_token
 }
 
