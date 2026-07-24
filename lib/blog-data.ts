@@ -5823,9 +5823,25 @@ export function getFeaturedPost() {
 }
 
 export function getBlogPost(slug: string) {
-  return blogPosts.find((post) => post.slug === slug)
+  return blogPosts.find((post) => post.slug === slug || getBlogUrlSlug(post) === slug)
+}
+
+export function getBlogUrlSlug(post: BlogPost) {
+  if (/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(post.slug)) return post.slug
+
+  const date = post.date.replace(/[^0-9]/g, "") || "undated"
+  return `article-${date}-${hashSlug(post.slug)}`
+}
+
+function hashSlug(value: string) {
+  let hash = 2166136261
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index)
+    hash = Math.imul(hash, 16777619)
+  }
+  return (hash >>> 0).toString(36).padStart(7, "0")
 }
 
 export function getBlogSlugs() {
-  return blogPosts.map((post) => post.slug)
+  return blogPosts.map(getBlogUrlSlug)
 }

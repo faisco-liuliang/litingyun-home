@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { getBlogPosts } from "@/lib/blog-data"
+import { getBlogPosts, getBlogUrlSlug } from "@/lib/blog-data"
 import { ArrowRight, Clock, User } from "lucide-react"
 
 const categoryColors: Record<string, string> = {
@@ -44,7 +44,7 @@ export function BlogPreview() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Featured article */}
           <Link
-            href={`/blog/${featuredPosts[0].slug}`}
+            href={`/blog/${getBlogUrlSlug(featuredPosts[0])}`}
             className="md:col-span-2 group"
           >
             <Card className="h-full border-border bg-card card-hover overflow-hidden">
@@ -92,7 +92,7 @@ export function BlogPreview() {
           {/* Two smaller articles stacked */}
           <div className="flex flex-col gap-6">
             {featuredPosts.slice(1).map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className="group flex-1">
+              <Link key={post.slug} href={`/blog/${getBlogUrlSlug(post)}`} className="group flex-1">
                 <Card className="h-full border-border bg-card card-hover overflow-hidden">
                   {post.coverImage && (
                     <img

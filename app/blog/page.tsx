@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/footer"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { blogCategories, getBlogPosts, getFeaturedPost } from "@/lib/blog-data"
+import { blogCategories, getBlogPosts, getBlogUrlSlug, getFeaturedPost } from "@/lib/blog-data"
 import { ArrowRight, Clock, User, Tag, Search } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -74,7 +74,7 @@ export default function BlogPage() {
 
             {/* Featured Post */}
             <div className="mb-10">
-              <Link href={`/blog/${featuredPost.slug}`}>
+              <Link href={`/blog/${getBlogUrlSlug(featuredPost)}`}>
                 <Card className="border-primary/20 bg-gradient-to-br from-accent/60 to-card card-hover overflow-hidden">
                   {featuredPost.coverImage && (
                     <img
@@ -114,7 +114,7 @@ export default function BlogPage() {
             {/* Post Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {posts.map((post) => (
-                <Link key={post.slug} href={`/blog/${post.slug}`}>
+                <Link key={post.slug} href={`/blog/${getBlogUrlSlug(post)}`}>
                   <Card className="h-full border-border card-hover">
                     {post.coverImage && (
                       <img

@@ -1,11 +1,11 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { notFound } from "next/navigation"
+import { notFound, permanentRedirect } from "next/navigation"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { getBlogPost, getBlogSlugs } from "@/lib/blog-data"
+import { getBlogPost, getBlogSlugs, getBlogUrlSlug } from "@/lib/blog-data"
 import { defaultRegisterUrl } from "@/lib/product-links"
 import { ArrowLeft, Clock, User, Tag, Calendar } from "lucide-react"
 
@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const decodedSlug = decodeURIComponent(slug)
   const post = getBlogPost(decodedSlug)
   if (!post) return {}
+  const urlSlug = getBlogUrlSlug(post)
 
   return {
     title: post.title,
@@ -25,12 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: post.tags,
     authors: [{ name: post.author }],
     alternates: {
-      canonical: `${BASE_URL}/blog/${decodedSlug}`,
+      canonical: `${BASE_URL}/blog/${urlSlug}`,
     },
     openGraph: {
       type: "article",
       locale: "zh_CN",
-      url: `${BASE_URL}/blog/${decodedSlug}`,
+      url: `${BASE_URL}/blog/${urlSlug}`,
       title: post.title,
       description: post.description,
       siteName: "立亭云",
@@ -51,6 +52,8 @@ export default async function BlogPostPage({ params }: Props) {
   const decodedSlug = decodeURIComponent(slug)
   const post = getBlogPost(decodedSlug)
   if (!post) notFound()
+  const urlSlug = getBlogUrlSlug(post)
+  if (decodedSlug !== urlSlug) permanentRedirect(`/blog/${urlSlug}`)
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -68,7 +71,7 @@ export default async function BlogPostPage({ params }: Props) {
     },
     datePublished: post.date,
     dateModified: post.date,
-    url: `${BASE_URL}/blog/${decodedSlug}`,
+    url: `${BASE_URL}/blog/${urlSlug}`,
     keywords: post.tags.join(", "),
     articleSection: post.category,
     image: post.coverImage ? `${BASE_URL}${post.coverImage.src}` : undefined,

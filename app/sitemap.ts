@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next"
+import { getBlogPosts, getBlogUrlSlug } from "@/lib/blog-data"
 
 const BASE_URL = "https://litingyun.fkw.com"
 
@@ -86,20 +87,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  // 博客文章页面
-  const blogSlugs = [
-    "geo-optimization-guide-2024",
-    "seo-local-business-guide",
-    "private-domain-wechat-strategy",
-    "ecommerce-mini-program-guide",
-    "restaurant-digital-transformation",
-    "education-saas-online-school",
-    "ai-search-seo-difference",
-  ]
-
-  const blogPages: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
-    url: `${BASE_URL}/blog/${slug}`,
-    lastModified: now,
+  const blogPages: MetadataRoute.Sitemap = getBlogPosts().map((post) => ({
+    url: `${BASE_URL}/blog/${getBlogUrlSlug(post)}`,
+    lastModified: post.date,
     changeFrequency: "monthly" as const,
     priority: 0.75,
   }))
