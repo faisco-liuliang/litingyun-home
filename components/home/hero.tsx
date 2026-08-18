@@ -164,13 +164,20 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:py-8">
         <div className="grid gap-5 lg:grid-cols-[280px_minmax(0,1fr)] lg:items-stretch">
-          <aside className="rounded-lg bg-primary p-4 text-primary-foreground shadow-xl shadow-primary/15">
-            <nav className="grid gap-1.5 sm:grid-cols-2 lg:h-full lg:grid-cols-1 lg:grid-rows-3">
+          <aside className="relative isolate rounded-lg bg-primary p-4 text-primary-foreground shadow-xl shadow-primary/15">
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-lg">
+              <div className="absolute -bottom-28 -right-20 size-72 rounded-full border border-white/10" />
+              <div className="absolute -bottom-16 -right-8 size-52 rounded-full border border-white/10" />
+              <div className="absolute bottom-8 left-8 h-20 w-20 rotate-45 border-l border-t border-white/10" />
+              <div className="absolute bottom-6 left-6 right-6 h-px bg-gradient-to-r from-white/0 via-white/20 to-white/0" />
+            </div>
+
+            <nav className="relative z-10 grid gap-2 sm:grid-cols-2 lg:h-full lg:grid-cols-1 lg:grid-rows-3 lg:gap-3">
               {productLinks.map(({ href, icon: Icon, title, tags }) => (
                 <Link
                   key={title}
                   href={href}
-                  className="group flex min-h-24 items-start gap-3 rounded-md px-3 py-4 transition-colors hover:bg-white/12 lg:min-h-0 lg:items-center"
+                  className="group flex min-h-24 items-start gap-3 rounded-md px-3 py-4 transition-colors hover:bg-white/12 lg:min-h-0 lg:items-center lg:px-4 lg:py-6"
                 >
                   <Icon className="mt-0.5 size-4 shrink-0 text-white" />
                   <span className="min-w-0">
@@ -181,7 +188,7 @@ export function Hero() {
               ))}
 
               <details className="group relative sm:col-span-2 lg:col-span-1 lg:h-full">
-                <summary className="flex min-h-24 cursor-pointer list-none items-start gap-3 rounded-md px-3 py-4 transition-colors hover:bg-white/12 group-open:bg-white/12 lg:h-full lg:min-h-0 lg:items-center [&::-webkit-details-marker]:hidden">
+                <summary className="flex min-h-24 cursor-pointer list-none items-start gap-3 rounded-md px-3 py-4 transition-colors hover:bg-white/12 group-open:bg-white/12 lg:h-full lg:min-h-0 lg:items-center lg:px-4 lg:py-6 [&::-webkit-details-marker]:hidden">
                   <Layers3 className="mt-0.5 size-4 shrink-0 text-white" />
                   <span className="min-w-0 flex-1">
                     <span className="flex items-center justify-between gap-3 text-base font-bold tracking-tight">
