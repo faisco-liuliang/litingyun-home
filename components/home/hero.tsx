@@ -7,7 +7,6 @@ import {
   BadgeCheck,
   BarChart3,
   Calendar,
-  ChevronRight,
   Globe,
   GraduationCap,
   Layers3,
@@ -20,43 +19,41 @@ import {
 
 const productLinks = [
   {
+    href: "/products/mall",
+    icon: ShoppingBag,
+    title: "私域商城",
+    tags: "AI 营销商城，小程序+会员+分销闭环",
+  },
+  {
     href: "/products/website",
     icon: Globe,
     title: "企业官网",
-    tags: "AI 建站 + SEO，打造企业获客官网",
+    tags: "AI 建站+SEO/GEO，官网内容自动增长",
+  },
+  {
+    href: "/products/booking",
+    icon: Calendar,
+    title: "轻应用",
+    tags: "AI 表单/预约/内容发布小程序",
+  },
+  {
+    href: "/products/education",
+    icon: GraduationCap,
+    title: "教育系统",
+    tags: "AI 题库+直播课+知识付费",
+  },
+  {
+    href: "/products/store",
+    icon: Store,
+    title: "门店系统",
+    tags: "AI 经营分析，多门店会员一体化",
   },
   {
     href: "/products/geo",
     icon: Sparkles,
     title: "GEO 优化系统",
     tags: "让 DeepSeek、豆包等大模型推荐品牌",
-  },
-]
-
-const miniProgramLinks = [
-  {
-    href: "/products/store",
-    icon: Store,
-    title: "门店系统",
-    tags: "会员、预约、收银与多门店经营",
-  },
-  {
-    href: "/products/education",
-    icon: GraduationCap,
-    title: "教育系统",
-    tags: "题库、课程、直播与知识付费",
-  },
-  {
-    href: "/products/mall",
-    icon: ShoppingBag,
-    title: "私域商城",
-    tags: "商品、会员、分销与私域复购",
-  },
-  {
-    href: "/products/booking",
-    icon: Calendar,
-    title: "轻应用",
-    tags: "预约、表单与内容发布小程序",
+    badge: "新品上线",
   },
 ]
 
@@ -164,59 +161,24 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:py-8">
         <div className="grid gap-5 lg:grid-cols-[280px_minmax(0,1fr)] lg:items-stretch">
-          <aside className="relative isolate rounded-lg bg-primary p-4 text-primary-foreground shadow-xl shadow-primary/15">
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-lg">
-              <div className="absolute -bottom-28 -right-20 size-72 rounded-full border border-white/10" />
-              <div className="absolute -bottom-16 -right-8 size-52 rounded-full border border-white/10" />
-              <div className="absolute bottom-8 left-8 h-20 w-20 rotate-45 border-l border-t border-white/10" />
-              <div className="absolute bottom-6 left-6 right-6 h-px bg-gradient-to-r from-white/0 via-white/20 to-white/0" />
-            </div>
-
-            <nav className="relative z-10 grid gap-2 sm:grid-cols-2 lg:h-full lg:grid-cols-1 lg:grid-rows-3 lg:gap-3">
-              {productLinks.map(({ href, icon: Icon, title, tags }) => (
+          <aside className="rounded-lg bg-primary p-4 text-primary-foreground shadow-xl shadow-primary/15">
+            <nav className="grid gap-1.5 sm:grid-cols-2 lg:grid-cols-1">
+              {productLinks.map(({ href, icon: Icon, title, tags, badge }) => (
                 <Link
                   key={title}
                   href={href}
-                  className="group flex min-h-24 items-start gap-3 rounded-md px-3 py-4 transition-colors hover:bg-white/12 lg:min-h-0 lg:items-center lg:px-4 lg:py-6"
+                  className="group flex items-start gap-3 rounded-md px-3 py-2.5 transition-colors hover:bg-white/12"
                 >
                   <Icon className="mt-0.5 size-4 shrink-0 text-white" />
                   <span className="min-w-0">
-                    <span className="flex flex-wrap items-center gap-2 text-base font-bold tracking-tight">{title}</span>
+                    <span className="flex flex-wrap items-center gap-2 text-base font-bold tracking-tight">
+                      {title}
+                      {badge && <span className="rounded-full bg-white/18 px-2 py-0.5 text-[10px] font-semibold text-white">{badge}</span>}
+                    </span>
                     <span className="mt-0.5 block text-xs font-medium leading-5 text-blue-100/85">{tags}</span>
                   </span>
                 </Link>
               ))}
-
-              <details className="group relative sm:col-span-2 lg:col-span-1 lg:h-full">
-                <summary className="flex min-h-24 cursor-pointer list-none items-start gap-3 rounded-md px-3 py-4 transition-colors hover:bg-white/12 group-open:bg-white/12 lg:h-full lg:min-h-0 lg:items-center lg:px-4 lg:py-6 [&::-webkit-details-marker]:hidden">
-                  <Layers3 className="mt-0.5 size-4 shrink-0 text-white" />
-                  <span className="min-w-0 flex-1">
-                    <span className="flex items-center justify-between gap-3 text-base font-bold tracking-tight">
-                      小程序
-                      <ChevronRight className="size-4 transition-transform duration-200 group-open:rotate-90 lg:group-open:rotate-180" />
-                    </span>
-                    <span className="mt-0.5 block text-xs font-medium leading-5 text-blue-100/85">门店、教育、商城与轻站解决方案</span>
-                  </span>
-                </summary>
-
-                <div className="relative z-30 mt-2 grid gap-1 rounded-lg border border-blue-100 bg-white p-2 text-slate-900 shadow-2xl sm:grid-cols-2 lg:absolute lg:bottom-0 lg:left-full lg:ml-3 lg:mt-0 lg:w-72 lg:grid-cols-1">
-                  {miniProgramLinks.map(({ href, icon: Icon, title, tags }) => (
-                    <Link
-                      key={title}
-                      href={href}
-                      className="flex items-start gap-3 rounded-md p-3 transition-colors hover:bg-blue-50"
-                    >
-                      <span className="flex size-9 shrink-0 items-center justify-center rounded-md bg-blue-50 text-primary">
-                        <Icon className="size-4" />
-                      </span>
-                      <span className="min-w-0">
-                        <span className="block text-sm font-semibold text-slate-950">{title}</span>
-                        <span className="mt-0.5 block text-xs leading-5 text-slate-500">{tags}</span>
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </details>
             </nav>
           </aside>
 
