@@ -19,16 +19,25 @@ import {
 
 const productLinks = [
   {
+    href: "/products/website",
+    icon: Globe,
+    title: "企业官网",
+    tags: "网站建设 + SEO/GEO，官网持续获客",
+    featured: true,
+  },
+  {
+    href: "/products/geo",
+    icon: Sparkles,
+    title: "GEO 优化系统",
+    tags: "让 DeepSeek、豆包等大模型推荐品牌",
+    featured: true,
+    badge: "新品上线",
+  },
+  {
     href: "/products/mall",
     icon: ShoppingBag,
     title: "私域商城",
     tags: "AI 营销商城，小程序+会员+分销闭环",
-  },
-  {
-    href: "/products/website",
-    icon: Globe,
-    title: "企业官网",
-    tags: "AI 建站+SEO/GEO，官网内容自动增长",
   },
   {
     href: "/products/booking",
@@ -47,13 +56,6 @@ const productLinks = [
     icon: Store,
     title: "门店系统",
     tags: "AI 经营分析，多门店会员一体化",
-  },
-  {
-    href: "/products/geo",
-    icon: Sparkles,
-    title: "GEO 优化系统",
-    tags: "让 DeepSeek、豆包等大模型推荐品牌",
-    badge: "新品上线",
   },
 ]
 
@@ -163,16 +165,20 @@ export function Hero() {
         <div className="grid gap-5 lg:grid-cols-[280px_minmax(0,1fr)] lg:items-stretch">
           <aside className="rounded-lg bg-primary p-4 text-primary-foreground shadow-xl shadow-primary/15">
             <nav className="grid gap-1.5 sm:grid-cols-2 lg:grid-cols-1">
-              {productLinks.map(({ href, icon: Icon, title, tags, badge }) => (
+              {productLinks.map(({ href, icon: Icon, title, tags, badge, featured }) => (
                 <Link
                   key={title}
                   href={href}
-                  className="group flex items-start gap-3 rounded-md px-3 py-2.5 transition-colors hover:bg-white/12"
+                  className={cn(
+                    "group flex items-start gap-3 rounded-md px-3 py-2.5 transition-colors hover:bg-white/12",
+                    featured && "bg-white/14 ring-1 ring-white/25 shadow-sm hover:bg-white/20",
+                  )}
                 >
-                  <Icon className="mt-0.5 size-4 shrink-0 text-white" />
+                  <Icon className={cn("mt-0.5 size-4 shrink-0 text-white", featured && "size-[18px]")} />
                   <span className="min-w-0">
                     <span className="flex flex-wrap items-center gap-2 text-base font-bold tracking-tight">
                       {title}
+                      {featured && <span className="rounded-full bg-white px-2 py-0.5 text-[10px] font-semibold text-primary">重点</span>}
                       {badge && <span className="rounded-full bg-white/18 px-2 py-0.5 text-[10px] font-semibold text-white">{badge}</span>}
                     </span>
                     <span className="mt-0.5 block text-xs font-medium leading-5 text-blue-100/85">{tags}</span>
