@@ -2,11 +2,12 @@ import type { Metadata } from "next"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { Hero } from "@/components/home/hero"
+import { TemplateShowcase } from "@/components/home/template-showcase"
+import { WechatShowcase } from "@/components/home/wechat-showcase"
 import { ProductsGrid } from "@/components/home/products-grid"
 import { Advantages } from "@/components/home/advantages"
 import { CasesPreview } from "@/components/home/cases-preview"
 import { BlogPreview } from "@/components/home/blog-preview"
-import { HomeFaq } from "@/components/home/home-faq"
 import { CTA } from "@/components/home/cta"
 
 export const metadata: Metadata = {
@@ -27,11 +28,12 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
+        <TemplateShowcase />
+        <WechatShowcase />
         <ProductsGrid />
         <Advantages />
         <CasesPreview />
         <BlogPreview />
-        <HomeFaq />
         <CTA />
       </main>
       <Footer />
