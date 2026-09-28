@@ -193,9 +193,9 @@ export function Hero() {
       <div className="absolute -right-32 top-24 size-96 rounded-full bg-blue-300/15 blur-3xl" />
       <div className="absolute -left-40 bottom-0 size-[28rem] rounded-full bg-cyan-200/20 blur-3xl" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:py-10">
-        <div className="grid gap-6 lg:grid-cols-[292px_minmax(0,1fr)] lg:items-stretch">
-          <aside className="relative overflow-hidden rounded-[24px] bg-[linear-gradient(150deg,#2476f7_0%,#1459d8_58%,#0f45b5_100%)] p-4 text-primary-foreground shadow-[0_24px_60px_-24px_rgba(15,75,190,0.65)] ring-1 ring-white/20 sm:p-5">
+      <div className="relative z-10 mx-auto max-w-[1500px] px-5 py-7 sm:px-8 lg:px-10 lg:py-9">
+        <div className="grid gap-6 lg:grid-cols-[320px_minmax(0,1fr)] lg:items-start">
+          <aside className="relative overflow-hidden rounded-[28px] bg-[linear-gradient(150deg,#2476f7_0%,#1459d8_58%,#0f45b5_100%)] p-5 text-primary-foreground shadow-[0_26px_64px_-24px_rgba(15,75,190,0.65)] ring-1 ring-white/20 sm:p-6">
             <div className="pointer-events-none absolute -right-16 -top-20 size-52 rounded-full bg-white/15 blur-2xl" />
             <div className="pointer-events-none absolute -bottom-24 -left-16 size-52 rounded-full bg-cyan-300/15 blur-2xl" />
             <div className="relative mb-4 flex items-center justify-between px-2 pt-1">
@@ -226,11 +226,11 @@ export function Hero() {
             </nav>
           </aside>
 
-          <div className="relative overflow-hidden rounded-[28px] bg-white/90 shadow-[0_24px_70px_-30px_rgba(31,91,180,0.42)] ring-1 ring-white/80 backdrop-blur-xl">
+          <div className="relative overflow-hidden rounded-[34px] bg-white/90 shadow-[0_28px_80px_-30px_rgba(31,91,180,0.42)] ring-1 ring-white/80 backdrop-blur-xl">
             <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-blue-300/80 to-transparent" />
             <div className="h-full">
-              <div className="flex flex-col justify-center px-7 py-11 sm:px-12 sm:py-14 lg:px-20 lg:py-16">
-                <div className="relative min-h-[590px] sm:min-h-[550px]">
+              <div className="flex flex-col justify-center px-7 py-8 sm:px-12 sm:py-9 lg:px-16 lg:py-10">
+                <div className="relative min-h-[480px] sm:min-h-[460px]">
                     <div
                       key={slide.eyebrow}
                       className="flex h-full flex-col justify-center"
@@ -241,14 +241,14 @@ export function Hero() {
                         {slide.eyebrow}
                       </div>
 
-                      <h1 className="max-w-5xl text-[2.45rem] font-bold leading-[1.22] tracking-[-0.045em] text-slate-950 sm:text-5xl xl:text-[58px]">
+                      <h1 className="max-w-5xl text-[2.35rem] font-bold leading-[1.18] tracking-[-0.045em] text-slate-950 sm:text-5xl xl:text-[54px]">
                         {slide.title}
                         <span className="ml-2 text-primary sm:ml-3">{slide.accent}</span>
                       </h1>
-                      <p className="mt-6 max-w-3xl text-xl font-semibold leading-8 tracking-tight text-slate-500 sm:text-2xl sm:leading-9">{slide.subtitle}</p>
-                      <p className="mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">{slide.desc}</p>
+                      <p className="mt-4 max-w-4xl text-lg font-semibold leading-8 tracking-tight text-slate-500 sm:text-xl sm:leading-9">{slide.subtitle}</p>
+                      <p className="mt-4 max-w-4xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">{slide.desc}</p>
 
-                      <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                         <Link
                           href={slide.registerHref}
                           target="_blank"
@@ -267,7 +267,7 @@ export function Hero() {
                         </ContactQrButton>
                       </div>
 
-                      <div className="mt-12 grid gap-4 sm:grid-cols-3">
+                      <div className="mt-8 grid gap-3 sm:grid-cols-3">
                         {slide.proofs.map(({ icon: Icon, title, desc }) => (
                           <div key={title} className="group flex gap-3 rounded-2xl bg-gradient-to-br from-white to-blue-50/60 p-3.5 shadow-[0_8px_24px_rgba(39,96,180,0.06)] ring-1 ring-blue-100/80 transition-transform duration-200 hover:-translate-y-1">
                             <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-blue-100/70 text-primary shadow-inner shadow-white">
@@ -281,7 +281,7 @@ export function Hero() {
                         ))}
                       </div>
                     </div>
-                  <div className="absolute bottom-0 left-0 flex items-center gap-2 rounded-full bg-blue-50/70 px-2 py-2 ring-1 ring-blue-100/80">
+                  <div className="absolute bottom-0 left-0 flex gap-2">
                     {heroSlides.map((item, index) => (
                       <button
                         key={item.eyebrow}

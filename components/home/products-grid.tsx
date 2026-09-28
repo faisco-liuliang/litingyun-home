@@ -18,8 +18,8 @@ const products = [
   },
   {
     name: "企业官网",
-    tagline: "营销型官网 + SEO/GEO",
-    desc: "不只搭建页面，而是围绕关键词、案例、FAQ 和表单转化，做一个能被搜索和 AI 理解的获客入口。",
+    tagline: "营销型官网 + SEO/GEO · 198 元/年起",
+    desc: "基础版 198 元/年起，支持买三送三；围绕关键词、案例、FAQ 和表单转化，做一个能被搜索和 AI 理解的获客入口。",
     href: "/products/website",
     icon: Globe,
     iconColor: "text-sky-600",
