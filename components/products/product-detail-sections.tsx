@@ -32,6 +32,7 @@ type ProductDetailSectionsProps = {
   scenarios: Array<{ title: string; desc: string }>
   promoNote?: string
   promoTitle?: string
+  priceLabel?: string
   specTitle?: string
   specDescription?: string
   specColumns?: string[]
@@ -59,6 +60,7 @@ export function ProductDetailSections({
   scenarios,
   promoNote = "限时活动：开通 2 年送 2 年，部分基础版本是否参与以顾问确认为准。",
   promoTitle = "买2年送2年",
+  priceLabel = "优惠价",
   specTitle = "规格介绍",
   specDescription = "按常用版本整理核心规格，具体开通范围、赠送权益和实施内容以顾问方案确认为准。",
   specColumns = [],
@@ -180,7 +182,7 @@ export function ProductDetailSections({
                           <span className="pb-1 text-sm text-muted-foreground">/年</span>
                         </div>
                         <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
-                          <span className="rounded-full bg-primary/10 px-2 py-1 font-medium text-primary">优惠价</span>
+                          <span className="rounded-full bg-primary/10 px-2 py-1 font-medium text-primary">{priceLabel}</span>
                           {plan.originalPrice && plan.originalPrice !== "0" ? (
                             <span className="text-muted-foreground">
                               原价 <span className="line-through">¥{plan.originalPrice}/年</span>

@@ -164,6 +164,7 @@ export default function WebsitePage() {
           scenarios={detailScenarios}
           promoTitle="买三年送三年 + 渠道特惠"
           promoNote="企业官网可参与买三年送三年活动，同时可叠加渠道特惠价；域名、邮箱、设计和内容权益以顾问最终确认为准。"
+          priceLabel="买三送三参考价"
           specColumns={["标准版", "推广版", "皇冠版", "海外版"]}
           specs={websiteSpecs}
           plans={plans}

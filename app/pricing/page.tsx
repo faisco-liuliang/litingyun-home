@@ -55,6 +55,7 @@ const products = [
     bestFor: "品牌展示 / 百度收录 / 表单获客",
     promo: "买三送三",
     source: "渠道特惠价可叠加",
+    priceLabel: "买三送三参考价",
     plans: [
       {
         name: "网站基础版",
@@ -451,7 +452,7 @@ export default function PricingPage() {
                                 <span className="pb-1 text-sm text-muted-foreground">/年</span>
                               </div>
                               <div className="mt-2 flex flex-wrap items-center gap-2 text-xs">
-                                <span className="rounded-full bg-primary/10 px-2 py-1 font-medium text-primary">活动折算价</span>
+                                <span className="rounded-full bg-primary/10 px-2 py-1 font-medium text-primary">{product.priceLabel ?? "活动折算价"}</span>
                                 {plan.originalPrice !== "0" ? (
                                   <span className="text-muted-foreground">
                                     参考原价 <span className="line-through">¥{plan.originalPrice}/年</span>
